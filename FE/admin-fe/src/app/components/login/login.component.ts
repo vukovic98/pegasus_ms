@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LoginModel} from '../../models/auth.model';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -30,10 +31,16 @@ export class LoginComponent implements OnInit {
       password: this.loginForm.value.password
     };
 
-    // this.service.login(loginDto).subscribe((response) => {
-    this.route.navigate(['/admin-panel']);
-    // }, error => {
-    //
-    // });
+    this.service.login(loginDto).subscribe((response) => {
+      localStorage.setItem("accessToken", response.authenticationToken);
+      this.route.navigate(['/admin-panel']);
+    }, error => {
+      Swal.fire({
+        icon: 'error',
+        title: 'User not found',
+        text: 'Please check your email and password!',
+        confirmButtonColor: '#DC143C'
+      })
+    });
   }
 }
