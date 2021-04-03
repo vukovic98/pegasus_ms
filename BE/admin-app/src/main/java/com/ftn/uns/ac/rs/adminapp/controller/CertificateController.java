@@ -9,9 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ftn.uns.ac.rs.adminapp.dto.CertDetailsDTO;
 import com.ftn.uns.ac.rs.adminapp.dto.X509DetailsDTO;
 import com.ftn.uns.ac.rs.adminapp.service.CertificateService;
 
@@ -31,16 +34,46 @@ public class CertificateController {
 		
 		for(X509Certificate x : certs) {
 			X509DetailsDTO dto = new X509DetailsDTO();
-			
 			dto.setSerialNum(x.getSerialNumber().toString());
 			dto.setIssuedDate(sdf.format(x.getNotBefore()));
-			dto.setIssuer(x.getIssuerX500Principal().getName());
-			dto.setSubject(x.getSubjectX500Principal().getName());
+			dto.setIssuer(x.getIssuerX500Principal().getName().split(",")[7].split("=")[1]);
+			dto.setSubject(x.getSubjectX500Principal().getName().split(",")[7].split("=")[1]);
 			dto.setValidToDate(sdf.format(x.getNotAfter()));
 			
 			listDto.add(dto);
 		}
 		return new ResponseEntity<>(listDto, HttpStatus.OK);
+	}
+	
+	@GetMapping("/getOne")
+	public ResponseEntity<CertDetailsDTO> findOne(@RequestParam("serialNumber") BigInteger serialNumber) {
+		
+		ArrayList<X509Certificate> certs = this.certService.findAllCertificates();
+		CertDetailsDTO dto = null;
+		for(X509Certificate x : certs) {
+			if (x.getSerialNumber().equals(serialNumber)) {
+				dto = new CertDetailsDTO();
+				String [] issuerList = x.getIssuerDN().getName().split(",");
+				String [] subjectList = x.getSubjectDN().getName().split(",");
+				dto.setSerialNum(x.getSerialNumber().toString());
+				dto.setIssuedDate(sdf.format(x.getNotBefore()));
+				dto.setValidToDate(sdf.format(x.getNotAfter()));
+				dto.setIssuerCN(issuerList[7].split("=")[1]);
+				dto.setIssuerEmail(issuerList[1].split("=")[1]);
+				dto.setIssuerID(issuerList[0].split("=")[1]);
+				dto.setIssuerOU(issuerList[3].split("=")[1]);
+				dto.setSubjectCN(subjectList[7].split("=")[1]);
+				dto.setSubjectID(subjectList[0].split("=")[1]);
+				dto.setSubjectEmail(subjectList[1].split("=")[1]);
+				dto.setSubjectOU(subjectList[3].split("=")[1]);
+				break;
+			}
+			
+		}
+		if(dto != null)
+			return new ResponseEntity<>(dto, HttpStatus.OK);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
 }

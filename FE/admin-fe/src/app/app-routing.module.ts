@@ -6,6 +6,7 @@ import {AdminPanelComponent} from './components/admin-panel/admin-panel.componen
 import {PendingCertificatesComponent} from './components/certificates/pending-certificates/pending-certificates.component';
 import {AllCertificatesComponent} from './components/certificates/all-certificates/all-certificates.component';
 import {RevokeCertificateComponent} from './components/certificates/revoke-certificate/revoke-certificate.component';
+import {CertificateComponent} from "./components/certificate/certificate.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'admin-panel', component: AdminPanelComponent },
   { path: 'pending-certificates', component: PendingCertificatesComponent },
   { path: 'all-certificates', component: AllCertificatesComponent },
-  { path: 'revoke-certificate', component: RevokeCertificateComponent }
+  { path: 'revoke-certificate', component: RevokeCertificateComponent },
+  { path: 'certificate', component: CertificateComponent}
 ];
 
 @NgModule({
