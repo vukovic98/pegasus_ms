@@ -11,6 +11,7 @@ import {environment} from '../../environments/environment';
 export class CertificateService {
 
   private readonly ENDPOINT_REQUEST: string = "certificate/request";
+  private readonly ENDPOINT_SEND_REQ: string = "certificate-request;"
 
   constructor(
     private http: HttpClient,
@@ -32,7 +33,7 @@ export class CertificateService {
       'Content-Type': 'application/json',
       'Authorization' : 'Bearer ' + this.auth.getToken()
     });
-    return this.http.post(environment.HOSPITAL_APP + "certificate/test", data, {headers:headers});
+    return this.http.post(environment.ADMIN_APP + this.ENDPOINT_SEND_REQ, data, {headers:headers});
   }
 
 }
