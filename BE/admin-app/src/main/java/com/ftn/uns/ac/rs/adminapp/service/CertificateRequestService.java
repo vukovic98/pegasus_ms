@@ -40,6 +40,7 @@ public class CertificateRequestService {
 				dto.setSubjectL(listaAtributa[4].getFirst().getValue().toString());
 				dto.setSubjectST(listaAtributa[5].getFirst().getValue().toString());
 				dto.setSubjectC(listaAtributa[6].getFirst().getValue().toString());
+				dto.setId(cr.getId());
 				requests.add(dto);
 			} catch (IOException e) {
 				e.printStackTrace();
