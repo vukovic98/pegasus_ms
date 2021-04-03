@@ -1,0 +1,19 @@
+
+  <nav id="sidebar" class="h-100">
+    <div class="p-4">
+      <img src="assets/images/medicine.png" class="logo ml-4 pt-2  mb-5" alt="Security" style="width: 150px; height: 130px;">
+      <ul class="list-unstyled components mb-5">
+        <li>
+          <a routerLink="/admin-panel"><span class="fa fa-home mr-3"></span> Home</a>
+        </li>
+        <li>
+          <a routerLink="/certificate"><span class="fa fa-user mr-3"></span> Certificate</a>
+        </li>
+
+        <li class="mt-5">
+          <a (click)="logout()" ><span class="fa fa-sticky-note mr-3 mt-5"></span> Sign out</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
