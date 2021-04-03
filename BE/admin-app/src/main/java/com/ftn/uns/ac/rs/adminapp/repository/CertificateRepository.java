@@ -1,13 +1,10 @@
 package com.ftn.uns.ac.rs.adminapp.repository;
 
-import java.io.IOException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Repository;
 
 import com.ftn.uns.ac.rs.adminapp.util.CertificateUtil;
@@ -24,6 +21,10 @@ public class CertificateRepository {
 		certs = CertificateUtil.getCertificateDetails(env.getProperty("jks.store"), env.getProperty("jks.password"));
 
 		return certs;
+	}
+	
+	public void revokeCertificate() {
+		
 	}
 
 }

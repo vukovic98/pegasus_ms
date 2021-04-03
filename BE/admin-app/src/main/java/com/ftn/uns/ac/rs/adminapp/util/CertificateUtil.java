@@ -16,7 +16,7 @@ import java.util.Enumeration;
 
 
 public class CertificateUtil {
-
+	
 	public static ArrayList<X509Certificate> getCertificateDetails(String jksPath, String jksPassword) {
 
 		ArrayList<X509Certificate> certs = new ArrayList<X509Certificate>();
@@ -41,7 +41,7 @@ public class CertificateUtil {
 				Certificate[] chain = keyStore.getCertificateChain(alias);
 
 				certs.add((X509Certificate)chain[0]);
-
+				
 			}
 
 		} catch (KeyStoreException e) {
