@@ -11,7 +11,7 @@ import {environment} from '../../environments/environment';
 export class CertificateService {
 
   private readonly ENDPOINT_REQUEST: string = "certificate/request";
-  private readonly ENDPOINT_SEND_REQ: string = "certificate-request;"
+  private readonly ENDPOINT_SEND_REQ: string = "certificate-request";
 
   constructor(
     private http: HttpClient,
@@ -30,8 +30,7 @@ export class CertificateService {
 
   sendRequestToAdmin(data: any) {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization' : 'Bearer ' + this.auth.getToken()
+      'Content-Type': 'application/json'
     });
     return this.http.post(environment.ADMIN_APP + this.ENDPOINT_SEND_REQ, data, {headers:headers});
   }

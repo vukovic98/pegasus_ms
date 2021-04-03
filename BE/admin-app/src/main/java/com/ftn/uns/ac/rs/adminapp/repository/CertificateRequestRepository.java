@@ -8,4 +8,5 @@ import com.ftn.uns.ac.rs.adminapp.beans.CertificateRequest;
 @Repository
 public interface CertificateRequestRepository extends JpaRepository<CertificateRequest, Long> {
 
+	public CertificateRequest findOneById(long id);
 }
