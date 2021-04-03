@@ -157,7 +157,4 @@ public class CertificateService {
 		
 	}
 	
-	public boolean isCertificateRevoked() {
-		
-	}
 }
