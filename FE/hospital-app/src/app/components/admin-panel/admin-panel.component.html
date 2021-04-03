@@ -1,0 +1,14 @@
+<div class="wrapper d-flex align-items-stretch">
+  <div style="height: 100vh;" class="col-md-2 pl-0">
+    <app-navigation-bar></app-navigation-bar>
+  </div>
+  <div class="mt-3 col-md-10">
+    <div class="pl-5 ml-3 text-right">
+      <img alt="You are certified!" title="You are certified!" *ngIf="certified" src="assets/images/shield.jpg" style="width: 70px; height: 70px;">
+      <img alt="You are not certified!" title="You are not certified!" *ngIf="!certified" src="assets/images/unsecure.png" style="width: 60px; height: 50px;">
+    </div>
+    <div class="pl-3">
+      <h1>Home panel</h1>
+    </div>
+  </div>
+</div>
