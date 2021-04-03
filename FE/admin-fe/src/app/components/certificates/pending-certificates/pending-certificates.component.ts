@@ -25,8 +25,8 @@ export class PendingCertificatesComponent implements OnInit {
 
   openSubjectsInfo(req: CertificateRequestModel){
     this.dialog.open(SubjectsInfoComponent, {
-      width: '650px',
-      height: '550px',
+      width: '500px',
+      height: '450px',
       data: req
     });
   }
