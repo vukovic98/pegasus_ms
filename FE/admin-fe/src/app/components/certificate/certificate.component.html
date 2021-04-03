@@ -1,0 +1,75 @@
+<mat-dialog-content>
+ <h3>Detials for Certificate '{{data.serialNum}}' </h3>
+  <hr/>
+  <table class="table table-hover">
+    <thead>
+    <tr class='table-heading'>
+      <td class='heading-color' scope="col" colspan="2">Certificate</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Serial number</td>
+      <td>{{data.serialNum}}</td>
+    </tr>
+    <tr>
+      <td>Valid from</td>
+      <td>{{data.issuedDate}}</td>
+    </tr>
+    <tr>
+      <td>Valid until</td>
+      <td>{{data.validToDate}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <table class="table table-hover">
+    <thead>
+    <tr class='table-heading'>
+      <td class='heading-color' scope="col" colspan="2">Subject</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>User ID</td>
+      <td>{{data.subjectID}}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{data.subjectEmail}}</td>
+    </tr>
+    <tr>
+      <td>Organization unit</td>
+      <td>{{data.subjectOU}}</td>
+    </tr>
+    <tr>
+      <td>Common Name</td>
+      <td>{{data.subjectCN}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <table class="table table-hover">
+    <thead>
+    <tr class='table-heading'>
+      <td class='heading-color' scope="col" colspan="2">Issuer</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>User ID</td>
+      <td>{{data.issuerID}}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{data.issuerEmail}}</td>
+    </tr>
+    <tr>
+      <td>Organization unit</td>
+      <td>{{data.issuerOU}}</td>
+    </tr>
+    <tr>
+      <td>Common Name</td>
+      <td>{{data.issuerCN}}</td>
+    </tr>
+    </tbody>
+  </table>
+</mat-dialog-content>
