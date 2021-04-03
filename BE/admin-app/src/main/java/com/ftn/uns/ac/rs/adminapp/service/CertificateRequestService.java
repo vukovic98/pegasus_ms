@@ -49,6 +49,10 @@ public class CertificateRequestService {
 		return requests;
 	}
 	
+	public CertificateRequest findOneById(long id) {
+		return this.certRepository.findOneById(id);
+	}
+	
 	public boolean save(byte[] request) {
 		CertificateRequest r = new CertificateRequest(request);
 		return this.certRepository.save(r)!=null ? true : false;

@@ -3,6 +3,7 @@ package com.ftn.uns.ac.rs.adminapp.util;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -14,9 +15,49 @@ import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
+import org.bouncycastle.cert.X509CertificateHolder;
+import org.bouncycastle.cert.X509v3CertificateBuilder;
+import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
+import org.bouncycastle.cert.jcajce.JcaX509v3CertificateBuilder;
+import org.bouncycastle.operator.ContentSigner;
+import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
+import org.bouncycastle.pkcs.PKCS10CertificationRequest;
+import org.springframework.core.env.Environment;
+
 
 public class CertificateUtil {
 
+	public static PrivateKey getAdminsPrivateKey(String store, String pass) {
+		
+		ArrayList<X509Certificate> certs = new ArrayList<X509Certificate>();
+		PrivateKey myPrivateKey = null;
+		try {
+			KeyStore keyStore = KeyStore.getInstance("JKS");
+
+			// Provide location of Java Keystore and password for access
+			keyStore.load(new FileInputStream(store), pass.toCharArray());
+
+			// iterate over all aliases
+			Enumeration<String> es = keyStore.aliases();
+			String alias = "";
+			while (es.hasMoreElements()) {
+				alias = (String) es.nextElement();
+				
+				KeyStore.PrivateKeyEntry pkEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(alias,
+						new KeyStore.PasswordProtection(pass.toCharArray()));
+
+				myPrivateKey = pkEntry.getPrivateKey();
+				
+				return myPrivateKey;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 	public static ArrayList<X509Certificate> getCertificateDetails(String jksPath, String jksPassword) {
 
 		ArrayList<X509Certificate> certs = new ArrayList<X509Certificate>();
@@ -61,4 +102,33 @@ public class CertificateUtil {
 		return certs;
 	}
 
+//	public static X509Certificate CSRToCertificate(PKCS10CertificationRequest req, X509Certificate admin, String store, String pass) {
+//		JcaContentSignerBuilder builder = new JcaContentSignerBuilder("SHA256WithRSAEncryption");
+//
+//        // Takodje se navodi koji provider se koristi, u ovom slucaju Bouncy Castle
+//        builder = builder.setProvider("BC");
+//
+//        // Formira se objekat koji ce sadrzati privatni kljuc i koji ce se koristiti za potpisivanje sertifikata
+//        ContentSigner contentSigner = builder.build(CertificateUtil.getAdminsPrivateKey(store, pass));
+//
+//        // Postavljaju se podaci za generisanje sertifiakta
+//        X509v3CertificateBuilder certGen = new JcaX509v3CertificateBuilder(admin.getIssuerX500Principal().getName(),
+//                new BigInteger(subjectData.getSerialNumber()),
+//                subjectData.getStartDate(),
+//                subjectData.getEndDate(),
+//                subjectData.getX500name(),
+//                subjectData.getPublicKey());
+//
+//        // Generise se sertifikat
+//        X509CertificateHolder certHolder = certGen.build(contentSigner);
+//
+//        // Builder generise sertifikat kao objekat klase X509CertificateHolder
+//        // Nakon toga je potrebno certHolder konvertovati u sertifikat, za sta se koristi certConverter
+//        JcaX509CertificateConverter certConverter = new JcaX509CertificateConverter();
+//        certConverter = certConverter.setProvider("BC");
+//
+//        // Konvertuje objekat u sertifikat
+//        return certConverter.getCertificate(certHolder);
+//	}
+	
 }
