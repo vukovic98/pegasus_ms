@@ -43,17 +43,21 @@ public class CertificateController {
 	public SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	
 	@GetMapping()
-	public ResponseEntity<ArrayList<X509DetailsDTO>> findAll() {
+	public ResponseEntity<ArrayList<X509DetailsDTO>> findAll() throws ClassNotFoundException, IOException {
 		ArrayList<X509DetailsDTO> listDto = new ArrayList<>();
 		ArrayList<X509Certificate> certs = this.certService.findAllCertificates();
 		
 		for(X509Certificate x : certs) {
+			
 			X509DetailsDTO dto = new X509DetailsDTO();
 			dto.setSerialNum(x.getSerialNumber().toString());
 			dto.setIssuedDate(sdf.format(x.getNotBefore()));
 			dto.setIssuer(x.getIssuerX500Principal().getName().split(",")[7].split("=")[1]);
 			dto.setSubject(x.getSubjectX500Principal().getName().split(",")[7].split("=")[1]);
-			dto.setValidToDate(sdf.format(x.getNotAfter()));
+			if(certService.isCertificateRevoked(x.getSerialNumber()))
+				dto.setValidToDate("REVOKED");
+			else
+				dto.setValidToDate(sdf.format(x.getNotAfter()));
 			
 			listDto.add(dto);
 		}
@@ -70,32 +74,38 @@ public class CertificateController {
 		User user = userRepository.findByEmail(username);
 		
 		certService.generateCRL(user);
-		return ResponseEntity.ok().body("Succ");
+		return ResponseEntity.ok().body("Success");
 		
 	}
 	
 	@PostMapping("/revokeCertificate")
-	public ResponseEntity<String> revokeCertificate(@RequestParam String alias) throws CertificateException, CRLException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, OperatorCreationException, IOException, ClassNotFoundException{
-		
-		KeyStoreReader reader = new KeyStoreReader();
-		X509Certificate cert = (X509Certificate)reader.readCertificate("src/main/resources/static/jks/testStore.jks", "12345", alias);
-		
+	public ResponseEntity<String> revokeCertificate(@RequestParam("serialNumber") BigInteger serialNumber, @RequestParam("revokeReason") int revokeReason) throws CertificateException, CRLException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, OperatorCreationException, IOException, ClassNotFoundException{
+				
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication()
                 .getPrincipal();
 		String username = userDetails.getUsername();
 		
 		User user = userRepository.findByEmail(username);
 		
-		certService.revokeCertificate(user, cert.getSerialNumber());
-		return ResponseEntity.ok().body("Succ");
+		certService.revokeCertificate(user, serialNumber);
+		return ResponseEntity.ok().body("Success");
 		
 		
+	}
+	
+	@GetMapping("/checkRevoked")
+	public ResponseEntity<String> checkCertificateRevoked(@RequestParam("serialNumber") BigInteger serialNumber) throws ClassNotFoundException, IOException{
+		
+		if(certService.isCertificateRevoked(serialNumber))
+			return ResponseEntity.ok().body("This certificate has been revoked");
+		else
+			return ResponseEntity.ok().body("This certificate is active");
 	}
 	
 	@GetMapping("/readCRL")
 	public ResponseEntity<String> readCRL() throws ClassNotFoundException, IOException{
 		certService.readCRL();
-		return ResponseEntity.ok().body("Succ");
+		return ResponseEntity.ok().body("Success");
 	}
 	
 

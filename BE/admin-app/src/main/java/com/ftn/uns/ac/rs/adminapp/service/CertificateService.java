@@ -157,4 +157,33 @@ public class CertificateService {
 		
 	}
 	
+	public boolean isCertificateRevoked(BigInteger certificateSN) throws ClassNotFoundException, IOException {
+		
+		FileInputStream fstream = new FileInputStream(new File("crl.bin"));
+		try {
+		  ObjectInputStream ois = new ObjectInputStream(fstream);
+		  
+		  while (true) {
+			  X509CRLHolder obj;
+		    try {
+		      obj = (X509CRLHolder)ois.readObject();
+		    } catch (EOFException e) {
+		      break;
+		    }
+		   
+		    for (Object entry : obj.getRevokedCertificates().toArray()) {
+				X509CRLEntryHolder entryHolder = (X509CRLEntryHolder)entry;
+				
+				if(entryHolder.getSerialNumber().equals(certificateSN))
+					return true;
+			}
+		    
+		  }
+		} finally {
+		  fstream.close();
+		  
+		}
+		return false;
+	}
+	
 }

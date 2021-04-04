@@ -80,6 +80,7 @@ public class KeyStoreReader {
 
             if (ks.isKeyEntry(alias)) {
                 Certificate cert = ks.getCertificate(alias);
+                
                 return cert;
             }
         } catch (KeyStoreException | NoSuchProviderException | NoSuchAlgorithmException
