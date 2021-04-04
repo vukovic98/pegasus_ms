@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { CertificateComponent } from './components/certificate/certificate.component';
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import { SubjectsInfoComponent } from './components/subjects-info/subjects-info.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {MatDialog, MatDialogModule} from "@angular/material/dialog";
     PendingCertificatesComponent,
     AllCertificatesComponent,
     RevokeCertificateComponent,
-    CertificateComponent
+    CertificateComponent,
+    SubjectsInfoComponent
   ],
   imports: [
     BrowserModule,

@@ -9,34 +9,16 @@
         <thead>
         <tr>
           <th scope="col">Subject</th>
-          <th scope="col">Date requested</th>
+          <th scope="col">Hospital</th>
           <th scope="col">Info</th>
           <th scope="col" colspan="2">Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>Mark</td>
-          <td>12.3.2021</td>
-          <td><button mat-raised-button color="primary">Subject's info</button></td>
-          <td colspan="2">
-            <button mat-raised-button color="primary" class="mr-2">Accept</button>
-            <button mat-raised-button color="warn">Deny</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Mark</td>
-          <td>12.3.2021</td>
-          <td><button mat-raised-button color="primary">Subject's info</button></td>
-          <td colspan="2">
-            <button mat-raised-button color="primary" class="mr-2">Accept</button>
-            <button mat-raised-button color="warn">Deny</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Mark</td>
-          <td>12.3.2021</td>
-          <td><button mat-raised-button color="primary">Subject's info</button></td>
+        <tr *ngFor="let req of requests">
+          <td>{{req.subjectCN}}</td>
+          <td>{{req.subjectOU}}</td>
+          <td><button mat-raised-button color="primary" (click)="openSubjectsInfo(req)">Subject's info</button></td>
           <td colspan="2">
             <button mat-raised-button color="primary" class="mr-2">Accept</button>
             <button mat-raised-button color="warn">Deny</button>

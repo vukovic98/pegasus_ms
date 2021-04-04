@@ -10,6 +10,7 @@ import {environment} from '../../environments/environment';
 export class CertificatesService {
 
   private readonly allCertificates: string = "certificate"
+  private readonly allRequests: string = "certificate-request"
   private readonly oneCertificate: string = "certificate/getOne"
 
   constructor(private http: HttpClient, private route: Router) { }
@@ -30,5 +31,13 @@ export class CertificatesService {
     const pathParam = new HttpParams().set("serialNumber", serialNum.toString());
 
     return this.http.get(environment.ADMIN_APP+ this.oneCertificate,{headers:headers, params: pathParam});
+  }
+
+  getAllCertificateRequests(): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+    });
+    return this.http.get(environment.ADMIN_APP+ this.allRequests, {headers:headers});
   }
 }

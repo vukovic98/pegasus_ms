@@ -27,8 +27,8 @@ import com.ftn.uns.ac.rs.adminapp.beans.User;
 import com.ftn.uns.ac.rs.adminapp.dto.CertDetailsDTO;
 import com.ftn.uns.ac.rs.adminapp.dto.X509DetailsDTO;
 import com.ftn.uns.ac.rs.adminapp.repository.UserRepository;
+import com.ftn.uns.ac.rs.adminapp.service.CertificateRequestService;
 import com.ftn.uns.ac.rs.adminapp.service.CertificateService;
-import com.ftn.uns.ac.rs.adminapp.util.keystores.KeyStoreReader;
 
 @RestController()
 @RequestMapping(path = "/certificate")
@@ -40,15 +40,18 @@ public class CertificateController {
 	@Autowired
 	private UserRepository userRepository;
 	
+
+	@Autowired
+	private CertificateRequestService reqService;
+
 	public SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-	
+
 	@GetMapping()
 	public ResponseEntity<ArrayList<X509DetailsDTO>> findAll() throws ClassNotFoundException, IOException {
 		ArrayList<X509DetailsDTO> listDto = new ArrayList<>();
 		ArrayList<X509Certificate> certs = this.certService.findAllCertificates();
 		
 		for(X509Certificate x : certs) {
-			
 			X509DetailsDTO dto = new X509DetailsDTO();
 			dto.setSerialNum(x.getSerialNumber().toString());
 			dto.setIssuedDate(sdf.format(x.getNotBefore()));
@@ -109,16 +112,34 @@ public class CertificateController {
 	}
 	
 
+//	@PostMapping(path = "/generateCertificate")
+//	public ResponseEntity<X509Certificate> generateCertificate(@RequestBody long id) {
+//		CertificateRequest req = this.reqService.findOneById(id);
+//
+//		if (req != null) {
+//			PKCS10CertificationRequest crt = null;
+//			try {
+//				crt = new PKCS10CertificationRequest(req.getCertificateRequest());
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//			
+//			
+//			
+//		} else
+//			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//	}
+
 	@GetMapping("/getOne")
 	public ResponseEntity<CertDetailsDTO> findOne(@RequestParam("serialNumber") BigInteger serialNumber) {
-		
+
 		ArrayList<X509Certificate> certs = this.certService.findAllCertificates();
 		CertDetailsDTO dto = null;
-		for(X509Certificate x : certs) {
+		for (X509Certificate x : certs) {
 			if (x.getSerialNumber().equals(serialNumber)) {
 				dto = new CertDetailsDTO();
-				String [] issuerList = x.getIssuerDN().getName().split(",");
-				String [] subjectList = x.getSubjectDN().getName().split(",");
+				String[] issuerList = x.getIssuerDN().getName().split(",");
+				String[] subjectList = x.getSubjectDN().getName().split(",");
 				dto.setSerialNum(x.getSerialNumber().toString());
 				dto.setIssuedDate(sdf.format(x.getNotBefore()));
 				dto.setValidToDate(sdf.format(x.getNotAfter()));
@@ -132,9 +153,9 @@ public class CertificateController {
 				dto.setSubjectOU(subjectList[3].split("=")[1]);
 				break;
 			}
-			
+
 		}
-		if(dto != null)
+		if (dto != null)
 			return new ResponseEntity<>(dto, HttpStatus.OK);
 		else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
