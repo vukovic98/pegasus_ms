@@ -13,26 +13,34 @@ import com.ftn.uns.ac.rs.adminapp.beans.CertificateRequest;
 import com.ftn.uns.ac.rs.adminapp.dto.CertificateRequestDTO;
 import com.ftn.uns.ac.rs.adminapp.repository.CertificateRequestRepository;
 
-
-
 @Service
 public class CertificateRequestService {
 
 	@Autowired
 	private CertificateRequestRepository certRepository;
-	
-	public ArrayList<CertificateRequestDTO> findAll(){
+
+	public boolean remove(CertificateRequest c) {
+		try {
+			this.certRepository.deleteById(c.getId());
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public ArrayList<CertificateRequestDTO> findAll() {
 		ArrayList<CertificateRequestDTO> requests = new ArrayList();
 		ArrayList<CertificateRequest> byteRequests = (ArrayList) this.certRepository.findAll();
-		
-		for(CertificateRequest cr: byteRequests) {
+
+		for (CertificateRequest cr : byteRequests) {
 			PKCS10CertificationRequest request = null;
 			CertificateRequestDTO dto = null;
 			try {
 				request = new PKCS10CertificationRequest(cr.getCertificateRequest());
 				dto = new CertificateRequestDTO();
 				RDN[] listaAtributa = request.getSubject().getRDNs();
-				//mejl ime bolnica organiyhaciaj srbija srbija rs
+				// mejl ime bolnica organiyhaciaj srbija srbija rs
 				dto.setSubjectEmail(listaAtributa[0].getFirst().getValue().toString());
 				dto.setSubjectCN(listaAtributa[1].getFirst().getValue().toString());
 				dto.setSubjectOU(listaAtributa[2].getFirst().getValue().toString());
@@ -44,17 +52,17 @@ public class CertificateRequestService {
 				requests.add(dto);
 			} catch (IOException e) {
 				e.printStackTrace();
-			}	
+			}
 		}
 		return requests;
 	}
-	
+
 	public CertificateRequest findOneById(long id) {
 		return this.certRepository.findOneById(id);
 	}
-	
+
 	public boolean save(byte[] request) {
 		CertificateRequest r = new CertificateRequest(request);
-		return this.certRepository.save(r)!=null ? true : false;
+		return this.certRepository.save(r) != null ? true : false;
 	}
 }
