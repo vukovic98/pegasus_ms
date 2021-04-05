@@ -14,6 +14,7 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.Iterator;
 
 import org.bouncycastle.cert.X509CertificateHolder;
 import org.bouncycastle.cert.X509v3CertificateBuilder;
@@ -24,10 +25,12 @@ import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.pkcs.PKCS10CertificationRequest;
 import org.springframework.core.env.Environment;
 
+import aj.org.objectweb.asm.Attribute;
+
 
 public class CertificateUtil {
 
-	public static PrivateKey getAdminsPrivateKey(String store, String pass) {
+	public static X509Certificate getAdminsCertificate(String store, String pass) {
 		
 		ArrayList<X509Certificate> certs = new ArrayList<X509Certificate>();
 		PrivateKey myPrivateKey = null;
@@ -46,9 +49,11 @@ public class CertificateUtil {
 				KeyStore.PrivateKeyEntry pkEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(alias,
 						new KeyStore.PasswordProtection(pass.toCharArray()));
 
-				myPrivateKey = pkEntry.getPrivateKey();
+				Certificate[] chain = keyStore.getCertificateChain(alias);
+
+				X509Certificate c = (X509Certificate)chain[0];
 				
-				return myPrivateKey;
+				return c;
 			}
 
 		} catch (Exception e) {
@@ -100,6 +105,48 @@ public class CertificateUtil {
 		}
 
 		return certs;
+	}
+	
+	public static PrivateKey getAdminsPrivateKey(String jksPath, String jksPassword) {
+
+		ArrayList<X509Certificate> certs = new ArrayList<X509Certificate>();
+
+		try {
+			KeyStore keyStore = KeyStore.getInstance("JKS");
+
+			// Provide location of Java Keystore and password for access
+			keyStore.load(new FileInputStream(jksPath), jksPassword.toCharArray());
+
+			// iterate over all aliases
+			Enumeration<String> es = keyStore.aliases();
+			String alias = "";
+			while (es.hasMoreElements()) {
+				alias = (String) es.nextElement();
+				
+				KeyStore.PrivateKeyEntry pkEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(alias,
+						new KeyStore.PasswordProtection(jksPassword.toCharArray()));
+
+				PrivateKey myPrivateKey = pkEntry.getPrivateKey();
+				
+				return myPrivateKey;
+
+			}
+
+		} catch (KeyStoreException e) {
+			e.printStackTrace();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (CertificateException e) {
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (UnrecoverableEntryException e) {
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 
 //	public static X509Certificate CSRToCertificate(PKCS10CertificationRequest req, X509Certificate admin, String store, String pass) {
