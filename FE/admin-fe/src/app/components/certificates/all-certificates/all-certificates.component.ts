@@ -28,7 +28,9 @@ export class AllCertificatesComponent implements OnInit {
     subjectEmail: "",
     subjectID: 0,
     subjectOU: "",
-    validToDate: ""
+    validToDate: "",
+    revokedReason: "",
+    revoked: false
   };
 
   ngOnInit(): void {

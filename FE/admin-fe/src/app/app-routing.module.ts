@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'admin-panel', component: AdminPanelComponent },
   { path: 'pending-certificates', component: PendingCertificatesComponent },
   { path: 'all-certificates', component: AllCertificatesComponent },
-  { path: 'revoke-certificate', component: RevokeCertificateComponent },
+  { path: 'revoke-certificate', redirectTo:"revoke-certificate/" },
+  { path: 'revoke-certificate/:SN', component: RevokeCertificateComponent },
   { path: 'certificate', component: CertificateComponent}
 ];
 

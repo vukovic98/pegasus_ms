@@ -3,7 +3,6 @@ package com.ftn.uns.ac.rs.adminapp.util;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -16,16 +15,6 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
 
-import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.cert.X509v3CertificateBuilder;
-import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
-import org.bouncycastle.cert.jcajce.JcaX509v3CertificateBuilder;
-import org.bouncycastle.operator.ContentSigner;
-import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
-import org.bouncycastle.pkcs.PKCS10CertificationRequest;
-import org.springframework.core.env.Environment;
-
-import aj.org.objectweb.asm.Attribute;
 
 
 public class CertificateUtil {
@@ -87,7 +76,7 @@ public class CertificateUtil {
 				Certificate[] chain = keyStore.getCertificateChain(alias);
 
 				certs.add((X509Certificate)chain[0]);
-
+				
 			}
 
 		} catch (KeyStoreException e) {

@@ -23,7 +23,7 @@
           <td>{{cert.issuedDate}}</td>
           <td>{{cert.validToDate }}</td>
           <td><button mat-raised-button color="primary" (click)="openCertInfo(cert.serialNum)">Certificate</button></td>
-          <td><button mat-raised-button color="warn">Revoke</button></td>
+          <td><button mat-raised-button color="warn" [disabled]="cert.revoked" routerLink="/revoke-certificate/{{cert.serialNum}}">Revoke</button></td>
         </tr>
         </tbody>
       </table>

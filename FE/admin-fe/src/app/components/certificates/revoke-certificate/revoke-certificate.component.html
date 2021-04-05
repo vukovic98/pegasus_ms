@@ -8,7 +8,7 @@
       <form [formGroup]="revokeForm" (ngSubmit)="revokeCertificate()">
         <div class="form-group">
           <label for="serialNum">Serial Number</label>
-          <input type="text" class="form-control" formControlName="serialNum" name="serialNum" id="serialNum" placeholder="Enter serial number of certificate">
+          <input type="text" class="form-control" formControlName="serialNum" name="serialNum" id="serialNum" [(ngModel)]="SNvalue" placeholder="Enter serial number of certificate">
           <div style="height: 20px;">
             <div *ngIf="revokeForm.controls['serialNum'].invalid && revokeForm.controls['serialNum'].touched" class="ml-1 mt-0 mb-0">
               <small *ngIf="revokeForm.controls['serialNum'].errors?.required" class="text-danger">*This field is mandatory</small>
@@ -17,7 +17,9 @@
         </div>
         <div class="form-group">
           <label for="reason">Reason</label>
-          <textarea class="form-control" name="reason" formControlName="reason" id="reason" rows="3" style="resize: none;" placeholder="Enter reason for revoking certificate"></textarea>
+          <select [(ngModel)]="selectedValue" class="form-control" name="reason" formControlName="reason" id="reason" rows="3" style="resize: none;" placeholder="Enter reason for revoking certificate">
+            <option *ngFor="let r of reasons" [ngValue]="r.id">{{r.reason}}</option>
+          </select>
           <div style="height: 20px;">
             <div *ngIf="revokeForm.controls['reason'].invalid && revokeForm.controls['reason'].touched" class="ml-1 mt-0 mb-0">
               <small *ngIf="revokeForm.controls['reason'].errors?.required" class="text-danger">*This field is mandatory</small>
