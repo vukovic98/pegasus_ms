@@ -9,6 +9,7 @@ public class X509DetailsDTO {
 	private String subject;
 	private String issuedDate;
 	private String validToDate;
+	private boolean isRevoked;
 
 	public X509DetailsDTO() {
 		super();
@@ -61,6 +62,14 @@ public class X509DetailsDTO {
 
 	public void setValidToDate(String validToDate) {
 		this.validToDate = validToDate;
+	}
+
+	public boolean isRevoked() {
+		return isRevoked;
+	}
+
+	public void setRevoked(boolean isRevoked) {
+		this.isRevoked = isRevoked;
 	}
 
 }

@@ -18,6 +18,9 @@ public class CertDetailsDTO {
 	private String issuedDate;
 	private String validToDate;
 	
+	private boolean isRevoked;
+	private String revokedReason;
+	
 	public CertDetailsDTO() {
 		super();
 	}
@@ -125,6 +128,22 @@ public class CertDetailsDTO {
 
 	public void setValidToDate(String validToDate) {
 		this.validToDate = validToDate;
+	}
+
+	public boolean isRevoked() {
+		return isRevoked;
+	}
+
+	public void setRevoked(boolean isRevoked) {
+		this.isRevoked = isRevoked;
+	}
+
+	public String getRevokedReason() {
+		return revokedReason;
+	}
+
+	public void setRevokedReason(String revokedReason) {
+		this.revokedReason = revokedReason;
 	}
 	
 	

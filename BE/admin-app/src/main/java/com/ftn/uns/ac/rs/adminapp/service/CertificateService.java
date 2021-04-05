@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.StreamCorruptedException;
 import java.math.BigInteger;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -17,8 +18,12 @@ import java.security.cert.X509Certificate;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import org.bouncycastle.asn1.ASN1Enumerated;
+import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.x509.CRLReason;
+import org.bouncycastle.asn1.x509.Extension;
 import org.bouncycastle.cert.X509CRLEntryHolder;
 import org.bouncycastle.cert.X509CRLHolder;
 import org.bouncycastle.cert.X509v2CRLBuilder;
@@ -31,6 +36,7 @@ import org.springframework.stereotype.Service;
 import com.ftn.uns.ac.rs.adminapp.beans.User;
 import com.ftn.uns.ac.rs.adminapp.dto.IssuerData;
 import com.ftn.uns.ac.rs.adminapp.repository.CertificateRepository;
+import com.ftn.uns.ac.rs.adminapp.util.RevokeEntry;
 import com.ftn.uns.ac.rs.adminapp.util.keystores.KeyStoreReader;
 
 @Service
@@ -46,25 +52,9 @@ public class CertificateService {
 	public void generateCRL(User user) throws CertificateException, CRLException, IOException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, OperatorCreationException {
 		
 		KeyStoreReader reader = new KeyStoreReader();
-		IssuerData issuer = reader.readIssuerFromStore("src/main/resources/static/super_cert/super_admin.jks", "1", "vukovic".toCharArray(), "vukovic".toCharArray());
-		
-		/*
-        X500NameBuilder nameBuilder = new X500NameBuilder(BCStyle.INSTANCE);
-        nameBuilder.addRDN(BCStyle.CN, "Marija Kovacevic");
-        nameBuilder.addRDN(BCStyle.SURNAME, "Kovacevic");
-        nameBuilder.addRDN(BCStyle.GIVENNAME, "Marija");
-        nameBuilder.addRDN(BCStyle.O, "UNS-FTN");
-        nameBuilder.addRDN(BCStyle.OU, "Katedra za informatiku");
-        nameBuilder.addRDN(BCStyle.C, "RS");
-        nameBuilder.addRDN(BCStyle.E, "marija.kovacevic@uns.ac.rs");
-
-        // UID (USER ID) je ID korisnika
-        nameBuilder.addRDN(BCStyle.UID, "654321");*/
-		
-		
+		IssuerData issuer = reader.readIssuerFromStore("src/main/resources/static/super_cert/super_admin.jks", "1", "vukovic".toCharArray(), "vukovic".toCharArray());	
 		
 		X509v2CRLBuilder builder = new X509v2CRLBuilder(issuer.getX500name(), Date.from(Instant.now()));
-		builder.addCRLEntry(BigInteger.ONE, Date.from(Instant.now()), CRLReason.privilegeWithdrawn);
 		
 		ContentSigner contentSigner = new JcaContentSignerBuilder("SHA256WithRSA").build(issuer.getPrivateKey());
 		X509CRLHolder crl = builder.build(contentSigner);
@@ -74,25 +64,10 @@ public class CertificateService {
 		oos.close();
 	}
 	
-	public void revokeCertificate(User user, BigInteger certificateSN) throws OperatorCreationException, IOException, ClassNotFoundException {
+	public void revokeCertificate(User user, BigInteger certificateSN, int reason) throws OperatorCreationException, IOException, ClassNotFoundException {
 		
 		KeyStoreReader reader = new KeyStoreReader();
 		IssuerData issuer = reader.readIssuerFromStore("src/main/resources/static/super_cert/super_admin.jks", "1", "vukovic".toCharArray(), "vukovic".toCharArray());
-
-		/*
-        X500NameBuilder nameBuilder = new X500NameBuilder(BCStyle.INSTANCE);
-        nameBuilder.addRDN(BCStyle.CN, "Marija Kovacevic");
-        nameBuilder.addRDN(BCStyle.SURNAME, "Kovacevic");
-        nameBuilder.addRDN(BCStyle.GIVENNAME, "Marija");
-        nameBuilder.addRDN(BCStyle.O, "UNS-FTN");
-        nameBuilder.addRDN(BCStyle.OU, "Katedra za informatiku");
-        nameBuilder.addRDN(BCStyle.C, "RS");
-        nameBuilder.addRDN(BCStyle.E, "marija.kovacevic@uns.ac.rs");
-
-        // UID (USER ID) je ID korisnika
-        nameBuilder.addRDN(BCStyle.UID, "654321");
-		*/
-
         
 		X509v2CRLBuilder builder = new X509v2CRLBuilder(issuer.getX500name(), Date.from(Instant.now()));
 		
@@ -110,9 +85,11 @@ public class CertificateService {
 		   
 		    for (Object entry : obj.getRevokedCertificates().toArray()) {
 				X509CRLEntryHolder entryHolder = (X509CRLEntryHolder)entry;
-				builder.addCRLEntry(entryHolder.getSerialNumber(), entryHolder.getRevocationDate(), CRLReason.privilegeWithdrawn);
+				ASN1Enumerated reasonCode = (ASN1Enumerated) ASN1Enumerated.getInstance(entryHolder.getExtension(Extension.reasonCode).getParsedValue());
+				builder.addCRLEntry(entryHolder.getSerialNumber(), entryHolder.getRevocationDate(), reasonCode.getValue().intValue());
 			}
-		    builder.addCRLEntry(certificateSN, Date.from(Instant.now()), CRLReason.privilegeWithdrawn);
+		    		
+		    builder.addCRLEntry(certificateSN, Date.from(Instant.now()), reason);
 		    
 			ContentSigner contentSigner = new JcaContentSignerBuilder("SHA256WithRSA").build(issuer.getPrivateKey());
 			X509CRLHolder crl = builder.build(contentSigner);
@@ -122,7 +99,8 @@ public class CertificateService {
 			oos.close();
 		    
 		  }
-		} finally {
+		}catch(StreamCorruptedException e) {}
+		finally {
 		  fstream.close();
 		  
 		}
@@ -157,7 +135,7 @@ public class CertificateService {
 		
 	}
 	
-	public boolean isCertificateRevoked(BigInteger certificateSN) throws ClassNotFoundException, IOException {
+	public RevokeEntry isCertificateRevoked(BigInteger certificateSN) throws ClassNotFoundException, IOException {
 		
 		FileInputStream fstream = new FileInputStream(new File("crl.bin"));
 		try {
@@ -174,8 +152,10 @@ public class CertificateService {
 		    for (Object entry : obj.getRevokedCertificates().toArray()) {
 				X509CRLEntryHolder entryHolder = (X509CRLEntryHolder)entry;
 				
-				if(entryHolder.getSerialNumber().equals(certificateSN))
-					return true;
+				if(entryHolder.getSerialNumber().equals(certificateSN)) {
+					ASN1Enumerated reasonCode = (ASN1Enumerated) ASN1Enumerated.getInstance(entryHolder.getExtension(Extension.reasonCode).getParsedValue());
+					return new RevokeEntry(true, reasonCode.getValue().intValue());
+				}
 			}
 		    
 		  }
@@ -183,7 +163,7 @@ public class CertificateService {
 		  fstream.close();
 		  
 		}
-		return false;
+		return new RevokeEntry(false, 0);
 	}
 	
 }

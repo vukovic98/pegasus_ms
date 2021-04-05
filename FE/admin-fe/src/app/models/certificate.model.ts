@@ -10,4 +10,6 @@ export interface CertificateModel{
   issuerOU: string,
   issuedDate: string,
   validToDate: string,
+  revokedReason: string,
+  revoked: boolean
 }

@@ -22,9 +22,5 @@ public class CertificateRepository {
 
 		return certs;
 	}
-	
-	public void revokeCertificate() {
-		
-	}
 
 }

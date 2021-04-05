@@ -29,6 +29,7 @@ import com.ftn.uns.ac.rs.adminapp.dto.X509DetailsDTO;
 import com.ftn.uns.ac.rs.adminapp.repository.UserRepository;
 import com.ftn.uns.ac.rs.adminapp.service.CertificateRequestService;
 import com.ftn.uns.ac.rs.adminapp.service.CertificateService;
+import com.ftn.uns.ac.rs.adminapp.util.RevokeEntry;
 
 @RestController()
 @RequestMapping(path = "/certificate")
@@ -40,7 +41,6 @@ public class CertificateController {
 	@Autowired
 	private UserRepository userRepository;
 	
-
 	@Autowired
 	private CertificateRequestService reqService;
 
@@ -57,10 +57,15 @@ public class CertificateController {
 			dto.setIssuedDate(sdf.format(x.getNotBefore()));
 			dto.setIssuer(x.getIssuerX500Principal().getName().split(",")[7].split("=")[1]);
 			dto.setSubject(x.getSubjectX500Principal().getName().split(",")[7].split("=")[1]);
-			if(certService.isCertificateRevoked(x.getSerialNumber()))
+			RevokeEntry revoke = certService.isCertificateRevoked(x.getSerialNumber());
+			if(revoke.isRevoked()) {
 				dto.setValidToDate("REVOKED");
-			else
+				dto.setRevoked(true);
+			}
+			else {
 				dto.setValidToDate(sdf.format(x.getNotAfter()));
+				dto.setRevoked(false);
+			}
 			
 			listDto.add(dto);
 		}
@@ -82,7 +87,7 @@ public class CertificateController {
 	}
 	
 	@PostMapping("/revokeCertificate")
-	public ResponseEntity<String> revokeCertificate(@RequestParam("serialNumber") BigInteger serialNumber, @RequestParam("revokeReason") int revokeReason) throws CertificateException, CRLException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, OperatorCreationException, IOException, ClassNotFoundException{
+	public ResponseEntity<String> revokeCertificate(@RequestParam("serialNumber") long serialNumber, @RequestParam("revokeReason") int revokeReason) throws CertificateException, CRLException, NoSuchAlgorithmException, UnrecoverableEntryException, KeyStoreException, OperatorCreationException, IOException, ClassNotFoundException{
 				
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication()
                 .getPrincipal();
@@ -90,7 +95,7 @@ public class CertificateController {
 		
 		User user = userRepository.findByEmail(username);
 		
-		certService.revokeCertificate(user, serialNumber);
+		certService.revokeCertificate(user, BigInteger.valueOf(serialNumber), revokeReason);
 		return ResponseEntity.ok().body("Success");
 		
 		
@@ -99,7 +104,7 @@ public class CertificateController {
 	@GetMapping("/checkRevoked")
 	public ResponseEntity<String> checkCertificateRevoked(@RequestParam("serialNumber") BigInteger serialNumber) throws ClassNotFoundException, IOException{
 		
-		if(certService.isCertificateRevoked(serialNumber))
+		if(certService.isCertificateRevoked(serialNumber).isRevoked())
 			return ResponseEntity.ok().body("This certificate has been revoked");
 		else
 			return ResponseEntity.ok().body("This certificate is active");
@@ -131,7 +136,7 @@ public class CertificateController {
 //	}
 
 	@GetMapping("/getOne")
-	public ResponseEntity<CertDetailsDTO> findOne(@RequestParam("serialNumber") BigInteger serialNumber) {
+	public ResponseEntity<CertDetailsDTO> findOne(@RequestParam("serialNumber") BigInteger serialNumber) throws ClassNotFoundException, IOException {
 
 		ArrayList<X509Certificate> certs = this.certService.findAllCertificates();
 		CertDetailsDTO dto = null;
@@ -142,7 +147,16 @@ public class CertificateController {
 				String[] subjectList = x.getSubjectDN().getName().split(",");
 				dto.setSerialNum(x.getSerialNumber().toString());
 				dto.setIssuedDate(sdf.format(x.getNotBefore()));
-				dto.setValidToDate(sdf.format(x.getNotAfter()));
+				RevokeEntry revoke = certService.isCertificateRevoked(x.getSerialNumber());
+				if(revoke.isRevoked()) {
+					dto.setValidToDate("REVOKED");
+					dto.setRevoked(true);
+					dto.setRevokedReason(revoke.toString());
+				}
+				else {
+					dto.setValidToDate(sdf.format(x.getNotAfter()));
+					dto.setRevoked(false);
+				}
 				dto.setIssuerCN(issuerList[7].split("=")[1]);
 				dto.setIssuerEmail(issuerList[1].split("=")[1]);
 				dto.setIssuerID(issuerList[0].split("=")[1]);
