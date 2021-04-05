@@ -81,7 +81,7 @@ public class CertificateController {
 			dto.setSerialNum(x.getSerialNumber().toString());
 			dto.setIssuedDate(sdf.format(x.getNotBefore()));
 			dto.setIssuer(x.getIssuerX500Principal().getName().split(",")[7].split("=")[1]);
-			dto.setSubject(x.getSubjectX500Principal().getName().split(",")[7].split("=")[1]);
+			dto.setSubject(x.getSubjectDN().getName().split(",")[7].split("=")[1]);
 			RevokeEntry revoke = certService.isCertificateRevoked(x.getSerialNumber());
 			if (revoke.isRevoked()) {
 				dto.setValidToDate("REVOKED");
@@ -140,13 +140,14 @@ public class CertificateController {
 	public ResponseEntity<String> readCRL() throws ClassNotFoundException, IOException {
 		certService.readCRL();
 		return ResponseEntity.ok().body("Success");
-	}
+	} 
 
 	@PostMapping(path = "/generateCertificate")
 	public ResponseEntity<X509Certificate> generateCertificate(@RequestBody long id) {
 		CertificateRequest req = this.reqService.findOneById(id);
 
 		if (req != null) {
+			System.out.println("uso");
 			PKCS10CertificationRequest crt = null;
 			try {
 				crt = new PKCS10CertificationRequest(req.getCertificateRequest());
@@ -174,8 +175,10 @@ public class CertificateController {
 				long serialNum = this.counterService.getNextValue();
 				if(serialNum != -1)
 					subject.setSerialNumber(serialNum+"");
-				else
+				else {
+					System.out.println("OVAJ JE");
 					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+				}
 
 				Date currentDate = new Date();
 				Calendar c = Calendar.getInstance();
@@ -207,6 +210,7 @@ public class CertificateController {
 				subject.setX500name(name);
 
 				CertificateGenerator gen = new CertificateGenerator();
+				
 
 				X509Certificate cert = gen.generateCertificate(subject, adminData);
 
@@ -217,7 +221,6 @@ public class CertificateController {
 
 					cw.write(subject.getSerialNumber(), adminData.getPrivateKey(),
 							env.getProperty("jks.password").toCharArray(), cert);
-
 					cw.saveKeyStore(env.getProperty("jks.store"), env.getProperty("jks.password").toCharArray());
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -227,6 +230,7 @@ public class CertificateController {
 				this.reqService.remove(req);
 
 				return new ResponseEntity<>(HttpStatus.OK);
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

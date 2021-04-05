@@ -19,6 +19,8 @@ export class PendingCertificatesComponent implements OnInit {
     this.certService.getAllCertificateRequests().subscribe(
       (reqs: any) => {
         this.requests = reqs;
+      }, error => {
+        console.log(error);
       }
     )
   }

@@ -5,7 +5,7 @@
   <div class="m-3 w-100">
     <h1 class="mb-4">Pending certificates</h1>
     <div>
-      <table class="table table-hover text-center">
+      <table class="table table-hover text-center" *ngIf="requests.length !== 0">
         <thead>
         <tr>
           <th scope="col">Subject</th>
@@ -24,8 +24,10 @@
             <button (click)="deny(req.id)" mat-raised-button color="warn">Deny</button>
           </td>
         </tr>
+
         </tbody>
       </table>
+      <h3 *ngIf="requests.length === 0" >There are no pending certificate requests to show.</h3>
     </div>
   </div>
 </div>

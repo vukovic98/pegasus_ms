@@ -25,10 +25,8 @@ public class CertificateRequestController {
 	@GetMapping()
 	public ResponseEntity<ArrayList<CertificateRequestDTO>> getAll(){
 		ArrayList<CertificateRequestDTO> dtos =  this.certificateReqService.findAll();
-		if(!dtos.isEmpty())
-			return new ResponseEntity<>(dtos,HttpStatus.OK);
-		else
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(dtos,HttpStatus.OK);
+	
 	}
 	
 	@PostMapping(path = "/denyRequest")
