@@ -14,7 +14,8 @@
           <div class="col-md-4 float-left" style="height: 30px;"></div>
           <div class="float-left m-5 col-md-4" style="width: 180px;">
             <img src="assets/images/certificate.png" class="w-100 ml-2" alt="Certificate" title="Certificate" style="width: 150px; height: 150px;"/>
-            <button (click)="requestCertificate()" mat-raised-button color="primary" class="mt-3">Request certificate</button>
+            <button *ngIf="!requested" (click)="requestCertificate()" mat-raised-button color="primary" class="mt-3">Request certificate</button>
+            <p *ngIf="requested" class="mt-3">You requested for certificate. Admin will answer shortly!</p>
           </div>
           <div class="col-md-4 float-left"></div>
         </div>

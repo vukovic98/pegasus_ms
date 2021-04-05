@@ -22,4 +22,9 @@ public class HospitalController {
 		return new ResponseEntity<>(this.hospitalService.isCertified(id), HttpStatus.OK);
 	}
 	
+	@PostMapping(path = "/requestedCertificate")
+	public ResponseEntity<Boolean> isRequested(@RequestBody long id) {
+		return new ResponseEntity<>(this.hospitalService.isRequestedCertificate(id), HttpStatus.OK);
+	}
+	
 }

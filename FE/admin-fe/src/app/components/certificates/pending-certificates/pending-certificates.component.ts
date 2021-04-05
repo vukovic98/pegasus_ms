@@ -31,4 +31,27 @@ export class PendingCertificatesComponent implements OnInit {
     });
   }
 
+  accept(id: number) {
+    this.certService.approveForCertificate(id).subscribe((response) => {
+      this.certService.getAllCertificateRequests().subscribe(
+        (reqs: any) => {
+          this.requests = reqs;
+        }
+      )
+    }, error => {
+      console.log(error);
+    })
+  }
+
+  deny(id: number) {
+    this.certService.denyCertificateRequest(id).subscribe((response) => {
+      this.certService.getAllCertificateRequests().subscribe(
+        (reqs: any) => {
+          this.requests = reqs;
+        }
+      )
+    }, error => {
+      console.log(error);
+    })
+  }
 }

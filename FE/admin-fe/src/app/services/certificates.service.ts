@@ -9,10 +9,12 @@ import {environment} from '../../environments/environment';
 })
 export class CertificatesService {
 
-  private readonly allCertificates: string = "certificate"
-  private readonly allRequests: string = "certificate-request"
-  private readonly oneCertificate: string = "certificate/getOne"
-  private readonly revoke: string = "certificate/revokeCertificate"
+  private readonly allCertificates: string = "certificate";
+  private readonly allRequests: string = "certificate-request";
+  private readonly denyRequest: string = "certificate-request/denyRequest";
+  private readonly createCertificate: string = "certificate/generateCertificate";
+  private readonly oneCertificate: string = "certificate/getOne";
+  private readonly revoke: string = "certificate/revokeCertificate";
 
   constructor(private http: HttpClient, private route: Router) { }
 
@@ -22,6 +24,22 @@ export class CertificatesService {
       'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
     });
     return this.http.get(environment.ADMIN_APP+ this.allCertificates, {headers:headers});
+  }
+
+  approveForCertificate(id: number): Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+    });
+    return this.http.post(environment.ADMIN_APP+ this.createCertificate, id, {headers:headers});
+  }
+
+  denyCertificateRequest(id: number): Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+    });
+    return this.http.post(environment.ADMIN_APP+ this.denyRequest, id, {headers:headers});
   }
 
   getOne(serialNum: number): Observable<any>{

@@ -20,4 +20,25 @@ public class HospitalService {
 		else
 			return false;
 	}
+	
+	public boolean setRequested(long id) {
+		Hospital h = this.hospitalRepository.findById(id).orElse(null);
+		
+		if(h != null) {
+			h.setRequestedCertificate(true);
+			this.hospitalRepository.save(h);
+			return true;
+		}
+		else
+			return false;
+	}
+	
+	public boolean isRequestedCertificate(long id) {
+		Hospital h = this.hospitalRepository.findById(id).orElse(null);
+		
+		if(h != null)
+			return h.isRequestedCertificate();
+		else
+			return false;
+	}
 }

@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.User;
+import com.ftn.uns.ac.rs.hospitalapp.service.HospitalService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
 
 @RestController
@@ -33,6 +34,9 @@ public class CertificateController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private HospitalService hospitalService;
 
 //	@PostMapping(path = "/addCertificate")
 //	public ResponseEntity<HttpStatus> addCertificate() {
@@ -45,6 +49,11 @@ public class CertificateController {
 		String email = auth.getName();
 
 		User u = this.userService.findByEmail(email);
+		
+		boolean ok = this.hospitalService.setRequested(u.getHospital().getId());
+		
+		if(!ok)
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
 		KeyPairGenerator gen = null;
 		try {

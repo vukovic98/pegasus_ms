@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ftn.uns.ac.rs.adminapp.beans.CertificateRequest;
 import com.ftn.uns.ac.rs.adminapp.dto.CertificateRequestDTO;
 import com.ftn.uns.ac.rs.adminapp.service.CertificateRequestService;
 
@@ -27,6 +28,20 @@ public class CertificateRequestController {
 		if(!dtos.isEmpty())
 			return new ResponseEntity<>(dtos,HttpStatus.OK);
 		else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+	
+	@PostMapping(path = "/denyRequest")
+	public ResponseEntity<HttpStatus> denyRequest(@RequestBody long id) {
+		CertificateRequest c = this.certificateReqService.findOneById(id);
+		
+		if(c != null) {
+			boolean ok = this.certificateReqService.remove(c);
+			if(ok)
+				return new ResponseEntity<>(HttpStatus.OK);
+			else
+				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		} else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	

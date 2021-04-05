@@ -11,6 +11,7 @@ import {CertificateService} from '../../services/certificate.service';
 export class CertificateComponent implements OnInit {
 
   public certified: boolean;
+  public requested: boolean;
 
   constructor(
     private hospitalService: HospitalService,
@@ -24,9 +25,16 @@ export class CertificateComponent implements OnInit {
     }, error => {
       console.log(error);
     })
+
+    this.hospitalService.hasRequestedCertificate(Number(this.authService.getHospitalId())).subscribe((response) => {
+      this.requested = Boolean(response);
+    }, error => {
+      console.log(error);
+    })
   }
 
   requestCertificate() {
+    this.requested = true;
     this.certService.requestCertificate().subscribe((response) => {
       this.certService.sendRequestToAdmin(response).subscribe((response) => {
         console.log("ok");

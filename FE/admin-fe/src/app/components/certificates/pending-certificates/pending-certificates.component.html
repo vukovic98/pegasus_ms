@@ -20,8 +20,8 @@
           <td>{{req.subjectOU}}</td>
           <td><button mat-raised-button color="primary" (click)="openSubjectsInfo(req)">Subject's info</button></td>
           <td colspan="2">
-            <button mat-raised-button color="primary" class="mr-2">Accept</button>
-            <button mat-raised-button color="warn">Deny</button>
+            <button (click)="accept(req.id)" mat-raised-button color="primary" class="mr-2">Accept</button>
+            <button (click)="deny(req.id)" mat-raised-button color="warn">Deny</button>
           </td>
         </tr>
         </tbody>

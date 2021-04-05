@@ -12,6 +12,8 @@ import {AuthService} from './auth.service';
 export class HospitalService {
 
   private readonly ENDPOINT_CERTIFIED: string = "hospital/certified"
+  private readonly ENDPOINT_REQUESTED: string = "hospital/requestedCertificate"
+
 
   constructor(
     private http: HttpClient,
@@ -27,5 +29,15 @@ export class HospitalService {
     });
 
     return this.http.post<loginResponse>(environment.HOSPITAL_APP + this.ENDPOINT_CERTIFIED, id, { headers: headers });
+  }
+
+  hasRequestedCertificate(id: number): Observable<any> {
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + this.auth.getToken()
+    });
+
+    return this.http.post<loginResponse>(environment.HOSPITAL_APP + this.ENDPOINT_REQUESTED, id, { headers: headers });
   }
 }

@@ -24,15 +24,19 @@ public class Hospital {
 	@Column(name = "certified", nullable = false)
 	private boolean certified = false;
 
+	@Column(name = "req_cert", nullable = false)
+	private boolean requestedCertificate = false;
+
 	public Hospital() {
 		super();
 	}
 
-	public Hospital(Long id, String name, boolean certified) {
+	public Hospital(Long id, String name, boolean certified, boolean req) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.certified = certified;
+		this.requestedCertificate = req;
 	}
 
 	public Long getId() {
@@ -41,6 +45,14 @@ public class Hospital {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public boolean isRequestedCertificate() {
+		return requestedCertificate;
+	}
+
+	public void setRequestedCertificate(boolean requestedCertificate) {
+		this.requestedCertificate = requestedCertificate;
 	}
 
 	public String getName() {
