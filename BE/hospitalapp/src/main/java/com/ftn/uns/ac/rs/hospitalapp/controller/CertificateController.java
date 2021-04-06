@@ -1,5 +1,7 @@
 package com.ftn.uns.ac.rs.hospitalapp.controller;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -9,8 +11,12 @@ import java.security.PublicKey;
 
 import javax.security.auth.x500.X500Principal;
 
+import org.bouncycastle.openssl.PKCS8Generator;
+import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
+import org.bouncycastle.openssl.jcajce.JcaPKCS8Generator;
 import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.OperatorCreationException;
+import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.pkcs.PKCS10CertificationRequest;
 import org.bouncycastle.pkcs.PKCS10CertificationRequestBuilder;
@@ -44,7 +50,7 @@ public class CertificateController {
 //	}
 
 	@GetMapping(path = "/request")
-	public ResponseEntity<byte[]> generateCertificate() {
+	public ResponseEntity<byte[]> generateCertificate() throws IOException {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String email = auth.getName();
 
@@ -81,8 +87,16 @@ public class CertificateController {
 
 		PKCS10CertificationRequestBuilder builder = new JcaPKCS10CertificationRequestBuilder(subject, publicKey);
 		PKCS10CertificationRequest csr = builder.build(signGen);
-		
+		OutputEncryptor encryptor = null;
+		JcaPKCS8Generator generator = new JcaPKCS8Generator(privateKey, encryptor);
 
+		FileWriter fw = new FileWriter(new File("pk.pem"));
+		
+		JcaPEMWriter writer = new JcaPEMWriter(fw);
+		writer.writeObject(generator);
+		writer.close();
+		
+		
 		try {
 			return new ResponseEntity<byte[]>(csr.getEncoded(), HttpStatus.OK);
 		} catch (IOException e) {
