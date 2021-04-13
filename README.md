@@ -3,7 +3,7 @@
 # Pegasus Medical System
  
  
-### NVT_KTS projekat 2020, Tim 5:
+### BSEP projekat 2021, Tim 5:
 * Vladimir Vuković SW3/2017
 * Ivana Vlaisavljević SW78/2017
 * Dušan Madžarević SW9/2017
