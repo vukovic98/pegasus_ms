@@ -17,6 +17,10 @@ import {MatButtonModule} from '@angular/material/button';
 import { CertificateComponent } from './components/certificate/certificate.component';
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import { SubjectsInfoComponent } from './components/subjects-info/subjects-info.component';
+import { ApproveRequestComponent } from './components/approve-request/approve-request.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { SubjectsInfoComponent } from './components/subjects-info/subjects-info.
     AllCertificatesComponent,
     RevokeCertificateComponent,
     CertificateComponent,
-    SubjectsInfoComponent
+    SubjectsInfoComponent,
+    ApproveRequestComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,10 @@ import { SubjectsInfoComponent } from './components/subjects-info/subjects-info.
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatIconModule
   ],
   providers: [
     AuthService

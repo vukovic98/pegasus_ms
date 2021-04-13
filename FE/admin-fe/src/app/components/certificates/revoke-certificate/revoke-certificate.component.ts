@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CertificatesService } from 'src/app/services/certificates.service';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-revoke-certificate',
@@ -26,7 +27,7 @@ export class RevokeCertificateComponent implements OnInit {
 });
 
   constructor(private certService: CertificatesService, private route: ActivatedRoute) {
-    
+
    }
 
   ngOnInit(): void {
@@ -37,9 +38,18 @@ export class RevokeCertificateComponent implements OnInit {
     console.log(this.selectedValue)
     let request = {serialNumber: Number(this.revokeForm.get('serialNum').value), revokeReason: this.selectedValue}
     this.certService.revokeCertificate(request).subscribe((response) =>{
-
-      console.log("Request sent.")
-
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Certificate successfully revoked!'
+      })
+    }, error => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Something went wrong. Please try again later!',
+        confirmButtonColor: '#DC143C'
+      })
     })
 
   }

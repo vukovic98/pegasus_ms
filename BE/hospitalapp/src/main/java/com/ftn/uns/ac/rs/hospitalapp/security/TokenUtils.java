@@ -67,6 +67,7 @@ public class TokenUtils {
 				.claim("user_lastName", u.getLastName())
 				.claim("user_id", u.getId().toString())
 				.claim("hospital", u.getHospital().getId().toString())
+				.claim("authority", u.getAuthorities())
 				.claim("email", u.getEmail()).signWith(SIGNATURE_ALGORITHM, SECRET).compact();
 	}
 

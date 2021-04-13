@@ -1,18 +1,22 @@
 package com.ftn.uns.ac.rs.hospitalapp.beans;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -47,24 +51,27 @@ public class User implements UserDetails {
 	@Column(name = "password", nullable = false)
 	private String password;
 
-	@Enumerated(EnumType.STRING)
-	private Role role;
-
 	@ManyToOne
 	@JoinColumn(name = "hospital_id", nullable = false)
 	private Hospital hospital;
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "user_authority", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"), inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
+	private List<Authority> authorities;
+
+	@Column(name = "enabled", nullable = false)
+	private boolean enabled;
 
 	public User() {
 
 	}
 
-	public User(String firstName, String lastName, String email, String password, Role role) {
+	public User(String firstName, String lastName, String email, String password) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
-		this.role = role;
 	}
 
 	public Long getId() {
@@ -75,14 +82,6 @@ public class User implements UserDetails {
 		this.id = id;
 	}
 
-	public Hospital getHospital() {
-		return hospital;
-	}
-
-	public void setHospital(Hospital hospital) {
-		this.hospital = hospital;
-	}
-
 	public String getFirstName() {
 		return firstName;
 	}
@@ -91,12 +90,16 @@ public class User implements UserDetails {
 		this.firstName = firstName;
 	}
 
-	public Role getRole() {
-		return role;
+	public Hospital getHospital() {
+		return hospital;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setHospital(Hospital hospital) {
+		this.hospital = hospital;
+	}
+
+	public void setAuthorities(List<Authority> authorities) {
+		this.authorities = authorities;
 	}
 
 	public String getLastName() {
@@ -155,14 +158,17 @@ public class User implements UserDetails {
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return true;
+		return this.enabled;
+	}
+
+	public void setEnabled(boolean e) {
+		this.enabled = e;
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.authorities;
 	}
 
 }

@@ -44,11 +44,6 @@ public class CertificateController {
 	@Autowired
 	private HospitalService hospitalService;
 
-//	@PostMapping(path = "/addCertificate")
-//	public ResponseEntity<HttpStatus> addCertificate() {
-//		
-//	}
-
 	@GetMapping(path = "/request")
 	public ResponseEntity<byte[]> generateCertificate() throws IOException {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();

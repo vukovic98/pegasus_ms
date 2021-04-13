@@ -35,12 +35,22 @@ export class LoginComponent implements OnInit {
       localStorage.setItem("accessToken", response.authenticationToken);
       this.route.navigate(['/admin-panel']);
     }, error => {
-      Swal.fire({
-        icon: 'error',
-        title: 'User not found',
-        text: 'Please check your email and password!',
-        confirmButtonColor: '#DC143C'
-      })
+      if (error.status === 403) {
+        Swal.fire({
+          icon: 'error',
+          title: 'User DISABLED',
+          text: 'We encountered some suspicious activities from this account. We sent you an email, please check it in order to continue.',
+          confirmButtonColor: '#DC143C'
+        })
+      }
+      else {
+        Swal.fire({
+          icon: 'error',
+          title: 'User not found',
+          text: 'Please check your email and password!',
+          confirmButtonColor: '#DC143C'
+        })
+      }
     });
   }
 }

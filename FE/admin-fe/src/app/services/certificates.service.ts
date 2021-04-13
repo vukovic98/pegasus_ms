@@ -26,12 +26,18 @@ export class CertificatesService {
     return this.http.get(environment.ADMIN_APP+ this.allCertificates, {headers:headers});
   }
 
-  approveForCertificate(id: number): Observable<any>{
+  approveForCertificate(id: number, ext: string): Observable<any>{
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
     });
-    return this.http.post(environment.ADMIN_APP+ this.createCertificate, id, {headers:headers});
+
+    const data = {
+      id: id,
+      template: ext
+    };
+
+    return this.http.post(environment.ADMIN_APP+ this.createCertificate, data, {headers:headers});
   }
 
   denyCertificateRequest(id: number): Observable<any>{

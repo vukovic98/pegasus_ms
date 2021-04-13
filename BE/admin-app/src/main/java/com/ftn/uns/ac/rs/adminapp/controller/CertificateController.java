@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Set;
 
 import org.bouncycastle.asn1.x500.RDN;
 import org.bouncycastle.asn1.x500.X500Name;
@@ -28,6 +29,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +42,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ftn.uns.ac.rs.adminapp.beans.CertificateRequest;
 import com.ftn.uns.ac.rs.adminapp.beans.User;
 import com.ftn.uns.ac.rs.adminapp.dto.CertDetailsDTO;
+import com.ftn.uns.ac.rs.adminapp.dto.IssueCertificateDTO;
 import com.ftn.uns.ac.rs.adminapp.dto.X509DetailsDTO;
 import com.ftn.uns.ac.rs.adminapp.repository.UserRepository;
 import com.ftn.uns.ac.rs.adminapp.service.CertificateRequestService;
@@ -72,11 +75,13 @@ public class CertificateController {
 	public SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 	@GetMapping()
+	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
 	public ResponseEntity<ArrayList<X509DetailsDTO>> findAll() throws ClassNotFoundException, IOException {
 		ArrayList<X509DetailsDTO> listDto = new ArrayList<>();
 		ArrayList<X509Certificate> certs = this.certService.findAllCertificates();
 
 		for (X509Certificate x : certs) {
+
 			X509DetailsDTO dto = new X509DetailsDTO();
 			dto.setSerialNum(x.getSerialNumber().toString());
 			dto.setIssuedDate(sdf.format(x.getNotBefore()));
@@ -97,6 +102,7 @@ public class CertificateController {
 	}
 
 	@PostMapping("/generateCRL")
+	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
 	public ResponseEntity<String> generateCRL() throws CertificateException, CRLException, NoSuchAlgorithmException,
 			UnrecoverableEntryException, KeyStoreException, OperatorCreationException, IOException {
 
@@ -111,6 +117,7 @@ public class CertificateController {
 	}
 
 	@PostMapping("/revokeCertificate")
+	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
 	public ResponseEntity<String> revokeCertificate(@RequestParam("serialNumber") long serialNumber,
 			@RequestParam("revokeReason") int revokeReason)
 			throws CertificateException, CRLException, NoSuchAlgorithmException, UnrecoverableEntryException,
@@ -127,6 +134,7 @@ public class CertificateController {
 	}
 
 	@GetMapping("/checkRevoked")
+	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
 	public ResponseEntity<String> checkCertificateRevoked(@RequestParam("serialNumber") BigInteger serialNumber)
 			throws ClassNotFoundException, IOException {
 
@@ -137,17 +145,18 @@ public class CertificateController {
 	}
 
 	@GetMapping("/readCRL")
+	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
 	public ResponseEntity<String> readCRL() throws ClassNotFoundException, IOException {
 		certService.readCRL();
 		return ResponseEntity.ok().body("Success");
-	} 
+	}
 
 	@PostMapping(path = "/generateCertificate")
-	public ResponseEntity<X509Certificate> generateCertificate(@RequestBody long id) {
-		CertificateRequest req = this.reqService.findOneById(id);
+	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
+	public ResponseEntity<X509Certificate> generateCertificate(@RequestBody IssueCertificateDTO dto) {
+		CertificateRequest req = this.reqService.findOneById(dto.getId());
 
 		if (req != null) {
-			System.out.println("uso");
 			PKCS10CertificationRequest crt = null;
 			try {
 				crt = new PKCS10CertificationRequest(req.getCertificateRequest());
@@ -173,10 +182,9 @@ public class CertificateController {
 				subject.setPublicKey(pubKey);
 				subject.setStartDate(new Date());
 				long serialNum = this.counterService.getNextValue();
-				if(serialNum != -1)
-					subject.setSerialNumber(serialNum+"");
+				if (serialNum != -1)
+					subject.setSerialNumber(serialNum + "");
 				else {
-					System.out.println("OVAJ JE");
 					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 				}
 
@@ -203,16 +211,15 @@ public class CertificateController {
 				builder.addRDN(BCStyle.L, data[5].getFirst().getValue());
 				builder.addRDN(BCStyle.E, data[0].getFirst().getValue());
 
-				builder.addRDN(BCStyle.UID, data[0].getFirst().getValue());
+				builder.addRDN(BCStyle.UID, data[7].getFirst().getValue());
 
 				X500Name name = builder.build();
-				
+
 				subject.setX500name(name);
 
 				CertificateGenerator gen = new CertificateGenerator();
-				
 
-				X509Certificate cert = gen.generateCertificate(subject, adminData);
+				X509Certificate cert = gen.generateCertificate(subject, adminData, dto.getTemplate());
 
 				KeyStoreWriter cw = new KeyStoreWriter();
 
@@ -226,11 +233,14 @@ public class CertificateController {
 					e.printStackTrace();
 					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 				}
-				
+
 				this.reqService.remove(req);
 
+//				Writing certificate to .cer file
+				CertificateUtil.writeCertificateToFile(cert);
+
 				return new ResponseEntity<>(HttpStatus.OK);
-				
+
 			} catch (Exception e) {
 				e.printStackTrace();
 				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -242,6 +252,7 @@ public class CertificateController {
 	}
 
 	@GetMapping("/getOne")
+	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
 	public ResponseEntity<CertDetailsDTO> findOne(@RequestParam("serialNumber") BigInteger serialNumber)
 			throws ClassNotFoundException, IOException {
 

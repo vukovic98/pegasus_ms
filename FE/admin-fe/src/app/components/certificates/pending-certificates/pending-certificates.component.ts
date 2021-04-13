@@ -3,6 +3,7 @@ import {CertificateRequestModel} from "../../../models/certificate-request.model
 import {MatDialog} from "@angular/material/dialog";
 import {CertificatesService} from "../../../services/certificates.service";
 import {SubjectsInfoComponent} from "../../subjects-info/subjects-info.component";
+import {ApproveRequestComponent} from '../../approve-request/approve-request.component';
 
 @Component({
   selector: 'app-pending-certificates',
@@ -33,16 +34,20 @@ export class PendingCertificatesComponent implements OnInit {
     });
   }
 
-  accept(id: number) {
-    this.certService.approveForCertificate(id).subscribe((response) => {
+  accept(req: CertificateRequestModel) {
+    let dialogRef = this.dialog.open(ApproveRequestComponent, {
+      width: '800px',
+      height: '550px',
+      data: req
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
       this.certService.getAllCertificateRequests().subscribe(
         (reqs: any) => {
           this.requests = reqs;
         }
       )
-    }, error => {
-      console.log(error);
-    })
+    });
   }
 
   deny(id: number) {

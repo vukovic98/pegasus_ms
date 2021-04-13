@@ -1,0 +1,83 @@
+<mat-dialog-content style="display: contents!important;">
+  <h3>Subject's info</h3>
+  <table class="table table-hover" >
+    <tbody>
+    <tr>
+      <td class="font-weight-bold">Common Name</td>
+      <td>{{data.subjectCN}}</td>
+    </tr>
+    <tr>
+      <td class="font-weight-bold">Email</td>
+      <td>{{data.subjectEmail}}</td>
+    </tr>
+    <tr>
+      <td class="font-weight-bold">Organization Unit</td>
+      <td>{{data.subjectOU}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <hr/>
+    <div class="mt-3 col-md-12 float-left p-0 mb-4">
+      <p class="font-weight-bold col-md-12">Select template:</p>
+      <div class="col-md-12 float-left p-0">
+        <mat-radio-group class="float-left col-md-12 p-0">
+          <span class="col-md-3 float-left">
+            <label for="radio_1" class="text-center">
+              <img alt="ca" src="assets/images/ca.jpg" style="width: 100px; height: 100px;"/>
+
+            </label><br />
+            <mat-radio-button
+              id="radio_1"
+              color="primary"
+              [checked]=true
+              value="Certificate Authority"
+              (change)="checked('Certificate Authority')">
+              CA
+            </mat-radio-button>
+          </span>
+          <span class="col-md-3 float-left">
+            <label for="radio_2" class="text-center">
+              <img alt="ca" src="assets/images/end_user.png" style="width: 100px; height: 100px;"/><br/>
+
+            </label><br />
+            <mat-radio-button
+              id="radio_2"
+              color="primary"
+              value="End User"
+              (change)="checked('End User')">
+              End User
+            </mat-radio-button>
+          </span>
+          <span class="col-md-3 float-left">
+            <label for="radio_3" class="text-center">
+              <img alt="ca" src="assets/images/server.png" style="width: 100px; height: 100px;"/><br/>
+
+            </label><br />
+            <mat-radio-button
+              id="radio_3"
+              color="primary"
+              value="Server Side User"
+              (change)="checked('Server Side User')">
+              Server Side User
+            </mat-radio-button>
+          </span>
+          <span class="col-md-3 float-left">
+            <label for="radio_4" class="text-center">
+              <img alt="ca" src="assets/images/front.jpg" style="width: 120px; height: 100px;"/><br/>
+
+            </label><br />
+            <mat-radio-button
+              id="radio_4"
+              value="Client Side User"
+              color="primary"
+              (change)="checked('Client Side User')">
+              Client Side User
+            </mat-radio-button>
+          </span>
+        </mat-radio-group>
+      </div>
+    </div>
+  <div class="text-right">
+    <button mat-raised-button color="primary" (click)="issueCert()">Issue certificate</button>
+  </div>
+</mat-dialog-content>

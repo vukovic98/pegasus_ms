@@ -66,6 +66,7 @@ public class TokenUtils {
 																// tokena
 				.claim("user_lastName", u.getLastName())
 				.claim("user_id", u.getId().toString())
+				.claim("authority", u.getAuthorities())
 				.claim("email", u.getEmail()).signWith(SIGNATURE_ALGORITHM, SECRET).compact();
 	}
 

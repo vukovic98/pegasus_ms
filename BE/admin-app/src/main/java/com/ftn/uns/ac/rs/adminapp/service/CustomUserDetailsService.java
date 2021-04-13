@@ -38,6 +38,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 			return user;
 		}
 	}
+	
 
 	// Funkcija pomocu koje korisnik menja svoju lozinku
 	public void changePassword(String oldPassword, String newPassword) {

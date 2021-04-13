@@ -2,6 +2,7 @@ package com.ftn.uns.ac.rs.adminapp.util;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -15,12 +16,12 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Iterator;
 
-
+import org.apache.tomcat.util.codec.binary.Base64;
 
 public class CertificateUtil {
 
 	public static X509Certificate getAdminsCertificate(String store, String pass) {
-		
+
 		ArrayList<X509Certificate> certs = new ArrayList<X509Certificate>();
 		PrivateKey myPrivateKey = null;
 		try {
@@ -34,24 +35,24 @@ public class CertificateUtil {
 			String alias = "";
 			while (es.hasMoreElements()) {
 				alias = (String) es.nextElement();
-				
+
 				KeyStore.PrivateKeyEntry pkEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(alias,
 						new KeyStore.PasswordProtection(pass.toCharArray()));
 
 				Certificate[] chain = keyStore.getCertificateChain(alias);
 
-				X509Certificate c = (X509Certificate)chain[0];
-				
+				X509Certificate c = (X509Certificate) chain[0];
+
 				return c;
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
-	
+
 	public static ArrayList<X509Certificate> getCertificateDetails(String jksPath, String jksPassword) {
 
 		ArrayList<X509Certificate> certs = new ArrayList<X509Certificate>();
@@ -67,16 +68,16 @@ public class CertificateUtil {
 			String alias = "";
 			while (es.hasMoreElements()) {
 				alias = (String) es.nextElement();
-				
+
 				KeyStore.PrivateKeyEntry pkEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(alias,
 						new KeyStore.PasswordProtection(jksPassword.toCharArray()));
 
 				PrivateKey myPrivateKey = pkEntry.getPrivateKey();
-				
+
 				Certificate[] chain = keyStore.getCertificateChain(alias);
 
-				certs.add((X509Certificate)chain[0]);
-				
+				certs.add((X509Certificate) chain[0]);
+
 			}
 
 		} catch (KeyStoreException e) {
@@ -95,7 +96,7 @@ public class CertificateUtil {
 
 		return certs;
 	}
-	
+
 	public static PrivateKey getAdminsPrivateKey(String jksPath, String jksPassword) {
 
 		ArrayList<X509Certificate> certs = new ArrayList<X509Certificate>();
@@ -111,12 +112,12 @@ public class CertificateUtil {
 			String alias = "";
 			while (es.hasMoreElements()) {
 				alias = (String) es.nextElement();
-				
+
 				KeyStore.PrivateKeyEntry pkEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(alias,
 						new KeyStore.PasswordProtection(jksPassword.toCharArray()));
 
 				PrivateKey myPrivateKey = pkEntry.getPrivateKey();
-				
+
 				return myPrivateKey;
 
 			}
@@ -138,33 +139,21 @@ public class CertificateUtil {
 		return null;
 	}
 
-//	public static X509Certificate CSRToCertificate(PKCS10CertificationRequest req, X509Certificate admin, String store, String pass) {
-//		JcaContentSignerBuilder builder = new JcaContentSignerBuilder("SHA256WithRSAEncryption");
-//
-//        // Takodje se navodi koji provider se koristi, u ovom slucaju Bouncy Castle
-//        builder = builder.setProvider("BC");
-//
-//        // Formira se objekat koji ce sadrzati privatni kljuc i koji ce se koristiti za potpisivanje sertifikata
-//        ContentSigner contentSigner = builder.build(CertificateUtil.getAdminsPrivateKey(store, pass));
-//
-//        // Postavljaju se podaci za generisanje sertifiakta
-//        X509v3CertificateBuilder certGen = new JcaX509v3CertificateBuilder(admin.getIssuerX500Principal().getName(),
-//                new BigInteger(subjectData.getSerialNumber()),
-//                subjectData.getStartDate(),
-//                subjectData.getEndDate(),
-//                subjectData.getX500name(),
-//                subjectData.getPublicKey());
-//
-//        // Generise se sertifikat
-//        X509CertificateHolder certHolder = certGen.build(contentSigner);
-//
-//        // Builder generise sertifikat kao objekat klase X509CertificateHolder
-//        // Nakon toga je potrebno certHolder konvertovati u sertifikat, za sta se koristi certConverter
-//        JcaX509CertificateConverter certConverter = new JcaX509CertificateConverter();
-//        certConverter = certConverter.setProvider("BC");
-//
-//        // Konvertuje objekat u sertifikat
-//        return certConverter.getCertificate(certHolder);
-//	}
-	
+	public static boolean writeCertificateToFile(X509Certificate cert) {
+		try {
+			FileOutputStream os = new FileOutputStream(
+					"src/main/resources/certificates/CERT_" + cert.getSerialNumber() + ".cer");
+			os.write("-----BEGIN CERTIFICATE-----\n".getBytes("US-ASCII"));
+			os.write(Base64.encodeBase64(cert.getEncoded(), true));
+			os.write("-----END CERTIFICATE-----\n".getBytes("US-ASCII"));
+			os.close();
+
+			return true;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
 }
