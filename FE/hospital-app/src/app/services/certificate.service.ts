@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {AuthService} from './auth.service';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
+import {TokenModel} from '../models/auth.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,11 @@ export class CertificateService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
-    return this.http.post(environment.ADMIN_APP + this.ENDPOINT_SEND_REQ, data, {headers:headers});
+
+    const token = this.auth.getToken();
+    const tokenModel: TokenModel = this.auth.decodeToken(token);
+
+    return this.http.post(environment.ADMIN_APP + this.ENDPOINT_SEND_REQ + "/" + tokenModel.email, data, {headers:headers});
   }
 
 }

@@ -12,20 +12,25 @@ import javax.persistence.Table;
 @Embeddable
 @Table(name = "certificate_request")
 public class CertificateRequest {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private long id;
+
 	@Column(name = "certRequest")
 	private byte[] certificateRequest;
+
+	@Column(name = "verified")
+	private boolean verified;
 
 	public CertificateRequest() {
 		super();
 	}
 
-	public CertificateRequest(byte[] certificateRequest) {
+	public CertificateRequest(byte[] certificateRequest, boolean v) {
 		super();
 		this.certificateRequest = certificateRequest;
+		this.verified = v;
 	}
 
 	public byte[] getCertificateRequest() {
@@ -43,7 +48,13 @@ public class CertificateRequest {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
-	
+
+	public boolean isVerified() {
+		return verified;
+	}
+
+	public void setVerified(boolean verified) {
+		this.verified = verified;
+	}
 
 }
