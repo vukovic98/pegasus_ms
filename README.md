@@ -1,4 +1,4 @@
-<img src="https://user-images.githubusercontent.com/45330563/114599059-e4a35600-9c92-11eb-9b9d-e92e53bccd1b.png" width="50%" height="200px">
+<img src="https://user-images.githubusercontent.com/45330563/114599059-e4a35600-9c92-11eb-9b9d-e92e53bccd1b.png" width="50%" height="400px">
 
 # Pegasus Medical System
  
