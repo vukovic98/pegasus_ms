@@ -1,4 +1,4 @@
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-icon%2Ficu-monitor_769515.htm&psig=AOvVaw0xRgOdmXZdiun9crnZxi-5&ust=1618423139718000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJjuiZfm--8CFQAAAAAdAAAAABAP" width="50%" height="200px">
+<img src="https://user-images.githubusercontent.com/45330563/114599059-e4a35600-9c92-11eb-9b9d-e92e53bccd1b.png" width="50%" height="200px">
 
 # Pegasus Medical System
  
