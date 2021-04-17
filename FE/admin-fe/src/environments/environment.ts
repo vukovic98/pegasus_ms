@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  ADMIN_APP: "http://localhost:8080/"
+  ADMIN_APP: "https://localhost:8080/"
 };
 
 /*

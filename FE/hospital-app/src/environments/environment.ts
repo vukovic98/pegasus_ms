@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  HOSPITAL_APP: "http://localhost:8081/",
-  ADMIN_APP: "http://localhost:8080/"
+  HOSPITAL_APP: "https://localhost:8081/",
+  ADMIN_APP: "https://localhost:8080/"
 };
 
 /*

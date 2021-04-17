@@ -42,6 +42,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ftn.uns.ac.rs.adminapp.beans.CertificateRequest;
 import com.ftn.uns.ac.rs.adminapp.beans.User;
 import com.ftn.uns.ac.rs.adminapp.dto.CertDetailsDTO;
+import com.ftn.uns.ac.rs.adminapp.dto.CertificateDistributionDetailsDTO;
 import com.ftn.uns.ac.rs.adminapp.dto.IssueCertificateDTO;
 import com.ftn.uns.ac.rs.adminapp.dto.X509DetailsDTO;
 import com.ftn.uns.ac.rs.adminapp.repository.UserRepository;
@@ -237,7 +238,9 @@ public class CertificateController {
 				this.reqService.remove(req);
 
 //				Writing certificate to .cer file
-				CertificateUtil.writeCertificateToFile(cert);
+				CertificateDistributionDetailsDTO dtoDis = CertificateUtil.writeCertificateToFile(cert);
+				
+				this.certService.distributeCertificate(dtoDis);
 
 				return new ResponseEntity<>(HttpStatus.OK);
 
@@ -249,6 +252,13 @@ public class CertificateController {
 		} else {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
+	}
+	
+	@GetMapping("/test")
+	public ResponseEntity<HttpStatus> test() {
+		CertificateDistributionDetailsDTO d = new CertificateDistributionDetailsDTO("src/main/resources/certificates/CERT_55.cer", new BigInteger("12"), null);
+		this.certService.distributeCertificate(d);
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@GetMapping("/getOne")

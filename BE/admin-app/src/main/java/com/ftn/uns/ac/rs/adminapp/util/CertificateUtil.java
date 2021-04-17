@@ -18,6 +18,8 @@ import java.util.Iterator;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 
+import com.ftn.uns.ac.rs.adminapp.dto.CertificateDistributionDetailsDTO;
+
 public class CertificateUtil {
 
 	public static X509Certificate getAdminsCertificate(String store, String pass) {
@@ -139,20 +141,20 @@ public class CertificateUtil {
 		return null;
 	}
 
-	public static boolean writeCertificateToFile(X509Certificate cert) {
+	public static CertificateDistributionDetailsDTO writeCertificateToFile(X509Certificate cert) {
 		try {
-			FileOutputStream os = new FileOutputStream(
-					"src/main/resources/certificates/CERT_" + cert.getSerialNumber() + ".cer");
+			String path = "src/main/resources/certificates/CERT_" + cert.getSerialNumber() + ".cer";
+			FileOutputStream os = new FileOutputStream(path);
 			os.write("-----BEGIN CERTIFICATE-----\n".getBytes("US-ASCII"));
 			os.write(Base64.encodeBase64(cert.getEncoded(), true));
 			os.write("-----END CERTIFICATE-----\n".getBytes("US-ASCII"));
 			os.close();
-
-			return true;
+		
+			return new CertificateDistributionDetailsDTO(path, cert.getSerialNumber(), null);
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
+			return null;
 		}
 	}
 

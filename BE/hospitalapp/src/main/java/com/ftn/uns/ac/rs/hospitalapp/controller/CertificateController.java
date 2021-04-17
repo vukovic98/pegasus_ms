@@ -3,6 +3,7 @@ package com.ftn.uns.ac.rs.hospitalapp.controller;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
@@ -11,7 +12,6 @@ import java.security.PublicKey;
 
 import javax.security.auth.x500.X500Principal;
 
-import org.bouncycastle.openssl.PKCS8Generator;
 import org.bouncycastle.openssl.jcajce.JcaPEMWriter;
 import org.bouncycastle.openssl.jcajce.JcaPKCS8Generator;
 import org.bouncycastle.operator.ContentSigner;
@@ -27,10 +27,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.User;
+import com.ftn.uns.ac.rs.hospitalapp.dto.CertificateDistributionDetailsDTO;
 import com.ftn.uns.ac.rs.hospitalapp.service.HospitalService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
 
@@ -43,6 +46,23 @@ public class CertificateController {
 	
 	@Autowired
 	private HospitalService hospitalService;
+	
+	@PostMapping(path = "/receive-certificate")
+	public ResponseEntity<HttpStatus> receiveCertificate(@RequestBody CertificateDistributionDetailsDTO dto) {
+		
+		String path = "src/main/resources/certificate/CERT_" + dto.getSerialNum() + ".cer";
+		File f = new File(path);
+		
+		try {
+			Files.write(f.toPath(), dto.getCert());
+			
+			return new ResponseEntity<>(HttpStatus.OK);
+		} catch (IOException e) {
+			e.printStackTrace();
+			
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
 
 	@GetMapping(path = "/request")
 	public ResponseEntity<byte[]> generateCertificate() throws IOException {
