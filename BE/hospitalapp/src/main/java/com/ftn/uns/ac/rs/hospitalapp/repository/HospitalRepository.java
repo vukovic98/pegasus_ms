@@ -12,4 +12,7 @@ public interface HospitalRepository extends JpaRepository<Hospital, Long> {
 
 	public Optional<Hospital> findById(long id);
 	
+	public Hospital findByName(String name);
+	
+	
 }

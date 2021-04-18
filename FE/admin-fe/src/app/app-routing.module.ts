@@ -7,6 +7,8 @@ import {AllCertificatesComponent} from './components/certificates/all-certificat
 import {RevokeCertificateComponent} from './components/certificates/revoke-certificate/revoke-certificate.component';
 import {CertificateComponent} from "./components/certificate/certificate.component";
 import {RoleGuard} from './guards/role.guard';
+import {AllUsersComponent} from './components/users/all-users/all-users.component';
+import {AddUserComponent} from './components/users/add-user/add-user.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -44,6 +46,18 @@ const routes: Routes = [
   {
     path: 'certificate',
     component: CertificateComponent,
+    canActivate:[RoleGuard],
+    data: {acceptRoles: 'ROLE_SUPER_ADMIN'}
+  },
+  {
+    path: 'users',
+    component: AllUsersComponent,
+    canActivate:[RoleGuard],
+    data: {acceptRoles: 'ROLE_SUPER_ADMIN'}
+  },
+  {
+    path: 'add-user',
+    component: AddUserComponent,
     canActivate:[RoleGuard],
     data: {acceptRoles: 'ROLE_SUPER_ADMIN'}
   }

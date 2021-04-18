@@ -21,6 +21,10 @@ import { ApproveRequestComponent } from './components/approve-request/approve-re
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
+import { AllUsersComponent } from './components/users/all-users/all-users.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { AddUserComponent } from './components/users/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,9 @@ import {MatIconModule} from '@angular/material/icon';
     RevokeCertificateComponent,
     CertificateComponent,
     SubjectsInfoComponent,
-    ApproveRequestComponent
+    ApproveRequestComponent,
+    AllUsersComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,9 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserAnimationsModule,
     MatButtonModule,
     MatDialogModule,
+    MatTabsModule,
     MatCheckboxModule,
+    MatPaginatorModule,
     MatRadioModule,
     MatIconModule
   ],

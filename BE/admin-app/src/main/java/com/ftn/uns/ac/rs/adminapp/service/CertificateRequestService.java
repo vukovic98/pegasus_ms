@@ -98,7 +98,7 @@ public class CertificateRequestService {
 		sb.append("We sent you this mail in order to keep our safety and integrity on the highest level possible.");
 		sb.append("Certificate request has arrived in our database, and we would like to ensure it is valid.<br>");
 		sb.append("With that in mind, if you sent that request for your hospital, please click link bellow.<br<br>");
-		sb.append("<h2>http://localhost:8080/certificate-request/verify-request?id=" + reqId + "</h2><br><br>");
+		sb.append("<h2>https://localhost:8080/certificate-request/verify-request?id=" + reqId + "</h2><br><br>");
 		sb.append("Sincerely,<br> Pegasus MS Team</code>");
 
 		return sb.toString();

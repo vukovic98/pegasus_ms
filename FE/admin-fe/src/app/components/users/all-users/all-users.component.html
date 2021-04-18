@@ -1,0 +1,83 @@
+<div class="wrapper d-flex align-items-stretch">
+  <div style="height: 100vh;">
+    <app-navigation-bar></app-navigation-bar>
+  </div>
+  <mat-tab-group animationDuration="2000ms" class="m-4 w-100">
+    <mat-tab label="Hospital administrators" class="w-100" style="position:relative;">
+      <div style="min-height: 629px; max-height: 629px;">
+        <table class="table table-hover text-center">
+          <thead>
+          <tr>
+            <th scope="col">User ID</th>
+            <th scope="col">Email</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Hospital</th>
+            <th scope="col">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor=" let a of admins" [ngClass]="{'table-danger': !a.enabled}">
+            <td>{{a.id}}</td>
+            <td>{{a.email}}</td>
+            <td>{{a.firstName}}</td>
+            <td>{{a.lastName}}</td>
+            <td>{{a.hospital}}</td>
+            <td>action</td>
+          </tr>
+          <tr *ngIf="admins.length == 0">
+            <td colspan="6" class="text-center">There are no administrators in database.</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mb-0" style="position: absolute; bottom: 0; right: 0;">
+        <mat-paginator
+          (page)="a_handlePageEvent($event)"
+          [length]="a_length"
+          [pageSize]="a_pageSize"
+          [showFirstLastButtons]="a_showFirstLastButtons"
+          [pageIndex]="a_pageIndex">
+        </mat-paginator>
+      </div>
+    </mat-tab>
+    <mat-tab label="Hospital doctors" class="w-100" style="position:relative;">
+      <div style="min-height: 629px; max-height: 629px;">
+        <table class="table table-hover text-center">
+          <thead>
+          <tr>
+            <th scope="col">User ID</th>
+            <th scope="col">Email</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Hospital</th>
+            <th scope="col">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor=" let a of doctors" [ngClass]="{'table-danger': !a.enabled}">
+            <td>{{a.id}}</td>
+            <td>{{a.email}}</td>
+            <td>{{a.firstName}}</td>
+            <td>{{a.lastName}}</td>
+            <td>{{a.hospital}}</td>
+            <td>action</td>
+          </tr>
+          <tr *ngIf="doctors.length == 0">
+            <td colspan="6" class="text-center">There are no doctors in database.</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mb-0" style="position: absolute; bottom: 0; right: 0;">
+        <mat-paginator
+          (page)="d_handlePageEvent($event)"
+          [length]="d_length"
+          [pageSize]="d_pageSize"
+          [showFirstLastButtons]="d_showFirstLastButtons"
+          [pageIndex]="d_pageIndex">
+        </mat-paginator>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

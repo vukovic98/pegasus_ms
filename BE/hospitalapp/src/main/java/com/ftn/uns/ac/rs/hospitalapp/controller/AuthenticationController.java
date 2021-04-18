@@ -115,7 +115,7 @@ public class AuthenticationController {
 			u.setEnabled(true);
 			this.userService.save(u);
 
-			String content = "You have successfully enabled your account. \nGo to the login page now! \n\n http://localhost:4200/login";
+			String content = "You have successfully enabled your account. \nGo to the login page now! \n\n https://localhost:4200/login";
 			HttpHeaders responseHeaders = new HttpHeaders();
 			responseHeaders.setContentType(MediaType.TEXT_HTML);
 

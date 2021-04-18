@@ -57,7 +57,7 @@ public class UserService {
 		sb.append("We are sorry for the inconvenience. We detected some suspicious activities from your account.");
 		sb.append("You tried to login with wrong password more than 5 times in the period of 5 minutes.<br>");
 		sb.append("If this was you, please click on the following link in order to enable your account.<br><br>");
-		sb.append("<h2>http://localhost:8080/auth/enable-account/" + mail + "</h2><br><br>");
+		sb.append("<h2>https://localhost:8080/auth/enable-account/" + mail + "</h2><br><br>");
 		sb.append("Sincerely,<br> Pegasus MS Team</code>");
 		
 		return sb.toString();

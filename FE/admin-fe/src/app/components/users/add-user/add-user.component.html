@@ -1,0 +1,78 @@
+<div class="wrapper d-flex align-items-stretch">
+  <div style="height: 100vh;">
+    <app-navigation-bar></app-navigation-bar>
+  </div>
+  <div class="w-50 m-auto p-5 shadow rounded">
+    <form [formGroup]="addUserForm" (ngSubmit)="addUser()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" name="email" formControlName="email" placeholder="Enter users email">
+        <div style="height: 20px;">
+          <div *ngIf="addUserForm.controls['email'].invalid && addUserForm.controls['email'].touched" class="ml-1 mt-0 mb-0">
+            <small *ngIf="addUserForm.controls['email'].errors?.required" class="text-danger">*This field is mandatory</small>
+            <small *ngIf="addUserForm.controls['email'].errors?.email" class="text-danger">*Email form is not valid</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" class="form-control" name="firstName" formControlName="firstName" placeholder="Enter users first name">
+          <div style="height: 20px;">
+            <div *ngIf="addUserForm.controls['firstName'].invalid && addUserForm.controls['firstName'].touched" class="ml-1 mt-0 mb-0">
+              <small *ngIf="addUserForm.controls['firstName'].errors?.required" class="text-danger">*This field is mandatory</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-group col">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" class="form-control" name="lastName" formControlName="lastName" placeholder="Enter users last name">
+          <div style="height: 20px;">
+            <div *ngIf="addUserForm.controls['lastName'].invalid && addUserForm.controls['lastName'].touched" class="ml-1 mt-0 mb-0">
+              <small *ngIf="addUserForm.controls['lastName'].errors?.required" class="text-danger">*This field is mandatory</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" name="password" formControlName="password" placeholder="Enter users password">
+        <div style="height: 20px;">
+          <div *ngIf="addUserForm.controls['password'].invalid && addUserForm.controls['password'].touched" class="ml-1 mt-0 mb-0">
+            <small *ngIf="addUserForm.controls['password'].errors?.required" class="text-danger">*This field is mandatory</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="role">Authority</label>
+        <select class="form-control" id="role" name="role" formControlName="role">
+          <option selected disabled>Select authority</option>
+          <option value="1">HOSPITAL ADMINISTRATOR</option>
+          <option value="2">HOSPITAL DOCTOR</option>
+        </select>
+        <div style="height: 20px;">
+          <div *ngIf="addUserForm.controls['role'].invalid && addUserForm.controls['role'].touched" class="ml-1 mt-0 mb-0">
+            <small *ngIf="addUserForm.controls['role'].errors?.required" class="text-danger">*This field is mandatory</small>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="hospital">Hospital</label>
+        <select class="form-control" id="hospital" name="hospital" formControlName="hospital">
+          <option selected disabled>Select hospital</option>
+          <option *ngFor="let h of hospitals" [value]="h.id">
+            {{h.name}}
+          </option>
+        </select>
+        <div style="height: 20px;">
+          <div *ngIf="addUserForm.controls['hospital'].invalid && addUserForm.controls['hospital'].touched" class="ml-1 mt-0 mb-0">
+            <small *ngIf="addUserForm.controls['hospital'].errors?.required" class="text-danger">*This field is mandatory</small>
+          </div>
+        </div>
+      </div>
+      <div class="text-right">
+        <button mat-raised-button color="primary" class="mt-2" [disabled]="!addUserForm.valid">Submit User</button>
+      </div>
+    </form>
+  </div>
+</div>
