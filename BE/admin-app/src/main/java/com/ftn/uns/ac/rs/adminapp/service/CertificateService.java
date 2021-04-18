@@ -198,7 +198,7 @@ public class CertificateService {
 					new HttpEntity<CertificateDistributionDetailsDTO>(dto);
 
 			ResponseEntity<HttpStatus> responseEntityStr = restTemplate
-					.postForEntity("http://localhost:8081/certificate/receive-certificate", request, HttpStatus.class);
+					.postForEntity("https://localhost:8081/certificate/receive-certificate", request, HttpStatus.class);
 
 		}
 

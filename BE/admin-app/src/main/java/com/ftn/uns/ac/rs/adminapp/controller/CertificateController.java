@@ -86,8 +86,16 @@ public class CertificateController {
 			X509DetailsDTO dto = new X509DetailsDTO();
 			dto.setSerialNum(x.getSerialNumber().toString());
 			dto.setIssuedDate(sdf.format(x.getNotBefore()));
-			dto.setIssuer(x.getIssuerX500Principal().getName().split(",")[7].split("=")[1]);
-			dto.setSubject(x.getSubjectDN().getName().split(",")[7].split("=")[1]);
+			try {
+				dto.setIssuer(x.getIssuerX500Principal().getName().split(",")[0].split("=")[1]);
+			} catch (Exception e) {
+				dto.setIssuer(x.getIssuerX500Principal().getName());
+			}
+			try {
+				dto.setSubject(x.getSubjectDN().getName().split(",")[0].split("=")[1]);
+			} catch (Exception e) {
+				dto.setSubject(x.getSubjectDN().getName());
+			}
 			RevokeEntry revoke = certService.isCertificateRevoked(x.getSerialNumber());
 			if (revoke.isRevoked()) {
 				dto.setValidToDate("REVOKED");
@@ -239,7 +247,7 @@ public class CertificateController {
 
 //				Writing certificate to .cer file
 				CertificateDistributionDetailsDTO dtoDis = CertificateUtil.writeCertificateToFile(cert);
-				
+
 				this.certService.distributeCertificate(dtoDis);
 
 				return new ResponseEntity<>(HttpStatus.OK);
@@ -253,10 +261,11 @@ public class CertificateController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
-	
+
 	@GetMapping("/test")
 	public ResponseEntity<HttpStatus> test() {
-		CertificateDistributionDetailsDTO d = new CertificateDistributionDetailsDTO("src/main/resources/certificates/CERT_55.cer", new BigInteger("12"), null);
+		CertificateDistributionDetailsDTO d = new CertificateDistributionDetailsDTO(
+				"src/main/resources/certificates/CERT_55.cer", new BigInteger("12"), null);
 		this.certService.distributeCertificate(d);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
@@ -284,13 +293,13 @@ public class CertificateController {
 					dto.setValidToDate(sdf.format(x.getNotAfter()));
 					dto.setRevoked(false);
 				}
-				dto.setIssuerCN(issuerList[7].split("=")[1]);
-				dto.setIssuerEmail(issuerList[1].split("=")[1]);
-				dto.setIssuerID(issuerList[0].split("=")[1]);
+				dto.setIssuerCN(issuerList[1].split("=")[1]);
+				dto.setIssuerEmail(issuerList[0].split("=")[1]);
+				dto.setIssuerID(issuerList[1].split("=")[1]);
 				dto.setIssuerOU(issuerList[3].split("=")[1]);
-				dto.setSubjectCN(subjectList[7].split("=")[1]);
-				dto.setSubjectID(subjectList[0].split("=")[1]);
-				dto.setSubjectEmail(subjectList[1].split("=")[1]);
+				dto.setSubjectCN(subjectList[1].split("=")[1]);
+				dto.setSubjectID(subjectList[1].split("=")[1]);
+				dto.setSubjectEmail(subjectList[0].split("=")[1]);
 				dto.setSubjectOU(subjectList[3].split("=")[1]);
 				break;
 			}
