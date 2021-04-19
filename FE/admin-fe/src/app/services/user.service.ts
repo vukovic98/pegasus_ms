@@ -14,6 +14,7 @@ export class UserService {
   private readonly allDoctors: string = "doctor/by-page/";
   private readonly changeRole: string = "users/change-authority";
   private readonly addUserEnd: string = "users";
+  private readonly deleteUserEnd: string = "users/delete"
 
   constructor(private http: HttpClient, private route: Router) { }
 
@@ -22,6 +23,13 @@ export class UserService {
       'Content-Type': 'application/json'
     });
     return this.http.get<Array<UserDetails>>(environment.HOSPITAL_APP + this.allAdmins + page, {headers:headers});
+  }
+
+  deleteUser(id: number): Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(environment.HOSPITAL_APP + this.deleteUserEnd, id, {headers:headers});
   }
 
   getAllDoctors(page: number): Observable<any>{

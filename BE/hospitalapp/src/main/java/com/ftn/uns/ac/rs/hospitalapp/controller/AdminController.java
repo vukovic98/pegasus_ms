@@ -32,7 +32,7 @@ public class AdminController {
 	@GetMapping(path = "/by-page/{pageNum}")
 	public ResponseEntity<Page<UserDetailsDTO>> findAll(@PathVariable int pageNum) {
 
-		Pageable pageRequest = PageRequest.of(pageNum, 10);
+		Pageable pageRequest = PageRequest.of(pageNum, 8);
 
 		Page<Admin> page = this.adminService.findAll(pageRequest);
 

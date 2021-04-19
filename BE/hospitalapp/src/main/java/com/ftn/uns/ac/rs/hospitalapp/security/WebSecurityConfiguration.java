@@ -92,6 +92,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 				// za svaki drugi zahtev korisnik mora biti autentifikovan
 				.anyRequest().authenticated().and()
+				.x509().and()
 				// za development svrhe ukljuci konfiguraciju za CORS iz WebConfig klase
 				.cors().and()
 
@@ -111,7 +112,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		web.ignoring().antMatchers(HttpMethod.POST, "/auth/login",
 				"/certificate/receive-certificate",
 				"/users/change-authority",
-				"/users");
+				"/users",
+				"/users/delete");
 		web.ignoring().antMatchers(HttpMethod.GET, "/admin/by-page/**", 
 				"/doctor/by-page/**",
 				"/hospital");

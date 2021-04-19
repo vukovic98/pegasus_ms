@@ -1,6 +1,9 @@
 package com.ftn.uns.ac.rs.hospitalapp.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,6 +49,40 @@ public class UserController {
 	@Autowired
 	private DoctorService doctorService;
 
+	@PostMapping(path = "/delete")
+	public ResponseEntity<HttpStatus> deleteUser(@RequestBody long id) {
+		if (id >= 0) {
+			User u = this.userService.findById(id);
+
+			if (u != null) {
+
+				if (u instanceof Admin) {
+					ArrayList<Admin> admins = this.adminService.findAdminsForHospital(u.getHospital().getId());
+
+					if (admins.size() <= 1)
+						return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
+				}
+
+				u.setAuthorities(null);
+
+				this.userService.save(u);
+
+				boolean ok = this.userService.deleteUserById(id);
+
+				if (ok)
+					return new ResponseEntity<>(HttpStatus.OK);
+				else {
+					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+				}
+
+			} else {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+		} else {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+
 	@PostMapping()
 	public ResponseEntity<HttpStatus> addUser(@RequestBody AddUserDTO dto) {
 		User u = this.userService.findByEmail(dto.getEmail());
@@ -55,7 +92,7 @@ public class UserController {
 				if (dto.getRole() == 1) {
 //					ADMIN
 
-					Admin a = new Admin(); 
+					Admin a = new Admin();
 
 					a.setEmail(dto.getEmail());
 					a.setEnabled(true);
@@ -65,11 +102,12 @@ public class UserController {
 					BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
 					a.setPassword(enc.encode(dto.getPassword()));
 
-					Hospital h = this.hospitalService.findByName(dto.getHospital());
+					Hospital h = this.hospitalService.findById(Long.parseLong(dto.getHospital()));
 
 					if (h != null)
 						a.setHospital(h);
 					else {
+						System.out.println("nema bolnice");
 						return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 					}
 
@@ -80,9 +118,10 @@ public class UserController {
 					if (ok != null)
 						return new ResponseEntity<>(HttpStatus.OK);
 					else {
+						System.out.println("ne savuca");
 						return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 					}
-					
+
 				} else {
 //					DOCTOR
 
@@ -121,37 +160,65 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
 
+	@Transactional
 	@PostMapping(path = "/change-authority")
 	public ResponseEntity<HttpStatus> changeRole(@RequestBody long id) {
-		//TODO MOVE FROM ONE TABLE TO ANOTHER
+
 		User u = this.userService.findById(id);
 
 		if (u != null) {
+			
+			if(u instanceof Admin) {
+				ArrayList<Admin> admins = this.adminService.findAdminsForHospital(u.getHospital().getId());
+
+				if (admins.size() <= 1)
+					return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
+			}
 
 			u.setAuthorities(null);
 			this.userService.save(u);
 
-			if (u instanceof Admin) {
-				List<Authority> a = this.authService.findByName("ROLE_DOCTOR");
+			boolean ok = this.userService.deleteUserById(u.getId());
 
-				u.setAuthorities(a);
+			if (ok) {
+				if (u instanceof Admin) {
 
-				this.userService.save(u);
+					List<Authority> a = this.authService.findByName("ROLE_DOCTOR");
 
-				return new ResponseEntity<>(HttpStatus.OK);
+					Doctor d = new Doctor();
+
+					d.setAuthorities(a);
+					d.setEmail(u.getEmail());
+					d.setEnabled(u.isEnabled());
+					d.setFirstName(u.getFirstName());
+					d.setHospital(u.getHospital());
+					d.setLastName(u.getLastName());
+					d.setPassword(u.getPassword());
+
+					this.doctorService.save(d);
+
+					return new ResponseEntity<>(HttpStatus.OK);
+				} else {
+					List<Authority> a = this.authService.findByName("ROLE_ADMIN");
+
+					Admin d = new Admin();
+
+					d.setAuthorities(a);
+					d.setEmail(u.getEmail());
+					d.setEnabled(u.isEnabled());
+					d.setFirstName(u.getFirstName());
+					d.setHospital(u.getHospital());
+					d.setLastName(u.getLastName());
+					d.setPassword(u.getPassword());
+
+					this.adminService.save(d);
+
+					return new ResponseEntity<>(HttpStatus.OK);
+				}
 			} else {
-				List<Authority> a = this.authService.findByName("ROLE_ADMIN");
-
-				u.setAuthorities(a);
-
-				this.userService.save(u);
-
-				return new ResponseEntity<>(HttpStatus.OK);
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
-
 		} else {
-			System.out.println("ima ");
-
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}

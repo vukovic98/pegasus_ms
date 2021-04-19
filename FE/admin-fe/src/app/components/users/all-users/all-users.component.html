@@ -13,7 +13,8 @@
             <th scope="col">First name</th>
             <th scope="col">Last name</th>
             <th scope="col">Hospital</th>
-            <th scope="col">Actions</th>
+            <th scope="col">Change authority</th>
+            <th scope="col">Remove user</th>
           </tr>
           </thead>
           <tbody>
@@ -23,7 +24,16 @@
             <td>{{a.firstName}}</td>
             <td>{{a.lastName}}</td>
             <td>{{a.hospital}}</td>
-            <td>action</td>
+            <td>
+              <button (click)="changeAuthority(a.id)" mat-mini-fab color="primary" aria-label="Change role" title="Change Role">
+                <mat-icon>loop</mat-icon>
+              </button>
+            </td>
+            <td>
+              <button (click)="deleteUser(a.id)" mat-mini-fab color="warn" aria-label="Change role" title="Change Role">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
           </tr>
           <tr *ngIf="admins.length == 0">
             <td colspan="6" class="text-center">There are no administrators in database.</td>
@@ -51,7 +61,8 @@
             <th scope="col">First name</th>
             <th scope="col">Last name</th>
             <th scope="col">Hospital</th>
-            <th scope="col">Actions</th>
+            <th scope="col">Change authority</th>
+            <th scope="col">Remove user</th>
           </tr>
           </thead>
           <tbody>
@@ -61,7 +72,16 @@
             <td>{{a.firstName}}</td>
             <td>{{a.lastName}}</td>
             <td>{{a.hospital}}</td>
-            <td>action</td>
+            <td>
+              <button (click)="changeAuthority(a.id)" mat-mini-fab color="primary" aria-label="Change role" title="Change Role">
+                <mat-icon>loop</mat-icon>
+              </button>
+            </td>
+            <td>
+              <button (click)="deleteUser(a.id)" mat-mini-fab color="warn" aria-label="Change role" title="Change Role">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
           </tr>
           <tr *ngIf="doctors.length == 0">
             <td colspan="6" class="text-center">There are no doctors in database.</td>

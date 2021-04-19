@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserDetails} from '../../../models/user.model';
 import {PageEvent} from '@angular/material/paginator';
 import {UserService} from '../../../services/user.service';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-all-users',
@@ -14,7 +15,7 @@ export class AllUsersComponent implements OnInit {
   public doctors: Array<UserDetails> =  [];
 
   a_length = 0;
-  a_pageSize = 10;
+  a_pageSize = 8;
   a_pageIndex = 0;
   a_showFirstLastButtons = true;
 
@@ -28,6 +29,10 @@ export class AllUsersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData(): void {
     this.userService.getAllAdmins(this.a_pageIndex).subscribe((response) => {
       this.admins = response.content;
       this.a_length = response.totalElements;
@@ -42,9 +47,7 @@ export class AllUsersComponent implements OnInit {
   a_handlePageEvent(event: PageEvent) {
     this.a_length = event.length;
     this.a_pageIndex = event.pageIndex;
-    this.userService.changeAuthority(3).subscribe((response) => {
-      console.log(response);
-    })
+
     this.userService.getAllAdmins(this.a_pageIndex).subscribe((response) => {
       this.admins = response.content;
       this.a_length = response.totalElements;
@@ -61,4 +64,58 @@ export class AllUsersComponent implements OnInit {
     })
   }
 
+  changeAuthority(id: number) {
+    this.userService.changeAuthority(id).subscribe((response) => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Users authority successfully changed!'
+      })
+
+      this.loadData();
+    }, error => {
+      if (error.status === 412) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Not Allowed',
+          text: 'This user was the only administrator in his hospital. Please add more administrators and then change users authority.',
+          confirmButtonColor: '#DC143C'
+        })
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Something went wrong! Please try again later',
+          confirmButtonColor: '#DC143C'
+        })
+      }
+    })
+  }
+
+  deleteUser(id: number) {
+    this.userService.deleteUser(id).subscribe((response) => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'Users authority successfully changed!'
+      })
+      this.loadData();
+    }, error => {
+      if (error.status === 412) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Not Allowed',
+          text: 'This user was the only administrator in his hospital. Please add more administrators and then delete user.',
+          confirmButtonColor: '#DC143C'
+        })
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Something went wrong! Please try again later',
+          confirmButtonColor: '#DC143C'
+        })
+      }
+    })
+  }
 }

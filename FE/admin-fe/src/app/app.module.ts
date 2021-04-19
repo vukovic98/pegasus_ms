@@ -25,6 +25,7 @@ import { AllUsersComponent } from './components/users/all-users/all-users.compon
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { AddUserComponent } from './components/users/add-user/add-user.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AddUserComponent } from './components/users/add-user/add-user.component
     SubjectsInfoComponent,
     ApproveRequestComponent,
     AllUsersComponent,
-    AddUserComponent
+    AddUserComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

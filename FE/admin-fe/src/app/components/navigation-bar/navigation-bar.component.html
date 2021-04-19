@@ -22,17 +22,14 @@
         </li>
 
         <li>
-          <mat-icon class="float-left mt-2">person</mat-icon>
+          <mat-icon class="float-left mt-2">supervised_user_circle</mat-icon>
           <a><span class="fa fa-home mr-3"></span>Users</a>
         </li>
         <li>
-          <a routerLink="/users"><span class="fa fa-user mr-5"></span> All users</a>
+          <a routerLink="/users"><span class="fa fa-user mr-5"></span> Manage users</a>
         </li>
         <li>
           <a routerLink="/add-user"><span class="fa fa-briefcase mr-5"></span> Add user</a>
-        </li>
-        <li>
-          <a routerLink="/revoke-certificate"><span class="fa fa-sticky-note mr-5"></span> Remove user</a>
         </li>
 
         <li>
@@ -41,6 +38,11 @@
         </li>
         <li>
           <a routerLink="/pending-certificates"><span class="fa fa-user mr-5"></span> Sources</a>
+        </li>
+
+        <li>
+          <mat-icon class="float-left mt-2">person</mat-icon>
+          <a routerLink="/profile"><span class="fa fa-home mr-3"></span>Profile</a>
         </li>
 
         <li class="mt-5" (click)="logout()" style="cursor: pointer;">
