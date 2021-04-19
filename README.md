@@ -9,13 +9,19 @@
 * Dušan Madžarević SW9/2017
 
 ### Starting the app
+    Both apps are HTTPS secured!
+    
 #### SpringBoot Apps
     Open apps in one of the environments (Eclipse, IntelliJ or Spring Tool Suite) and run applications
+    Admin app is runing on port 8080
+    Hospital app is running on port 8081
 
 #### Angular Apps
     Open apps in one environments (WebStorm, Visual Code ..) and run them with command -> ng serve
+    Admin app is running on port 4200
+    Hospital app is running on port 4201
 
-#### Injecting the data
+### Injecting the data
     
     
 ### Licence
