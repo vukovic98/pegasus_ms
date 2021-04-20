@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -42,7 +43,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
             if (username != null) {
                 // uzmi user-a na osnovu username-a
                 UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-
+                
                 // proveri da li je prosledjeni token validan
                 if (tokenUtils.validateToken(authToken, userDetails)) {
                     // kreiraj autentifikaciju

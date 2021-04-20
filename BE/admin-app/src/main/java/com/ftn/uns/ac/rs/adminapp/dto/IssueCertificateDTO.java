@@ -1,7 +1,5 @@
 package com.ftn.uns.ac.rs.adminapp.dto;
 
-import java.util.ArrayList;
-
 public class IssueCertificateDTO {
 
 	private long id;

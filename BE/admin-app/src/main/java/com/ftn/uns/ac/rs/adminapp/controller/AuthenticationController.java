@@ -9,6 +9,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -48,6 +49,13 @@ public class AuthenticationController {
 
 	@Autowired
 	private LoginAttemptService loginAttemptService;
+	
+	@PostMapping(path = "/test")
+	public ResponseEntity<HttpStatus> test(@RequestBody String mess) {
+		System.out.println(mess);
+		
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 
 	// Prvi endpoint koji pogadja korisnik kada se loguje.
 	// Tada zna samo svoje korisnicko ime i lozinku i to prosledjuje na backend.

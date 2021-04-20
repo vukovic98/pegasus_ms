@@ -21,6 +21,15 @@ export class HospitalService {
     private auth: AuthService
   ) { }
 
+  test(): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + this.auth.getToken()
+    });
+
+    return this.http.get(environment.HOSPITAL_APP + "auth/test", { headers: headers });
+  }
+
   isVerified(id: number): Observable<any> {
 
     const headers = new HttpHeaders({

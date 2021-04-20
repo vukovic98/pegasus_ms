@@ -39,7 +39,7 @@ public class CertificateRequestController {
 	private Environment env;
 
 	@GetMapping()
-	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
+	@PreAuthorize("hasAuthority('PRIVILEGE_READ_CSR')")
 	public ResponseEntity<ArrayList<CertificateRequestDTO>> getAll() {
 		ArrayList<CertificateRequestDTO> dtos = this.certificateReqService.findAll();
 		return new ResponseEntity<>(dtos, HttpStatus.OK);
@@ -47,7 +47,7 @@ public class CertificateRequestController {
 	}
 
 	@PostMapping(path = "/denyRequest")
-	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
+	@PreAuthorize("hasAuthority('PRIVILEGE_DENY_CSR')")
 	public ResponseEntity<HttpStatus> denyRequest(@RequestBody long id) {
 		CertificateRequest c = this.certificateReqService.findOneById(id);
 

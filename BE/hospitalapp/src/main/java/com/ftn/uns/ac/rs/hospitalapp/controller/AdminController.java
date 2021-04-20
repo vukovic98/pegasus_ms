@@ -18,6 +18,8 @@ import com.ftn.uns.ac.rs.hospitalapp.beans.Admin;
 import com.ftn.uns.ac.rs.hospitalapp.dto.UserDetailsDTO;
 import com.ftn.uns.ac.rs.hospitalapp.service.AdminService;
 import com.ftn.uns.ac.rs.hospitalapp.util.AdminDetailsMapper;
+import com.ftn.uns.ac.rs.hospitalapp.util.PageImplMapper;
+import com.ftn.uns.ac.rs.hospitalapp.util.PageImplementation;
 
 @RestController
 @RequestMapping(path = "/admin")
@@ -30,7 +32,7 @@ public class AdminController {
 	private AdminDetailsMapper userMapper;
 
 	@GetMapping(path = "/by-page/{pageNum}")
-	public ResponseEntity<Page<UserDetailsDTO>> findAll(@PathVariable int pageNum) {
+	public ResponseEntity<PageImplementation<UserDetailsDTO>> findAll(@PathVariable int pageNum) {
 
 		Pageable pageRequest = PageRequest.of(pageNum, 8);
 
@@ -39,6 +41,9 @@ public class AdminController {
 		List<UserDetailsDTO> adminsDTOS = this.userMapper.listToDTO(page.toList());
 		Page<UserDetailsDTO> pageOffersDTOS = new PageImpl<>(adminsDTOS, page.getPageable(), page.getTotalElements());
 
-		return new ResponseEntity<>(pageOffersDTOS, HttpStatus.OK);
+		PageImplMapper<UserDetailsDTO> pageMapper = new PageImplMapper<>();
+		PageImplementation<UserDetailsDTO> pageImpl = pageMapper.toPageImpl(pageOffersDTOS);
+		
+		return new ResponseEntity<>(pageImpl, HttpStatus.OK);
 	}
 }

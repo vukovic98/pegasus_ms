@@ -20,36 +20,41 @@ export class UserService {
 
   getAllAdmins(page: number): Observable<any>{
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
     });
-    return this.http.get<Array<UserDetails>>(environment.HOSPITAL_APP + this.allAdmins + page, {headers:headers});
+    return this.http.get<Array<UserDetails>>(environment.ADMIN_APP + this.allAdmins + page, {headers:headers});
   }
 
   deleteUser(id: number): Observable<any>{
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
     });
-    return this.http.post(environment.HOSPITAL_APP + this.deleteUserEnd, id, {headers:headers});
+    return this.http.post(environment.ADMIN_APP + this.deleteUserEnd, id, {headers:headers});
   }
 
   getAllDoctors(page: number): Observable<any>{
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
     });
-    return this.http.get<Array<UserDetails>>(environment.HOSPITAL_APP + this.allDoctors + page, {headers:headers});
+    return this.http.get<Array<UserDetails>>(environment.ADMIN_APP + this.allDoctors + page, {headers:headers});
   }
 
   changeAuthority(id: number): Observable<any>{
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
     });
-    return this.http.post(environment.HOSPITAL_APP+ this.changeRole, id, {headers:headers});
+    return this.http.post(environment.ADMIN_APP+ this.changeRole, id, {headers:headers});
   }
 
   addUser(data: AddUserData): Observable<any>{
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
     });
-    return this.http.post(environment.HOSPITAL_APP+ this.addUserEnd, data, {headers:headers});
+    return this.http.post(environment.ADMIN_APP+ this.addUserEnd, data, {headers:headers});
   }
 }

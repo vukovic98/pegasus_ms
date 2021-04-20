@@ -76,4 +76,8 @@ export class AuthService {
   getToken(): string{
     return <string> localStorage.getItem("accessToken");
   }
+
+  logout(): void {
+    localStorage.removeItem("accessToken");
+  }
 }

@@ -76,7 +76,7 @@ public class CertificateController {
 	public SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 	@GetMapping()
-	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
+	@PreAuthorize("hasAuthority('PRIVILEGE_READ_CERTIFICATES')")
 	public ResponseEntity<ArrayList<X509DetailsDTO>> findAll() throws ClassNotFoundException, IOException {
 		ArrayList<X509DetailsDTO> listDto = new ArrayList<>();
 		ArrayList<X509Certificate> certs = this.certService.findAllCertificates();
@@ -111,7 +111,7 @@ public class CertificateController {
 	}
 
 	@PostMapping("/generateCRL")
-	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
+	@PreAuthorize("hasAuthority('PRIVILEGE_GENERATE_CRL')")
 	public ResponseEntity<String> generateCRL() throws CertificateException, CRLException, NoSuchAlgorithmException,
 			UnrecoverableEntryException, KeyStoreException, OperatorCreationException, IOException {
 
@@ -126,7 +126,7 @@ public class CertificateController {
 	}
 
 	@PostMapping("/revokeCertificate")
-	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
+	@PreAuthorize("hasAuthority('PRIVILEGE_REVOKE_CERTIFICATE')")
 	public ResponseEntity<String> revokeCertificate(@RequestParam("serialNumber") long serialNumber,
 			@RequestParam("revokeReason") int revokeReason)
 			throws CertificateException, CRLException, NoSuchAlgorithmException, UnrecoverableEntryException,
@@ -143,7 +143,7 @@ public class CertificateController {
 	}
 
 	@GetMapping("/checkRevoked")
-	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
+	@PreAuthorize("hasAuthority('PRIVILEGE_READ_CERTIFICATES')")
 	public ResponseEntity<String> checkCertificateRevoked(@RequestParam("serialNumber") BigInteger serialNumber)
 			throws ClassNotFoundException, IOException {
 
@@ -154,14 +154,14 @@ public class CertificateController {
 	}
 
 	@GetMapping("/readCRL")
-	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
+	@PreAuthorize("hasAuthority('PRIVILEGE_READ_CRL')")
 	public ResponseEntity<String> readCRL() throws ClassNotFoundException, IOException {
 		certService.readCRL();
 		return ResponseEntity.ok().body("Success");
 	}
 
 	@PostMapping(path = "/generateCertificate")
-	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
+	@PreAuthorize("hasAuthority('PRIVILEGE_GENERATE_CERTIFICATE')")
 	public ResponseEntity<X509Certificate> generateCertificate(@RequestBody IssueCertificateDTO dto) {
 		CertificateRequest req = this.reqService.findOneById(dto.getId());
 
@@ -271,7 +271,7 @@ public class CertificateController {
 	}
 
 	@GetMapping("/getOne")
-	@PreAuthorize("hasRole('ROLE_SUPER_ADMIN')")
+	@PreAuthorize("hasAuthority('PRIVILEGE_READ_CERTIFICATES')")
 	public ResponseEntity<CertDetailsDTO> findOne(@RequestParam("serialNumber") BigInteger serialNumber)
 			throws ClassNotFoundException, IOException {
 

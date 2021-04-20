@@ -1,7 +1,5 @@
 package com.ftn.uns.ac.rs.adminapp.dto;
 
-import java.security.cert.X509Certificate;
-
 public class X509DetailsDTO {
 
 	private String serialNum;

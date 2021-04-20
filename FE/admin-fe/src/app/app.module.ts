@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthService} from './services/auth.service';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
@@ -26,6 +26,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { AddUserComponent } from './components/users/add-user/add-user.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import {AuthInterceptorService} from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     MatIconModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })
