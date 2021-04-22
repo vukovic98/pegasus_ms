@@ -3,6 +3,7 @@ package com.ftn.uns.ac.rs.hospitalapp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -17,9 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ftn.uns.ac.rs.hospitalapp.beans.Admin;
 import com.ftn.uns.ac.rs.hospitalapp.dto.UserDetailsDTO;
 import com.ftn.uns.ac.rs.hospitalapp.service.AdminService;
+import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.util.AdminDetailsMapper;
+import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
+import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
 import com.ftn.uns.ac.rs.hospitalapp.util.PageImplMapper;
 import com.ftn.uns.ac.rs.hospitalapp.util.PageImplementation;
+import com.google.gson.Gson;
 
 @RestController
 @RequestMapping(path = "/admin")
@@ -30,10 +35,18 @@ public class AdminController {
 	
 	@Autowired
 	private AdminDetailsMapper userMapper;
+	
+	@Autowired
+	private Environment env;
+	
+	@Autowired
+	private CertificateService certService;
 
 	@GetMapping(path = "/by-page/{pageNum}")
-	public ResponseEntity<PageImplementation<UserDetailsDTO>> findAll(@PathVariable int pageNum) {
+	public ResponseEntity<FinalMessage> findAll(@PathVariable int pageNum) {
 
+		Gson gson = new Gson();
+		
 		Pageable pageRequest = PageRequest.of(pageNum, 8);
 
 		Page<Admin> page = this.adminService.findAll(pageRequest);
@@ -44,6 +57,13 @@ public class AdminController {
 		PageImplMapper<UserDetailsDTO> pageMapper = new PageImplMapper<>();
 		PageImplementation<UserDetailsDTO> pageImpl = pageMapper.toPageImpl(pageOffersDTOS);
 		
-		return new ResponseEntity<>(pageImpl, HttpStatus.OK);
+		String data = gson.toJson(pageImpl);
+		
+		byte[] compressed_data = EncryptionUtil.compress(data);
+		
+		FinalMessage finalMess = EncryptionUtil.encrypt(certService.getBobsPublicKey(), 
+				certService.getMyPrivateKey(), compressed_data, this.env.getProperty("cipherKey"));
+		
+		return new ResponseEntity<>(finalMess, HttpStatus.OK);
 	}
 }

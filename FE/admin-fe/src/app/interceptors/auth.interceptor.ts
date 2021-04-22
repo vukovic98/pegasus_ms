@@ -24,9 +24,9 @@ export class AuthInterceptorService implements HttpInterceptor {
 
       Swal.fire({
         icon: 'error',
-        title: 'Your session has expired. Please login again.',
+        title: 'Your token has expired. Please login again.',
         showConfirmButton: false,
-        timer: 2000
+        timer: 3000
       })
 
       return of(err.message);

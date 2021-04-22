@@ -1,8 +1,9 @@
 package com.ftn.uns.ac.rs.hospitalapp.util;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class PageImplementation<T> {
+public class PageImplementation<T> implements Serializable {
 	private List<T> content;
 	private long totalElements;
 	private boolean last;

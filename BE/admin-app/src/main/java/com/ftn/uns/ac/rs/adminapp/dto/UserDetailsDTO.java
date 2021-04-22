@@ -1,6 +1,8 @@
 package com.ftn.uns.ac.rs.adminapp.dto;
 
-public class UserDetailsDTO {
+import java.io.Serializable;
+
+public class UserDetailsDTO implements Serializable {
 
 	private long id;
 	private String email;

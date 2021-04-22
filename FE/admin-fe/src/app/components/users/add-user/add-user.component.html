@@ -36,10 +36,13 @@
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" class="form-control" name="password" formControlName="password" placeholder="Enter users password">
+        <input type="password" id="password" (change)="testPassword($event)" class="form-control" name="password" formControlName="password" placeholder="Enter users password">
         <div style="height: 20px;">
           <div *ngIf="addUserForm.controls['password'].invalid && addUserForm.controls['password'].touched" class="ml-1 mt-0 mb-0">
             <small *ngIf="addUserForm.controls['password'].errors?.required" class="text-danger">*This field is mandatory</small>
+          </div>
+          <div *ngIf="!validPassword && !(addUserForm.controls['password'].invalid && addUserForm.controls['password'].touched)" class="ml-1 mt-0 mb-0">
+            <small *ngIf="!validPassword" class="text-danger">*Password is too weak! It must contain at least 8 characters, 1 Capital letter, 1 Number and 1 Special character</small>
           </div>
         </div>
       </div>

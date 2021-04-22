@@ -12,6 +12,8 @@ import java.math.BigInteger;
 import java.nio.file.Files;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.security.UnrecoverableEntryException;
 import java.security.cert.CRLException;
 import java.security.cert.CertificateException;
@@ -30,9 +32,7 @@ import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -52,6 +52,14 @@ public class CertificateService {
 
 	public ArrayList<X509Certificate> findAllCertificates() {
 		return this.certRepository.findAllCertificates();
+	}
+	
+	public PublicKey getBobsPublicKey() {
+		return this.certRepository.getBobsPublicKey();
+	}
+	
+	public PrivateKey getMyPrivateKey() {
+		return this.certRepository.getMyPrivateKey();
 	}
 
 	public void generateCRL(User user) throws CertificateException, CRLException, IOException, NoSuchAlgorithmException,
