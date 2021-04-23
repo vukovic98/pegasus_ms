@@ -31,6 +31,7 @@ import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,11 +42,17 @@ import com.ftn.uns.ac.rs.adminapp.beans.User;
 import com.ftn.uns.ac.rs.adminapp.dto.CertificateDistributionDetailsDTO;
 import com.ftn.uns.ac.rs.adminapp.dto.IssuerData;
 import com.ftn.uns.ac.rs.adminapp.repository.CertificateRepository;
+import com.ftn.uns.ac.rs.adminapp.util.EncryptionUtil;
+import com.ftn.uns.ac.rs.adminapp.util.FinalMessage;
 import com.ftn.uns.ac.rs.adminapp.util.RevokeEntry;
 import com.ftn.uns.ac.rs.adminapp.util.keystores.KeyStoreReader;
+import com.google.gson.Gson;
 
 @Service
 public class CertificateService {
+
+	@Autowired
+	private Environment env;
 
 	@Autowired
 	private CertificateRepository certRepository;
@@ -53,11 +60,11 @@ public class CertificateService {
 	public ArrayList<X509Certificate> findAllCertificates() {
 		return this.certRepository.findAllCertificates();
 	}
-	
+
 	public PublicKey getBobsPublicKey() {
 		return this.certRepository.getBobsPublicKey();
 	}
-	
+
 	public PrivateKey getMyPrivateKey() {
 		return this.certRepository.getMyPrivateKey();
 	}
@@ -175,6 +182,10 @@ public class CertificateService {
 					if (entryHolder.getSerialNumber().equals(certificateSN)) {
 						ASN1Enumerated reasonCode = (ASN1Enumerated) ASN1Enumerated
 								.getInstance(entryHolder.getExtension(Extension.reasonCode).getParsedValue());
+						
+						fstream.close();
+						ois.close();
+						
 						return new RevokeEntry(true, reasonCode.getValue().intValue());
 					}
 				}
@@ -197,13 +208,20 @@ public class CertificateService {
 		}
 
 		if (file != null) {
+			Gson gson = new Gson();
 			dto.setCert(file);
 			dto.setPath("");
 
 			RestTemplate restTemplate = new RestTemplate();
 
-			HttpEntity<CertificateDistributionDetailsDTO> request = 
-					new HttpEntity<CertificateDistributionDetailsDTO>(dto);
+			String data = gson.toJson(dto);
+
+			byte[] compressed_data = EncryptionUtil.compress(data);
+
+			FinalMessage finalMess = EncryptionUtil.encrypt(this.certRepository.getBobsPublicKey(),
+					this.certRepository.getMyPrivateKey(), compressed_data, this.env.getProperty("cipherKey"));
+
+			HttpEntity<FinalMessage> request = new HttpEntity<FinalMessage>(finalMess);
 
 			ResponseEntity<HttpStatus> responseEntityStr = restTemplate
 					.postForEntity("https://localhost:8081/certificate/receive-certificate", request, HttpStatus.class);

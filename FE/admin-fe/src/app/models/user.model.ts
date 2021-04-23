@@ -13,6 +13,11 @@ export interface AddUserData {
   role: number;
 }
 
+export interface ChangePasswordModel {
+  oldPassword: string;
+  newPassword: string;
+}
+
 export interface UserDetails {
   id: number;
   email: string;

@@ -5,11 +5,11 @@ import java.util.Date;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -30,6 +30,7 @@ import com.ftn.uns.ac.rs.adminapp.security.TokenUtils;
 import com.ftn.uns.ac.rs.adminapp.service.CustomUserDetailsService;
 import com.ftn.uns.ac.rs.adminapp.service.LoginAttemptService;
 import com.ftn.uns.ac.rs.adminapp.service.UserService;
+import com.ftn.uns.ac.rs.adminapp.util.CipherEncrypt;
 
 @RestController
 @RequestMapping(path = "/auth", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -49,11 +50,14 @@ public class AuthenticationController {
 
 	@Autowired
 	private LoginAttemptService loginAttemptService;
-	
+
+	@Autowired
+	private Environment env;
+
 	@PostMapping(path = "/test")
 	public ResponseEntity<HttpStatus> test(@RequestBody String mess) {
 		System.out.println(mess);
-		
+
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
@@ -92,7 +96,7 @@ public class AuthenticationController {
 						.save(new LoginAttempt(null, authenticationRequest.getEmail(), LoginStatus.FAIL, new Date()));
 
 				boolean notOK = this.loginAttemptService.isUserForBlock(authenticationRequest.getEmail());
-				
+
 				if (notOK) {
 					if (u.isEnabled()) {
 						u.setEnabled(false);
@@ -117,7 +121,10 @@ public class AuthenticationController {
 
 	@GetMapping(path = "/enable-account/{mail}")
 	public ResponseEntity<String> enableAccount(@PathVariable("mail") String mail) {
-		User u = this.userService.findByEmail(mail);
+
+		String email = CipherEncrypt.decrypt(mail, env.getProperty("cipherKey"));
+
+		User u = this.userService.findByEmail(email);
 
 		if (u != null) {
 			u.setEnabled(true);

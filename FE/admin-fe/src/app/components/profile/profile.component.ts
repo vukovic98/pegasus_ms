@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
-import {UserDetails} from '../../models/user.model';
+import {ChangePasswordModel, UserDetails} from '../../models/user.model';
 import {TokenModel} from '../../models/auth.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../../services/user.service';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-profile',
@@ -29,7 +31,8 @@ export class ProfileComponent implements OnInit {
   });
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -53,8 +56,37 @@ export class ProfileComponent implements OnInit {
     if(newP != newRep) {
       this.notSame = true;
     } else {
-      // TODO service logic
       this.notSame = false;
+
+      const data: ChangePasswordModel = {
+        oldPassword: old,
+        newPassword: newP
+      }
+
+      this.userService.changePassword(data).subscribe((response) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Your password is successfully changed!'
+        })
+        this.changePasswordForm.reset();
+      }, error => {
+        if (error.status === 412) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'The old password doesn\'t match with password in our database. Please check your password and try again.',
+            confirmButtonColor: '#DC143C'
+          })
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Something went wrong! Please try again later',
+            confirmButtonColor: '#DC143C'
+          })
+        }
+      })
     }
   }
 }

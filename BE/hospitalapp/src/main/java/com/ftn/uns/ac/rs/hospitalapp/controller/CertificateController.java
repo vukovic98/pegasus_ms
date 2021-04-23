@@ -35,8 +35,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.User;
 import com.ftn.uns.ac.rs.hospitalapp.dto.CertificateDistributionDetailsDTO;
+import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.service.HospitalService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
+import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
+import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
+import com.google.gson.Gson;
 
 @RestController
 @RequestMapping(path = "/certificate")
@@ -44,23 +48,35 @@ public class CertificateController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private HospitalService hospitalService;
-	
+
+	@Autowired
+	private CertificateService certService;
+
 	@PostMapping(path = "/receive-certificate")
-	public ResponseEntity<HttpStatus> receiveCertificate(@RequestBody CertificateDistributionDetailsDTO dto) {
-		
+	public ResponseEntity<HttpStatus> receiveCertificate(@RequestBody FinalMessage finalMess) {
+
+		Gson gson = new Gson();
+
+		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getBobsPublicKey(),
+				certService.getMyPrivateKey());
+
+		String data = EncryptionUtil.decompress(compressedData);
+
+		CertificateDistributionDetailsDTO dto = gson.fromJson(data, CertificateDistributionDetailsDTO.class);
+
 		String path = "src/main/resources/certificate/CERT_" + dto.getSerialNum() + ".cer";
 		File f = new File(path);
-		
+
 		try {
 			Files.write(f.toPath(), dto.getCert());
-			
+
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (IOException e) {
 			e.printStackTrace();
-			
+
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
@@ -72,10 +88,10 @@ public class CertificateController {
 		String email = auth.getName();
 
 		User u = this.userService.findByEmail(email);
-		
+
 		boolean ok = this.hospitalService.setRequested(u.getHospital().getId());
-		
-		if(!ok)
+
+		if (!ok)
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
 		KeyPairGenerator gen = null;
@@ -91,8 +107,8 @@ public class CertificateController {
 
 		String data = new String();
 
-		data = "UID=" + u.getId() + ",C=RS, ST=Serbia, L=Serbia, O=Pegasus MS, OU=" + u.getHospital().getName() + ", CN=" + u.getFirstName() + " " + u.getLastName()
-				+ ", EMAILADDRESS=" + email + "";
+		data = "UID=" + u.getId() + ",C=RS, ST=Serbia, L=Serbia, O=Pegasus MS, OU=" + u.getHospital().getName()
+				+ ", CN=" + u.getFirstName() + " " + u.getLastName() + ", EMAILADDRESS=" + email + "";
 		X500Principal subject = new X500Principal(data);
 
 		ContentSigner signGen = null;
@@ -108,12 +124,11 @@ public class CertificateController {
 		JcaPKCS8Generator generator = new JcaPKCS8Generator(privateKey, encryptor);
 
 		FileWriter fw = new FileWriter(new File("pk.pem"));
-		
+
 		JcaPEMWriter writer = new JcaPEMWriter(fw);
 		writer.writeObject(generator);
 		writer.close();
-		
-		
+
 		try {
 			return new ResponseEntity<byte[]>(csr.getEncoded(), HttpStatus.OK);
 		} catch (IOException e) {

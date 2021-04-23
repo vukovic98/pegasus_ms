@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 
 import com.ftn.uns.ac.rs.adminapp.beans.CertificateRequest;
 import com.ftn.uns.ac.rs.adminapp.dto.CertificateRequestDTO;
-import com.ftn.uns.ac.rs.adminapp.dto.RequestDTO;
 import com.ftn.uns.ac.rs.adminapp.repository.CertificateRequestRepository;
 import com.ftn.uns.ac.rs.adminapp.util.CipherEncrypt;
 

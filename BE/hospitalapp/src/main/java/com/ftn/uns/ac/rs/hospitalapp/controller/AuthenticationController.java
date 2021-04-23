@@ -5,11 +5,11 @@ import java.util.Date;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -30,6 +30,7 @@ import com.ftn.uns.ac.rs.hospitalapp.security.TokenUtils;
 import com.ftn.uns.ac.rs.hospitalapp.service.CustomUserDetailsService;
 import com.ftn.uns.ac.rs.hospitalapp.service.LoginAttemptService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
+import com.ftn.uns.ac.rs.hospitalapp.util.CipherEncrypt;
 
 @RestController
 @RequestMapping(path = "/auth", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -46,9 +47,12 @@ public class AuthenticationController {
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
-	
+
 	@Autowired
 	private LoginAttemptService loginAttemptService;
+
+	@Autowired
+	private Environment env;
 
 	// Prvi endpoint koji pogadja korisnik kada se loguje.
 	// Tada zna samo svoje korisnicko ime i lozinku i to prosledjuje na backend.
@@ -110,7 +114,10 @@ public class AuthenticationController {
 
 	@GetMapping(path = "/enable-account/{mail}")
 	public ResponseEntity<String> enableAccount(@PathVariable("mail") String mail) {
-		User u = this.userService.findByEmail(mail);
+
+		String email = CipherEncrypt.decrypt(mail, env.getProperty("cipherKey"));
+
+		User u = this.userService.findByEmail(email);
 
 		if (u != null) {
 			u.setEnabled(true);
@@ -124,5 +131,5 @@ public class AuthenticationController {
 		} else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
-	
+
 }

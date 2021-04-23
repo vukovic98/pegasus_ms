@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
-import {AddUserData, UserDetails} from '../models/user.model';
+import {AddUserData, ChangePasswordModel, UserDetails} from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,8 @@ export class UserService {
   private readonly allDoctors: string = "doctor/by-page/";
   private readonly changeRole: string = "users/change-authority";
   private readonly addUserEnd: string = "users";
-  private readonly deleteUserEnd: string = "users/delete"
+  private readonly deleteUserEnd: string = "users/delete";
+  private readonly changePasswordEnd: string = "users/change-password";
 
   constructor(private http: HttpClient, private route: Router) { }
 
@@ -24,6 +25,14 @@ export class UserService {
       'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
     });
     return this.http.get<Array<UserDetails>>(environment.ADMIN_APP + this.allAdmins + page, {headers:headers});
+  }
+
+  changePassword(pass: ChangePasswordModel): Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+    });
+    return this.http.post(environment.ADMIN_APP + this.changePasswordEnd, pass, {headers:headers});
   }
 
   deleteUser(id: number): Observable<any>{

@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import com.ftn.uns.ac.rs.adminapp.beans.User;
 import com.ftn.uns.ac.rs.adminapp.dto.LoginDTO;
 import com.ftn.uns.ac.rs.adminapp.repository.UserRepository;
+import com.ftn.uns.ac.rs.adminapp.util.CipherEncrypt;
 
 @Service
 public class UserService {
@@ -24,6 +26,9 @@ public class UserService {
 
 	@Autowired
 	private JavaMailSender javaMailSender;
+	
+	@Autowired
+	private Environment env;
 
 	public User login(LoginDTO dto) {
 		String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
@@ -52,12 +57,14 @@ public class UserService {
 	public String createMailBody(String mail) {
 
 		StringBuffer sb = new StringBuffer();
+		
+		String cipherMail = CipherEncrypt.encrypt(mail, env.getProperty("cipherKey"));
 
 		sb.append("<code>Hello, <br><br>");
 		sb.append("We are sorry for the inconvenience. We detected some suspicious activities from your account.");
 		sb.append("You tried to login with wrong password more than 5 times in the period of 5 minutes.<br>");
 		sb.append("If this was you, please click on the following link in order to enable your account.<br><br>");
-		sb.append("<h2>https://localhost:8080/auth/enable-account/" + mail + "</h2><br><br>");
+		sb.append("<h2>https://localhost:8080/auth/enable-account/" + cipherMail + "</h2><br><br>");
 		sb.append("Sincerely,<br> Pegasus MS Team</code>");
 		
 		return sb.toString();
