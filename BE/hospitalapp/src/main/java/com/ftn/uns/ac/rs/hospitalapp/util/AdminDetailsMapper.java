@@ -17,7 +17,7 @@ public class AdminDetailsMapper {
 		dto.setEmail(u.getEmail());
 		dto.setEnabled(u.isEnabled());
 		dto.setFirstName(u.getFirstName());
-		dto.setHospital(u.getHospital().getName());
+		dto.setHospital(u.getHospital());
 		dto.setId(u.getId());
 		dto.setLastName(u.getLastName());
 		

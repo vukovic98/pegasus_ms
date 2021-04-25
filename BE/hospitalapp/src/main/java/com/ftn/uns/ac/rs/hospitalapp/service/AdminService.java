@@ -1,6 +1,7 @@
 package com.ftn.uns.ac.rs.hospitalapp.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,6 +19,10 @@ public class AdminService {
 	
 	public Page<Admin> findAll(Pageable pageable) {
 		return (Page<Admin>) this.adminRepository.findAll(pageable);
+	}
+	
+	public List<Admin> findAll() {
+		return this.adminRepository.findAll();
 	}
 	
 	public ArrayList<Admin> findAdminsForHospital(long id) {

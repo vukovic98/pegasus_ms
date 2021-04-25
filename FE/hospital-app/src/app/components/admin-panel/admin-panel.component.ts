@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {HospitalService} from '../../services/hospital.service';
-import {log} from 'util';
 import {AuthService} from '../../services/auth.service';
 
 @Component({
@@ -10,19 +8,13 @@ import {AuthService} from '../../services/auth.service';
 })
 export class AdminPanelComponent implements OnInit {
 
-  public certified: boolean;
+  public certified: boolean = true;
 
   constructor(
-    private hospitalService: HospitalService,
     private authService: AuthService
   ) { }
 
   ngOnInit(): void {
-    this.hospitalService.isVerified(Number(this.authService.getHospitalId())).subscribe((response) => {
-      this.certified = Boolean(response);
-      }, error => {
-      console.log(error);
-    })
   }
 
 }

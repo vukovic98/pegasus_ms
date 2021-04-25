@@ -3,7 +3,6 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AddUserData} from '../../../models/user.model';
 import {UserService} from '../../../services/user.service';
 import Swal from "sweetalert2";
-import {HospitalService} from '../../../services/hospital.service';
 
 @Component({
   selector: 'app-add-user',
@@ -18,23 +17,19 @@ export class AddUserComponent implements OnInit {
     lastName: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
     role: new FormControl('', Validators.required),
-    hospital: new FormControl('', Validators.required)
+    hospital: new FormControl( {value: 'GSM Hospital', disabled: true}, Validators.required)
   });
 
-  public hospitals: Array<any> = [];
+  public hospital: string = "GSM Hospital";
   private mostCommonPasswords = ['L58jkdjP!', 'P@ssw0rd', '!QAZ2wsx', '1qaz!QAZ', '1qaz@WSX', 'ZAQ!2wsx',
     '!QAZxsw2', 'xxPa33bq.aDNA', '!QAZ1qaz', 'g00dPa$$w0rD', 'Jhon@ta2011', '1qazZAQ!'];
   public validPassword: boolean = true;
 
   constructor(
-    private userService: UserService,
-    private hospitalService: HospitalService
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
-    this.hospitalService.getAllHospitals().subscribe((response) => {
-      this.hospitals = response;
-    })
   }
 
   addUser() {

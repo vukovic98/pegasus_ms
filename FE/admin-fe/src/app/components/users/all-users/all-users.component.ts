@@ -59,8 +59,8 @@ export class AllUsersComponent implements OnInit {
     this.d_pageIndex = event.pageIndex;
 
     this.userService.getAllDoctors(this.d_pageIndex).subscribe((response) => {
-      this.doctors = response;
-      this.d_length = this.doctors.length;
+      this.doctors = response.content;
+      this.d_length = response.totalElements;
     })
   }
 

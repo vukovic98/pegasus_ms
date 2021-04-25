@@ -6,8 +6,6 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +15,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -51,9 +48,8 @@ public class User implements UserDetails {
 	@Column(name = "password", nullable = false)
 	private String password;
 
-	@ManyToOne
-	@JoinColumn(name = "hospital_id", nullable = false)
-	private Hospital hospital;
+	@Column(name = "hospital", nullable = false)
+	private String hospital;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "user_authority", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"), inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
@@ -90,11 +86,11 @@ public class User implements UserDetails {
 		this.firstName = firstName;
 	}
 
-	public Hospital getHospital() {
+	public String getHospital() {
 		return hospital;
 	}
 
-	public void setHospital(Hospital hospital) {
+	public void setHospital(String hospital) {
 		this.hospital = hospital;
 	}
 

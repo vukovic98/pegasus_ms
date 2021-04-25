@@ -37,6 +37,7 @@ export class AllCertificatesComponent implements OnInit {
     this.certService.getAll().subscribe(
       (certs: any) => {
         this.certificates = certs;
+        console.log(this.certificates)
       }
     )
 

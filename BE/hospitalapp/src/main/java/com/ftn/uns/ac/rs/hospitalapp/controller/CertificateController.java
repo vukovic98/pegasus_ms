@@ -36,7 +36,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ftn.uns.ac.rs.hospitalapp.beans.User;
 import com.ftn.uns.ac.rs.hospitalapp.dto.CertificateDistributionDetailsDTO;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
-import com.ftn.uns.ac.rs.hospitalapp.service.HospitalService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
@@ -48,9 +47,6 @@ public class CertificateController {
 
 	@Autowired
 	private UserService userService;
-
-	@Autowired
-	private HospitalService hospitalService;
 
 	@Autowired
 	private CertificateService certService;
@@ -89,11 +85,6 @@ public class CertificateController {
 
 		User u = this.userService.findByEmail(email);
 
-		boolean ok = this.hospitalService.setRequested(u.getHospital().getId());
-
-		if (!ok)
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
 		KeyPairGenerator gen = null;
 		try {
 			gen = KeyPairGenerator.getInstance("RSA");
@@ -107,7 +98,7 @@ public class CertificateController {
 
 		String data = new String();
 
-		data = "UID=" + u.getId() + ",C=RS, ST=Serbia, L=Serbia, O=Pegasus MS, OU=" + u.getHospital().getName()
+		data = "UID=" + u.getId() + ",C=RS, ST=Serbia, L=Serbia, O=Pegasus MS, OU=" + u.getHospital()
 				+ ", CN=" + u.getFirstName() + " " + u.getLastName() + ", EMAILADDRESS=" + email + "";
 		X500Principal subject = new X500Principal(data);
 

@@ -61,12 +61,7 @@
       </div>
       <div class="form-group">
         <label for="hospital">Hospital</label>
-        <select class="form-control" id="hospital" name="hospital" formControlName="hospital">
-          <option selected disabled>Select hospital</option>
-          <option *ngFor="let h of hospitals" [value]="h.id">
-            {{h.name}}
-          </option>
-        </select>
+        <input type="text" id="hospital" class="form-control" name="hospital" formControlName="hospital" disabled>
         <div style="height: 20px;">
           <div *ngIf="addUserForm.controls['hospital'].invalid && addUserForm.controls['hospital'].touched" class="ml-1 mt-0 mb-0">
             <small *ngIf="addUserForm.controls['hospital'].errors?.required" class="text-danger">*This field is mandatory</small>

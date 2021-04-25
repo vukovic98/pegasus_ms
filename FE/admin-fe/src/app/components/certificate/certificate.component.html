@@ -1,5 +1,5 @@
 <mat-dialog-content>
- <h3 [ngStyle]="{'color': data.revoked ? 'red' : 'black'}">Detials for Certificate '{{data.serialNum}}' </h3>
+ <h5 [ngStyle]="{'color': data.revoked ? 'red' : 'black'}">Detials for Certificate '{{data.serialNum}}' </h5>
   <hr/>
   <table class="table table-hover">
     <thead>
@@ -20,8 +20,8 @@
       <td>Valid until</td>
       <td>{{data.validToDate}}</td>
     </tr>
-    <tr>
-      <td *ngIf="data.revoked">Revoking reason</td>
+    <tr *ngIf="data.revoked">
+      <td>Revoking reason</td>
       <td>{{data.revokedReason}}</td>
     </tr>
     </tbody>

@@ -17,13 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ftn.uns.ac.rs.hospitalapp.beans.Admin;
 import com.ftn.uns.ac.rs.hospitalapp.beans.Authority;
 import com.ftn.uns.ac.rs.hospitalapp.beans.Doctor;
-import com.ftn.uns.ac.rs.hospitalapp.beans.Hospital;
 import com.ftn.uns.ac.rs.hospitalapp.beans.User;
 import com.ftn.uns.ac.rs.hospitalapp.dto.AddUserDTO;
 import com.ftn.uns.ac.rs.hospitalapp.service.AdminService;
 import com.ftn.uns.ac.rs.hospitalapp.service.AuthorityService;
 import com.ftn.uns.ac.rs.hospitalapp.service.DoctorService;
-import com.ftn.uns.ac.rs.hospitalapp.service.HospitalService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
 import com.ftn.uns.ac.rs.hospitalapp.util.UserCheck;
 
@@ -41,9 +39,6 @@ public class UserController {
 	private UserCheck userCheck;
 
 	@Autowired
-	private HospitalService hospitalService;
-
-	@Autowired
 	private AdminService adminService;
 
 	@Autowired
@@ -57,7 +52,7 @@ public class UserController {
 			if (u != null) {
 
 				if (u instanceof Admin) {
-					ArrayList<Admin> admins = this.adminService.findAdminsForHospital(u.getHospital().getId());
+					ArrayList<Admin> admins = (ArrayList<Admin>) this.adminService.findAll();
 
 					if (admins.size() <= 1)
 						return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
@@ -102,14 +97,7 @@ public class UserController {
 					BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
 					a.setPassword(enc.encode(dto.getPassword()));
 
-					Hospital h = this.hospitalService.findById(Long.parseLong(dto.getHospital()));
-
-					if (h != null)
-						a.setHospital(h);
-					else {
-						System.out.println("nema bolnice");
-						return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-					}
+					a.setHospital(dto.getHospital());
 
 					a.setAuthorities(this.authService.findByName("ROLE_ADMIN"));
 
@@ -135,13 +123,7 @@ public class UserController {
 					BCryptPasswordEncoder enc = new BCryptPasswordEncoder();
 					a.setPassword(enc.encode(dto.getPassword()));
 
-					Hospital h = this.hospitalService.findById(Long.parseLong(dto.getHospital()));
-
-					if (h != null)
-						a.setHospital(h);
-					else {
-						return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-					}
+					a.setHospital(dto.getHospital());
 
 					a.setAuthorities(this.authService.findByName("ROLE_DOCTOR"));
 
@@ -169,7 +151,7 @@ public class UserController {
 		if (u != null) {
 			
 			if(u instanceof Admin) {
-				ArrayList<Admin> admins = this.adminService.findAdminsForHospital(u.getHospital().getId());
+				ArrayList<Admin> admins = (ArrayList<Admin>) this.adminService.findAll();
 
 				if (admins.size() <= 1)
 					return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
