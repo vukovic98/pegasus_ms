@@ -9,7 +9,7 @@
 * Dušan Madžarević SW9/2017
 
 ### Starting the app
-    Both apps are HTTPS secured!
+    Both of the apps are HTTPS secured! 
     
 #### SpringBoot Apps
     Open apps in one of the environments (Eclipse, IntelliJ or Spring Tool Suite) and run applications
