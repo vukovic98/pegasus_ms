@@ -1,19 +1,36 @@
 package com.ftn.uns.ac.rs.adminapp.dto;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class AddUserDTO {
 
+	@NotBlank
+	@Email
 	private String email;
+
+	@NotBlank
 	private String password;
+
+	@NotBlank
 	private String firstName;
+
+	@NotBlank
 	private String lastName;
+
+	@NotNull
 	private int role;
+
+	@NotBlank
 	private String hospital;
 
 	public AddUserDTO() {
 		super();
 	}
 
-	public AddUserDTO(String email, String password, String firstName, String lastName, int role, String hospital) {
+	public AddUserDTO(@NotBlank @Email String email, @NotBlank String password, @NotBlank String firstName,
+			@NotBlank String lastName, @NotNull int role, @NotBlank String hospital) {
 		super();
 		this.email = email;
 		this.password = password;

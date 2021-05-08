@@ -1,5 +1,7 @@
 package com.ftn.uns.ac.rs.adminapp.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -29,7 +31,7 @@ public class UserManagementController {
 
 	@PostMapping(path = "/change-password")
 	@PreAuthorize("hasAuthority('PRIVILEGE_CHANGE_PASSWORD')")
-	public ResponseEntity<HttpStatus> changePassword(@RequestBody ChangePasswordDTO dto) {
+	public ResponseEntity<HttpStatus> changePassword(@RequestBody @Valid ChangePasswordDTO dto) {
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username = userDetails.getUsername();
 
@@ -73,7 +75,7 @@ public class UserManagementController {
 
 	@PostMapping()
 	@PreAuthorize("hasAuthority('PRIVILEGE_MANAGE_USERS')")
-	public ResponseEntity<HttpStatus> addUser(@RequestBody AddUserDTO dto) {
+	public ResponseEntity<HttpStatus> addUser(@RequestBody @Valid AddUserDTO dto) {
 		RestTemplate restTemplate = new RestTemplate();
 
 		HttpEntity<AddUserDTO> request = new HttpEntity<AddUserDTO>(dto);
