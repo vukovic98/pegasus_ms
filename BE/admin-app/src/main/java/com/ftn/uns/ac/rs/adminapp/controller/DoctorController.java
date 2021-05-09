@@ -17,8 +17,8 @@ import com.ftn.uns.ac.rs.adminapp.service.CertificateService;
 import com.ftn.uns.ac.rs.adminapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.adminapp.util.FinalMessage;
 import com.ftn.uns.ac.rs.adminapp.util.PageImplementation;
-import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 @RestController
 @RequestMapping(path = "/doctor")
@@ -27,11 +27,14 @@ public class DoctorController {
 	@Autowired
 	private CertificateService certService;
 
+	@Autowired
+	private RestTemplate restTemplate;
+	
 	@GetMapping(path = "/by-page/{pageNum}")
 	@PreAuthorize("hasAuthority('PRIVILEGE_READ_USERS')")
 	public ResponseEntity<PageImplementation<UserDetailsDTO>> findAll(@PathVariable int pageNum) {
 		Gson gson = new Gson();
-		RestTemplate restTemplate = new RestTemplate();
+		
 		
 		ResponseEntity<FinalMessage> responseEntity = 
 				restTemplate.exchange("https://localhost:8081/doctor/by-page/" + pageNum, HttpMethod.GET, null,

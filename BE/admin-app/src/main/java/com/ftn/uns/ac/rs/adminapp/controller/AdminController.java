@@ -26,14 +26,15 @@ public class AdminController {
 	
 	@Autowired
 	private CertificateService certService;
+	
+	@Autowired
+	private RestTemplate restTemplate;
 
 	@GetMapping(path = "/by-page/{pageNum}")
 	@PreAuthorize("hasAuthority('PRIVILEGE_READ_USERS')")
 	public ResponseEntity<PageImplementation<UserDetailsDTO>> findAll(@PathVariable int pageNum) {
 		
 		Gson gson = new Gson();
-		
-		RestTemplate restTemplate = new RestTemplate();
 		
 		ResponseEntity<FinalMessage> responseEntity = 
 				restTemplate.exchange("https://localhost:8081/admin/by-page/" + pageNum, HttpMethod.GET, null,

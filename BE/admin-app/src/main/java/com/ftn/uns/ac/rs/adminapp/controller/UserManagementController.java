@@ -28,6 +28,9 @@ public class UserManagementController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private RestTemplate restTemplate;
 
 	@PostMapping(path = "/change-password")
 	@PreAuthorize("hasAuthority('PRIVILEGE_CHANGE_PASSWORD')")
@@ -57,7 +60,6 @@ public class UserManagementController {
 	@PostMapping(path = "/delete")
 	@PreAuthorize("hasAuthority('PRIVILEGE_MANAGE_USERS')")
 	public ResponseEntity<HttpStatus> deleteUser(@RequestBody long id) {
-		RestTemplate restTemplate = new RestTemplate();
 
 		HttpEntity<Long> request = new HttpEntity<Long>(id);
 		ResponseEntity<HttpStatus> responseEntityStr = null;
@@ -76,7 +78,6 @@ public class UserManagementController {
 	@PostMapping()
 	@PreAuthorize("hasAuthority('PRIVILEGE_MANAGE_USERS')")
 	public ResponseEntity<HttpStatus> addUser(@RequestBody @Valid AddUserDTO dto) {
-		RestTemplate restTemplate = new RestTemplate();
 
 		HttpEntity<AddUserDTO> request = new HttpEntity<AddUserDTO>(dto);
 		ResponseEntity<HttpStatus> responseEntityStr = null;
@@ -93,7 +94,6 @@ public class UserManagementController {
 	@PostMapping(path = "/change-authority")
 	@PreAuthorize("hasAuthority('PRIVILEGE_MANAGE_USERS')")
 	public ResponseEntity<HttpStatus> changeRole(@RequestBody long id) {
-		RestTemplate restTemplate = new RestTemplate();
 
 		HttpEntity<Long> request = new HttpEntity<Long>(Long.valueOf(id));
 		ResponseEntity<HttpStatus> responseEntityStr = null;

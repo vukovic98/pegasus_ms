@@ -1,25 +1,11 @@
 package com.ftn.uns.ac.rs.hospitalapp.util;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import java.security.UnrecoverableEntryException;
-import java.security.cert.Certificate;
-import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.Enumeration;
-
-import org.apache.tomcat.util.codec.binary.Base64;
-
-import com.ftn.uns.ac.rs.hospitalapp.dto.CertificateDistributionDetailsDTO;
 
 public class CertificateUtil {
 

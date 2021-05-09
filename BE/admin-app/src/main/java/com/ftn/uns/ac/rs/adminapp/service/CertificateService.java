@@ -56,6 +56,9 @@ public class CertificateService {
 
 	@Autowired
 	private CertificateRepository certRepository;
+	
+	@Autowired
+	private RestTemplate restTemplate;
 
 	public ArrayList<X509Certificate> findAllCertificates() {
 		return this.certRepository.findAllCertificates();
@@ -211,8 +214,6 @@ public class CertificateService {
 			Gson gson = new Gson();
 			dto.setCert(file);
 			dto.setPath("");
-
-			RestTemplate restTemplate = new RestTemplate();
 
 			String data = gson.toJson(dto);
 

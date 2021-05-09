@@ -1,7 +1,9 @@
 package com.ftn.uns.ac.rs.hospitalapp.controller;
 
+import java.security.cert.X509Certificate;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
@@ -54,6 +56,16 @@ public class AuthenticationController {
 
 	@Autowired
 	private Environment env;
+	
+	@PostMapping(path = "/test")
+	public ResponseEntity<HttpStatus> test(@RequestBody String mess, HttpServletRequest req) {
+		System.out.println(mess);
+		
+//		X509Certificate[] certs = (X509Certificate[])req.getAttribute("javax.servlet.request.X509Certificate");
+
+//		System.out.println(certs.length);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
 
 	// Prvi endpoint koji pogadja korisnik kada se loguje.
 	// Tada zna samo svoje korisnicko ime i lozinku i to prosledjuje na backend.
@@ -63,7 +75,7 @@ public class AuthenticationController {
 
 		try {
 			boolean verified = true;
-
+			System.out.println("dodje");
 			Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
 					authenticationRequest.getEmail(), authenticationRequest.getPassword()));
 
