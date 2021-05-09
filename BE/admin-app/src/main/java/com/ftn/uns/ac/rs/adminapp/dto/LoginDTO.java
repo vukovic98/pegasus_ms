@@ -1,15 +1,22 @@
 package com.ftn.uns.ac.rs.adminapp.dto;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 public class LoginDTO {
 
+	@NotBlank
+	@Email
 	private String email;
+	
+	@NotBlank
 	private String password;
 
 	public LoginDTO() {
 		super();
 	}
 
-	public LoginDTO(String email, String password) {
+	public LoginDTO(@NotBlank @Email String email, @NotBlank String password) {
 		super();
 		this.email = email;
 		this.password = password;
@@ -30,5 +37,7 @@ public class LoginDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+
 
 }

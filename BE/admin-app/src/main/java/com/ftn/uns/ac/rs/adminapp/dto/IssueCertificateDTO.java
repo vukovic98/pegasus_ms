@@ -1,18 +1,24 @@
 package com.ftn.uns.ac.rs.adminapp.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class IssueCertificateDTO {
 
+	@NotNull
 	private long id;
+
+	@NotBlank
 	private String template;
 
 	public IssueCertificateDTO() {
 		super();
 	}
 
-	public IssueCertificateDTO(long id, String extensions) {
+	public IssueCertificateDTO(@NotNull long id, @NotBlank String template) {
 		super();
 		this.id = id;
-		this.template = extensions;
+		this.template = template;
 	}
 
 	public long getId() {

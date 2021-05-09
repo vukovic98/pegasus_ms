@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -78,8 +79,9 @@ public class UserController {
 		}
 	}
 
+
 	@PostMapping()
-	public ResponseEntity<HttpStatus> addUser(@RequestBody AddUserDTO dto) {
+	public ResponseEntity<HttpStatus> addUser(@Valid @RequestBody AddUserDTO dto) {
 		User u = this.userService.findByEmail(dto.getEmail());
 
 		if (u == null) {

@@ -3,6 +3,7 @@ package com.ftn.uns.ac.rs.hospitalapp.controller;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -57,7 +58,7 @@ public class AuthenticationController {
 	// Prvi endpoint koji pogadja korisnik kada se loguje.
 	// Tada zna samo svoje korisnicko ime i lozinku i to prosledjuje na backend.
 	@PostMapping("/log-in")
-	public ResponseEntity<UserTokenStateDTO> createAuthenticationToken(@RequestBody LoginDTO authenticationRequest,
+	public ResponseEntity<UserTokenStateDTO> createAuthenticationToken(@Valid @RequestBody LoginDTO authenticationRequest,
 			HttpServletResponse response) {
 
 		try {

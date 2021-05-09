@@ -1,15 +1,20 @@
 package com.ftn.uns.ac.rs.adminapp.dto;
 
+import javax.validation.constraints.NotBlank;
+
 public class ChangePasswordDTO {
 
+	@NotBlank
 	private String oldPassword;
+
+	@NotBlank
 	private String newPassword;
 
 	public ChangePasswordDTO() {
 		super();
 	}
 
-	public ChangePasswordDTO(String oldPassword, String newPassword) {
+	public ChangePasswordDTO(@NotBlank String oldPassword, @NotBlank String newPassword) {
 		super();
 		this.oldPassword = oldPassword;
 		this.newPassword = newPassword;
