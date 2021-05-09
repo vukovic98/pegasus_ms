@@ -20,7 +20,7 @@ export class AllUsersComponent implements OnInit {
   a_showFirstLastButtons = true;
 
   d_length = 0;
-  d_pageSize = 10;
+  d_pageSize = 8;
   d_pageIndex = 0;
   d_showFirstLastButtons = true;
 

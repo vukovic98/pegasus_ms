@@ -28,6 +28,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User implements UserDetails {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6865681107151283007L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name = "user_id")

@@ -17,6 +17,7 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
 import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 public class EncryptionUtil {
@@ -25,7 +26,7 @@ public class EncryptionUtil {
 		try {
 			byte[] symetric_key = decrypt(message.getEncrypted_sym_key(), bob_private);
 
-			byte[] hcm_bytes = decrypt(message.getHash_and_compress(), new String(symetric_key));
+			byte[] hcm_bytes = decrypt(message.getHash_and_compress(), new String(symetric_key), message.getIvSpec());
 
 			ByteArrayInputStream bais = new ByteArrayInputStream(hcm_bytes);
 			GZIPInputStream gzipIn = new GZIPInputStream(bais);
@@ -73,16 +74,20 @@ public class EncryptionUtil {
 		}
 	}
 
-	public static byte[] decrypt(byte[] data, String myKey) {
+	public static byte[] decrypt(byte[] data, String myKey, byte[] ivSpec) {
 		try {
+			
+			IvParameterSpec params = new IvParameterSpec(ivSpec);
+			
 			MessageDigest sha = null;
 			byte[] key = myKey.getBytes("UTF-8");
 			sha = MessageDigest.getInstance("SHA-1");
 			key = sha.digest(key);
 			key = Arrays.copyOf(key, 16);
 			SecretKeySpec secretKey = new SecretKeySpec(key, "AES");
-			Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
-			cipher.init(Cipher.DECRYPT_MODE, secretKey);
+			Cipher cipher = Cipher.getInstance("AES/CTR/PKCS5PADDING");
+			cipher.init(Cipher.DECRYPT_MODE, secretKey, params);
+			
 			return cipher.doFinal(data);
 		} catch (Exception e) {
 			System.out.println("Error while decrypting: " + e.toString());
@@ -158,13 +163,17 @@ public class EncryptionUtil {
 
 			byte[] hcm_bytes = baos2.toByteArray();
 
-			byte[] hcm_symetric_message = cipherEncrypt(hcm_bytes, symetric_key);
+			FinalMessage intermediate = cipherEncrypt(hcm_bytes, symetric_key);
+			
+			byte[] hcm_symetric_message = intermediate.getEncrypted_sym_key();
 
 			byte[] encrypted_sym_key = encrypt(symetric_key.getBytes(), his_public);
 
 			FinalMessage f = new FinalMessage();
 			f.setEncrypted_sym_key(encrypted_sym_key);
 			f.setHash_and_compress(hcm_symetric_message);
+			
+			f.setIvSpec(intermediate.getIvSpec());
 
 			return f;
 		} catch (Exception e) {
@@ -205,17 +214,30 @@ public class EncryptionUtil {
 		}
 	}
 
-	public static byte[] cipherEncrypt(byte[] data, String myKey) {
+	public static FinalMessage cipherEncrypt(byte[] data, String myKey) {
 		try {
+			
+			SecureRandom srandom = new SecureRandom();
+			
+			byte[] iv = new byte[128/8];
+			srandom.nextBytes(iv);
+			IvParameterSpec ivspec = new IvParameterSpec(iv);	
+			
 			MessageDigest sha = null;
 			byte[] key = myKey.getBytes("UTF-8");
 			sha = MessageDigest.getInstance("SHA-1");
 			key = sha.digest(key);
 			key = Arrays.copyOf(key, 16);
 			SecretKeySpec secretKey = new SecretKeySpec(key, "AES");
-			Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-			cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-			return cipher.doFinal(data);
+			Cipher cipher = Cipher.getInstance("AES/CTR/PKCS5Padding");
+			cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivspec);
+			
+			FinalMessage fm = new FinalMessage();
+			
+			fm.setEncrypted_sym_key(cipher.doFinal(data));
+			fm.setIvSpec(ivspec.getIV());
+			
+			return fm;
 		} catch (Exception e) {
 			System.out.println("Error while encrypting: " + e.toString());
 		}
