@@ -39,7 +39,8 @@ export class AddUserComponent implements OnInit {
         password: this.addUserForm.value.password,
         firstName: this.addUserForm.value.firstName,
         lastName: this.addUserForm.value.lastName,
-        hospital: this.addUserForm.value.hospital,
+        //hospital: this.addUserForm.value.hospital,
+        hospital: this.hospital,
         role: this.addUserForm.value.role
       };
 

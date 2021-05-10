@@ -14,6 +14,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {AuthService} from './services/auth.service';
 import { CertificateComponent } from './components/certificate/certificate.component';
 import {MatIconModule} from '@angular/material/icon';
+import { PatientsComponent } from './components/patients/patients/patients.component';
+import { PatientDetailsComponent } from './components/patients/patientDetails/patient-details/patient-details.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -22,6 +26,8 @@ import {MatIconModule} from '@angular/material/icon';
     AdminPanelComponent,
     NavigationBarComponent,
     CertificateComponent,
+    PatientsComponent,
+    PatientDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,9 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [
     AuthService

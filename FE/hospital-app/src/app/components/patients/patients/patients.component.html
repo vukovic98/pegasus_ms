@@ -1,0 +1,38 @@
+<div class="wrapper d-flex align-items-stretch">
+  <div style="height: 100vh;">
+    <app-navigation-bar></app-navigation-bar>
+  </div>
+  <div class="m-3 w-100">
+    <h1 class="mb-4">Patients</h1>
+    <div>
+      <table class="table table-hover text-center">
+        <thead>
+        <tr>
+          <th scope="col">Patient's Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor=" let patient of patients">
+          <td>{{patient.id}}</td>
+          <td>{{patient.name}}</td>
+          <td>{{patient.currentAge}} years</td>
+          <td><button mat-raised-button color="primary" (click)="openMedicalRecord(patient.id)">Medical Record</button></td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mb-0" style="position: absolute; bottom: 0; right: 0;">
+      <mat-paginator
+        (page)="handlePageEvent($event)"
+        [length]="p_length"
+        [pageSize]="pageSize"
+        [showFirstLastButtons]="showFirstLastButtons"
+        [pageIndex]="pageIndex">
+      </mat-paginator>
+    </div>
+  </div>
+</div>
