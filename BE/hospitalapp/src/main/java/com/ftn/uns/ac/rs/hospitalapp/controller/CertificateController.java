@@ -78,7 +78,6 @@ public class CertificateController {
 	}
 
 	@GetMapping(path = "/request")
-	@PreAuthorize("hasAuthority('PRIVILEGE_CREATE_CSR')")
 	public ResponseEntity<byte[]> generateCertificate() throws IOException {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String email = auth.getName();

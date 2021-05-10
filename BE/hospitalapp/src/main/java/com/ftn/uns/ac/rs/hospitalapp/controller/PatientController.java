@@ -30,8 +30,7 @@ public class PatientController {
 	@Autowired
 	private PatientDetailsMapper patientDetailsMapper;
 	
-
-
+	
 	@GetMapping(path = "/by-page/{pageNum}")
 	@PreAuthorize("hasAuthority('PRIVILEGE_READ_PATIENTS')")
 	public ResponseEntity<PageImplementation<PatientDTO>> findAll(@PathVariable int pageNum) {
