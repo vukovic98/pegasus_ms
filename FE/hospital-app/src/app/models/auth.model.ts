@@ -13,7 +13,8 @@ export interface TokenModel {
   "user_lastName": string,
   "user_id": string,
   "hospital": string,
-  "email": string
+  "email": string,
+  "authority": Array<Role>
 }
 
 export interface loginResponse {
@@ -22,3 +23,11 @@ export interface loginResponse {
   email: string;
   verified: boolean;
 }
+
+export interface Role {
+  "id": number,
+  "name": string,
+  "authority": string
+}
+
+

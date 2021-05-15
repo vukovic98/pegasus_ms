@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {LoginModel, loginResponse, TokenModel} from '../models/auth.model';
+import {LoginModel, loginResponse, Role, TokenModel} from '../models/auth.model';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {UserData} from '../models/user.model';
@@ -44,4 +44,17 @@ export class AuthService {
 
     return data.hospital;
   }
+
+
+
+  getUserAuthorities(): Array<Role> {
+    let token = this.getToken();
+    if(token) {
+      let model = this.decodeToken(token);
+      return model?.authority ? model.authority : [];
+    } else {
+      return [];
+    }
+  }
+
 }

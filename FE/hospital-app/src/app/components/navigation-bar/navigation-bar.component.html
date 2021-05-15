@@ -11,7 +11,7 @@
           <mat-icon class="float-left mt-2">description</mat-icon>
           <a routerLink="/certificate"><span class="fa fa-user mr-3"></span> Certificate</a>
         </li>
-        <li>
+        <li *ngIf="role==='ROLE_DOCTOR'">
           <mat-icon class="float-left mt-2"> local_hospital</mat-icon>
           <a routerLink="/patient"><span class="fa fa-user mr-3"></span> Patients</a>
         </li>
