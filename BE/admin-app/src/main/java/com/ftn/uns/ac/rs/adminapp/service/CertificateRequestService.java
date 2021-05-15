@@ -15,9 +15,11 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import com.ftn.uns.ac.rs.adminapp.beans.CertificateRequest;
+import com.ftn.uns.ac.rs.adminapp.controller.CertificateRequestController;
 import com.ftn.uns.ac.rs.adminapp.dto.CertificateRequestDTO;
 import com.ftn.uns.ac.rs.adminapp.repository.CertificateRequestRepository;
 import com.ftn.uns.ac.rs.adminapp.util.CipherEncrypt;
+import com.ftn.uns.ac.rs.adminapp.util.LoggerProxy;
 
 @Service
 public class CertificateRequestService {
@@ -30,6 +32,9 @@ public class CertificateRequestService {
 
 	@Autowired
 	private JavaMailSender javaMailSender;
+	
+	@Autowired
+	private LoggerProxy logger;
 
 	public boolean remove(CertificateRequest c) {
 		try {
@@ -83,6 +88,9 @@ public class CertificateRequestService {
 
 			return true;
 		} else {
+			
+			this.logger.error("[ SAVING TO DATABASE ERROR ] Failed attempt for creating CSR for user [ " + email + " ]", CertificateRequestController.class);
+			
 			return false;
 		}
 	}
@@ -116,6 +124,9 @@ public class CertificateRequestService {
 			this.javaMailSender.send(msg);
 
 		} catch (Exception e) {
+			
+			this.logger.error("[ SENDING MAIL ERROR ] Failed attempt for creating CSR for user [ " + email + " ]", CertificateRequestController.class);
+			
 			e.printStackTrace();
 		}
 	}

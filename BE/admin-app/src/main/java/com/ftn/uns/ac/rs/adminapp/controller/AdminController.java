@@ -16,6 +16,7 @@ import com.ftn.uns.ac.rs.adminapp.dto.UserDetailsDTO;
 import com.ftn.uns.ac.rs.adminapp.service.CertificateService;
 import com.ftn.uns.ac.rs.adminapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.adminapp.util.FinalMessage;
+import com.ftn.uns.ac.rs.adminapp.util.LoggerProxy;
 import com.ftn.uns.ac.rs.adminapp.util.PageImplementation;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
@@ -23,33 +24,40 @@ import com.google.gson.Gson;
 @RestController
 @RequestMapping(path = "/admin")
 public class AdminController {
-	
+
 	@Autowired
 	private CertificateService certService;
-	
+
 	@Autowired
 	private RestTemplate restTemplate;
+
+	@Autowired
+	private LoggerProxy logger;
 
 	@GetMapping(path = "/by-page/{pageNum}")
 	@PreAuthorize("hasAuthority('PRIVILEGE_READ_USERS')")
 	public ResponseEntity<PageImplementation<UserDetailsDTO>> findAll(@PathVariable int pageNum) {
-		
+
 		Gson gson = new Gson();
-		
-		ResponseEntity<FinalMessage> responseEntity = 
-				restTemplate.exchange("https://localhost:8081/admin/by-page/" + pageNum, HttpMethod.GET, null,
-						new ParameterizedTypeReference<FinalMessage>() {
-						});
-		
+
+		ResponseEntity<FinalMessage> responseEntity = restTemplate.exchange(
+				"https://localhost:8081/admin/by-page/" + pageNum, HttpMethod.GET, null,
+				new ParameterizedTypeReference<FinalMessage>() {
+				});
+
 		FinalMessage finalMess = responseEntity.getBody();
 
-		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getBobsPublicKey(), certService.getMyPrivateKey());
+		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getBobsPublicKey(),
+				certService.getMyPrivateKey());
 
 		String data = EncryptionUtil.decompress(compressedData);
-		
+
 		@SuppressWarnings("serial")
-		PageImplementation<UserDetailsDTO> dtos = gson.fromJson(data, new TypeToken<PageImplementation<UserDetailsDTO>>(){}.getType());
-		
+		PageImplementation<UserDetailsDTO> dtos = gson.fromJson(data,
+				new TypeToken<PageImplementation<UserDetailsDTO>>(){}.getType());
+
+		this.logger.info("Successfull attempt for retrieving admins from hospital-app", AdminController.class);
+
 		return new ResponseEntity<>(dtos, HttpStatus.OK);
 	}
 }

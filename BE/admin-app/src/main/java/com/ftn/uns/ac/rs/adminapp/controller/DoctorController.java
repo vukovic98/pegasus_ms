@@ -16,6 +16,7 @@ import com.ftn.uns.ac.rs.adminapp.dto.UserDetailsDTO;
 import com.ftn.uns.ac.rs.adminapp.service.CertificateService;
 import com.ftn.uns.ac.rs.adminapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.adminapp.util.FinalMessage;
+import com.ftn.uns.ac.rs.adminapp.util.LoggerProxy;
 import com.ftn.uns.ac.rs.adminapp.util.PageImplementation;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -29,6 +30,9 @@ public class DoctorController {
 
 	@Autowired
 	private RestTemplate restTemplate;
+	
+	@Autowired
+	private LoggerProxy logger;
 	
 	@GetMapping(path = "/by-page/{pageNum}")
 	@PreAuthorize("hasAuthority('PRIVILEGE_READ_USERS')")
@@ -47,8 +51,9 @@ public class DoctorController {
 
 		String data = EncryptionUtil.decompress(compressedData);
 		
-		@SuppressWarnings("serial")
 		PageImplementation<UserDetailsDTO> dtos = gson.fromJson(data, new TypeToken<PageImplementation<UserDetailsDTO>>(){}.getType());
+		
+		this.logger.info("Successfull attempt for retrieving doctors from hospital-app", DoctorController.class);
 		
 		return new ResponseEntity<>(dtos, HttpStatus.OK);
 	}

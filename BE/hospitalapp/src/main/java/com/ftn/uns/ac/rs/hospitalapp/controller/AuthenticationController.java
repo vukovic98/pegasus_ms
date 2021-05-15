@@ -58,10 +58,9 @@ public class AuthenticationController {
 	@Autowired
 	private Environment env;
 	
-	@GetMapping(path = "/test-test")
-	@PreAuthorize("hasAuthority('PRIVILEGE_CREATE_CSR')")
-	public ResponseEntity<HttpStatus> test() {
-		System.out.println("test");
+	@PostMapping(path = "/test-test")
+	public ResponseEntity<HttpStatus> test(@RequestBody String s) {
+		System.out.println(s);
 		
 //		X509Certificate[] certs = (X509Certificate[])req.getAttribute("javax.servlet.request.X509Certificate");
 

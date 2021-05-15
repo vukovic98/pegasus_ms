@@ -21,6 +21,7 @@ import com.ftn.uns.ac.rs.adminapp.beans.User;
 import com.ftn.uns.ac.rs.adminapp.dto.AddUserDTO;
 import com.ftn.uns.ac.rs.adminapp.dto.ChangePasswordDTO;
 import com.ftn.uns.ac.rs.adminapp.service.UserService;
+import com.ftn.uns.ac.rs.adminapp.util.LoggerProxy;
 
 @RestController
 @RequestMapping(path = "/users")
@@ -28,9 +29,12 @@ public class UserManagementController {
 
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private RestTemplate restTemplate;
+
+	@Autowired
+	private LoggerProxy logger;
 
 	@PostMapping(path = "/change-password")
 	@PreAuthorize("hasAuthority('PRIVILEGE_CHANGE_PASSWORD')")
@@ -48,11 +52,21 @@ public class UserManagementController {
 
 				this.userService.save(user);
 
+				this.logger.info("Successfull attempt for changing password for logged user",
+						UserManagementController.class);
+
 				return new ResponseEntity<>(HttpStatus.OK);
 			} else {
+				this.logger.warn("[ WRONG OLD PASSWORD ] Failed attempt for changing password for logged user",
+						UserManagementController.class);
+
 				return new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
 			}
 		} else {
+
+			this.logger.error("[ USER NOT FOUND ] Failed attempt for changing password for logged user",
+					UserManagementController.class);
+
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
@@ -68,8 +82,14 @@ public class UserManagementController {
 			responseEntityStr = restTemplate.postForEntity("https://localhost:8081/users/delete", request,
 					HttpStatus.class);
 		} catch (HttpClientErrorException e) {
+
+			this.logger.error("[ HOSPITAL APP ERROR STATUS - " + e.getRawStatusCode()
+					+ " ] Failed attempt for deleting user [ " + id + " ]", UserManagementController.class);
+
 			return new ResponseEntity<>(HttpStatus.valueOf(e.getRawStatusCode()));
 		}
+
+		this.logger.info("Successfull attempt for deleting user [ " + id + " ]", UserManagementController.class);
 
 		return new ResponseEntity<>(responseEntityStr.getStatusCode());
 
@@ -85,8 +105,15 @@ public class UserManagementController {
 		try {
 			responseEntityStr = restTemplate.postForEntity("https://localhost:8081/users", request, HttpStatus.class);
 		} catch (HttpClientErrorException e) {
+
+			this.logger.error("[ HOSPITAL APP ERROR STATUS - " + e.getRawStatusCode()
+					+ " ] Failed attempt for adding user [ " + dto.getEmail() + " ]", UserManagementController.class);
+
 			return new ResponseEntity<>(HttpStatus.valueOf(e.getRawStatusCode()));
 		}
+
+		this.logger.info("Successfull attempt for adding user [ " + dto.getEmail() + " ]",
+				UserManagementController.class);
 
 		return new ResponseEntity<>(responseEntityStr.getStatusCode());
 	}
@@ -102,8 +129,17 @@ public class UserManagementController {
 			responseEntityStr = restTemplate.postForEntity("https://localhost:8081/users/change-authority", request,
 					HttpStatus.class);
 		} catch (HttpClientErrorException e) {
+
+			this.logger.error(
+					"[ HOSPITAL APP ERROR STATUS - " + e.getRawStatusCode()
+							+ " ] Failed attempt for changing role for user [ " + id + " ]",
+					UserManagementController.class);
+
 			return new ResponseEntity<>(HttpStatus.valueOf(e.getRawStatusCode()));
 		}
+
+		this.logger.info("Successfull attempt for changing role for user [ " + id + " ]",
+				UserManagementController.class);
 
 		return new ResponseEntity<>(responseEntityStr.getStatusCode());
 	}

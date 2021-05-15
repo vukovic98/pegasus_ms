@@ -52,6 +52,7 @@ import com.ftn.uns.ac.rs.adminapp.util.CertificateGenerator;
 import com.ftn.uns.ac.rs.adminapp.util.CertificateUtil;
 import com.ftn.uns.ac.rs.adminapp.util.IssuerData;
 import com.ftn.uns.ac.rs.adminapp.util.KeyStoreWriter;
+import com.ftn.uns.ac.rs.adminapp.util.LoggerProxy;
 import com.ftn.uns.ac.rs.adminapp.util.RevokeEntry;
 import com.ftn.uns.ac.rs.adminapp.util.SubjectData;
 
@@ -71,6 +72,9 @@ public class CertificateController {
 
 	@Autowired
 	private SerialKeyCounterService counterService;
+
+	@Autowired
+	private LoggerProxy logger;
 
 	public SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -106,6 +110,9 @@ public class CertificateController {
 
 			listDto.add(dto);
 		}
+
+		this.logger.info("Retrieving certificates from keystore", CertificateController.class);
+
 		return new ResponseEntity<>(listDto, HttpStatus.OK);
 	}
 
@@ -120,6 +127,9 @@ public class CertificateController {
 		User user = userRepository.findByEmail(username);
 
 		certService.generateCRL(user);
+
+		this.logger.info("Creating CRL", CertificateController.class);
+
 		return ResponseEntity.ok().body("Success");
 
 	}
@@ -137,6 +147,10 @@ public class CertificateController {
 		User user = userRepository.findByEmail(username);
 
 		certService.revokeCertificate(user, BigInteger.valueOf(serialNumber), revokeReason);
+
+		this.logger.info("Revoking certificate with serial number [ " + serialNumber + " ]",
+				CertificateController.class);
+
 		return ResponseEntity.ok().body("Success");
 
 	}
@@ -146,16 +160,27 @@ public class CertificateController {
 	public ResponseEntity<String> checkCertificateRevoked(@RequestParam("serialNumber") BigInteger serialNumber)
 			throws ClassNotFoundException, IOException {
 
-		if (certService.isCertificateRevoked(serialNumber).isRevoked())
+		if (certService.isCertificateRevoked(serialNumber).isRevoked()) {
+
+			this.logger.info("Checking if certificate [ " + serialNumber + " ] is revoked - [ TRUE ]",
+					CertificateController.class);
+
 			return ResponseEntity.ok().body("This certificate has been revoked");
-		else
+		} else {
+			this.logger.info("Checking if certificate [ " + serialNumber + " ] is revoked - [ FALSE ]",
+					CertificateController.class);
+
 			return ResponseEntity.ok().body("This certificate is active");
+		}
 	}
 
 	@GetMapping("/readCRL")
 	@PreAuthorize("hasAuthority('PRIVILEGE_READ_CRL')")
 	public ResponseEntity<String> readCRL() throws ClassNotFoundException, IOException {
 		certService.readCRL();
+
+		this.logger.info("Reading CRL", CertificateController.class);
+
 		return ResponseEntity.ok().body("Success");
 	}
 
@@ -193,6 +218,10 @@ public class CertificateController {
 				if (serialNum != -1)
 					subject.setSerialNumber(serialNum + "");
 				else {
+
+					this.logger.error("[ SERIAL NUMBER COUNTER ERROR ] Faild attempt for generating certificate",
+							CertificateController.class);
+
 					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 				}
 
@@ -239,6 +268,11 @@ public class CertificateController {
 					cw.saveKeyStore(env.getProperty("jks.store"), env.getProperty("jks.password").toCharArray());
 				} catch (Exception e) {
 					e.printStackTrace();
+
+					this.logger.error(
+							"[ ERROR WRITING CERTIFICATE IN KEYSTORE ] Faild attempt for generating certificate",
+							CertificateController.class);
+
 					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 				}
 
@@ -249,24 +283,26 @@ public class CertificateController {
 
 				this.certService.distributeCertificate(dtoDis);
 
+				this.logger.info("Successfull attempt of generating certificate for CSR [ " + dto.getId() + " ]",
+						CertificateController.class);
+
 				return new ResponseEntity<>(HttpStatus.OK);
 
 			} catch (Exception e) {
 				e.printStackTrace();
+
+				this.logger.error("[ ERROR CREATING CERTIFICATE ] Faild attempt for generating certificate",
+						CertificateController.class);
+
 				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 			}
 
 		} else {
+
+			this.logger.error("[ BAD REQUEST ] Faild attempt for generating certificate", CertificateController.class);
+
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-	}
-
-	@GetMapping("/test")
-	public ResponseEntity<HttpStatus> test() {
-		CertificateDistributionDetailsDTO d = new CertificateDistributionDetailsDTO(
-				"src/main/resources/certificates/CERT_55.cer", new BigInteger("12"), null);
-		this.certService.distributeCertificate(d);
-		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
 	@GetMapping("/getOne")
@@ -304,9 +340,19 @@ public class CertificateController {
 			}
 
 		}
-		if (dto != null)
+		if (dto != null) {
+
+			this.logger.info("Successfull attempt for reading certificate [ " + serialNumber + " ]",
+					CertificateController.class);
+
 			return new ResponseEntity<>(dto, HttpStatus.OK);
-		else
+		} else {
+
+			this.logger.error(
+					"[ CERTIFICATE NOT FOUND ] Failed attempt for reading certificate [ " + serialNumber + " ]",
+					CertificateController.class);
+
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 }

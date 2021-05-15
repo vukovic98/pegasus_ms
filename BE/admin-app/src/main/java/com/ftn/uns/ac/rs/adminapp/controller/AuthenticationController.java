@@ -32,6 +32,7 @@ import com.ftn.uns.ac.rs.adminapp.service.CustomUserDetailsService;
 import com.ftn.uns.ac.rs.adminapp.service.LoginAttemptService;
 import com.ftn.uns.ac.rs.adminapp.service.UserService;
 import com.ftn.uns.ac.rs.adminapp.util.CipherEncrypt;
+import com.ftn.uns.ac.rs.adminapp.util.LoggerProxy;
 
 @RestController
 @RequestMapping(path = "/auth", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -40,6 +41,7 @@ public class AuthenticationController {
 	@Autowired
 	private TokenUtils tokenUtils;
 
+	@SuppressWarnings("unused")
 	@Autowired
 	private CustomUserDetailsService userDetailsService;
 
@@ -55,6 +57,9 @@ public class AuthenticationController {
 	@Autowired
 	private Environment env;
 
+	@Autowired
+	private LoggerProxy logger;
+
 	@PostMapping(path = "/test")
 	public ResponseEntity<HttpStatus> test(@RequestBody String mess) {
 		System.out.println(mess);
@@ -62,11 +67,9 @@ public class AuthenticationController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	// Prvi endpoint koji pogadja korisnik kada se loguje.
-	// Tada zna samo svoje korisnicko ime i lozinku i to prosledjuje na backend.
 	@PostMapping("/log-in")
-	public ResponseEntity<UserTokenStateDTO> createAuthenticationToken(@Valid @RequestBody LoginDTO authenticationRequest,
-			HttpServletResponse response) {
+	public ResponseEntity<UserTokenStateDTO> createAuthenticationToken(
+			@Valid @RequestBody LoginDTO authenticationRequest, HttpServletResponse response) {
 
 		try {
 			boolean verified = true;
@@ -74,20 +77,20 @@ public class AuthenticationController {
 			Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
 					authenticationRequest.getEmail(), authenticationRequest.getPassword()));
 
-			// Ubaci korisnika u trenutni security kontekst
 			SecurityContextHolder.getContext().setAuthentication(authentication);
 
-			// Kreiraj token za tog korisnika
 			User user = (User) authentication.getPrincipal();
 
 			String email = user.getEmail();
-			String jwt = tokenUtils.generateToken(user.getEmail()); // prijavljujemo se na sistem sa email adresom
+			String jwt = tokenUtils.generateToken(user.getEmail());
 			int expiresIn = tokenUtils.getExpiredIn();
 
 			this.loginAttemptService
 					.save(new LoginAttempt(null, authenticationRequest.getEmail(), LoginStatus.SUCCESS, new Date()));
 
-			// Vrati token kao odgovor na uspesnu autentifikaciju
+			this.logger.info("Successfull login attempt was made from [ " + authenticationRequest.getEmail() + " ]",
+					AuthenticationController.class);
+
 			return ResponseEntity.ok(new UserTokenStateDTO(jwt, expiresIn, email, verified));
 		} catch (Exception e) {
 			User u = this.userService.findByEmail(authenticationRequest.getEmail());
@@ -106,14 +109,30 @@ public class AuthenticationController {
 						this.userService.sendMailToBlockedUser(u.getEmail());
 					}
 
+					this.logger.error("[USER IS BLOCKED] Failed login attempt was made from [ "
+							+ authenticationRequest.getEmail() + " ]", AuthenticationController.class);
+
 					return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 				} else {
-					if (u.isEnabled())
+					if (u.isEnabled()) {
+
+						this.logger.error("[INCORRECT PASSWORD] Failed login attempt was made from [ "
+								+ authenticationRequest.getEmail() + " ]", AuthenticationController.class);
+
 						return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-					else
+					} else {
+
+						this.logger.error("[USER IS BLOCKED] Failed login attempt was made from [ "
+								+ authenticationRequest.getEmail() + " ]", AuthenticationController.class);
+
 						return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+					}
 				}
 			} else {
+
+				this.logger.warn("[UNKNOWN MAIL ADDRESS] Failed login attempt was made from [ "
+						+ authenticationRequest.getEmail() + " ]", AuthenticationController.class);
+
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
 		}
@@ -135,9 +154,17 @@ public class AuthenticationController {
 			HttpHeaders responseHeaders = new HttpHeaders();
 			responseHeaders.setContentType(MediaType.TEXT_HTML);
 
+			this.logger.info("Successfull enabling account attempt for user [ " + mail + " ]",
+					AuthenticationController.class);
+
 			return new ResponseEntity<>(content, HttpStatus.OK);
-		} else
+		} else {
+
+			this.logger.warn("[UNKNOWN MAIL ADDRESS] Failed enabling account attempt for user [ " + mail + " ]",
+					AuthenticationController.class);
+
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 }
