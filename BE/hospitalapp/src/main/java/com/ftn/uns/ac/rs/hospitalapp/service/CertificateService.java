@@ -21,5 +21,9 @@ public class CertificateService {
 	public PrivateKey getMyPrivateKey() {
 		return this.certRepository.getMyPrivateKey();
 	}
+	
+	public PublicKey getBloodDevicePublicKey() {
+		return this.certRepository.getBloodDevicePublicKey();
+	}
 
 }
