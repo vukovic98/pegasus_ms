@@ -1,0 +1,14 @@
+2021-05-16 18:19:12,061 : INFO : [ vladimirvukovic98@hotmail.rs ] : AuthenticationController : Successfull login attempt was made from [ vladimirvukovic98@hotmail.rs ]
+2021-05-16 18:19:18,147 : INFO : [ vladimirvukovic98@hotmail.rs ] : AdminController : Successfull attempt for retrieving admins from hospital-app
+2021-05-16 18:19:18,148 : INFO : [ vladimirvukovic98@hotmail.rs ] : DoctorController : Successfull attempt for retrieving doctors from hospital-app
+2021-05-16 18:19:25,447 : INFO : [ vladimirvukovic98@hotmail.rs ] : DoctorController : Successfull attempt for retrieving doctors from hospital-app
+2021-05-16 18:19:27,477 : INFO : [ vladimirvukovic98@hotmail.rs ] : DoctorController : Successfull attempt for retrieving doctors from hospital-app
+2021-05-16 18:25:19,424 : INFO : [ vladimirvukovic98@hotmail.rs ] : AuthenticationController : Successfull login attempt was made from [ vladimirvukovic98@hotmail.rs ]
+2021-05-16 18:28:20,878 : INFO : [ vladimirvukovic98@hotmail.rs ] : AuthenticationController : Successfull login attempt was made from [ vladimirvukovic98@hotmail.rs ]
+2021-05-16 18:35:45,544 : INFO : [ vladimirvukovic98@hotmail.rs ] : AuthenticationController : Successfull login attempt was made from [ vladimirvukovic98@hotmail.rs ]
+2021-05-16 18:35:50,567 : INFO : [ vladimirvukovic98@hotmail.rs ] : AdminController : Successfull attempt for retrieving admins from hospital-app
+2021-05-16 18:35:50,568 : INFO : [ vladimirvukovic98@hotmail.rs ] : DoctorController : Successfull attempt for retrieving doctors from hospital-app
+2021-05-16 18:36:19,501 : INFO : [ vladimirvukovic98@hotmail.rs ] : AuthenticationController : Successfull login attempt was made from [ vladimirvukovic98@hotmail.rs ]
+2021-05-16 18:36:39,406 : INFO : [ vladimirvukovic98@hotmail.rs ] : AuthenticationController : Successfull login attempt was made from [ vladimirvukovic98@hotmail.rs ]
+2021-05-16 18:36:43,313 : INFO : [ vladimirvukovic98@hotmail.rs ] : AdminController : Successfull attempt for retrieving admins from hospital-app
+2021-05-16 18:36:43,316 : INFO : [ vladimirvukovic98@hotmail.rs ] : DoctorController : Successfull attempt for retrieving doctors from hospital-app
