@@ -15,6 +15,9 @@
     Open apps in one of the environments (Eclipse, IntelliJ or Spring Tool Suite) and run applications
     Admin app is runing on port 8080
     Hospital app is running on port 8081
+   
+    * Hospital devices simulators *
+    Blood device simulator is running on port 8082
 
 #### Angular Apps
     Open apps in one environments (WebStorm, Visual Code ..) and run them with command -> ng serve --ssl
