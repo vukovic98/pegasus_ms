@@ -32,5 +32,8 @@ public class CertificateService {
 	public PublicKey getNeurologicalDevicePublicKey() {
 		return this.certRepository.getNeurologicalDevicePublicKey();
 	}
+	public PublicKey getTemperatureDevicePublicKey() {
+		return this.certRepository.getTemperatureDevicePublicKey();
+	}
 
 }

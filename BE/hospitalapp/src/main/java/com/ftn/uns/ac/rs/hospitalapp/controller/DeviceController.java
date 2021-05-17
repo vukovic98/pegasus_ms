@@ -15,6 +15,7 @@ import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
 import com.ftn.uns.ac.rs.hospitalapp.util.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
 import com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData;
+import com.ftn.uns.ac.rs.hospitalapp.util.UnknownDeviceData;
 import com.google.gson.Gson;
 
 @RestController
@@ -63,7 +64,7 @@ public class DeviceController {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-@PostMapping(path = "/heart-monitor")
+	@PostMapping(path = "/heart-monitor")
 	public ResponseEntity<HttpStatus> heartMonitorData(@RequestBody FinalMessage finalMess) {
 
 		Gson gson = new Gson();
@@ -77,4 +78,22 @@ public class DeviceController {
 		System.out.println(heartMonitorData);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
-	}}
+	}
+	
+	//unknown device
+	@PostMapping(path = "/temperature-device")
+	public ResponseEntity<HttpStatus> temperatureDeviceData(@RequestBody FinalMessage finalMess) {
+
+		Gson gson = new Gson();
+		
+		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getTemperatureDevicePublicKey(), certService.getMyPrivateKey());
+
+		String data = EncryptionUtil.decompress(compressedData);
+		
+		UnknownDeviceData deviceData = gson.fromJson(data, UnknownDeviceData.class);
+		
+		System.out.println(deviceData);
+		
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+}
