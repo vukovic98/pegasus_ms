@@ -26,6 +26,10 @@ public class CertificateRepository {
 	public PublicKey getBloodDevicePublicKey() {
 		return CertificateUtil.getBobsPublicKey(env.getProperty("blood.cert"));
 	}
+	
+	public PublicKey getHeartMonitorPublicKey() {
+		return CertificateUtil.getBobsPublicKey(env.getProperty("heart.cert"));
+	}
 
 	public PublicKey getNeurologicalDevicePublicKey() {
 		return CertificateUtil.getBobsPublicKey(env.getProperty("neuro.cert"));
