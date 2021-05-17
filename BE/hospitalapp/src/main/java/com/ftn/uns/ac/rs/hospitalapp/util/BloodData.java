@@ -2,6 +2,7 @@ package com.ftn.uns.ac.rs.hospitalapp.util;
 
 public class BloodData {
 
+	private int patientID;
 	private double CRP;
 	private double erythrocytes;
 	private double leukocytes;
@@ -11,9 +12,10 @@ public class BloodData {
 		super();
 	}
 
-	public BloodData(double cRP, double erythrocytes, double leukocytes, double hemoglobin) {
+	public BloodData(int id, double cRP, double erythrocytes, double leukocytes, double hemoglobin) {
 		super();
-		CRP = cRP;
+		this.patientID = id;
+		this.CRP = cRP;
 		this.erythrocytes = erythrocytes;
 		this.leukocytes = leukocytes;
 		this.hemoglobin = hemoglobin;
@@ -25,6 +27,14 @@ public class BloodData {
 
 	public void setCRP(double cRP) {
 		CRP = cRP;
+	}
+
+	public int getPatientID() {
+		return patientID;
+	}
+
+	public void setPatientID(int patientID) {
+		this.patientID = patientID;
 	}
 
 	public double getErythrocytes() {
@@ -50,16 +60,17 @@ public class BloodData {
 	public void setHemoglobin(double hemoglobin) {
 		this.hemoglobin = hemoglobin;
 	}
-	
+
 	@Override
 	public String toString() {
 		String s = "-BLOOD DATA-\n";
-		
+
+		s += "\t-Patient ID: \t" + this.patientID + "\n";
 		s += "\t-CRP: \t" + this.CRP + "\n";
 		s += "\t-Erythrocytes: \t" + this.erythrocytes + "\n";
 		s += "\t-Hemoglobin: \t" + this.hemoglobin + "\n";
 		s += "\t-Leukocytes: \t" + this.leukocytes + "\n";
-		
+
 		return s;
 
 	}

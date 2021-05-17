@@ -38,6 +38,7 @@ public class BloodDeviceService {
 				
 		BloodData bloodData = new BloodData();
 		
+		bloodData.setPatientID(r.nextInt(50) + 150);
 		bloodData.setCRP(0 + (r.nextDouble() * 100));
 		bloodData.setErythrocytes(3 + (r.nextDouble() * 4));
 		bloodData.setHemoglobin(11.5 + (r.nextDouble() * 8));

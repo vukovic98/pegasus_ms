@@ -2,6 +2,7 @@ package com.ftn.uns.ac.rs.blooddevice.util;
 
 public class BloodData {
 
+	private int patientID;
 	private double CRP;
 	private double erythrocytes;
 	private double leukocytes;
@@ -11,9 +12,10 @@ public class BloodData {
 		super();
 	}
 
-	public BloodData(double cRP, double erythrocytes, double leukocytes, double hemoglobin) {
+	public BloodData(int id, double cRP, double erythrocytes, double leukocytes, double hemoglobin) {
 		super();
-		CRP = cRP;
+		this.patientID = id;
+		this.CRP = cRP;
 		this.erythrocytes = erythrocytes;
 		this.leukocytes = leukocytes;
 		this.hemoglobin = hemoglobin;
@@ -33,6 +35,14 @@ public class BloodData {
 
 	public void setErythrocytes(double erythrocytes) {
 		this.erythrocytes = erythrocytes;
+	}
+
+	public int getPatientID() {
+		return patientID;
+	}
+
+	public void setPatientID(int patientID) {
+		this.patientID = patientID;
 	}
 
 	public double getLeukocytes() {
