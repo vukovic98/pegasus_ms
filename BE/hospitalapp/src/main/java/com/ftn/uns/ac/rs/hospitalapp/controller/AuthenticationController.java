@@ -32,6 +32,7 @@ import com.ftn.uns.ac.rs.hospitalapp.service.CustomUserDetailsService;
 import com.ftn.uns.ac.rs.hospitalapp.service.LoginAttemptService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
 import com.ftn.uns.ac.rs.hospitalapp.util.CipherEncrypt;
+import com.ftn.uns.ac.rs.hospitalapp.util.LoggerProxy;
 
 @RestController
 @RequestMapping(path = "/auth", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -54,6 +55,9 @@ public class AuthenticationController {
 
 	@Autowired
 	private Environment env;
+	
+	@Autowired
+	private LoggerProxy logger;
 	
 	@PostMapping(path = "/test-test")
 	public ResponseEntity<HttpStatus> test(@RequestBody String s) {
@@ -90,6 +94,9 @@ public class AuthenticationController {
 			this.loginAttemptService
 					.save(new LoginAttempt(null, authenticationRequest.getEmail(), LoginStatus.SUCCESS, new Date()));
 
+			this.logger.info("Successfull login attempt was made from [ " + authenticationRequest.getEmail() + " ]",
+					AuthenticationController.class);
+			
 			// Vrati token kao odgovor na uspesnu autentifikaciju
 			return ResponseEntity.ok(new UserTokenStateDTO(jwt, expiresIn, email, verified));
 		} catch (Exception e) {
@@ -109,12 +116,26 @@ public class AuthenticationController {
 						this.userService.sendMailToBlockedUser(u.getEmail());
 					}
 
+					this.logger.error("[USER IS BLOCKED] Failed login attempt was made from [ "
+							+ authenticationRequest.getEmail() + " ]", AuthenticationController.class);
+					
 					return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 				} else {
-					if (u.isEnabled())
+					if (u.isEnabled()) {
+						
+						this.logger.error("[INCORRECT PASSWORD] Failed login attempt was made from [ "
+								+ authenticationRequest.getEmail() + " ]", AuthenticationController.class);
+						
 						return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-					else
+						
+					}
+					else {
+						this.logger.error("[USER IS BLOCKED] Failed login attempt was made from [ "
+								+ authenticationRequest.getEmail() + " ]", AuthenticationController.class);
+						
 						return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+						
+					}
 				}
 			} else {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -137,10 +158,18 @@ public class AuthenticationController {
 			String content = "You have successfully enabled your account. \nGo to the login page now! \n\n https://localhost:4200/login";
 			HttpHeaders responseHeaders = new HttpHeaders();
 			responseHeaders.setContentType(MediaType.TEXT_HTML);
+			
+			this.logger.info("Successfull enabling account attempt for user [ " + mail + " ]",
+					AuthenticationController.class);
 
 			return new ResponseEntity<>(content, HttpStatus.OK);
-		} else
+		} else {
+			
+			this.logger.warn("[UNKNOWN MAIL ADDRESS] Failed enabling account attempt for user [ " + mail + " ]",
+					AuthenticationController.class);
+			
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 
 }

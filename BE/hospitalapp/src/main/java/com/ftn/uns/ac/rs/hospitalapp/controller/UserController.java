@@ -24,6 +24,7 @@ import com.ftn.uns.ac.rs.hospitalapp.service.AdminService;
 import com.ftn.uns.ac.rs.hospitalapp.service.AuthorityService;
 import com.ftn.uns.ac.rs.hospitalapp.service.DoctorService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
+import com.ftn.uns.ac.rs.hospitalapp.util.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.util.UserCheck;
 
 @RestController
@@ -44,6 +45,9 @@ public class UserController {
 
 	@Autowired
 	private DoctorService doctorService;
+	
+	@Autowired
+	private LoggerProxy logger;
 
 	@PostMapping(path = "/delete")
 	public ResponseEntity<HttpStatus> deleteUser(@RequestBody long id) {
@@ -65,16 +69,22 @@ public class UserController {
 
 				boolean ok = this.userService.deleteUserById(id);
 
-				if (ok)
+				if (ok) {
+					this.logger.info("Successfull attempt for deleting user [ " + id + " ]", UserController.class);
+					
 					return new ResponseEntity<>(HttpStatus.OK);
+				}
 				else {
+					this.logger.error("[ HOSPITAL APP ERROR STATUS - ] Failed attempt for deleting user [ " + id + " ]", UserController.class);
 					return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 				}
 
 			} else {
+				this.logger.error("[ HOSPITAL APP ERROR STATUS - ] Failed attempt for deleting user [ " + id + " ]", UserController.class);
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
 		} else {
+			this.logger.error("[ HOSPITAL APP ERROR STATUS - ] Failed attempt for deleting user [ " + id + " ]", UserController.class);
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}

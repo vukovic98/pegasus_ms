@@ -56,7 +56,7 @@ public class AdminController {
 		PageImplementation<UserDetailsDTO> dtos = gson.fromJson(data,
 				new TypeToken<PageImplementation<UserDetailsDTO>>(){}.getType());
 
-		this.logger.info("Successfull attempt for retrieving admins from hospital-app", AdminController.class);
+		this.logger.info("Successful attempt for retrieving admins from hospital-app", AdminController.class);
 
 		return new ResponseEntity<>(dtos, HttpStatus.OK);
 	}

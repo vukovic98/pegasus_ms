@@ -27,4 +27,8 @@ public class CertificateRepository {
 		return CertificateUtil.getBobsPublicKey(env.getProperty("blood.cert"));
 	}
 
+	public PublicKey getNeurologicalDevicePublicKey() {
+		return CertificateUtil.getBobsPublicKey(env.getProperty("neuro.cert"));
+	}
+	
 }
