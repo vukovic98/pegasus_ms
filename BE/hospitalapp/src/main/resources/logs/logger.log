@@ -542,3 +542,7 @@ java.lang.NullPointerException: null
 2021-05-17 16:28:28,810 : INFO : [ hospital-device ] : DeviceController : Successfully received neurological device data
 2021-05-17 16:28:33,832 : INFO : [ hospital-device ] : DeviceController : Successfully received neurological device data
 2021-05-17 16:28:38,718 : INFO : [ hospital-device ] : DeviceController : Successfully received neurological device data
+2021-05-17 17:22:40,647 : INFO : [ hospital-device ] : DeviceController : Successfully received neurological device data
+2021-05-17 17:22:43,789 : INFO : [ hospital-device ] : DeviceController : Successfully received neurological device data
+2021-05-17 17:23:21,877 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-05-17 17:23:25,468 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data

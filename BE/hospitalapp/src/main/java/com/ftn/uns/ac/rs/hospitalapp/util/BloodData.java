@@ -66,10 +66,10 @@ public class BloodData {
 		String s = "-BLOOD DATA-\n";
 
 		s += "\t-Patient ID: \t" + this.patientID + "\n";
-		s += "\t-CRP: \t" + this.CRP + "\n";
-		s += "\t-Erythrocytes: \t" + this.erythrocytes + "\n";
-		s += "\t-Hemoglobin: \t" + this.hemoglobin + "\n";
-		s += "\t-Leukocytes: \t" + this.leukocytes + "\n";
+		s += "\t-CRP: \t" + this.CRP + " mg/L\n";
+		s += "\t-Erythrocytes: \t" + this.erythrocytes + " 10^12/L\n";
+		s += "\t-Hemoglobin: \t" + this.hemoglobin + " g/L\n";
+		s += "\t-Leukocytes: \t" + this.leukocytes + " 10^9/L\n";
 
 		return s;
 

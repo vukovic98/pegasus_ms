@@ -37,7 +37,7 @@ public class NeurologicalData {
 	public String toString() {
 		String s = "-NEUROLOGICAL DATA-\n";
 		
-		s += "\t-ICP: \t" + this.ICP + "\n";
+		s += "\t-ICP: \t" + this.ICP + "  mmHg\n";
 		s += "\t-BIS: \t" + this.BIS + "\n";
 		
 		return s;
