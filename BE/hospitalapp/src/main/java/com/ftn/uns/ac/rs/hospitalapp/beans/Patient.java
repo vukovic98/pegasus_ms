@@ -33,7 +33,7 @@ public class Patient {
 	@Column(name = "currentAge", nullable = false)
 	private int currentAge;
 	
-	@Column(name = "heigth", nullable = false)
+	@Column(name = "height", nullable = false)
 	private double height;
 	
 	@Column(name = "weight", nullable = false)
