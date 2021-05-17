@@ -12,6 +12,7 @@ import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
+import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
 import com.google.gson.Gson;
 
 @RestController
@@ -33,6 +34,22 @@ public class DeviceController {
 		BloodData bloodData = gson.fromJson(data, BloodData.class);
 		
 		System.out.println(bloodData);
+		
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@PostMapping(path = "/heart-monitor")
+	public ResponseEntity<HttpStatus> heartMonitorData(@RequestBody FinalMessage finalMess) {
+
+		Gson gson = new Gson();
+		
+		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getHeartMonitorPublicKey(), certService.getMyPrivateKey());
+
+		String data = EncryptionUtil.decompress(compressedData);
+		
+		HeartMonitorData heartMonitorData = gson.fromJson(data, HeartMonitorData.class);
+		
+		System.out.println(heartMonitorData);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
