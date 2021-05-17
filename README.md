@@ -9,15 +9,18 @@
 * Dušan Madžarević SW9/2017
 
 ### Starting the app
-    Both of the apps are HTTPS secured! 
+    Both of the apps are HTTPS secured! (App certificates must be trusted by your Operating System)
     
 #### SpringBoot Apps
     Open apps in one of the environments (Eclipse, IntelliJ or Spring Tool Suite) and run applications
     Admin app is runing on port 8080
     Hospital app is running on port 8081
+   
+    * Hospital devices simulators *
+    Blood device simulator is running on port 8082
 
 #### Angular Apps
-    Open apps in one environments (WebStorm, Visual Code ..) and run them with command -> ng serve
+    Open apps in one environments (WebStorm, Visual Code ..) and run them with command -> ng serve --ssl
     Admin app is running on port 4200
     Hospital app is running on port 4201
 
