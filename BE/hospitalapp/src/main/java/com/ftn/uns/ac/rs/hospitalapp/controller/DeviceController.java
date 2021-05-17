@@ -12,7 +12,9 @@ import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
+import com.ftn.uns.ac.rs.hospitalapp.util.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
+import com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData;
 import com.google.gson.Gson;
 
 @RestController
@@ -21,6 +23,9 @@ public class DeviceController {
 	
 	@Autowired
 	private CertificateService certService;
+	
+	@Autowired
+	private LoggerProxy logger;
 
 	@PostMapping(path = "/blood-device")
 	public ResponseEntity<HttpStatus> bloodDeviceData(@RequestBody FinalMessage finalMess) {
@@ -33,12 +38,32 @@ public class DeviceController {
 		
 		BloodData bloodData = gson.fromJson(data, BloodData.class);
 		
+		this.logger.info("Successfully received blood device data", DeviceController.class);
+		
 		System.out.println(bloodData);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
-	@PostMapping(path = "/heart-monitor")
+	@PostMapping(path = "/neurological-device")
+	public ResponseEntity<HttpStatus> neurologicalDeviceData(@RequestBody FinalMessage finalMess) {
+
+		Gson gson = new Gson();
+		
+		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getNeurologicalDevicePublicKey(), certService.getMyPrivateKey());
+
+		String data = EncryptionUtil.decompress(compressedData);
+		
+		NeurologicalData neuroData = gson.fromJson(data, NeurologicalData.class);
+		
+		this.logger.info("Successfully received neurological device data", DeviceController.class);
+		
+		System.out.println(neuroData);
+		
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
+@PostMapping(path = "/heart-monitor")
 	public ResponseEntity<HttpStatus> heartMonitorData(@RequestBody FinalMessage finalMess) {
 
 		Gson gson = new Gson();
@@ -52,6 +77,4 @@ public class DeviceController {
 		System.out.println(heartMonitorData);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
-	}
-	
-}
+	}}

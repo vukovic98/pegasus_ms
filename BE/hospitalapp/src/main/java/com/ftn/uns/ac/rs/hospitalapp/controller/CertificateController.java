@@ -24,7 +24,6 @@ import org.bouncycastle.pkcs.jcajce.JcaPKCS10CertificationRequestBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,6 +38,7 @@ import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
+import com.ftn.uns.ac.rs.hospitalapp.util.LoggerProxy;
 import com.google.gson.Gson;
 
 @RestController
@@ -50,6 +50,9 @@ public class CertificateController {
 
 	@Autowired
 	private CertificateService certService;
+	
+	@Autowired
+	private LoggerProxy logger;
 
 	@PostMapping(path = "/receive-certificate")
 	public ResponseEntity<HttpStatus> receiveCertificate(@RequestBody FinalMessage finalMess) {
@@ -69,10 +72,14 @@ public class CertificateController {
 		try {
 			Files.write(f.toPath(), dto.getCert());
 
+			this.logger.info("Receiving certificate [ "+dto.getSerialNum()+" ]", CertificateController.class);
+			
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (IOException e) {
 			e.printStackTrace();
 
+			this.logger.error("Error while saving requested certificate [ "+dto.getSerialNum()+" ]", CertificateController.class);
+			
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
