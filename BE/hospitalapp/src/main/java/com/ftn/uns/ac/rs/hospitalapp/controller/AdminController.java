@@ -68,6 +68,8 @@ public class AdminController {
 		FinalMessage finalMess = EncryptionUtil.encrypt(certService.getBobsPublicKey(), 
 				certService.getMyPrivateKey(), compressed_data, this.env.getProperty("cipherKey"));
 		
+		this.logger.info("Successful attempt for retrieving admins by admin-app", AdminController.class);
+		
 		return new ResponseEntity<>(finalMess, HttpStatus.OK);
 	}
 }

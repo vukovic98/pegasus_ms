@@ -81,5 +81,12 @@ public class LoggerProxy {
 		this.logger.fatal("[ {} ] : {} : {}", username, classInitializator.getSimpleName(), message);
 	}
 	
+	public void device(String message, Class<?> classInitializator) {
+		
+		String username = "hospital-device";
+
+		this.logger.info("[ {} ] : {} : {}", username, classInitializator.getSimpleName(), message);
+		
+	}
 	
 }
