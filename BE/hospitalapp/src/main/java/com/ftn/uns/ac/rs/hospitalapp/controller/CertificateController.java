@@ -127,10 +127,15 @@ public class CertificateController {
 		writer.close();
 
 		try {
+			
+			this.logger.info("Requesting new certificate from admin-app", CertificateController.class);
+			
 			return new ResponseEntity<byte[]>(csr.getEncoded(), HttpStatus.OK);
 		} catch (IOException e) {
-			e.printStackTrace();
+			
 
+			this.logger.error("[ CERTIFICATE REQUEST ERROR ] Error while requesting new certificate from admin-app: "+e.getMessage(), CertificateController.class);
+			
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}

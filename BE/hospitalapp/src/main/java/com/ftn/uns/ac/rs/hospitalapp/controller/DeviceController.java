@@ -37,7 +37,7 @@ public class DeviceController {
 		
 		BloodData bloodData = gson.fromJson(data, BloodData.class);
 		
-		this.logger.info("Successfully received blood device data", DeviceController.class);
+		this.logger.device("Successfully received blood device data", DeviceController.class);
 		
 		System.out.println(bloodData);
 		
@@ -55,7 +55,7 @@ public class DeviceController {
 		
 		NeurologicalData neuroData = gson.fromJson(data, NeurologicalData.class);
 		
-		this.logger.info("Successfully received neurological device data", DeviceController.class);
+		this.logger.device("Successfully received neurological device data", DeviceController.class);
 		
 		System.out.println(neuroData);
 		
