@@ -9,9 +9,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.client.RestTemplate;
+
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
 
 @Configuration
 public class SecureRestTemplateProperties {
@@ -35,5 +39,13 @@ public class SecureRestTemplateProperties {
 		return restTemplate;
 
 	}
+	
+	public MongoClient mongoClient() {
+        return MongoClients.create("mongodb+srv://kts:kts.nvt17@cluster-vukovic.ssf51.mongodb.net");
+    }
+
+    public @Bean MongoTemplate mongoTemplate() {
+        return new MongoTemplate(mongoClient(), "pegasus_ms");
+    }
 
 }

@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,11 +23,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ftn.uns.ac.rs.adminapp.beans.Log;
 import com.ftn.uns.ac.rs.adminapp.beans.LoginAttempt;
 import com.ftn.uns.ac.rs.adminapp.beans.LoginStatus;
 import com.ftn.uns.ac.rs.adminapp.beans.User;
 import com.ftn.uns.ac.rs.adminapp.dto.LoginDTO;
 import com.ftn.uns.ac.rs.adminapp.dto.UserTokenStateDTO;
+import com.ftn.uns.ac.rs.adminapp.repository.LogRepository;
 import com.ftn.uns.ac.rs.adminapp.security.TokenUtils;
 import com.ftn.uns.ac.rs.adminapp.service.CustomUserDetailsService;
 import com.ftn.uns.ac.rs.adminapp.service.LoginAttemptService;
