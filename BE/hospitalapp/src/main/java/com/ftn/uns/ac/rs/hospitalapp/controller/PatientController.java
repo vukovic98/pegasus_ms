@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ftn.uns.ac.rs.hospitalapp.beans.Patient;
 import com.ftn.uns.ac.rs.hospitalapp.dto.PatientDTO;
 import com.ftn.uns.ac.rs.hospitalapp.service.PatientService;
+import com.ftn.uns.ac.rs.hospitalapp.util.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.util.PageImplMapper;
 import com.ftn.uns.ac.rs.hospitalapp.util.PageImplementation;
 import com.ftn.uns.ac.rs.hospitalapp.util.PatientDetailsMapper;
@@ -29,6 +30,9 @@ public class PatientController {
 	
 	@Autowired
 	private PatientDetailsMapper patientDetailsMapper;
+	
+	@Autowired
+	private LoggerProxy logger;
 	
 	
 	@GetMapping(path = "/by-page/{pageNum}")
@@ -44,6 +48,8 @@ public class PatientController {
 
 		PageImplMapper<PatientDTO> pageMapper = new PageImplMapper<>();
 		PageImplementation<PatientDTO> pageImpl = pageMapper.toPageImpl(pagePatientsDTOS);
+		
+		this.logger.info("Successful attempt for retrieving patients from hospital-app", PatientController.class);
 
 		return new ResponseEntity<>(pageImpl, HttpStatus.OK);
 	}

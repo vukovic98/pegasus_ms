@@ -114,7 +114,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				"/users/change-authority",
 				"/users",
 				"/users/delete",
-				"/device/blood-device");
+				"/device/**");
 		web.ignoring().antMatchers(HttpMethod.GET, "/admin/by-page/**", 
 				"/doctor/by-page/**",
 				"/hospital",

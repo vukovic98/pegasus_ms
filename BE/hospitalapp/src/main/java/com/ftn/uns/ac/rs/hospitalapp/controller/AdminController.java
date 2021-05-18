@@ -22,6 +22,7 @@ import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.util.AdminDetailsMapper;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
+import com.ftn.uns.ac.rs.hospitalapp.util.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.util.PageImplMapper;
 import com.ftn.uns.ac.rs.hospitalapp.util.PageImplementation;
 import com.google.gson.Gson;
@@ -41,6 +42,9 @@ public class AdminController {
 	
 	@Autowired
 	private CertificateService certService;
+	
+	@Autowired
+	private LoggerProxy logger;
 
 	@GetMapping(path = "/by-page/{pageNum}")
 	public ResponseEntity<FinalMessage> findAll(@PathVariable int pageNum) {
@@ -63,6 +67,8 @@ public class AdminController {
 		
 		FinalMessage finalMess = EncryptionUtil.encrypt(certService.getBobsPublicKey(), 
 				certService.getMyPrivateKey(), compressed_data, this.env.getProperty("cipherKey"));
+		
+		this.logger.info("Successful attempt for retrieving admins by admin-app", AdminController.class);
 		
 		return new ResponseEntity<>(finalMess, HttpStatus.OK);
 	}

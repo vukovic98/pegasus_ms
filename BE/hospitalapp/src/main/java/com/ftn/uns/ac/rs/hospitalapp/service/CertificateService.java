@@ -26,4 +26,14 @@ public class CertificateService {
 		return this.certRepository.getBloodDevicePublicKey();
 	}
 
+	public PublicKey getHeartMonitorPublicKey() {
+		return this.certRepository.getHeartMonitorPublicKey();
+	}
+	public PublicKey getNeurologicalDevicePublicKey() {
+		return this.certRepository.getNeurologicalDevicePublicKey();
+	}
+	public PublicKey getTemperatureDevicePublicKey() {
+		return this.certRepository.getTemperatureDevicePublicKey();
+	}
+
 }
