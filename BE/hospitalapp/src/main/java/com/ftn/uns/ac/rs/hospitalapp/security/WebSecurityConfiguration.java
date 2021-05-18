@@ -117,7 +117,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				"/device/blood-device");
 		web.ignoring().antMatchers(HttpMethod.GET, "/admin/by-page/**", 
 				"/doctor/by-page/**",
-				"/hospital");
+				"/hospital",
+				"/ws/**");
 		
 		
 		web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html",

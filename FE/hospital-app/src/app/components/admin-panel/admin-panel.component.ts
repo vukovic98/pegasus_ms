@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../../services/auth.service';
+import {WebSocketAPI} from '../../services/alarm.service';
 
 @Component({
   selector: 'app-admin-panel',
@@ -9,12 +9,32 @@ import {AuthService} from '../../services/auth.service';
 export class AdminPanelComponent implements OnInit {
 
   public certified: boolean = true;
+  public messages: Array<string> = [];
+
+  private webSocketAPI: WebSocketAPI;
 
   constructor(
-    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
+    this.webSocketAPI = new WebSocketAPI(new AdminPanelComponent());
+    this.connect();
+  }
+
+  connect(){
+    this.webSocketAPI._connect();
+  }
+
+  disconnect(){
+    this.webSocketAPI._disconnect();
+  }
+
+  handleMessage(message){
+    let data: boolean = message.includes("{");
+    if(data) {
+      let index = message.indexOf("{");
+      this.messages.push(JSON.parse(message.substr(index-1)))
+    }
   }
 
 }

@@ -3,6 +3,8 @@ package com.ftn.uns.ac.rs.hospitalapp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,9 @@ public class DeviceController {
 	
 	@Autowired
 	private CertificateService certService;
+	
+	@Autowired
+	private SimpMessagingTemplate simpMessagingTemplate;
 
 	@PostMapping(path = "/blood-device")
 	public ResponseEntity<HttpStatus> bloodDeviceData(@RequestBody FinalMessage finalMess) {
@@ -33,6 +38,8 @@ public class DeviceController {
 		BloodData bloodData = gson.fromJson(data, BloodData.class);
 		
 		System.out.println(bloodData);
+		
+		this.simpMessagingTemplate.convertAndSend("/topic",  bloodData);
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

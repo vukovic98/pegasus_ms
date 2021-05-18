@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
 
     this.service.login(loginDto).subscribe((response) => {
       localStorage.setItem("accessToken", response.authenticationToken);
-      console.log(response.authenticationToken)
       this.route.navigate(['/admin-panel']);
     }, error => {
       if (error.status === 403) {

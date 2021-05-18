@@ -18,6 +18,7 @@ import { PatientsComponent } from './components/patients/patients/patients.compo
 import { PatientDetailsComponent } from './components/patients/patientDetails/patient-details/patient-details.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
+import { AlarmComponent } from './components/alarm/alarm.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {MatDialog, MatDialogModule} from "@angular/material/dialog";
     CertificateComponent,
     PatientsComponent,
     PatientDetailsComponent,
+    AlarmComponent,
   ],
   imports: [
     BrowserModule,
