@@ -9,7 +9,7 @@ import {WebSocketAPI} from '../../services/alarm.service';
 export class AdminPanelComponent implements OnInit {
 
   public certified: boolean = true;
-  public messages: Array<string> = [];
+  public messages: Array<any> = [];
 
   private webSocketAPI: WebSocketAPI;
 
@@ -29,11 +29,17 @@ export class AdminPanelComponent implements OnInit {
     this.webSocketAPI._disconnect();
   }
 
+
   handleMessage(message){
     let data: boolean = message.includes("{");
     if(data) {
       let index = message.indexOf("{");
-      this.messages.push(JSON.parse(message.substr(index-1)))
+
+      let messData = JSON.parse(message.substr(index-1));
+
+      console.log(messData)
+      this.messages.push(messData);
+
     }
   }
 

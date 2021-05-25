@@ -6,6 +6,9 @@ export class WebSocketAPI {
   webSocketEndPoint: string = 'https://localhost:8081/ws';
   topic: string = "/topic";
   stompClient: any;
+
+  messages: [];
+
   appComponent: AdminPanelComponent;
   constructor(appComponent: AdminPanelComponent){
     this.appComponent = appComponent;

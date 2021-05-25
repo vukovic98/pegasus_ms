@@ -97,7 +97,7 @@ export class AllUsersComponent implements OnInit {
       Swal.fire({
         icon: 'success',
         title: 'Success!',
-        text: 'Users authority successfully changed!'
+        text: 'User successfully removed from databse!'
       })
       this.loadData();
     }, error => {
