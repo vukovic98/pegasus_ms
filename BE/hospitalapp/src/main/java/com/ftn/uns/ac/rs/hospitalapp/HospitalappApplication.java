@@ -14,7 +14,6 @@ public class HospitalappApplication {
 		SpringApplication.run(HospitalappApplication.class, args);
 	}
 
-	
 	@Bean
 	public KieContainer kieContainer() {
 		KieServices ks = KieServices.Factory.get();

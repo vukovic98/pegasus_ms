@@ -78,7 +78,14 @@ public class DeviceController {
 		this.logger.device("Successfully received neurological device data", DeviceController.class);
 
 		System.out.println(neuroData);
-
+		
+		ArrayList<Alarm> alarms = this.deviceService.neurologicalData(neuroData);
+		
+		if(!alarms.isEmpty()) {
+			for(Alarm a : alarms)
+				this.simpMessagingTemplate.convertAndSend("/topic", a);
+		}
+		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
@@ -93,9 +100,13 @@ public class DeviceController {
 		String data = EncryptionUtil.decompress(compressedData);
 
 		HeartMonitorData heartMonitorData = gson.fromJson(data, HeartMonitorData.class);
-
+		this.logger.device("Successfully received heart monitor data", DeviceController.class);
 		System.out.println(heartMonitorData);
-
+		ArrayList<Alarm> alarms = this.deviceService.heartMonitorData(heartMonitorData);
+		if(!alarms.isEmpty()) {
+			for(Alarm a : alarms)
+				this.simpMessagingTemplate.convertAndSend("/topic", a);
+		}
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 

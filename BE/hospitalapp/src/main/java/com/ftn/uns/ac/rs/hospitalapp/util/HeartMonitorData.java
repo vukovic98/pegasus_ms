@@ -2,7 +2,8 @@ package com.ftn.uns.ac.rs.hospitalapp.util;
 
 public class HeartMonitorData {
 	private int saturation;
-	private String bloodPressure;
+	private int systolic;
+	private int diastolic;
 	private int heartRate;
 	private int patientID;
 	
@@ -10,14 +11,38 @@ public class HeartMonitorData {
 	public HeartMonitorData() {
 		super();
 	}
-	public HeartMonitorData(int patientID,int saturation, String bloodPressure, int heartRate) {
+	
+	
+	public HeartMonitorData(int saturation, int systolic, int diastolic, int heartRate, int patientID) {
 		super();
 		this.saturation = saturation;
-		this.bloodPressure = bloodPressure;
+		this.systolic = systolic;
+		this.diastolic = diastolic;
 		this.heartRate = heartRate;
 		this.patientID = patientID;
 	}
-	
+
+
+	public int getSystolic() {
+		return systolic;
+	}
+
+
+	public void setSystolic(int systolic) {
+		this.systolic = systolic;
+	}
+
+
+	public int getDiastolic() {
+		return diastolic;
+	}
+
+
+	public void setDiastolic(int diastolic) {
+		this.diastolic = diastolic;
+	}
+
+
 	public int getPatientID() {
 		return patientID;
 	}
@@ -30,12 +55,7 @@ public class HeartMonitorData {
 	public void setSaturation(int saturation) {
 		this.saturation = saturation;
 	}
-	public String getBloodPressure() {
-		return bloodPressure;
-	}
-	public void setBloodPressure(String bloodPressure) {
-		this.bloodPressure = bloodPressure;
-	}
+
 	public int getHeartRate() {
 		return heartRate;
 	}
@@ -49,7 +69,7 @@ public class HeartMonitorData {
 		
 		s += "\t-Patient ID: " + this.patientID + "\n";
 		s += "\t-Oxygen saturation: " + this.saturation + "%\n";
-		s += "\t-Blood pressure: " + this.bloodPressure + "mmHg\n";
+		s += "\t-Blood pressure: " + this.systolic +"/" + this.diastolic  + "mmHg\n";
 		s += "\t-Heart rate: " + this.heartRate + " beats per minute\n";
 		
 		return s;
