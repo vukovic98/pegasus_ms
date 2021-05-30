@@ -1494,3 +1494,15 @@ java.lang.NullPointerException: null
 2021-05-25 12:19:06,810 : INFO : [ ADMIN-APP ] : UserController : Successfull attempt for deleting user [ 56 ]
 2021-05-25 12:19:07,173 : INFO : [ ADMIN-APP ] : AdminController : Successful attempt for retrieving admins by admin-app
 2021-05-25 12:19:07,190 : INFO : [ ADMIN-APP ] : DoctorController : Successful attempt for retrieving doctors from hospital-app
+2021-05-25 13:29:37,371 : INFO : [ ADMIN-APP ] : AdminController : Successful attempt for retrieving admins by admin-app
+2021-05-25 13:29:37,371 : INFO : [ ADMIN-APP ] : DoctorController : Successful attempt for retrieving doctors from hospital-app
+2021-05-25 13:29:48,265 : INFO : [ ADMIN-APP ] : AdminController : Successful attempt for retrieving admins by admin-app
+2021-05-25 13:29:48,289 : INFO : [ ADMIN-APP ] : DoctorController : Successful attempt for retrieving doctors from hospital-app
+2021-05-25 13:34:22,283 : INFO : [ ADMIN-APP ] : AdminController : Successful attempt for retrieving admins by admin-app
+2021-05-25 13:34:22,333 : INFO : [ ADMIN-APP ] : DoctorController : Successful attempt for retrieving doctors from hospital-app
+2021-05-25 13:40:11,809 : INFO : [ ADMIN-APP ] : AdminController : Successful attempt for retrieving admins by admin-app
+2021-05-25 13:40:11,863 : INFO : [ ADMIN-APP ] : DoctorController : Successful attempt for retrieving doctors from hospital-app
+2021-05-25 13:41:01,583 : INFO : [ ADMIN-APP ] : DoctorController : Successful attempt for retrieving doctors from hospital-app
+2021-05-25 13:41:04,862 : INFO : [ ADMIN-APP ] : DoctorController : Successful attempt for retrieving doctors from hospital-app
+2021-05-25 13:41:53,915 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-05-25 13:41:57,465 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
