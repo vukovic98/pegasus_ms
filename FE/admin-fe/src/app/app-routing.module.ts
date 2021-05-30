@@ -10,6 +10,7 @@ import {RoleGuard} from './guards/role.guard';
 import {AllUsersComponent} from './components/users/all-users/all-users.component';
 import {AddUserComponent} from './components/users/add-user/add-user.component';
 import {ProfileComponent} from './components/profile/profile.component';
+import {LogsComponent} from './components/logs/logs.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -17,6 +18,12 @@ const routes: Routes = [
   {
     path: 'admin-panel',
     component: AdminPanelComponent ,
+    canActivate:[RoleGuard],
+    data: {acceptRoles: 'ROLE_SUPER_ADMIN'}
+  },
+  {
+    path: 'logs',
+    component: LogsComponent ,
     canActivate:[RoleGuard],
     data: {acceptRoles: 'ROLE_SUPER_ADMIN'}
   },

@@ -3232,3 +3232,9 @@ java.lang.RuntimeException: Cannot find a default KieSession
 	at java.lang.Thread.run(Thread.java:834) [?:?]
 2021-05-30 13:35:31,986 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
 2021-05-30 13:35:34,595 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-05-30 16:43:40,874 : INFO : [ ADMIN-APP ] : DoctorController : Successful attempt for retrieving doctors from hospital-app
+2021-05-30 16:43:40,874 : INFO : [ ADMIN-APP ] : AdminController : Successful attempt for retrieving admins by admin-app
+2021-05-30 16:44:26,369 : INFO : [ ADMIN-APP ] : AdminController : Successful attempt for retrieving admins by admin-app
+2021-05-30 16:44:26,386 : INFO : [ ADMIN-APP ] : DoctorController : Successful attempt for retrieving doctors from hospital-app
+2021-05-30 17:04:02,593 : INFO : [ ADMIN-APP ] : AdminController : Successful attempt for retrieving admins by admin-app
+2021-05-30 17:04:02,627 : INFO : [ ADMIN-APP ] : DoctorController : Successful attempt for retrieving doctors from hospital-app
