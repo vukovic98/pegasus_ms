@@ -14,15 +14,22 @@ import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
 public class DeviceService {
 
 	@Autowired
-	private KieContainer kieContainer;
+	private KieContainer kContainer;
 	
 	public ArrayList<Alarm> bloodData(BloodData d) {
-		KieSession kieSession = kieContainer.newKieSession();
 		
+		KieSession kieSession = kContainer.newKieSession();
+		
+		ArrayList<Alarm> alarms = new ArrayList<>();
+		
+		kieSession.setGlobal("alarms", alarms);
+
 		kieSession.insert(d);
+		kieSession.getAgenda().getAgendaGroup("blood-data").setFocus();
 		kieSession.fireAllRules();
+
 		kieSession.dispose();
-		
-		return new ArrayList<>();
+				
+		return alarms;
 	}
 }

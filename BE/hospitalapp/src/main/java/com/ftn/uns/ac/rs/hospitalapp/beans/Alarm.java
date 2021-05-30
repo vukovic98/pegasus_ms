@@ -4,13 +4,13 @@ public class Alarm {
 
 	private int patientID;
 	private String dataType;
-	private String value;
+	private double value;
 
 	public Alarm() {
 		super();
 	}
 
-	public Alarm(int patientID, String dataType, String value) {
+	public Alarm(int patientID, String dataType, double value) {
 		super();
 		this.patientID = patientID;
 		this.dataType = dataType;
@@ -33,11 +33,11 @@ public class Alarm {
 		this.dataType = dataType;
 	}
 
-	public String getValue() {
+	public double getValue() {
 		return value;
 	}
 
-	public void setValue(String value) {
+	public void setValue(double value) {
 		this.value = value;
 	}
 
