@@ -1,5 +1,7 @@
 package com.ftn.uns.ac.rs.hospitalapp.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
+import com.ftn.uns.ac.rs.hospitalapp.service.DeviceService;
 import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
@@ -32,6 +36,9 @@ public class DeviceController {
 	
 	@Autowired
 	private SimpMessagingTemplate simpMessagingTemplate;
+	
+	@Autowired
+	private DeviceService deviceService;
 
 	@PostMapping(path = "/blood-device")
 	public ResponseEntity<HttpStatus> bloodDeviceData(@RequestBody FinalMessage finalMess) {
@@ -48,6 +55,8 @@ public class DeviceController {
 		this.logger.device("Successfully received blood device data", DeviceController.class);
 
 		System.out.println(bloodData);
+		
+		ArrayList<Alarm> alarms = this.deviceService.bloodData(bloodData);
 
 		this.simpMessagingTemplate.convertAndSend("/topic", bloodData);
 
