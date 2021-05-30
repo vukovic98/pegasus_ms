@@ -37,15 +37,15 @@ public class HeartMonitorService {
 				
 		HeartMonitorData heartMonitorData = new HeartMonitorData();
 		//30-150
-		heartMonitorData.setHeartRate(r.nextInt(151 - 30) + 30);
+		heartMonitorData.setHeartRate(r.nextInt(171 - 10) + 10);
 		//150-199
-		heartMonitorData.setPatientID(r.nextInt(200 - 150) + 150);
+		heartMonitorData.setPatientID(r.nextInt(171 - 120) + 120);
 		//60-100
-		heartMonitorData.setSaturation(r.nextInt(101 - 60) + 60);
+		heartMonitorData.setSaturation(r.nextInt(121 - 40) + 40);
 		//80-196
-		heartMonitorData.setSystolic(r.nextInt(196-80)+80);
+		heartMonitorData.setSystolic(r.nextInt(200-50)+50);
 		//50-130
-		heartMonitorData.setDiastolic(r.nextInt(131-50)+50);
+		heartMonitorData.setDiastolic(r.nextInt(151-30)+30);
 		
 		String data = gson.toJson(heartMonitorData);
 		
