@@ -1,0 +1,50 @@
+package sbnz.integracija;
+
+import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+
+import java.util.ArrayList;
+
+global ArrayList<Alarm> alarms;
+
+
+rule " Not normal heart rate"
+agenda-group "heartmonitor"
+lock-on-active true
+	when
+		HeartMonitorData(heartRate <= 30 || heartRate >= 150, $heartRate: heartRate, $id: patientID)
+	then
+		System.out.println("Heart rate is not in normal range!");
+		alarms.add(new Alarm($id,"Heart rate", $heartRate));
+end;
+
+
+rule " Not normal systolic blood pressure"
+agenda-group "heartmonitor"
+lock-on-active true
+	when
+		HeartMonitorData(systolic <= 80 || systolic >= 196, $s:systolic, $id: patientID)
+	then
+	System.out.println("Systolic blood pressure is not in normal range!");
+		alarms.add(new Alarm($id,"Systolic blood pressure", $s));
+end;
+
+rule " Not normal diastolic blood pressure"
+agenda-group "heartmonitor"
+lock-on-active true
+	when
+		HeartMonitorData(diastolic <= 50 || diastolic >=130, $d: diastolic, $id: patientID)
+	then
+	System.out.println("Diastolic blood pressure is not in normal range!");
+		alarms.add(new Alarm($id,"Blood pressure",$d));
+end;
+
+rule "Not normal saturation"
+agenda-group "heartmonitor"
+lock-on-active true
+	when 
+		HeartMonitorData(saturation <= 60 || saturation >=100, $id: patientID, $s: saturation);
+	then
+		System.out.println("Saturation is not in normal range!");
+		alarms.add(new Alarm($id, "Saturation", $s));
+end;

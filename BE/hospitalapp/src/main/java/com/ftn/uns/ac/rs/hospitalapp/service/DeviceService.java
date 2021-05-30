@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
 import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
+import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
 import com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData;
 
 @Service
@@ -44,6 +45,28 @@ public class DeviceService {
 		
 		kieSession.insert(data);
 		kieSession.getAgenda().getAgendaGroup("neuro-data").setFocus();
+		kieSession.fireAllRules();
+		
+		System.out.println(alarms.size());
+		
+		kieSession.dispose();
+		
+		
+		
+		return alarms;
+		
+	}
+	
+	public ArrayList<Alarm> heartMonitorData(HeartMonitorData data){
+		KieSession kieSession = kContainer.newKieSession();
+		
+		ArrayList<Alarm> alarms = new ArrayList<>();
+		
+		kieSession.setGlobal("alarms", alarms);
+		
+		
+		kieSession.insert(data);
+		kieSession.getAgenda().getAgendaGroup("heartmonitor").setFocus();
 		kieSession.fireAllRules();
 		
 		System.out.println(alarms.size());
