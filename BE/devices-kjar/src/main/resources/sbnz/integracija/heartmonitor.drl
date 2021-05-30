@@ -1,0 +1,35 @@
+package sbnz.integracija;
+
+import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+
+global ArrayList<Alarm> alarms;
+
+
+rule " Not normal heart rate"
+agenda-group "heartmonitor"
+lock-on-active true
+	when
+		HeartMonitorData(heartRate <= 30 || heartRate >= 150, $heartRate: heartRate, $id: patientID)
+	then
+		alarms.add(new Alarm($id,"Heart rate", $heartRate);
+end;
+
+
+rule " Not normal blood pressure"
+agenda-group "heartmonitor"
+lock-on-active true
+	when
+		HeartMonitorData(systolic <= 80 || systolic >= 196, diastolic <= 50 || diastolic >=130, $d: diastolic, $s:systolic, $id: patientID)
+	then
+		alarms.add(new Alarm($id,"Blood pressure", $s+"/"+$d);
+end;
+
+rule "Not normal saturation"
+agenda-group "heartmonitor"
+lock-on-active true
+	when 
+		HeartMonitorData(saturation <= 60 || saturation >=100, $id: patientID, $s: saturation);
+	then
+		alarms.add(new Alarm($id, "Saturation", $s);
+end;

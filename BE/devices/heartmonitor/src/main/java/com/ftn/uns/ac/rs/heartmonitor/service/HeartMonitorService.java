@@ -43,10 +43,9 @@ public class HeartMonitorService {
 		//60-100
 		heartMonitorData.setSaturation(r.nextInt(101 - 60) + 60);
 		//80-196
-		int systolic = r.nextInt(196-80)+80;
+		heartMonitorData.setSystolic(r.nextInt(196-80)+80);
 		//50-130
-		int diastolic = r.nextInt(131-50)+50;
-		heartMonitorData.setBloodPressure(systolic + "/" + diastolic);
+		heartMonitorData.setDiastolic(r.nextInt(131-50)+50);
 		
 		String data = gson.toJson(heartMonitorData);
 		
