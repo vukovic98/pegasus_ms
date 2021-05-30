@@ -1,5 +1,6 @@
 package com.ftn.uns.ac.rs.hospitalapp.beans;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
@@ -57,6 +58,9 @@ public class User implements UserDetails {
 
 	@Column(name = "enabled", nullable = false)
 	private boolean enabled;
+	
+	@Column(name = "lastActivityTime", nullable = false)
+	private LocalDate lastActivityTime;
 
 	public User() {
 
@@ -165,6 +169,14 @@ public class User implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
 		return this.authorities;
+	}
+
+	public LocalDate getLastActivityTime() {
+		return lastActivityTime;
+	}
+
+	public void setLastActivityTime(LocalDate lastActivityTime) {
+		this.lastActivityTime = lastActivityTime;
 	}
 
 }

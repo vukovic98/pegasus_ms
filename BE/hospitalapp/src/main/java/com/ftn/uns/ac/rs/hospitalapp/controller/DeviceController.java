@@ -80,6 +80,8 @@ public class DeviceController {
 		System.out.println(neuroData);
 		
 		ArrayList<Alarm> alarms = this.deviceService.neurologicalData(neuroData);
+		
+		this.simpMessagingTemplate.convertAndSend("/topic", neuroData);
 
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

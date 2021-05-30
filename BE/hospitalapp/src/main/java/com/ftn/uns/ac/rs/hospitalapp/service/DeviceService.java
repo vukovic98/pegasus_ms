@@ -35,7 +35,7 @@ public class DeviceService {
 	}
 	
 	public ArrayList<Alarm> neurologicalData(NeurologicalData data){
-		KieSession kieSession = kieContainer.newKieSession();
+		KieSession kieSession = kContainer.newKieSession();
 		
 		ArrayList<Alarm> alarms = new ArrayList<>();
 		

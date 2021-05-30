@@ -1,5 +1,6 @@
 package com.ftn.uns.ac.rs.hospitalapp.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -112,7 +113,7 @@ public class UserController {
 					a.setHospital(dto.getHospital());
 
 					a.setAuthorities(this.authService.findByName("ROLE_ADMIN"));
-
+					a.setLastActivityTime(LocalDate.now());
 					Admin ok = this.adminService.save(a);
 
 					if (ok != null)
@@ -138,7 +139,7 @@ public class UserController {
 					a.setHospital(dto.getHospital());
 
 					a.setAuthorities(this.authService.findByName("ROLE_DOCTOR"));
-
+					a.setLastActivityTime(LocalDate.now());
 					Doctor ok = this.doctorService.save(a);
 
 					if (ok != null)
