@@ -23,48 +23,53 @@ import com.google.gson.Gson;
 @RestController
 @RequestMapping(path = "/device")
 public class DeviceController {
-	
+
 	@Autowired
 	private CertificateService certService;
-@Autowired
+	
+	@Autowired
 	private LoggerProxy logger;
-@Autowired
+	
+	@Autowired
 	private SimpMessagingTemplate simpMessagingTemplate;
+
 	@PostMapping(path = "/blood-device")
 	public ResponseEntity<HttpStatus> bloodDeviceData(@RequestBody FinalMessage finalMess) {
 
 		Gson gson = new Gson();
-		
-		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getBloodDevicePublicKey(), certService.getMyPrivateKey());
+
+		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getBloodDevicePublicKey(),
+				certService.getMyPrivateKey());
 
 		String data = EncryptionUtil.decompress(compressedData);
-		
+
 		BloodData bloodData = gson.fromJson(data, BloodData.class);
-		
+
 		this.logger.device("Successfully received blood device data", DeviceController.class);
-		
+
 		System.out.println(bloodData);
-		
-		this.simpMessagingTemplate.convertAndSend("/topic",  bloodData);
-		
+
+		this.simpMessagingTemplate.convertAndSend("/topic", bloodData);
+
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	
+
 	@PostMapping(path = "/neurological-device")
 	public ResponseEntity<HttpStatus> neurologicalDeviceData(@RequestBody FinalMessage finalMess) {
 
 		Gson gson = new Gson();
-		
-		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getNeurologicalDevicePublicKey(), certService.getMyPrivateKey());
+
+		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getNeurologicalDevicePublicKey(),
+				certService.getMyPrivateKey());
 
 		String data = EncryptionUtil.decompress(compressedData);
-		
+
 		NeurologicalData neuroData = gson.fromJson(data, NeurologicalData.class);
-		
+
 		this.logger.device("Successfully received neurological device data", DeviceController.class);
-		
+
 		System.out.println(neuroData);
-		
+
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
@@ -72,32 +77,34 @@ public class DeviceController {
 	public ResponseEntity<HttpStatus> heartMonitorData(@RequestBody FinalMessage finalMess) {
 
 		Gson gson = new Gson();
-		
-		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getHeartMonitorPublicKey(), certService.getMyPrivateKey());
+
+		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getHeartMonitorPublicKey(),
+				certService.getMyPrivateKey());
 
 		String data = EncryptionUtil.decompress(compressedData);
-		
+
 		HeartMonitorData heartMonitorData = gson.fromJson(data, HeartMonitorData.class);
-		
+
 		System.out.println(heartMonitorData);
-		
+
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
-	
-	//unknown device
+
+	// unknown device
 	@PostMapping(path = "/temperature-device")
 	public ResponseEntity<HttpStatus> temperatureDeviceData(@RequestBody FinalMessage finalMess) {
 
 		Gson gson = new Gson();
-		
-		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getTemperatureDevicePublicKey(), certService.getMyPrivateKey());
+
+		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getTemperatureDevicePublicKey(),
+				certService.getMyPrivateKey());
 
 		String data = EncryptionUtil.decompress(compressedData);
-		
+
 		UnknownDeviceData deviceData = gson.fromJson(data, UnknownDeviceData.class);
-		
+
 		System.out.println(deviceData);
-		
+
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

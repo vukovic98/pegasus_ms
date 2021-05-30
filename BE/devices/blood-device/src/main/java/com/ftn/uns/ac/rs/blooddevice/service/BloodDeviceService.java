@@ -39,10 +39,10 @@ public class BloodDeviceService {
 		BloodData bloodData = new BloodData();
 		
 		bloodData.setPatientID(r.nextInt(50) + 150);
-		bloodData.setCRP(0 + (r.nextDouble() * 100));
-		bloodData.setErythrocytes(3 + (r.nextDouble() * 4));
-		bloodData.setHemoglobin(11.5 + (r.nextDouble() * 8));
-		bloodData.setLeukocytes(3.5 + (r.nextDouble() * 9));
+		bloodData.setCRP(0 + (r.nextDouble() * 20)); //0 - 100 (OK 2 - 5)
+		bloodData.setErythrocytes(3 + (r.nextDouble() * 4)); // 3 - 7 (OK 4 - 6)
+		bloodData.setHemoglobin(11.5 + (r.nextDouble() * 8)); // 11.5 - 19.5 (OK 13.5 - 17.5)
+		bloodData.setLeukocytes(3.5 + (r.nextDouble() * 9)); // 3.5 - 12.5 (OK 4.5 - 11)
 		
 		String data = gson.toJson(bloodData);
 		

@@ -1,0 +1,13 @@
+package sbnz.integracija;
+
+import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+
+rule "CRP not in normal range"
+	salience 10
+	agenda-group "crp-data"
+	when
+		$data: BloodData(CRP <= 2 && CRP >= 5, $crp: CRP)
+	then
+		
+end;
