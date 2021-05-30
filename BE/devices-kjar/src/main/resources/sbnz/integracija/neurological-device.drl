@@ -1,0 +1,29 @@
+package sbnz.integracija;
+
+import com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+
+import java.util.ArrayList;
+
+global ArrayList<Alarm> alarms;
+
+rule "ICP not in normal range"
+lock-on-active true
+agenda-group "neuro-data"
+when
+	NeurologicalData($id: patientId, $icp: ICP, $icp < 5 || $icp > 15)
+then
+	System.out.println("Irregular ICP rule triggered");
+	alarms.add(new Alarm($id, "ICP", $icp));
+end
+
+
+rule "BIS not in normal range"
+lock-on-active true
+agenda-group "neuro-data"
+when
+	NeurologicalData($id: patientId, $icp: ICP, $icp <= 40)
+then
+	System.out.println("Irregular BIS rule triggered");
+	alarms.add(new Alarm($id, "ICP", $icp));
+end

@@ -3,16 +3,17 @@ package com.ftn.uns.ac.rs.hospitalapp.beans;
 public class Alarm {
 	
 	private int patientID;
+
 	private String dataType;
-	private String value;
+	private double value;
+	
 
 
 	public Alarm() {
 		super();
 	}
 
-	public Alarm(int patientID,String dataType, String value) {
-		super();
+	public Alarm(String dataType, double value) {		super();
 		this.patientID = patientID;
 		this.dataType = dataType;
 		this.value = value;
@@ -35,11 +36,12 @@ public class Alarm {
 		this.dataType = dataType;
 	}
 
-	public String getValue() {
+	public double getValue() {
 		return value;
 	}
 
-	public void setValue(String value) {
+
+	public void setValue(double value) {
 		this.value = value;
 	}
 

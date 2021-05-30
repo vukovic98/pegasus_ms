@@ -3,11 +3,42 @@ package sbnz.integracija;
 import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
 import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
 
+import java.util.ArrayList;
+
+global ArrayList<Alarm> alarms;
+
 rule "CRP not in normal range"
-	salience 10
-	agenda-group "crp-data"
+	agenda-group "blood-data"
 	when
-		$data: BloodData(CRP <= 2 && CRP >= 5, $crp: CRP)
+		$data: BloodData(CRP <= 2 || CRP >= 5, $crp: CRP, $id: patientID)
 	then
-		
+		System.out.println("CRP is not normal!");
+		alarms.add(new Alarm($id, "CRP", $crp));
+end;
+
+rule "Erythrocytes not in normal range"
+	agenda-group "blood-data"
+	when
+		$data: BloodData(erythrocytes <= 4 || erythrocytes >= 6, $erythrocytes: erythrocytes, $id: patientID)
+	then
+		System.out.println("Erythrocytes are not normal!");
+		alarms.add(new Alarm($id, "Erythrocytes", $erythrocytes));
+end;
+
+rule "Hemoglobin not in normal range"
+	agenda-group "blood-data"
+	when
+		$data: BloodData(hemoglobin <= 13.5 || hemoglobin >= 17.5, $hemoglobin: hemoglobin, $id: patientID)
+	then
+		System.out.println("Hemoglobin is not normal!");	
+		alarms.add(new Alarm($id, "Hemoglobin", $hemoglobin));
+end;
+
+rule "Leukocytes not in normal range"
+	agenda-group "blood-data"
+	when
+		$data: BloodData(leukocytes <= 4.5 || leukocytes >= 11, $leukocytes: leukocytes, $id: patientID)
+	then
+		System.out.println("Leukocytes is not normal!");
+		alarms.add(new Alarm($id, "Leukocytes", $leukocytes));
 end;
