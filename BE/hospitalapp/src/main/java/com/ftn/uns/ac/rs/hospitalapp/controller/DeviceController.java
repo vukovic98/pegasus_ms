@@ -78,6 +78,8 @@ public class DeviceController {
 		this.logger.device("Successfully received neurological device data", DeviceController.class);
 
 		System.out.println(neuroData);
+		
+		ArrayList<Alarm> alarms = this.deviceService.neurologicalData(neuroData);
 
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
