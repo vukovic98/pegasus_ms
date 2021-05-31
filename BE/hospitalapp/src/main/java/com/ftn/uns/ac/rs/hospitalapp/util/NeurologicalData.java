@@ -1,5 +1,7 @@
 package com.ftn.uns.ac.rs.hospitalapp.util;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,6 +26,9 @@ public class NeurologicalData {
 
 	@Column(name = "bis", nullable = false)
 	private double BIS;
+
+	@Column(name = "date", nullable = false)
+	private Date date;
 
 	public NeurologicalData() {
 		super();
@@ -58,6 +63,22 @@ public class NeurologicalData {
 
 	public void setBIS(double bIS) {
 		BIS = bIS;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	@Override

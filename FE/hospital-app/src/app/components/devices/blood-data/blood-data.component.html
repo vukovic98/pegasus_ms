@@ -1,0 +1,43 @@
+<div class="wrapper d-flex align-items-stretch">
+  <div style="height: 100vh;">
+    <app-navigation-bar></app-navigation-bar>
+  </div>
+  <div class="m-4 w-100">
+      <div style="min-height: 629px; max-height: 629px;">
+        <table class="table table-hover text-center">
+          <thead>
+          <tr>
+            <th scope="col">User ID</th>
+            <th scope="col">Email</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Hospital</th>
+            <th scope="col">Change authority</th>
+            <th scope="col">Remove user</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor=" let a of data" [ngClass]="{'table-danger': !a.enabled}">
+            <td>{{a.id}}</td>
+            <td>{{a.email}}</td>
+            <td>{{a.firstName}}</td>
+            <td>{{a.lastName}}</td>
+            <td>{{a.hospital}}</td>
+          </tr>
+          <tr *ngIf="data.length == 0">
+            <td colspan="6" class="text-center">There are no blood data records in database.</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mb-0" style="position: absolute; bottom: 0; right: 0;">
+        <mat-paginator
+          (page)="handlePageEvent($event)"
+          [length]="length"
+          [pageSize]="pageSize"
+          [showFirstLastButtons]="showFirstLastButtons"
+          [pageIndex]="pageIndex">
+        </mat-paginator>
+      </div>
+  </div>
+</div>
