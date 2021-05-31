@@ -22,7 +22,7 @@ import { AlarmComponent } from './components/alarm/alarm.component';
 import {MatTableModule} from '@angular/material/table';
 import { AlarmsComponent } from './components/alarms/alarms.component';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import { BloodDataComponent } from './components/blood-data/blood-data.component';
+import { BloodDataComponent } from './components/devices/blood-data/blood-data.component';
 import { HeartDataComponent } from './components/devices/heart-data/heart-data.component';
 import { NeuroDataComponent } from './components/devices/neuro-data/neuro-data.component';
 
