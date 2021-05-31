@@ -14,9 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
 import com.ftn.uns.ac.rs.hospitalapp.service.BloodDataService;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Patient;
 import com.ftn.uns.ac.rs.hospitalapp.service.DeviceKnowledgeService;
 import com.ftn.uns.ac.rs.hospitalapp.service.HeartDataService;
 import com.ftn.uns.ac.rs.hospitalapp.service.NeurologicalDataService;
+import com.ftn.uns.ac.rs.hospitalapp.service.PatientService;
 import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
@@ -41,6 +43,9 @@ public class DeviceController {
 
 	@Autowired
 	private DeviceKnowledgeService deviceService;
+	
+	@Autowired
+	private PatientService patientService;
 
 	@Autowired
 	private BloodDataService bloodDataService;
@@ -72,10 +77,11 @@ public class DeviceController {
 		}
 
 		ArrayList<Alarm> alarms = this.deviceService.bloodData(bloodData);
-
-		if (!alarms.isEmpty()) {
-			for (Alarm a : alarms)
-				this.simpMessagingTemplate.convertAndSend("/topic", a);
+			for(Alarm a : alarms) {
+Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
+				a.setPatientsName(p.getFirstName()+" "+p.getLastName());
+				this.deviceService.save(a);				this.simpMessagingTemplate.convertAndSend("/topic", a);
+			}
 		}
 
 		return new ResponseEntity<>(HttpStatus.OK);
@@ -96,6 +102,7 @@ public class DeviceController {
 
 		this.logger.device("Successfully received neurological device data", DeviceController.class);
 
+
 		try {
 			this.neurologicalDataService.insert(neuroData);
 		} catch (Exception e) {
@@ -103,11 +110,11 @@ public class DeviceController {
 		}
 		
 		ArrayList<Alarm> alarms = this.deviceService.neurologicalData(neuroData);
-
-		if (!alarms.isEmpty()) {
-			for (Alarm a : alarms)
-				this.simpMessagingTemplate.convertAndSend("/topic", a);
-		}
+{
+				Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
+				a.setPatientsName(p.getFirstName()+" "+p.getLastName());
+				this.deviceService.save(a);				this.simpMessagingTemplate.convertAndSend("/topic", a);
+		}}
 
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
@@ -133,10 +140,12 @@ public class DeviceController {
 		}
 		
 		ArrayList<Alarm> alarms = this.deviceService.heartMonitorData(heartMonitorData);
-		
-		if (!alarms.isEmpty()) {
-			for (Alarm a : alarms)
-				this.simpMessagingTemplate.convertAndSend("/topic", a);
+			for(Alarm a : alarms) {
+Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
+				a.setPatientsName(p.getFirstName()+" "+p.getLastName());
+				this.deviceService.save(a);				this.simpMessagingTemplate.convertAndSend("/topic", a);
+			}
+				
 		}
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

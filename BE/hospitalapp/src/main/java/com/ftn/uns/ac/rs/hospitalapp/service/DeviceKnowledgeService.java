@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+import com.ftn.uns.ac.rs.hospitalapp.repository.AlarmRepository;
 import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
 import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
 import com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData;
@@ -17,6 +18,9 @@ public class DeviceKnowledgeService {
 
 	@Autowired
 	private KieContainer kContainer;
+	
+	@Autowired
+	private AlarmRepository alarmRepository;
 	
 	public ArrayList<Alarm> bloodData(BloodData d) {
 		
@@ -77,5 +81,9 @@ public class DeviceKnowledgeService {
 		
 		return alarms;
 		
+	}
+
+	public Alarm save(Alarm a) {
+		return this.alarmRepository.save(a);
 	}
 }

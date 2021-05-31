@@ -4,6 +4,8 @@ import com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData;
 import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.lang.Double;
 
 global ArrayList<Alarm> alarms;
 
@@ -14,7 +16,7 @@ when
 	NeurologicalData($id: patientId, $icp: ICP, $icp < 5 || $icp > 15)
 then
 	System.out.println("Irregular ICP rule triggered");
-	alarms.add(new Alarm($id, "ICP", $icp));
+	alarms.add(new Alarm($id, "ICP", Double.toString($icp) + " mm/Hg", $icp,new Date()));
 end
 
 
@@ -22,8 +24,8 @@ rule "BIS not in normal range"
 lock-on-active true
 agenda-group "neuro-data"
 when
-	NeurologicalData($id: patientId, $icp: ICP, $icp <= 40)
+	NeurologicalData($id: patientId, $bis: BIS, $bis <= 40)
 then
 	System.out.println("Irregular BIS rule triggered");
-	alarms.add(new Alarm($id, "ICP", $icp));
+	alarms.add(new Alarm($id, "BIS", Double.toString($bis), $bis, new Date()));
 end

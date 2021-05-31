@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { BindingScope } from '@angular/compiler/src/render3/view/template';
+import { ApplicationRef, Component, OnInit } from '@angular/core';
+import { $ } from 'protractor';
 import {WebSocketAPI} from '../../services/alarm.service';
 
 @Component({
@@ -13,11 +15,11 @@ export class AdminPanelComponent implements OnInit {
 
   private webSocketAPI: WebSocketAPI;
 
-  constructor(
+  constructor(private appRef: ApplicationRef
   ) { }
 
   ngOnInit(): void {
-    this.webSocketAPI = new WebSocketAPI(new AdminPanelComponent());
+    this.webSocketAPI = new WebSocketAPI(this);
     this.connect();
   }
 
@@ -37,8 +39,10 @@ export class AdminPanelComponent implements OnInit {
 
       let messData = JSON.parse(message.substr(index-1));
 
-      console.log(messData)
-      this.messages.push(messData);
+      console.log(messData);
+      this.messages.unshift(messData);
+      this.appRef.tick()
+      
 
     }
   }

@@ -1,5 +1,6 @@
 package com.ftn.uns.ac.rs.heartmonitor.service;
 
+import java.text.SimpleDateFormat;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,14 +35,15 @@ public class HeartMonitorService {
 				
 		Gson gson = new Gson();
 		Random r = new Random();
-				
+
 		HeartMonitorData heartMonitorData = new HeartMonitorData();
+	
 		//30-150
 		heartMonitorData.setHeartRate(r.nextInt(171 - 10) + 10);
 		//150-199
-		heartMonitorData.setPatientID(r.nextInt(171 - 120) + 120);
+		heartMonitorData.setPatientID(r.nextInt(50) + 150);
 		//60-100
-		heartMonitorData.setSaturation(r.nextInt(121 - 40) + 40);
+		heartMonitorData.setSaturation(r.nextInt(101 - 40) + 40);
 		//80-196
 		heartMonitorData.setSystolic(r.nextInt(200-50)+50);
 		//50-130

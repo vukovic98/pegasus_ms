@@ -1,5 +1,7 @@
 package com.ftn.uns.ac.rs.hospitalapp.controller;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletResponse;
@@ -96,6 +98,9 @@ public class AuthenticationController {
 
 			this.logger.info("Successfull login attempt was made from [ " + authenticationRequest.getEmail() + " ]",
 					AuthenticationController.class);
+			
+			user.setLastActivityTime(LocalDate.now());
+			userService.save(user);
 			
 			// Vrati token kao odgovor na uspesnu autentifikaciju
 			return ResponseEntity.ok(new UserTokenStateDTO(jwt, expiresIn, email, verified));

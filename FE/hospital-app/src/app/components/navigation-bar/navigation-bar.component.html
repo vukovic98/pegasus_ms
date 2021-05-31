@@ -12,8 +12,12 @@
           <a routerLink="/certificate"><span class="fa fa-user mr-3"></span> Certificate</a>
         </li>
         <li *ngIf="role==='ROLE_DOCTOR'">
-          <mat-icon class="float-left mt-2"> local_hospital</mat-icon>
+          <mat-icon class="float-left mt-2"> person </mat-icon>
           <a routerLink="/patient"><span class="fa fa-user mr-3"></span> Patients</a>
+        </li>
+        <li *ngIf="role==='ROLE_DOCTOR'">
+          <mat-icon class="float-left mt-2"> alarm</mat-icon>
+          <a routerLink="/alarms"><span class="fas fa-bell mr-3"></span> Alarms</a>
         </li>
         <li class="mt-5" (click)="logout()" style="cursor:pointer;">
           <mat-icon class="float-left mt-2">close</mat-icon>
