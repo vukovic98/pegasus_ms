@@ -3,26 +3,36 @@
     <app-navigation-bar></app-navigation-bar>
   </div>
   <div class="m-4 w-100">
+    <h1>Blood data panel</h1>
       <div style="min-height: 629px; max-height: 629px;">
         <table class="table table-hover text-center">
           <thead>
+<!--          crp: 3.5392653310792044-->
+<!--          date: "2021-05-31T11:24:44.000+00:00"-->
+<!--          erythrocytes: 4.517766034414242-->
+<!--          hemoglobin: 12.511035222464947-->
+<!--          id: 2-->
+<!--          leukocytes: 10.73032002316845-->
+<!--          patientID: 157-->
           <tr>
-            <th scope="col">User ID</th>
-            <th scope="col">Email</th>
-            <th scope="col">First name</th>
-            <th scope="col">Last name</th>
-            <th scope="col">Hospital</th>
-            <th scope="col">Change authority</th>
-            <th scope="col">Remove user</th>
+            <th scope="col">ID</th>
+            <th scope="col">PatientID</th>
+            <th scope="col">Date</th>
+            <th scope="col">Erythrocytes</th>
+            <th scope="col">Leukocytes</th>
+            <th scope="col">Hemoglobin</th>
+            <th scope="col">CRP</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor=" let a of data" [ngClass]="{'table-danger': !a.enabled}">
+          <tr *ngFor=" let a of data">
             <td>{{a.id}}</td>
-            <td>{{a.email}}</td>
-            <td>{{a.firstName}}</td>
-            <td>{{a.lastName}}</td>
-            <td>{{a.hospital}}</td>
+            <td>{{a.patientID}}</td>
+            <td>{{a.date.split("T")[0]}} {{a.date.split("T")[1].split(".")[0]}}</td>
+            <td>{{a.erythrocytes.toFixed(2)}} 10^12/L</td>
+            <td>{{a.leukocytes.toFixed(2)}} 10^9/L</td>
+            <td>{{a.hemoglobin.toFixed(2)}} g/L</td>
+            <td>{{a.crp.toFixed(2)}} mg/L</td>
           </tr>
           <tr *ngIf="data.length == 0">
             <td colspan="6" class="text-center">There are no blood data records in database.</td>

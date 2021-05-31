@@ -7,7 +7,7 @@ import {PatientsComponent} from './components/patients/patients/patients.compone
 import {PatientDetailsComponent} from "./components/patients/patientDetails/patient-details/patient-details.component";
 import {RoleGuard} from "./guards/role.guard";
 import {AlarmsComponent} from "./components/alarms/alarms.component";
-import {HeartDataComponent} from "./components/devices/heart-data/heart-data.component";
+import {BloodDataComponent} from './components/devices/blood-data/blood-data.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,6 +19,11 @@ const routes: Routes = [
     canActivate:[RoleGuard],
     data: {acceptRoles:'ROLE_DOCTOR'}
   },
+  { path: 'blood-data',
+    component: BloodDataComponent,
+    canActivate:[RoleGuard],
+    data: {acceptRoles:'ROLE_DOCTOR'}
+  },
   { path: 'patient-details',
     component:PatientDetailsComponent,
     canActivate:[RoleGuard],
@@ -27,6 +32,7 @@ const routes: Routes = [
   {path: 'alarms',
   component: AlarmsComponent,
   canActivate:[RoleGuard],
+
   data:{acceptRoles: 'ROLE_DOCTOR'}},
 
   {path:'heart-data',
