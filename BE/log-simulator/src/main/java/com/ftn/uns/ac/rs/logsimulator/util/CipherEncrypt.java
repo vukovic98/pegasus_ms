@@ -1,4 +1,4 @@
-package com.ftn.uns.ac.rs.util;
+package com.ftn.uns.ac.rs.logsimulator.util;
 
 import java.security.MessageDigest;
 import java.util.Arrays;

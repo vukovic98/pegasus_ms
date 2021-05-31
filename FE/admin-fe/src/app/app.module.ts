@@ -27,6 +27,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { AddUserComponent } from './components/users/add-user/add-user.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import {AuthInterceptorService} from './interceptors/auth.interceptor';
+import { LogsComponent } from './components/logs/logs.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +47,8 @@ import {AuthInterceptorService} from './interceptors/auth.interceptor';
     ApproveRequestComponent,
     AllUsersComponent,
     AddUserComponent,
-    ProfileComponent
+    ProfileComponent,
+    LogsComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +62,10 @@ import {AuthInterceptorService} from './interceptors/auth.interceptor';
     MatCheckboxModule,
     MatPaginatorModule,
     MatRadioModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [
     AuthService,
