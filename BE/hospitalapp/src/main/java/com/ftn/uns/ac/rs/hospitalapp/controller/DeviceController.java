@@ -43,7 +43,7 @@ public class DeviceController {
 
 	@Autowired
 	private DeviceKnowledgeService deviceService;
-	
+
 	@Autowired
 	private PatientService patientService;
 
@@ -77,11 +77,11 @@ public class DeviceController {
 		}
 
 		ArrayList<Alarm> alarms = this.deviceService.bloodData(bloodData);
-			for(Alarm a : alarms) {
-Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
-				a.setPatientsName(p.getFirstName()+" "+p.getLastName());
-				this.deviceService.save(a);				this.simpMessagingTemplate.convertAndSend("/topic", a);
-			}
+		for (Alarm a : alarms) {
+			Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
+			a.setPatientsName(p.getFirstName() + " " + p.getLastName());
+			this.deviceService.save(a);
+			this.simpMessagingTemplate.convertAndSend("/topic", a);
 		}
 
 		return new ResponseEntity<>(HttpStatus.OK);
@@ -102,21 +102,22 @@ Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
 
 		this.logger.device("Successfully received neurological device data", DeviceController.class);
 
-
 		try {
 			this.neurologicalDataService.insert(neuroData);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		ArrayList<Alarm> alarms = this.deviceService.neurologicalData(neuroData);
-{
-				Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
-				a.setPatientsName(p.getFirstName()+" "+p.getLastName());
-				this.deviceService.save(a);				this.simpMessagingTemplate.convertAndSend("/topic", a);
-		}}
+		for (Alarm a : alarms) {
+			Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
+			a.setPatientsName(p.getFirstName() + " " + p.getLastName());
+			this.deviceService.save(a);
+			this.simpMessagingTemplate.convertAndSend("/topic", a);
+		}
 
 		return new ResponseEntity<>(HttpStatus.OK);
+
 	}
 
 	@PostMapping(path = "/heart-monitor")
@@ -130,24 +131,25 @@ Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
 		String data = EncryptionUtil.decompress(compressedData);
 
 		HeartMonitorData heartMonitorData = gson.fromJson(data, HeartMonitorData.class);
-		
+
 		this.logger.device("Successfully received heart monitor data", DeviceController.class);
-		
+
 		try {
 			this.heartDataService.insert(heartMonitorData);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		ArrayList<Alarm> alarms = this.deviceService.heartMonitorData(heartMonitorData);
-			for(Alarm a : alarms) {
-Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
-				a.setPatientsName(p.getFirstName()+" "+p.getLastName());
-				this.deviceService.save(a);				this.simpMessagingTemplate.convertAndSend("/topic", a);
-			}
-				
+		for (Alarm a : alarms) {
+			Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
+			a.setPatientsName(p.getFirstName() + " " + p.getLastName());
+			this.deviceService.save(a);
+			this.simpMessagingTemplate.convertAndSend("/topic", a);
 		}
+
 		return new ResponseEntity<>(HttpStatus.OK);
+
 	}
 
 	// unknown device
