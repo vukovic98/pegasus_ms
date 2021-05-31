@@ -1,11 +1,34 @@
 package com.ftn.uns.ac.rs.hospitalapp.util;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "blood_data")
 public class BloodData {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long id;
+	
+	@Column(name = "patient_id", nullable = false)
 	private int patientID;
+	
+	@Column(name = "crp", nullable = false)
 	private double CRP;
+	
+	@Column(name = "erythrocytes", nullable = false)
 	private double erythrocytes;
+	
+	@Column(name = "leukocytes", nullable = false)
 	private double leukocytes;
+	
+	@Column(name = "hemoglobin", nullable = false)
 	private double hemoglobin;
 
 	public BloodData() {

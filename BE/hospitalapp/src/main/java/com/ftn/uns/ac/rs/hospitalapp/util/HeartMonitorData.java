@@ -1,10 +1,34 @@
 package com.ftn.uns.ac.rs.hospitalapp.util;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "heart_data")
 public class HeartMonitorData {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Long id;
+	
+	@Column(name = "saturation", nullable = false)
 	private int saturation;
+	
+	@Column(name = "systolic", nullable = false)
 	private int systolic;
+	
+	@Column(name = "diastolic", nullable = false)
 	private int diastolic;
+	
+	@Column(name = "heart_rate", nullable = false)
 	private int heartRate;
+	
+	@Column(name = "patient_id", nullable = false)
 	private int patientID;
 	
 	

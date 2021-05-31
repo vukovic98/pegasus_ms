@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
-import com.ftn.uns.ac.rs.hospitalapp.beans.Patient;
+import com.ftn.uns.ac.rs.hospitalapp.service.BloodDataService;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
-import com.ftn.uns.ac.rs.hospitalapp.service.DeviceService;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Patient;
+import com.ftn.uns.ac.rs.hospitalapp.service.DeviceKnowledgeService;
+import com.ftn.uns.ac.rs.hospitalapp.service.HeartDataService;
+import com.ftn.uns.ac.rs.hospitalapp.service.NeurologicalDataService;
 import com.ftn.uns.ac.rs.hospitalapp.service.PatientService;
 import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
@@ -31,18 +34,27 @@ public class DeviceController {
 
 	@Autowired
 	private CertificateService certService;
-	
+
 	@Autowired
 	private LoggerProxy logger;
-	
+
 	@Autowired
 	private SimpMessagingTemplate simpMessagingTemplate;
-	
+
 	@Autowired
-	private DeviceService deviceService;
-	
+	private DeviceKnowledgeService deviceService;
+
 	@Autowired
 	private PatientService patientService;
+
+	@Autowired
+	private BloodDataService bloodDataService;
+
+	@Autowired
+	private HeartDataService heartDataService;
+
+	@Autowired
+	private NeurologicalDataService neurologicalDataService;
 
 	@PostMapping(path = "/blood-device")
 	public ResponseEntity<HttpStatus> bloodDeviceData(@RequestBody FinalMessage finalMess) {
@@ -57,19 +69,23 @@ public class DeviceController {
 		BloodData bloodData = gson.fromJson(data, BloodData.class);
 
 		this.logger.device("Successfully received blood device data", DeviceController.class);
-		
+
+		try {
+			this.bloodDataService.insert(bloodData);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		ArrayList<Alarm> alarms = this.deviceService.bloodData(bloodData);
-		
-		if(!alarms.isEmpty()) {
-			for(Alarm a : alarms) {
-				Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
-				a.setPatientsName(p.getFirstName()+" "+p.getLastName());
-				this.deviceService.save(a);
-				this.simpMessagingTemplate.convertAndSend("/topic", a);
-			}
+		for (Alarm a : alarms) {
+			Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
+			a.setPatientsName(p.getFirstName() + " " + p.getLastName());
+			this.deviceService.save(a);
+			this.simpMessagingTemplate.convertAndSend("/topic", a);
 		}
 
 		return new ResponseEntity<>(HttpStatus.OK);
+
 	}
 
 	@PostMapping(path = "/neurological-device")
@@ -86,19 +102,22 @@ public class DeviceController {
 
 		this.logger.device("Successfully received neurological device data", DeviceController.class);
 
-		System.out.println(neuroData);
-		
+		try {
+			this.neurologicalDataService.insert(neuroData);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		ArrayList<Alarm> alarms = this.deviceService.neurologicalData(neuroData);
-		
-		if(!alarms.isEmpty()) {
-			for(Alarm a : alarms) {
-				Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
-				a.setPatientsName(p.getFirstName()+" "+p.getLastName());
-				this.deviceService.save(a);
-				this.simpMessagingTemplate.convertAndSend("/topic", a);
-		}}
-		
+		for (Alarm a : alarms) {
+			Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
+			a.setPatientsName(p.getFirstName() + " " + p.getLastName());
+			this.deviceService.save(a);
+			this.simpMessagingTemplate.convertAndSend("/topic", a);
+		}
+
 		return new ResponseEntity<>(HttpStatus.OK);
+
 	}
 
 	@PostMapping(path = "/heart-monitor")
@@ -112,19 +131,25 @@ public class DeviceController {
 		String data = EncryptionUtil.decompress(compressedData);
 
 		HeartMonitorData heartMonitorData = gson.fromJson(data, HeartMonitorData.class);
+
 		this.logger.device("Successfully received heart monitor data", DeviceController.class);
-		System.out.println(heartMonitorData);
-		ArrayList<Alarm> alarms = this.deviceService.heartMonitorData(heartMonitorData);
-		if(!alarms.isEmpty()) {
-			for(Alarm a : alarms) {
-				Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
-				a.setPatientsName(p.getFirstName()+" "+p.getLastName());
-				this.deviceService.save(a);
-				this.simpMessagingTemplate.convertAndSend("/topic", a);
-			}
-				
+
+		try {
+			this.heartDataService.insert(heartMonitorData);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
+		ArrayList<Alarm> alarms = this.deviceService.heartMonitorData(heartMonitorData);
+		for (Alarm a : alarms) {
+			Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
+			a.setPatientsName(p.getFirstName() + " " + p.getLastName());
+			this.deviceService.save(a);
+			this.simpMessagingTemplate.convertAndSend("/topic", a);
+		}
+
 		return new ResponseEntity<>(HttpStatus.OK);
+
 	}
 
 	// unknown device
