@@ -20,7 +20,7 @@ export class HeartDataComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.deviceService.getAll(this.pageIndex).subscribe(
+    this.deviceService.getAllHeartData(this.pageIndex).subscribe(
       (data) => {
         this.data = data.content;
         this.pageSize= data.totalElements;

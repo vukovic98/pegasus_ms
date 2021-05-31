@@ -3,6 +3,7 @@
     <app-navigation-bar></app-navigation-bar>
   </div>
   <div class="m-4 w-100">
+    <h1>Heart monitor device data</h1>
     <div style="min-height: 629px; max-height: 629px;">
       <table class="table table-hover text-center">
         <thead>
@@ -19,7 +20,7 @@
         <tr *ngFor=" let a of data">
           <td>{{a.id}}</td>
           <td>{{a.patientID}}</td>
-          <td>{{a.date}}</td>
+          <td>{{a.date.split("T")[0]}} {{a.date.split("T")[1].split(".")[0]}}</td>
           <td>{{a.heartRate}} per minute</td>
           <td>{{a.saturation}} %</td>
           <td>{{a.diastolic}}/{{a.systolic}} mm/Hg</td>
