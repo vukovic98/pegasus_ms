@@ -1,1 +1,12 @@
 2021-05-31 12:38:13,763 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-05-31 12:51:28,893 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-05-31 12:51:45,408 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-05-31 12:53:04,638 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-05-31 12:55:34,792 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-05-31 12:57:00,387 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-05-31 12:57:04,477 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-05-31 12:58:18,691 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-05-31 13:00:05,405 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-05-31 13:00:12,126 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-05-31 13:01:31,824 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-05-31 13:01:33,391 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
