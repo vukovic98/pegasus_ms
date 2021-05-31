@@ -4,6 +4,10 @@ import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
 import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.lang.Double;
+import java.text.SimpleDateFormat;
+
 
 global ArrayList<Alarm> alarms;
 
@@ -13,7 +17,7 @@ rule "CRP not in normal range"
 		$data: BloodData(CRP <= 2 || CRP >= 5, $crp: CRP, $id: patientID)
 	then
 		System.out.println("CRP is not normal!");
-		alarms.add(new Alarm($id, "CRP", $crp));
+		alarms.add(new Alarm($id, "CRP", Double.toString($crp)+" mg/L", Double.valueOf($crp), new Date()));
 end;
 
 rule "Erythrocytes not in normal range"
@@ -22,7 +26,7 @@ rule "Erythrocytes not in normal range"
 		$data: BloodData(erythrocytes <= 4 || erythrocytes >= 6, $erythrocytes: erythrocytes, $id: patientID)
 	then
 		System.out.println("Erythrocytes are not normal!");
-		alarms.add(new Alarm($id, "Erythrocytes", $erythrocytes));
+		alarms.add(new Alarm($id, "Erythrocytes", Double.toString($erythrocytes)+" 10^12/L", $erythrocytes, new Date()) );
 end;
 
 rule "Hemoglobin not in normal range"
@@ -31,7 +35,7 @@ rule "Hemoglobin not in normal range"
 		$data: BloodData(hemoglobin <= 13.5 || hemoglobin >= 17.5, $hemoglobin: hemoglobin, $id: patientID)
 	then
 		System.out.println("Hemoglobin is not normal!");	
-		alarms.add(new Alarm($id, "Hemoglobin", $hemoglobin));
+		alarms.add(new Alarm($id, "Hemoglobin", Double.toString($hemoglobin)+" g/L", $hemoglobin, new Date()));
 end;
 
 rule "Leukocytes not in normal range"
@@ -40,5 +44,5 @@ rule "Leukocytes not in normal range"
 		$data: BloodData(leukocytes <= 4.5 || leukocytes >= 11, $leukocytes: leukocytes, $id: patientID)
 	then
 		System.out.println("Leukocytes is not normal!");
-		alarms.add(new Alarm($id, "Leukocytes", $leukocytes));
+		alarms.add(new Alarm($id, "Leukocytes", Double.toString($leukocytes)+" 10^9/L", $leukocytes, new Date()));
 end;

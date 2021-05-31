@@ -6,6 +6,7 @@ import {CertificateComponent} from './components/certificate/certificate.compone
 import {PatientsComponent} from './components/patients/patients/patients.component';
 import {PatientDetailsComponent} from "./components/patients/patientDetails/patient-details/patient-details.component";
 import {RoleGuard} from "./guards/role.guard";
+import {AlarmsComponent} from "./components/alarms/alarms.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -20,7 +21,12 @@ const routes: Routes = [
   { path: 'patient-details',
     component:PatientDetailsComponent,
     canActivate:[RoleGuard],
-    data: {acceptRoles:'ROLE_DOCTOR'}}
+    data: {acceptRoles:'ROLE_DOCTOR'}
+    },
+  {path: 'alarms',
+  component: AlarmsComponent,
+  canActivate:[RoleGuard],
+  data:{acceptRoles: 'ROLE_DOCTOR'}}
 ];
 
 @NgModule({

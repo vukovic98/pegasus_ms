@@ -25,10 +25,8 @@ export class PatientsComponent implements OnInit {
 
     this.patientService.getAll(this.pageIndex).subscribe(
       (patients) => {
-        console.log((patients.content))
         this.patients = patients.content;
         this.p_length= patients.totalElements;
-        console.log(this.p_length)
       }
     )
   }

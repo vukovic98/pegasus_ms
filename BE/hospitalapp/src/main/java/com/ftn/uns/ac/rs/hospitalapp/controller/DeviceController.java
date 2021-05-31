@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Patient;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.service.DeviceService;
+import com.ftn.uns.ac.rs.hospitalapp.service.PatientService;
 import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
@@ -38,6 +40,9 @@ public class DeviceController {
 	
 	@Autowired
 	private DeviceService deviceService;
+	
+	@Autowired
+	private PatientService patientService;
 
 	@PostMapping(path = "/blood-device")
 	public ResponseEntity<HttpStatus> bloodDeviceData(@RequestBody FinalMessage finalMess) {
@@ -56,8 +61,12 @@ public class DeviceController {
 		ArrayList<Alarm> alarms = this.deviceService.bloodData(bloodData);
 		
 		if(!alarms.isEmpty()) {
-			for(Alarm a : alarms)
+			for(Alarm a : alarms) {
+				Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
+				a.setPatientsName(p.getFirstName()+" "+p.getLastName());
+				this.deviceService.save(a);
 				this.simpMessagingTemplate.convertAndSend("/topic", a);
+			}
 		}
 
 		return new ResponseEntity<>(HttpStatus.OK);
@@ -82,9 +91,12 @@ public class DeviceController {
 		ArrayList<Alarm> alarms = this.deviceService.neurologicalData(neuroData);
 		
 		if(!alarms.isEmpty()) {
-			for(Alarm a : alarms)
+			for(Alarm a : alarms) {
+				Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
+				a.setPatientsName(p.getFirstName()+" "+p.getLastName());
+				this.deviceService.save(a);
 				this.simpMessagingTemplate.convertAndSend("/topic", a);
-		}
+		}}
 		
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
@@ -104,8 +116,13 @@ public class DeviceController {
 		System.out.println(heartMonitorData);
 		ArrayList<Alarm> alarms = this.deviceService.heartMonitorData(heartMonitorData);
 		if(!alarms.isEmpty()) {
-			for(Alarm a : alarms)
+			for(Alarm a : alarms) {
+				Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
+				a.setPatientsName(p.getFirstName()+" "+p.getLastName());
+				this.deviceService.save(a);
 				this.simpMessagingTemplate.convertAndSend("/topic", a);
+			}
+				
 		}
 		return new ResponseEntity<>(HttpStatus.OK);
 	}

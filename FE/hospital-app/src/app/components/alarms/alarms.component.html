@@ -1,0 +1,116 @@
+<div class="wrapper d-flex align-items-stretch">
+  <div style="height: 100vh;">
+    <app-navigation-bar></app-navigation-bar>
+  </div>
+  <div class="m-3 w-100">
+    <h1>Alarms</h1>
+    <div>
+      <table class="table table-hover text-center">
+        <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Date</th>
+          <th scope="col">Patient's name</th>
+          <th scope="col">Data type</th>
+          <th scope="col">Value</th>
+          <th scope="col">Reference value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor=" let alarm of alarms">
+          <td>{{alarm.id}}</td>
+          <td>{{alarm.date}}</td>
+          <td>[{{alarm.patientID}}] {{alarm.patientsName}}</td>
+          <td>{{alarm.dataType}}</td>
+          <td>{{alarm.value}}</td>
+          <td *ngIf="alarm.dataType==='Saturation'">
+            <span *ngIf="alarm.numValue < 88">
+               <mat-icon>arrow_downward</mat-icon>
+            </span>
+            88-100 %
+          </td>
+          <td *ngIf="alarm.dataType==='Diastolic blood pressure'">
+             <span *ngIf="alarm.numValue < 50">
+               <mat-icon>arrow_downward</mat-icon>
+            </span>
+            <span *ngIf="alarm.numValue > 130">
+             <mat-icon>arrow_upward</mat-icon>
+            </span>
+            50-130 mm/Hg
+          </td>
+          <td *ngIf="alarm.dataType==='Systolic blood pressure'">
+            <span *ngIf="alarm.numValue > 196">
+             <mat-icon>arrow_upward</mat-icon>
+            </span>
+            <span *ngIf="alarm.numValue < 80">
+             <mat-icon>arrow_downward</mat-icon>
+            </span>
+            80-196 mm/Hg
+          </td>
+          <td *ngIf="alarm.dataType==='Heart rate'">
+            <span *ngIf="alarm.numValue > 150">
+             <mat-icon>arrow_upward</mat-icon>
+            </span>
+            <span *ngIf="alarm.numValue < 30">
+             <mat-icon>arrow_downward</mat-icon>
+            </span>
+            30-150 per minute
+          </td>
+          <td *ngIf="alarm.dataType==='Leukocytes'">
+            <span *ngIf="alarm.numValue > 11">
+             <mat-icon>arrow_upward</mat-icon>
+            </span>
+            <span *ngIf="alarm.numValue < 4.5">
+             <mat-icon>arrow_downward</mat-icon>
+            </span>
+            4.5 - 11 10^9/L
+          </td>
+          <td *ngIf="alarm.dataType==='Hemoglobin'">
+            <span *ngIf="alarm.numValue > 17.5">
+             <mat-icon>arrow_upward</mat-icon>
+            </span>
+            <span *ngIf="alarm.numValue < 13.5">
+             <mat-icon>arrow_downward</mat-icon>
+            </span>
+            13.5 - 17.5 g/L
+          </td>
+          <td *ngIf="alarm.dataType==='Erythrocytes'">
+            <span *ngIf="alarm.numValue > 6">
+             <mat-icon>arrow_upward</mat-icon>
+            </span>
+            <span *ngIf="alarm.numValue < 4">
+             <mat-icon>arrow_downward</mat-icon>
+            </span>
+            4-6 10^12/L
+          </td>
+          <td *ngIf="alarm.dataType==='CRP'">
+            <span *ngIf="alarm.numValue > 5">
+             <mat-icon>arrow_upward</mat-icon>
+            </span>
+            <span *ngIf="alarm.numValue < 2">
+             <mat-icon>arrow_downward</mat-icon>
+            </span>
+            2-5 mg/L
+          </td>
+          <td *ngIf="alarm.dataType==='BIS'">
+            <span *ngIf="alarm.numValue < 100">
+             <mat-icon>arrow_downward</mat-icon>
+            </span>
+            0-100
+          </td>
+          <td *ngIf="alarm.dataType==='ICP'"> 5-15 mm/Hg</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mb-0" style="position: absolute; bottom: 0; right: 0;">
+      <mat-paginator
+        (page)="handlePageEvent($event)"
+        [length]="p_length"
+        [pageSize]="pageSize"
+        [showFirstLastButtons]="showFirstLastButtons"
+        [pageIndex]="pageIndex">
+      </mat-paginator>
+    </div>
+  </div>
+</div>

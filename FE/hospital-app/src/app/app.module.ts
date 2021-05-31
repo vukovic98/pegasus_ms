@@ -20,6 +20,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import { AlarmComponent } from './components/alarm/alarm.component';
 import {MatTableModule} from '@angular/material/table';
+import { AlarmsComponent } from './components/alarms/alarms.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {MatTableModule} from '@angular/material/table';
     PatientsComponent,
     PatientDetailsComponent,
     AlarmComponent,
+    AlarmsComponent,
   ],
   imports: [
     BrowserModule,
