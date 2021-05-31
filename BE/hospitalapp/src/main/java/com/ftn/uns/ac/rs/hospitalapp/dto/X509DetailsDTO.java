@@ -2,12 +2,23 @@ package com.ftn.uns.ac.rs.hospitalapp.dto;
 
 import java.security.cert.X509Certificate;
 
+import javax.validation.constraints.NotBlank;
+
 public class X509DetailsDTO {
 
+	@NotBlank(message = "Serial number can not be empty.")
 	private String serialNum;
+	
+	@NotBlank(message = "Issuer can not be empty.")
 	private String issuer;
+	
+	@NotBlank(message = "Subject can not be empty.")
 	private String subject;
+	
+	@NotBlank(message = "Issued date can not be empty.")
 	private String issuedDate;
+	
+	@NotBlank(message = "Valid to date can not be empty.")
 	private String validToDate;
 
 	public X509DetailsDTO() {

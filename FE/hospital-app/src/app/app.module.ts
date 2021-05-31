@@ -21,6 +21,7 @@ import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import { AlarmComponent } from './components/alarm/alarm.component';
 import {MatTableModule} from '@angular/material/table';
 import { AlarmsComponent } from './components/alarms/alarms.component';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [

@@ -2,10 +2,19 @@ package com.ftn.uns.ac.rs.hospitalapp.dto;
 
 import java.math.BigInteger;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
 public class CertificateDistributionDetailsDTO {
 
+	
 	private String path;
+	
+	@NotNull
+	@Pattern(regexp = "[1-9]+")
 	private BigInteger serialNum;
+	
+	@NotNull
 	private byte[] cert;
 
 	public CertificateDistributionDetailsDTO() {
