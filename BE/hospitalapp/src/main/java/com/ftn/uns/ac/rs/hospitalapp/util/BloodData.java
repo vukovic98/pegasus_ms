@@ -1,5 +1,7 @@
 package com.ftn.uns.ac.rs.hospitalapp.util;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,21 +17,24 @@ public class BloodData {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
-	
+
 	@Column(name = "patient_id", nullable = false)
 	private int patientID;
-	
+
 	@Column(name = "crp", nullable = false)
 	private double CRP;
-	
+
 	@Column(name = "erythrocytes", nullable = false)
 	private double erythrocytes;
-	
+
 	@Column(name = "leukocytes", nullable = false)
 	private double leukocytes;
-	
+
 	@Column(name = "hemoglobin", nullable = false)
 	private double hemoglobin;
+
+	@Column(name = "date", nullable = false)
+	private Date date;
 
 	public BloodData() {
 		super();
@@ -82,6 +87,22 @@ public class BloodData {
 
 	public void setHemoglobin(double hemoglobin) {
 		this.hemoglobin = hemoglobin;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	@Override
