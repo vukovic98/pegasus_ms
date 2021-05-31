@@ -1,15 +1,45 @@
 package com.ftn.uns.ac.rs.hospitalapp.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class PatientDTO {
 	
 	private Long id;
+	
+	@NotBlank(message = "Gender can not be empty.")
+	@Pattern(regexp = "(FE)?MALE")
 	private String gender;
+	
+	@NotBlank(message = "Name can not be empty.")
+	@Pattern(regexp = "[A-Za-z]+",message="Name must start with capital letter and can contain only letters.")
 	private String name;
+
+	@NotNull(message = "Date of birth cannot be empty.")
+	@DateTimeFormat(pattern = "YYYY-MM-DD")
 	private String birthday;
+	
+	@NotNull(message = "Current age can not be empty.")
+	@Pattern(regexp = "[0-9]+", message = "Current age can contain only numbers.")
 	private int currentAge;
+	
+	@NotNull(message="Height can not be empty.")
+	@Pattern(regexp = "[0-9]+",message = "Height can contain only numbers.")
 	private double height;
+	
+	@NotNull(message="Weight can not be empty.")
+	@Pattern(regexp = "[0-9]+",message = "Weight can contain only numbers.")
 	private double weight;
+	
+	@NotNull(message="Blood pressure can not be empty.")
+	@Pattern(regexp = "[0-9]+",message = "Blood pressure can contain only numbers.")
 	private String averageBloodPressure;
+	
+	
+	@Pattern(regexp = "[A-Za-z0-9]+")
 	private String pastMedicalRecord;
 	
 	

@@ -105,6 +105,7 @@ public class AuthenticationController {
 			// Vrati token kao odgovor na uspesnu autentifikaciju
 			return ResponseEntity.ok(new UserTokenStateDTO(jwt, expiresIn, email, verified));
 		} catch (Exception e) {
+			e.printStackTrace();
 			User u = this.userService.findByEmail(authenticationRequest.getEmail());
 
 			if (u != null) {
@@ -123,7 +124,6 @@ public class AuthenticationController {
 
 					this.logger.error("[USER IS BLOCKED] Failed login attempt was made from [ "
 							+ authenticationRequest.getEmail() + " ]", AuthenticationController.class);
-					
 					return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 				} else {
 					if (u.isEnabled()) {

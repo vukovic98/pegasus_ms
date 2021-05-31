@@ -4,6 +4,7 @@ import {PatientModel} from "../../../models/patient.model";
 import {MatDialog} from "@angular/material/dialog";
 import {PatientService} from "../../../services/patient.service";
 import {PageEvent} from "@angular/material/paginator";
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-patients',

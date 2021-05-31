@@ -1,12 +1,22 @@
 package com.ftn.uns.ac.rs.hospitalapp.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 // DTO koji enkapsulira generisani JWT i njegovo trajanje koji se vracaju klijentu
 public class UserTokenStateDTO {
 
+	@NotBlank
 	private String authenticationToken;
 	//private String refreshToken;
+	
+	@NotNull
 	private int expiresAt;
+	
+	@NotBlank
 	private String email;
+	
+	@NotNull
 	private boolean verified;
 	    
     //private String accessToken;
