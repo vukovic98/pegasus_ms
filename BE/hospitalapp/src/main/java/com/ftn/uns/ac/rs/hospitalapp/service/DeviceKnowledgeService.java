@@ -13,7 +13,7 @@ import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
 import com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData;
 
 @Service
-public class DeviceService {
+public class DeviceKnowledgeService {
 
 	@Autowired
 	private KieContainer kContainer;
