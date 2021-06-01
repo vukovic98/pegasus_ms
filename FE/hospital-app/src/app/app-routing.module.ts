@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'blood-data',
     component: BloodDataComponent,
     canActivate:[RoleGuard],
-    data: {acceptRoles:'ROLE_DOCTOR'}
+    data: {acceptRoles:'ROLE_DOCTOR|ROLE_ADMIN'}
   },
   { path: 'patient-details',
     component:PatientDetailsComponent,
@@ -32,7 +32,7 @@ const routes: Routes = [
   {path: 'alarms',
   component: AlarmsComponent,
   canActivate:[RoleGuard],
-  data:{acceptRoles: 'ROLE_DOCTOR'}}
+  data:{acceptRoles: 'ROLE_DOCTOR|ROLE_ADMIN'}}
 ];
 
 @NgModule({

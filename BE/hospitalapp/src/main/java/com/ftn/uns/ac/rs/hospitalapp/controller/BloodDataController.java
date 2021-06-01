@@ -43,4 +43,20 @@ public class BloodDataController {
 		return new ResponseEntity<>(pageImpl, HttpStatus.OK);
 	}
 
+	@GetMapping("/by-page/{pageNum}/by-patient/{patientID}")
+	@PreAuthorize("hasAuthority('PRIVILEGE_READ_DEVICES')")
+	public ResponseEntity<PageImplementation<BloodData>> findAllByPatient(@PathVariable("pageNum") int pageNum,
+			@PathVariable("patientID") long patientID) {
+		Pageable pageRequest = PageRequest.of(pageNum, 8);
+
+		Page<BloodData> page = this.bloodDataService.findAllByPatient(pageRequest, patientID);
+
+		PageImplMapper<BloodData> pageMapper = new PageImplMapper<>();
+		PageImplementation<BloodData> pageImpl = pageMapper.toPageImpl(page);
+
+		this.logger.info("Successful attempt for retrieving blood-data for patient [ " + patientID + " ] from hospital-app", BloodDataController.class);
+
+		return new ResponseEntity<>(pageImpl, HttpStatus.OK);
+	}
+
 }

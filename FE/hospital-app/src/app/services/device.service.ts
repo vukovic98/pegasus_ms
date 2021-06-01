@@ -22,4 +22,12 @@ export class DeviceService {
     });
     return this.http.get(environment.HOSPITAL_APP + this.BLOOD_API + page, {headers:headers});
   }
+
+  getAllBloodDataForPatient(page: number, id: number): Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+    });
+    return this.http.get(environment.HOSPITAL_APP + this.BLOOD_API + page + "/by-patient/" + id, {headers:headers});
+  }
 }

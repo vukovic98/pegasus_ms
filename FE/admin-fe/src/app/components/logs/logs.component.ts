@@ -50,17 +50,7 @@ export class LogsComponent implements OnInit {
     this.length = event.length;
     this.pageIndex = event.pageIndex;
 
-    if(!this.filterMode) {
-      this.logService.getAllLogs(this.pageIndex).subscribe((response) => {
-        this.logs = response.content;
-        this.length = response.totalElements;
-      })
-    }else {
-      this.logService.filterLogs(this.pageIndex, this.filterDto).subscribe((response) => {
-        this.logs = response.content;
-        this.length = response.totalElements;
-      })
-    }
+    this.getData();
   }
 
   filter() {
