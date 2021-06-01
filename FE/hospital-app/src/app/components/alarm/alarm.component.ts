@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {AlarmModel} from '../../models/alarm.model';
 
 @Component({
   selector: 'app-alarm',
@@ -7,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class AlarmComponent implements OnInit {
 
-  @Input() message: String;
+  @Input() message: AlarmModel;
 
   constructor() { }
 

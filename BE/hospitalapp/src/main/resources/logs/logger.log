@@ -1,0 +1,75 @@
+2021-06-01 19:53:21,145 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 19:53:24,231 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 19:53:29,197 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 19:53:34,172 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 19:53:39,178 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 19:53:44,190 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 19:53:49,205 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 19:55:07,258 : INFO : [ vlado.hospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-01 19:55:09,676 : INFO : [ vlado.hospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-01 19:55:28,951 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 19:55:32,468 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 19:55:37,492 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:10:59,437 : INFO : [ vlado.hospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-01 20:12:47,818 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:12:51,410 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:12:56,450 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:13:01,357 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:13:06,431 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:14:59,166 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:15:02,872 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:15:52,534 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:15:56,301 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:16:30,363 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:16:34,144 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:17:45,410 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:17:49,190 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:18:22,096 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:19:00,142 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:19:03,908 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:19:32,631 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:19:36,347 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:24:37,008 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:24:41,198 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:25:06,307 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:25:10,457 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:26:25,423 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:26:29,628 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:28:30,156 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:28:34,341 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:28:39,377 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:28:44,330 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:29:15,932 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:29:20,016 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:30:28,518 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:32:13,630 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:32:53,346 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:33:33,076 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:33:37,230 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:33:42,257 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:33:47,234 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:33:52,263 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:33:57,250 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:34:02,271 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:34:07,242 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:34:12,241 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:34:17,226 : INFO : [ hospital-device ] : DeviceController : Successfully received blood device data
+2021-06-01 20:34:32,903 : INFO : [ vlado.hospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-01 20:34:37,539 : INFO : [ vlado.hospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-01 20:34:38,608 : INFO : [ vlado.hospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-01 20:34:40,413 : INFO : [ vlado.hospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-01 20:34:42,995 : INFO : [ vlado.hospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-01 20:34:54,037 : INFO : [ vlado.hospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-01 20:34:57,973 : INFO : [ vlado.hospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-01 20:35:00,120 : INFO : [ vlado.hospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-01 20:35:02,628 : INFO : [ vlado.hospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-01 20:35:03,680 : INFO : [ vlado.hospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-01 20:35:46,153 : INFO : [ vlado.hospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data for patient [ 166 ] from hospital-app
+2021-06-01 20:35:48,257 : INFO : [ vlado.hospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data for patient [ 165 ] from hospital-app
+2021-06-01 20:35:50,580 : INFO : [ vlado.hospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data for patient [ 73 ] from hospital-app
+2021-06-01 20:35:53,061 : INFO : [ vlado.hospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data for patient [ 173 ] from hospital-app
+2021-06-01 20:35:54,436 : INFO : [ vlado.hospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-01 20:35:59,080 : INFO : [ vlado.hospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-01 20:36:03,462 : INFO : [ vlado.hospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data for patient [ 181 ] from hospital-app
+2021-06-01 20:36:12,249 : INFO : [ vlado.hospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data for patient [ 181 ] from hospital-app
+2021-06-01 20:36:15,348 : INFO : [ vlado.hospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
