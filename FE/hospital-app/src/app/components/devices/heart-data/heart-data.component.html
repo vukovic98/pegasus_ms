@@ -1,1 +1,44 @@
-<p>heart-data works!</p>
+<div class="wrapper d-flex align-items-stretch">
+  <div style="height: 100vh;">
+    <app-navigation-bar></app-navigation-bar>
+  </div>
+  <div class="m-4 w-100">
+    <h1>Heart monitor device data</h1>
+    <div style="min-height: 629px; max-height: 629px;">
+      <table class="table table-hover text-center">
+        <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Patient's ID</th>
+          <th scope="col">Date</th>
+          <th scope="col">Heart rate</th>
+          <th scope="col">Saturation</th>
+          <th scope="col">Blood pressure</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor=" let a of data">
+          <td>{{a.id}}</td>
+          <td>{{a.patientID}}</td>
+          <td>{{a.date.split("T")[0]}} {{a.date.split("T")[1].split(".")[0]}}</td>
+          <td>{{a.heartRate}} per minute</td>
+          <td>{{a.saturation}} %</td>
+          <td>{{a.diastolic}}/{{a.systolic}} mm/Hg</td>
+        </tr>
+        <tr *ngIf="data.length == 0">
+          <td colspan="6" class="text-center">There are no heart data records in database.</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="mb-0" style="position: absolute; bottom: 0; right: 0;">
+      <mat-paginator
+        (page)="handlePageEvent($event)"
+        [length]="length"
+        [pageSize]="pageSize"
+        [showFirstLastButtons]="showFirstLastButtons"
+        [pageIndex]="pageIndex">
+      </mat-paginator>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,8 @@ import {PatientDetailsComponent} from "./components/patients/patientDetails/pati
 import {RoleGuard} from "./guards/role.guard";
 import {AlarmsComponent} from "./components/alarms/alarms.component";
 import {BloodDataComponent} from './components/devices/blood-data/blood-data.component';
+import {HeartDataComponent} from "./components/devices/heart-data/heart-data.component";
+import {NeuroDataComponent} from "./components/devices/neuro-data/neuro-data.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -32,7 +34,19 @@ const routes: Routes = [
   {path: 'alarms',
   component: AlarmsComponent,
   canActivate:[RoleGuard],
-  data:{acceptRoles: 'ROLE_DOCTOR|ROLE_ADMIN'}}
+  data:{acceptRoles: 'ROLE_DOCTOR|ROLE_ADMIN'}
+	},
+
+  {path:'heart-data',
+  component:HeartDataComponent,
+  canActivate:[RoleGuard],
+  data:{acceptRoles: 'ROLE_DOCTOR|ROLE_ADMIN'}
+  },
+  {path:'neuro-data',
+    component:NeuroDataComponent,
+    canActivate:[RoleGuard],
+    data:{acceptRoles: 'ROLE_DOCTOR|ROLE_ADMIN'}
+  }
 ];
 
 @NgModule({
