@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Patient;
+import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxyDevice;
 import com.ftn.uns.ac.rs.hospitalapp.service.BloodDataService;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
-import com.ftn.uns.ac.rs.hospitalapp.beans.Patient;
 import com.ftn.uns.ac.rs.hospitalapp.service.DeviceKnowledgeService;
 import com.ftn.uns.ac.rs.hospitalapp.service.HeartDataService;
 import com.ftn.uns.ac.rs.hospitalapp.service.NeurologicalDataService;
@@ -23,7 +24,6 @@ import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
 import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
-import com.ftn.uns.ac.rs.hospitalapp.util.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData;
 import com.ftn.uns.ac.rs.hospitalapp.util.UnknownDeviceData;
 import com.google.gson.Gson;
@@ -36,7 +36,7 @@ public class DeviceController {
 	private CertificateService certService;
 
 	@Autowired
-	private LoggerProxy logger;
+	private LoggerProxyDevice logger;
 
 	@Autowired
 	private SimpMessagingTemplate simpMessagingTemplate;
@@ -68,7 +68,8 @@ public class DeviceController {
 
 		BloodData bloodData = gson.fromJson(data, BloodData.class);
 
-		this.logger.device("Successfully received blood device data", DeviceController.class);
+		this.logger.log("Successfully received blood device data for patient [ " + bloodData.getPatientID() + " ]",
+				DeviceController.class, "BLOOD_DEVICE");
 
 		try {
 			this.bloodDataService.insert(bloodData);
@@ -77,12 +78,17 @@ public class DeviceController {
 		}
 
 		ArrayList<Alarm> alarms = this.deviceService.bloodData(bloodData);
+
 		for (Alarm a : alarms) {
 			Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
 			a.setPatientsName(p.getFirstName() + " " + p.getLastName());
 			this.deviceService.save(a);
 			this.simpMessagingTemplate.convertAndSend("/topic", a);
 		}
+
+		if (!alarms.isEmpty())
+			this.logger.log("Alarms were created for patient [ " + bloodData.getPatientID() + " ]",
+					DeviceController.class, "BLOOD_DEVICE");
 
 		return new ResponseEntity<>(HttpStatus.OK);
 
@@ -100,7 +106,9 @@ public class DeviceController {
 
 		NeurologicalData neuroData = gson.fromJson(data, NeurologicalData.class);
 
-		this.logger.device("Successfully received neurological device data", DeviceController.class);
+		this.logger.log(
+				"Successfully received neurological device data for patient [ " + neuroData.getPatientId() + " ]",
+				DeviceController.class, "NEUROLOGICAL_DEVICE");
 
 		try {
 			this.neurologicalDataService.insert(neuroData);
@@ -109,12 +117,17 @@ public class DeviceController {
 		}
 
 		ArrayList<Alarm> alarms = this.deviceService.neurologicalData(neuroData);
+		
 		for (Alarm a : alarms) {
 			Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
 			a.setPatientsName(p.getFirstName() + " " + p.getLastName());
 			this.deviceService.save(a);
 			this.simpMessagingTemplate.convertAndSend("/topic", a);
 		}
+		
+		if (!alarms.isEmpty())
+			this.logger.log("Alarms were created for patient [ " + neuroData.getPatientId() + " ]",
+					DeviceController.class, "NEUROLOGICAL_DEVICE");
 
 		return new ResponseEntity<>(HttpStatus.OK);
 
@@ -132,7 +145,9 @@ public class DeviceController {
 
 		HeartMonitorData heartMonitorData = gson.fromJson(data, HeartMonitorData.class);
 
-		this.logger.device("Successfully received heart monitor data", DeviceController.class);
+		this.logger.log(
+				"Successfully received heart monitor data for patient [ " + heartMonitorData.getPatientID() + " ]",
+				DeviceController.class, "HEART_MONITOR_DEVICE");
 
 		try {
 			this.heartDataService.insert(heartMonitorData);
@@ -141,12 +156,17 @@ public class DeviceController {
 		}
 
 		ArrayList<Alarm> alarms = this.deviceService.heartMonitorData(heartMonitorData);
+		
 		for (Alarm a : alarms) {
 			Patient p = this.patientService.findById(Long.valueOf(a.getPatientID()));
 			a.setPatientsName(p.getFirstName() + " " + p.getLastName());
 			this.deviceService.save(a);
 			this.simpMessagingTemplate.convertAndSend("/topic", a);
 		}
+		
+		if (!alarms.isEmpty())
+			this.logger.log("Alarms were created for patient [ " + heartMonitorData.getPatientID() + " ]",
+					DeviceController.class, "HEART_MONITOR_DEVICE");
 
 		return new ResponseEntity<>(HttpStatus.OK);
 

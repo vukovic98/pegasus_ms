@@ -20,13 +20,13 @@ public class CertificateRepository {
 	public ArrayList<X509Certificate> findAllCertificates() {
 		ArrayList<X509Certificate> certs = new ArrayList<>();
 
-		certs = CertificateUtil.getCertificateDetails(env.getProperty("server.ssl.trust-store"), env.getProperty("server.ssl.trust-store-password"));
+		certs = CertificateUtil.getCertificateDetails(env.getProperty("trust.store"), env.getProperty("trust.store.password"));
 
 		return certs;
 	}
 	
 	public PrivateKey getMyPrivateKey() {
-		return CertificateUtil.getMyPrivateKey(env.getProperty("trust.store"), env.getProperty("trust.store.password"));
+		return CertificateUtil.getMyPrivateKey(env.getProperty("server.ssl.key-store"), env.getProperty("server.ssl.key-store-password"));
 	}
 	
 	public PublicKey getBobsPublicKey() {

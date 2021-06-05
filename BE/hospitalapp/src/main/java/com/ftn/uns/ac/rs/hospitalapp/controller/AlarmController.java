@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.service.AlarmService;
-import com.ftn.uns.ac.rs.hospitalapp.util.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.util.PageImplMapper;
 import com.ftn.uns.ac.rs.hospitalapp.util.PageImplementation;
 

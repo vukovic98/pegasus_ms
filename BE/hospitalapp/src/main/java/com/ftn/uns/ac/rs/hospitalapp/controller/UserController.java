@@ -21,11 +21,11 @@ import com.ftn.uns.ac.rs.hospitalapp.beans.Authority;
 import com.ftn.uns.ac.rs.hospitalapp.beans.Doctor;
 import com.ftn.uns.ac.rs.hospitalapp.beans.User;
 import com.ftn.uns.ac.rs.hospitalapp.dto.AddUserDTO;
+import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.service.AdminService;
 import com.ftn.uns.ac.rs.hospitalapp.service.AuthorityService;
 import com.ftn.uns.ac.rs.hospitalapp.service.DoctorService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
-import com.ftn.uns.ac.rs.hospitalapp.util.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.util.UserCheck;
 
 @RestController
