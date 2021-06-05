@@ -2,6 +2,7 @@ import { BindingScope } from '@angular/compiler/src/render3/view/template';
 import { ApplicationRef, Component, OnInit } from '@angular/core';
 import { $ } from 'protractor';
 import {WebSocketAPI} from '../../services/alarm.service';
+import {AlarmModel} from '../../models/alarm.model';
 
 @Component({
   selector: 'app-admin-panel',
@@ -11,7 +12,7 @@ import {WebSocketAPI} from '../../services/alarm.service';
 export class AdminPanelComponent implements OnInit {
 
   public certified: boolean = true;
-  public messages: Array<any> = [];
+  public messages: Array<AlarmModel> = [];
 
   private webSocketAPI: WebSocketAPI;
 
@@ -36,13 +37,17 @@ export class AdminPanelComponent implements OnInit {
     let data: boolean = message.includes("{");
     if(data) {
       let index = message.indexOf("{");
+      let newMess = message.substr(index-1);
+      let messData: any = JSON.parse(JSON.parse(newMess));
 
-      let messData = JSON.parse(message.substr(index-1));
-
-      console.log(messData);
+      console.log(messData)
       this.messages.unshift(messData);
+
+      if (this.messages.length == 9) {
+        this.messages.pop();
+      }
+
       this.appRef.tick()
-      
 
     }
   }

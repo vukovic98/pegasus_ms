@@ -1,5 +1,23 @@
-<div class="card">
-  <div class="card-body">
-    {{message}}
+<div class="card mt-1" style="border:none;">
+  <div class="card-body text-white col-md-12 row" style="background-color: lightcoral; border-radius: 1rem;">
+<!--    dataType: "CRP"-->
+<!--    date: "2021-06-01T17:55:32.489+00:00"-->
+<!--    id: 18-->
+<!--    numValue: 0.07291558963406164-->
+<!--    patientID: 181-->
+<!--    patientsName: "Franny Welton"-->
+<!--    value: "0.07291558963406164 mg/L"-->
+    <div class="col-md-3">
+      {{message.date ? message.date.split("T")[0] : ''}} {{message.date ? message.date.split("T")[1].split(".")[0] : ''}}
+    </div>
+    <div class="col-md-3">
+      {{message.dataType ? message.dataType : ''}}
+    </div>
+    <div class="col-md-3">
+      [{{message.patientID ? message.patientID : ''}}] - {{message.patientsName ? message.patientsName : ''}}
+    </div>
+    <div class="col-md-3">
+      {{message.value ? message.value : ''}}
+    </div>
   </div>
 </div>

@@ -25,6 +25,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { BloodDataComponent } from './components/devices/blood-data/blood-data.component';
 import { HeartDataComponent } from './components/devices/heart-data/heart-data.component';
 import { NeuroDataComponent } from './components/devices/neuro-data/neuro-data.component';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -41,20 +43,21 @@ import { NeuroDataComponent } from './components/devices/neuro-data/neuro-data.c
     HeartDataComponent,
     NeuroDataComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatCardModule,
-    MatIconModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatCardModule,
+        MatIconModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatDialogModule,
+        FormsModule,
+        MatInputModule
+    ],
   providers: [
     AuthService
   ],

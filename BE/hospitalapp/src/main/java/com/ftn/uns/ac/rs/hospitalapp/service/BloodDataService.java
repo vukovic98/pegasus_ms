@@ -21,6 +21,10 @@ public class BloodDataService {
 		return this.bloodDataRepository.save(d);
 	}
 	
+	public Page<BloodData> findAllByPatient(Pageable pageable, long id) {
+		return this.bloodDataRepository.findAllByPatient(pageable, id);
+	}
+	
 	public Page<BloodData> findAll(Pageable pageable) {
 		return this.bloodDataRepository.findAllByDate(pageable);
 	}
