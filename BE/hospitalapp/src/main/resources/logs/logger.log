@@ -63,3 +63,21 @@
 2021-05-31 15:54:36,137 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
 2021-05-31 15:54:37,637 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
 2021-05-31 15:54:40,895 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-05 10:49:15,330 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-05 10:49:24,368 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-05 10:49:26,379 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-05 10:49:27,177 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-05 10:49:29,771 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-05 10:49:30,599 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-05 10:49:31,195 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-05 10:49:32,130 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-05 10:49:32,827 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-05 10:49:33,272 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-05 10:49:33,774 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-05 10:49:34,474 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-05 10:49:34,825 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-05 10:49:35,210 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-05 10:49:35,589 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-05 10:49:35,997 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-05 10:49:36,353 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-05 10:49:36,615 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
