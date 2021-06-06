@@ -1,0 +1,32 @@
+template header 
+minValue
+maxValue
+patientId
+
+
+package sbnz.integracija;
+
+import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.lang.Double;
+
+global ArrayList<Alarm> alarms;
+
+
+template "heartmonitor-systolic"
+
+rule "Rule designed for patient @patientId - systolic"
+agenda-group "heartmonitor"
+lock-on-active true
+	when
+		HeartMonitorData(systolic <= minValue || systolic >= maxValue, $s:systolic, $d: diastolic,$id: patientID, $id == @{patientId})
+	then
+	System.out.println("Systolic blood pressure for patient ["+ @{patientId} +"] is not in normal range!");
+		alarms.add(new Alarm($id,"Systolic blood pressure", $d +"/"+ $s+" mm/Hg", Double.valueOf($s), new Date()));
+end;
+
+end template;

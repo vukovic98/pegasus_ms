@@ -1,0 +1,31 @@
+template header 
+minValue
+maxValue
+patientId
+
+package sbnz.integracija;
+
+import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.lang.Double;
+
+global ArrayList<Alarm> alarms;
+
+
+template "heartmonitor-heart-rate"
+
+rule "Rule designed for patient @patientId - heart rate"
+agenda-group "heartmonitor"
+lock-on-active true
+	when
+		HeartMonitorData(heartRate <= @{minValue} || heartRate >= @{maxValue}, $heartRate: heartRate, $id: patientID, $id == @{patientId})
+	then
+		System.out.println("Heart rate for patient [" + @{patientId} + "] is not in normal range!");
+		alarms.add(new Alarm($id,"Heart rate", Double.toString($heartRate) + " per minute", Double.valueOf($heartRate),new Date()));
+end
+
+end template;
