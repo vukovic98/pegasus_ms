@@ -1,0 +1,28 @@
+package sbnz.events;
+
+import com.ftn.uns.ac.rs.hospitalapp.util.LoginAlarm;
+import com.ftn.uns.ac.rs.hospitalapp.events.FailedLoginEvent;
+
+declare SuspiciousUserEvent
+    @role(event)
+    @expires(24h)
+    ipAddress: String
+    reason: String
+end;
+
+global LoginAlarm loginAlarm;
+
+rule "More than 30 unsuccessful login attempts in the last 24 hours from the same IP address"
+agenda-group "login-fail"
+    when
+		$fle1: FailedLoginEvent($ip: ipAddress)
+		Number(intValue > 30) from accumulate (
+			$fle2: FailedLoginEvent(ipAddress == $ip) over window:time(24h),
+			count($fle2)
+		)
+		not (SuspiciousUserEvent(ipAddress == $ip, reason == "More than 30 unsuccessful login attempts in the last 24 hours from the same IP address"))
+	then
+		String reason = "More than 30 unsuccessful login attempts in the last 24 hours from the same IP address";
+        insert(new SuspiciousUserEvent($ip, reason));
+        loginAlarm.setIpAddress($ip);
+end

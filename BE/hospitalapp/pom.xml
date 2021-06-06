@@ -121,6 +121,13 @@
 			<type>jar</type>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>sbnz.integracija</groupId>
+			<artifactId>security-kjar</artifactId>
+			<type>jar</type>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.apache.maven.shared</groupId>
