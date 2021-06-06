@@ -28,3 +28,5 @@ lock-on-active true
 		System.out.println("Saturation for patient ["+ @{patientId} +"] is not in normal range!");
 		alarms.add(new Alarm($id, "Saturation", $s + " %", Double.valueOf($s), new Date()));
 end;
+
+end template;

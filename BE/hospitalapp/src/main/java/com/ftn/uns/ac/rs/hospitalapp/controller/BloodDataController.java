@@ -62,11 +62,51 @@ public class BloodDataController {
 
 		return new ResponseEntity<>(pageImpl, HttpStatus.OK);
 	}
-
+	
+	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
 	@GetMapping(path = "/create-alarm-for-crp")
 	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForCrp(@RequestBody DataRangeDTO dto) {
 
-		boolean ok = true;
+		boolean ok = this.bloodDataService.createRuleForCRP(dto);
+
+		if (ok) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
+	@GetMapping(path = "/create-alarm-for-leukocytes")
+	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForLeukocytes(@RequestBody DataRangeDTO dto) {
+
+		boolean ok = this.bloodDataService.createRuleForLeukocytes(dto);
+
+		if (ok) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
+	@GetMapping(path = "/create-alarm-for-erythrocites")
+	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForErythrocites(@RequestBody DataRangeDTO dto) {
+
+		boolean ok = this.bloodDataService.createRuleForErythrocites(dto);
+
+		if (ok) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
+	@GetMapping(path = "/create-alarm-for-hemoglobin")
+	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForHemoglobin(@RequestBody DataRangeDTO dto) {
+
+		boolean ok = this.bloodDataService.createRuleForHemoglobin(dto);
 
 		if (ok) {
 			return new ResponseEntity<>(HttpStatus.OK);

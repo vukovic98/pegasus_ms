@@ -63,6 +63,7 @@ public class HeartDataController {
 		return new ResponseEntity<>(pageImpl, HttpStatus.OK);
 	}
 	
+	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
 	@GetMapping(path = "/create-alarm-for-saturation")
 	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForSaturation(@RequestBody DataRangeDTO dto) {
 
@@ -75,6 +76,7 @@ public class HeartDataController {
 		}
 	}
 	
+	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
 	@GetMapping(path = "/create-alarm-for-heart-rate")
 	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForHeartRate(@RequestBody DataRangeDTO dto) {
 
@@ -87,6 +89,7 @@ public class HeartDataController {
 		}
 	}
 	
+	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
 	@GetMapping(path = "/create-alarm-for-diastolic")
 	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForDiastolic(@RequestBody DataRangeDTO dto) {
 
@@ -99,6 +102,7 @@ public class HeartDataController {
 		}
 	}
 	
+	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
 	@GetMapping(path = "/create-alarm-for-systolic")
 	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForSystolic(@RequestBody DataRangeDTO dto) {
 
