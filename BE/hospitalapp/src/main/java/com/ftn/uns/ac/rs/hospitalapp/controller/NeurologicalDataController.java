@@ -43,5 +43,20 @@ public class NeurologicalDataController {
 
 		return new ResponseEntity<>(pageImpl, HttpStatus.OK);
 	}
+	
+	@PreAuthorize("hasAuthority('PRIVILEGE_READ_DEVICES')")
+	@GetMapping("/by-page/{pageNum}/by-patient/{id}")
+	public ResponseEntity<PageImplementation<NeurologicalData>> findAllByPatientId(@PathVariable("pageNum") int pageNum, @PathVariable("id") long id){
+		Pageable pageRequest = PageRequest.of(pageNum, 8);
+
+		Page<NeurologicalData> page = this.neuroDataService.findAllByPatientId(pageRequest, id);
+
+		PageImplMapper<NeurologicalData> pageMapper = new PageImplMapper<>();
+		PageImplementation<NeurologicalData> pageImpl = pageMapper.toPageImpl(page);
+
+		this.logger.info("Successful attempt for retrieving neuro-data for patient [ " + id + " ] from hospital-app", NeurologicalDataController.class);
+
+		return new ResponseEntity<>(pageImpl, HttpStatus.OK);
+	}
 
 }

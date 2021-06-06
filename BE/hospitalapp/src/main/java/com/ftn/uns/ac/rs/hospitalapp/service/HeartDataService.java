@@ -25,4 +25,7 @@ public class HeartDataService {
 		return this.heartDataRepository.findAllByDate(pageable);
 	}
 	
+	public Page<HeartMonitorData> findAllByPatientId(Pageable pageable, long id){
+		return this.heartDataRepository.findAllByPatient(pageable, id);
+	}
 }

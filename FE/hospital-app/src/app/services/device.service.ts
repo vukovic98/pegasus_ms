@@ -47,4 +47,20 @@ export class DeviceService {
     });
     return this.http.get<Array<any>>(environment.HOSPITAL_APP + this.NEURO_DEVICE_API + page, {headers: headers});
   }
+
+  getAllHeartDataForPatient(page: number, id): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem("accessToken")
+    });
+    return this.http.get(environment.HOSPITAL_APP + this.HEART_DEVICE_API + page + "/by-patient/" + id, {headers: headers});
+  }
+
+  getAllNeuroDataForPatient(page: number, id): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem("accessToken")
+    });
+    return this.http.get(environment.HOSPITAL_APP + this.NEURO_DEVICE_API + page + "/by-patient/" + id, {headers: headers});
+  }
 }

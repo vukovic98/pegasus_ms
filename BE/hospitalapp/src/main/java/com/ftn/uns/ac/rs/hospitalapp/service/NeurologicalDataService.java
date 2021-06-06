@@ -25,4 +25,7 @@ public class NeurologicalDataService {
 		return this.neurologicalDataRepository.findAllByDate(pageable);
 	}
 	
+	public Page<NeurologicalData> findAllByPatientId(Pageable pageable, long id){
+		return this.neurologicalDataRepository.findAllByPatient(pageable, id);
+	}
 }

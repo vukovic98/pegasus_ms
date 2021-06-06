@@ -42,4 +42,19 @@ public class HeartDataController {
 
 		return new ResponseEntity<>(pageImpl, HttpStatus.OK);
 	}
+	
+	@PreAuthorize("hasAuthority('PRIVILEGE_READ_DEVICES')")
+	@GetMapping("/by-page/{pageNum}/by-patient/{id}")
+	public ResponseEntity<PageImplementation<HeartMonitorData>> findAllByPatientId(@PathVariable("pageNum") int pageNum, @PathVariable("id") long id){
+		Pageable pageRequest = PageRequest.of(pageNum, 8);
+
+		Page<HeartMonitorData> page = this.heartDataService.findAllByPatientId(pageRequest, id);
+
+		PageImplMapper<HeartMonitorData> pageMapper = new PageImplMapper<>();
+		PageImplementation<HeartMonitorData> pageImpl = pageMapper.toPageImpl(page);
+
+		this.logger.info("Successful attempt for retrieving heart-data for patient [ " + id + " ] from hospital-app", HeartDataController.class);
+
+		return new ResponseEntity<>(pageImpl, HttpStatus.OK);
+	}
 }
