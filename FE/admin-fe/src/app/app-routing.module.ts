@@ -10,7 +10,8 @@ import {RoleGuard} from './guards/role.guard';
 import {AllUsersComponent} from './components/users/all-users/all-users.component';
 import {AddUserComponent} from './components/users/add-user/add-user.component';
 import {ProfileComponent} from './components/profile/profile.component';
-import {LogsComponent} from './components/logs/logs.component';
+import {AdminLogsComponent} from './components/admin-logs/admin-logs.component';
+import {HospitalLogsComponent} from './components/hospital-logs/hospital-logs.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -22,8 +23,14 @@ const routes: Routes = [
     data: {acceptRoles: 'ROLE_SUPER_ADMIN'}
   },
   {
-    path: 'logs',
-    component: LogsComponent ,
+    path: 'admin-logs',
+    component: AdminLogsComponent ,
+    canActivate:[RoleGuard],
+    data: {acceptRoles: 'ROLE_SUPER_ADMIN'}
+  },
+  {
+    path: 'hospital-logs',
+    component: HospitalLogsComponent ,
     canActivate:[RoleGuard],
     data: {acceptRoles: 'ROLE_SUPER_ADMIN'}
   },

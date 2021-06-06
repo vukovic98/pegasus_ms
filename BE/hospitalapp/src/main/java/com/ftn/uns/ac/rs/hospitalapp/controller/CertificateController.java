@@ -34,11 +34,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.User;
 import com.ftn.uns.ac.rs.hospitalapp.dto.CertificateDistributionDetailsDTO;
+import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
-import com.ftn.uns.ac.rs.hospitalapp.util.LoggerProxy;
 import com.google.gson.Gson;
 
 @RestController

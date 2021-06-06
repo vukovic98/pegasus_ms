@@ -29,12 +29,12 @@ import com.ftn.uns.ac.rs.hospitalapp.beans.LoginStatus;
 import com.ftn.uns.ac.rs.hospitalapp.beans.User;
 import com.ftn.uns.ac.rs.hospitalapp.dto.LoginDTO;
 import com.ftn.uns.ac.rs.hospitalapp.dto.UserTokenStateDTO;
+import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.security.TokenUtils;
 import com.ftn.uns.ac.rs.hospitalapp.service.CustomUserDetailsService;
 import com.ftn.uns.ac.rs.hospitalapp.service.LoginAttemptService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
 import com.ftn.uns.ac.rs.hospitalapp.util.CipherEncrypt;
-import com.ftn.uns.ac.rs.hospitalapp.util.LoggerProxy;
 
 @RestController
 @RequestMapping(path = "/auth", produces = MediaType.APPLICATION_JSON_VALUE)

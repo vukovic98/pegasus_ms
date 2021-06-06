@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.service.NeurologicalDataService;
-import com.ftn.uns.ac.rs.hospitalapp.util.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData;
 import com.ftn.uns.ac.rs.hospitalapp.util.PageImplMapper;
 import com.ftn.uns.ac.rs.hospitalapp.util.PageImplementation;

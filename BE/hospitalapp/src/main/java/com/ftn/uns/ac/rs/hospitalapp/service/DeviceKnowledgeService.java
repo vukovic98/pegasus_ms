@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxyDevice;
 import com.ftn.uns.ac.rs.hospitalapp.repository.AlarmRepository;
 import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
 import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
