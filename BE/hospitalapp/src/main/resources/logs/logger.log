@@ -46,3 +46,7 @@
 2021-06-05 11:20:15,351 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
 2021-06-05 11:20:16,357 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
 2021-06-05 12:09:57,830 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-06 17:04:48,513 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-06 17:04:57,637 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-06 17:05:11,110 : INFO : [ vlado.hospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-06 17:05:16,008 : INFO : [ vlado.hospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
