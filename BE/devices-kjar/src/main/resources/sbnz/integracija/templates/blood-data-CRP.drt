@@ -1,0 +1,28 @@
+template header
+patientID
+minValue
+maxValue
+
+package sbnz.integracija;
+
+import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.lang.Double;
+import java.text.SimpleDateFormat;
+
+global ArrayList<Alarm> alarms;
+
+template "blood-crp-template"
+
+rule "Redefined CRP rule for patient [ @{patientID} ] @{row.rowNumber}"
+	agenda-group "blood-data"
+	when
+		$data: BloodData(CRP <= @{minValue} || CRP >= @{maxValue}, $crp: CRP, $id: patientID)
+	then
+		alarms.add(new Alarm($id, "CRP", Double.toString($crp)+" mg/L", Double.valueOf($crp), new Date()));
+end
+
+end template
