@@ -60,7 +60,7 @@ public class User implements UserDetails {
 	private boolean enabled;
 	
 	@Column(name = "lastActivityTime", nullable = false)
-	private LocalDate lastActivityTime;
+	private long lastActivityTime;
 
 	public User() {
 
@@ -171,12 +171,14 @@ public class User implements UserDetails {
 		return this.authorities;
 	}
 
-	public LocalDate getLastActivityTime() {
+	public long getLastActivityTime() {
 		return lastActivityTime;
 	}
 
-	public void setLastActivityTime(LocalDate lastActivityTime) {
+	public void setLastActivityTime(long lastActivityTime) {
 		this.lastActivityTime = lastActivityTime;
 	}
+
+
 
 }
