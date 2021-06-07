@@ -1,0 +1,18 @@
+package sbnz.integracija;
+import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+import java.util.ArrayList;
+import java.util.Date;
+import java.lang.Double;
+import java.text.SimpleDateFormat;
+global ArrayList<Alarm> alarms;
+
+rule "Redefined CRP rule for patient [ 153 ] 0"
+	agenda-group "blood-data"
+	when
+		$data: BloodData(CRP <= 1.0 || CRP >= 11.0, $crp: CRP, $id: patientID)
+	then
+		alarms.add(new Alarm($id, "CRP", Double.toString($crp)+" mg/L", Double.valueOf($crp), new Date()));
+end
+
+

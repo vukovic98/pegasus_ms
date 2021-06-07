@@ -14,8 +14,9 @@ export class HeartDataComponent implements OnInit {
   pageSize = 13;
   pageIndex = 0;
   showFirstLastButtons = true;
-  public data: Array<any> = [];
   filterMode: boolean = false;
+
+  public data: Array<any> = [];
 
   filterForm = new FormGroup({
     patientID: new FormControl('')
@@ -26,14 +27,16 @@ export class HeartDataComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-    this.getData();
+    this.deviceService.getAllHeartData(this.pageIndex).subscribe((response) => {
+      this.data = response.content;
+      this.length = response.totalElements;
+    })
   }
 
   handlePageEvent(event: PageEvent) {
     this.length = event.length;
     this.pageIndex = event.pageIndex;
-
+    this.getData();
 
   }
 
@@ -47,7 +50,7 @@ export class HeartDataComponent implements OnInit {
       this.deviceService.getAllHeartData(this.pageIndex).subscribe(
         (data) => {
           this.data = data.content;
-          this.pageSize= data.totalElements;
+          this.length= data.totalElements;
         }
       )
     }

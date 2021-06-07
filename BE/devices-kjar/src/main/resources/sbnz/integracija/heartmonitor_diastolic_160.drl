@@ -1,29 +1,19 @@
-template header 
-patientID
-minValue
-maxValue
-
-
 package sbnz.integracija;
-
 import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
 import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.lang.Double;
-
 global ArrayList<Alarm> alarms;
 
-template "heartmonitor-diastoic"
-
-rule "Rule designed for patient [ @{patientID} ] - diastoic @{row.rowNumber} "
+rule "Rule designed for patient [ 160 ] - diastoic 0 "
 agenda-group "heartmonitor"
 	when
-		$data: HeartMonitorData(diastolic <= @{minValue} || diastolic >= @{maxValue}, $s:systolic, $d: diastolic,$id: patientID, $id == @{patientID})
+		$data: HeartMonitorData(diastolic <= 54.0 || diastolic >= 57.0, $s:systolic, $d: diastolic,$id: patientID, $id == 160)
 	then
-		System.out.println("Diastoic blood pressure for patient ["+ @{patientID} +"] is not in normal range!");
+		System.out.println("Diastoic blood pressure for patient ["+ 160 +"] is not in normal range!");
 	    alarms.add(new Alarm($id,"Diastoic blood pressure", $d +"/"+ $s+" mm/Hg", Double.valueOf($s), new Date()));
 end;
-end template
+
+

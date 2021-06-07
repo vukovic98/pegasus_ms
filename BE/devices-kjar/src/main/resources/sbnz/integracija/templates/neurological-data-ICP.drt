@@ -1,7 +1,8 @@
 template header 
+patientID
 minValue
 maxValue
-patientId
+
 
 
 package sbnz.integracija;
@@ -19,14 +20,13 @@ global ArrayList<Alarm> alarms;
 
 template "neuro-data-ICP"
 
-rule "Rule designed for patient @patientId - ICP"
+rule "Rule designed for patient [ @{patientID} ] - ICP @{row.rowNumber}"
 lock-on-active true
 agenda-group "neuro-data"
 when
-	NeurologicalData($id: patientId, $icp: ICP, $icp < @{minValues} || $icp > @{maxValue}, $id == @{patientId})
+	NeurologicalData($id: patientId, $icp: ICP, $icp <= @{minValue} && $icp >= @{maxValue} , $id == @{patientID})
 then
-	System.out.println("Irregular ICP rule triggered for patient ["+ @{patientId} +"].");
+	System.out.println("Irregular ICP rule triggered for patient ["+ @{patientID} +"].");
 	alarms.add(new Alarm($id, "ICP", Double.toString($icp), $icp, new Date()));
-end
-
-end template;
+end;
+end template

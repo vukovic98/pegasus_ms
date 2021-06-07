@@ -1,0 +1,18 @@
+package sbnz.integracija;
+import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+import java.util.ArrayList;
+import java.util.Date;
+import java.lang.Double;
+import java.text.SimpleDateFormat;
+global ArrayList<Alarm> alarms;
+
+rule "Redefined leukocytes rule for patient [ 154 ] 0"
+	agenda-group "blood-data"
+	when
+		$data: BloodData(leukocytes <= 4.0 || leukocytes >= 44.0, $leukocytes: leukocytes, $id: patientID)
+	then
+		System.out.println("Leukocytes is not normal!");
+		alarms.add(new Alarm($id, "Leukocytes", Double.toString($leukocytes)+" 10^9/L", $leukocytes, new Date()));end
+
+

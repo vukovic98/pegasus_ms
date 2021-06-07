@@ -1,2 +1,570 @@
 2021-06-06 17:07:32,910 : INFO : [ vlado.hospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
 2021-06-06 17:07:39,389 : INFO : [ vlado.hospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-07 17:46:56,132 : INFO : [ vlado.hospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-07 17:47:00,857 : INFO : [ vlado.hospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-07 17:47:25,356 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 17:47:27,968 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 17:47:29,909 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 17:47:34,423 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:47:45,072 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 17:47:48,827 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 17:47:53,755 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 17:47:55,555 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 17:48:33,059 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 17:48:42,915 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 17:49:02,403 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 17:49:05,079 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 17:49:08,207 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:49:19,832 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 17:49:24,913 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 17:51:18,969 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 17:52:22,496 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:53:56,148 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:53:57,815 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:54:00,496 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:54:04,851 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:54:08,301 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:54:12,945 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:55:27,937 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:55:30,662 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:55:50,925 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:55:52,278 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:55:53,410 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:55:54,396 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:56:00,999 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:56:03,782 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:56:06,001 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 17:58:14,957 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 17:58:19,570 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 17:59:13,396 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 17:59:20,196 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:03:02,685 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 18:03:04,509 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 18:03:08,665 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 18:03:16,094 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 18:03:18,129 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 18:03:20,070 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 18:03:21,496 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:03:23,527 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:03:25,619 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:03:29,517 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:03:38,752 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 18:03:51,732 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 18:03:53,684 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 18:03:55,198 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:03:57,096 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:07:20,166 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:07:55,607 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 18:07:57,501 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:08:00,311 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:08:03,784 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 18:08:05,538 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 18:08:07,983 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:12:33,793 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:14:22,304 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:14:51,474 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:14:56,313 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:15:38,529 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:15:41,308 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:15:44,253 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:16:43,784 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:18:11,586 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:18:13,119 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:18:15,351 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:19:00,317 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 18:19:04,100 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:19:06,798 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:21:42,513 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:21:50,380 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:21:51,303 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:21:51,996 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:21:52,510 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:22:21,058 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-07 18:22:23,662 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:22:25,598 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:22:26,476 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:22:27,409 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:22:28,197 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:22:28,956 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:22:29,331 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:23:42,712 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:24:29,725 : INFO : [ ivana.gsmhospital@mailinator.com ] : HeartDataController : Successful attempt for retrieving heart-data from hospital-app
+2021-06-07 18:24:31,644 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 18:24:33,079 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 18:25:16,387 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 18:25:19,931 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 18:26:43,407 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 18:26:50,359 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 18:26:52,442 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 18:27:20,077 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 18:27:35,221 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 18:27:56,496 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 18:28:01,376 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 18:29:10,598 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 19:04:22,827 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 19:13:24,438 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 19:13:48,415 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 19:13:56,145 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 19:13:58,143 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 19:15:38,929 : ERROR : [ anonymousUser ] : AuthenticationController : [INCORRECT PASSWORD] Failed login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 19:15:49,538 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 19:47:10,470 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 19:47:12,274 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:49:19,408 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:51:25,959 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:51:59,118 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:52:01,597 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:52:02,396 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:52:03,106 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:52:03,711 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:52:04,575 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:52:48,712 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:53:35,818 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:53:44,991 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:54:11,592 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:54:32,927 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:55:00,282 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:55:04,970 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:55:30,407 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:55:57,206 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 19:57:29,075 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:22:37,355 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 22:22:38,937 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:23:05,170 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:27:06,430 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 22:27:08,313 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:27:46,920 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:28:26,779 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:28:51,299 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:29:12,914 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:29:41,707 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:29:45,867 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:29:57,545 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:30:36,265 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:30:38,312 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:35:32,266 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:39:53,980 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:40:25,483 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:40:33,740 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:41:21,064 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:41:33,136 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:41:51,705 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:42:18,097 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:43:03,317 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:43:22,760 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:43:56,821 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:44:18,240 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:44:22,224 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:44:30,913 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:45:23,033 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:45:31,311 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:46:04,086 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:46:57,573 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:51:59,960 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:52:47,232 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:53:28,833 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 22:55:41,370 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 23:00:07,665 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 23:00:09,834 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 23:04:03,470 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 23:04:04,950 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 23:08:35,122 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 23:08:36,901 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 23:09:24,987 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 23:15:15,440 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 23:15:17,504 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 23:25:00,964 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 23:25:01,374 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 23:25:04,978 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 23:26:45,490 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 23:38:35,329 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 23:40:22,138 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 23:42:37,977 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 23:42:39,853 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 23:45:07,366 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 23:45:08,866 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 23:47:54,305 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 23:47:55,915 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 23:48:17,543 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+
+2021-06-07 23:48:17,543 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-07 23:49:47,987 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+
+2021-06-07 23:49:47,987 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-07 23:50:47,526 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+
+2021-06-07 23:50:47,526 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-07 23:52:27,603 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+
+2021-06-07 23:52:27,604 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-07 23:54:21,331 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-07 23:54:23,004 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-07 23:54:42,605 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - saturation']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:793) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:819) : $s cannot be resolved to a variable
+
+
+2021-06-07 23:54:42,606 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-07 23:55:02,934 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - saturation']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:793) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:819) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - systolic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:841) : $s cannot be resolved to a variable
+
+
+2021-06-07 23:55:02,935 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-07 23:55:12,557 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - saturation']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:793) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:819) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - diastoic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - systolic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:841) : $s cannot be resolved to a variable
+
+
+2021-06-07 23:55:12,557 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-07 23:55:52,475 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - saturation']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:793) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:819) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - diastoic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - systolic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - BIS']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:796) : $bis cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:803) : $bis cannot be resolved to a variable
+
+
+2021-06-07 23:55:52,476 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-08 00:00:32,684 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - saturation']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:793) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:819) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - diastoic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - BIS']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:796) : $bis cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:803) : $bis cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - systolic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:841) : $s cannot be resolved to a variable
+
+
+2021-06-08 00:00:32,685 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-08 00:01:03,039 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - ICP']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:796) : $icp cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:803) : $icp cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - saturation']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:793) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:819) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - diastoic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - systolic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - BIS']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:796) : $bis cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:803) : $bis cannot be resolved to a variable
+
+
+2021-06-08 00:01:03,041 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-08 00:05:22,931 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - ICP']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:796) : $icp cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:803) : $icp cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - saturation']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:793) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:819) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - diastoic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - systolic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - BIS']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:796) : $bis cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:803) : $bis cannot be resolved to a variable
+
+
+2021-06-08 00:05:22,931 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-08 00:05:42,961 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - ICP']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:796) : $icp cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:803) : $icp cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - saturation']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:793) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:819) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - diastoic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - BIS']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:796) : $bis cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:803) : $bis cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - systolic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:841) : $s cannot be resolved to a variable
+
+
+2021-06-08 00:05:42,962 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-08 00:08:23,104 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - ICP']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:796) : $icp cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:803) : $icp cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - saturation']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:793) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:819) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - diastoic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - systolic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - BIS']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:796) : $bis cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:803) : $bis cannot be resolved to a variable
+
+
+2021-06-08 00:08:23,104 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-08 00:08:53,128 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - ICP']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:796) : $icp cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:803) : $icp cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - saturation']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:793) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:819) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - heart rate']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_heart_rate427857061.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_heart_rate427857061.java (7:808) : $heartRate cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_heart_rate427857061.java (7:837) : $heartRate cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - diastoic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - systolic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - BIS']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:796) : $bis cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:803) : $bis cannot be resolved to a variable
+
+
+2021-06-08 00:08:53,129 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-08 00:10:33,206 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - ICP']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:796) : $icp cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:803) : $icp cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - saturation']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:793) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:819) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - heart rate']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_heart_rate427857061.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_heart_rate427857061.java (7:808) : $heartRate cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_heart_rate427857061.java (7:837) : $heartRate cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - diastoic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - systolic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:841) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - BIS']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:796) : $bis cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:803) : $bis cannot be resolved to a variable
+
+
+2021-06-08 00:10:33,206 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-08 00:11:13,230 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[20,0]: [ERR 102] Line 20:0 mismatched input '<eof>' in rule "Rule designed for patient @patientId - saturation"
+[0,0]: Parser returned a null Package
+[10,0]: Duplicate rule name: Rule designed for patient @patientId - diastoic
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - ICP']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:796) : $icp cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_ICP1143827113.java (7:803) : $icp cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - saturation']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:793) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_saturation425790841.java (7:819) : $s cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - heart rate']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_heart_rate427857061.java (7:774) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_heart_rate427857061.java (7:808) : $heartRate cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_heart_rate427857061.java (7:837) : $heartRate cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - diastoic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (7:841) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044.java (3:437) : The type Rule_Rule_designed_for_patient_$u64$patientId_$u45$_diastoic1832345044 is already defined
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - BIS']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:768) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:796) : $bis cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_BIS1748176013.java (7:803) : $bis cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient @patientId - systolic']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:773) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:804) : $d cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:813) : $s cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u64$patientId_$u45$_systolic1409674758.java (7:841) : $s cannot be resolved to a variable
+
+
+2021-06-08 00:11:13,231 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-08 00:16:13,513 : ERROR : Unable to build KieBaseModel:defaultKieBase
+Unable to Analyse Expression diastoic <= 54.0 || diastoic >= 57.0:
+[Error: unable to resolve method using strict-mode: com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData.diastoic()]
+[Near : {... diastoic <= 54.0 || diastoic > ....}]
+             ^
+[Line: 13, Column: 2] : [Rule name='Rule designed for patient @patientID - diastoic']
+
+
+2021-06-08 00:16:13,513 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-08 00:17:33,536 : ERROR : Unable to build KieBaseModel:defaultKieBase
+Unable to Analyse Expression diastoic <= 54.0 || diastoic >= 57.0:
+[Error: unable to resolve method using strict-mode: com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData.diastoic()]
+[Near : {... diastoic <= 54.0 || diastoic > ....}]
+             ^
+[Line: 13, Column: 2] : [Rule name='Rule designed for patient @patientID - diastoic']
+
+
+2021-06-08 00:17:33,536 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}

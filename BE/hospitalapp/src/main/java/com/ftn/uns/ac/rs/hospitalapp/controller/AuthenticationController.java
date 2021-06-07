@@ -79,7 +79,6 @@ public class AuthenticationController {
 
 		try {
 			boolean verified = true;
-			System.out.println("dodje");
 			Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
 					authenticationRequest.getEmail(), authenticationRequest.getPassword()));
 
