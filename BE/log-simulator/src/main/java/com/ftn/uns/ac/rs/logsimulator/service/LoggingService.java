@@ -31,7 +31,7 @@ public class LoggingService {
 	private Environment env;
 	
 	private final SimulatorState INITIAL_STATE = SimulatorState.NORMAL_SIGN_IN_ATTEMPT;
-	private SimulatorState CURRENT_STATE;
+	private SimulatorState CURRENT_STATE = INITIAL_STATE;
 	
 	private Gson gson = new Gson();
 	private Random r = new Random();
@@ -39,8 +39,6 @@ public class LoggingService {
 	@Async
     @Scheduled(fixedRate = 5000)
     public void generateLogs() throws InterruptedException {
-		
-		CURRENT_STATE = INITIAL_STATE;
 				
 		LoginDTO dto = new LoginDTO();
 		
@@ -50,21 +48,42 @@ public class LoggingService {
 			dto.setEmail("vlado.hospital@mailinator.com");
 			dto.setPassword("vukovic");
 			
-			signIn(dto);
+			signIn(dto, "https://localhost:8081/logsim/log-in-sim-good" );
+			
+			CURRENT_STATE = SimulatorState.ATTACK_SIGN_IN_ATTEMPT;
 			
 			break;
+		case ATTACK_SIGN_IN_ATTEMPT:
 			
+			dto.setEmail("some.email@mailinator.com");
+			dto.setPassword("vukovic");
+			
+			signIn(dto, "https://localhost:8081/logsim/log-in-sim-wrong-password");
+			
+			CURRENT_STATE = SimulatorState.ATTACK_REQUEST_AMOUNT;
+			
+			break;
+	
+		case ATTACK_REQUEST_AMOUNT:
+			
+			dosAttack();
+			
+			CURRENT_STATE = SimulatorState.NORMAL_SIGN_IN_ATTEMPT;
+			
+			break;
+		
 		default:
 			System.out.println("UNIMPLEMENTED");
 		
 		}
 		
-
-		
     }
 	
-	private void signIn(LoginDTO dto) {
+	private void signIn(LoginDTO dto, String path) {
 	
+		System.out.println(dto.getEmail());
+		System.out.println(dto.getPassword());
+		
 		String data = gson.toJson(dto);
 		
 		byte[] compressed_data = EncryptionUtil.compress(data);
@@ -73,10 +92,20 @@ public class LoggingService {
 				certService.getMyPrivateKey(), compressed_data, this.env.getProperty("cipherKey"));
 		
 		ResponseEntity<HttpStatus> responseEntity = 
-				restTemplate.postForEntity("https://localhost:8081/auth/log-in", finalMess, HttpStatus.class);
+				restTemplate.postForEntity(path, finalMess, HttpStatus.class);
 		
 		System.out.println(responseEntity.getStatusCode());
 		
 	}
+
+	private void dosAttack() {
+		
+		ResponseEntity<HttpStatus> responseEntity = 
+				restTemplate.getForEntity("https://localhost:8081/logsim/request-sim-dos", HttpStatus.class);
+		
+		System.out.println(responseEntity.getStatusCode());
+		
+	}
+	
 	
 }

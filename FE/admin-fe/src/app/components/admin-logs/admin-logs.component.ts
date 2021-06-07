@@ -4,14 +4,14 @@ import {LogService} from '../../services/log.service';
 import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
-  selector: 'app-logs',
-  templateUrl: './logs.component.html',
-  styleUrls: ['./logs.component.css']
+  selector: 'app-admin-logs',
+  templateUrl: './admin-logs.component.html',
+  styleUrls: ['./admin-logs.component.css']
 })
-export class LogsComponent implements OnInit {
+export class AdminLogsComponent implements OnInit {
 
   length = 0;
-  pageSize = 13;
+  pageSize = 12;
   pageIndex = 0;
   showFirstLastButtons = true;
   public logs: Array<any> = [];
@@ -62,12 +62,10 @@ export class LogsComponent implements OnInit {
       this.filterMode = true;
       this.pageIndex = 0;
       this.getData();
-      console.log(this.filterMode)
     } else {
       this.pageIndex = 0;
       this.filterMode = false;
       this.getData();
-      console.log(this.filterMode)
     }
   }
 

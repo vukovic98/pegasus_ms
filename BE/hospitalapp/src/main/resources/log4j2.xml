@@ -9,10 +9,26 @@
                 <Pattern>%d : %p : %m%n</Pattern>
             </PatternLayout>
         </File>
+        <File name="LogToFileDevice" fileName="src/main/resources/logs/logger-blood-device.log">
+            <PatternLayout>
+                <Pattern>%d : %p : %m%n</Pattern>
+            </PatternLayout>
+        </File>
+        <File name="LogToFileLogSimulator" fileName="src/main/resources/logs/logger-log-simulator.log">
+            <PatternLayout>
+                <Pattern>%d : %p : %m%n</Pattern>
+            </PatternLayout>
+        </File>
     </Appenders>
     <Loggers>
         <Logger name="com.pegasus" level="info" additivity="false">
             <AppenderRef ref="LogToFile"/>
+        </Logger>
+         <Logger name="com.pegasus.device" level="info" additivity="false">
+            <AppenderRef ref="LogToFileDevice"/>
+        </Logger>
+        <Logger name="com.pegasus.logsim" level="info" additivity="false">
+            <AppenderRef ref="LogToFileLogSimulator"/>
         </Logger>
         <Logger name="org.springframework.boot" level="info" additivity="false">
             <AppenderRef ref="LogToConsole"/>
@@ -20,6 +36,8 @@
         <Root level="error">
             <AppenderRef ref="LogToFile"/>
             <AppenderRef ref="LogToConsole"/>
+            <AppenderRef ref="LogToFileBloodDevice"/>
+            <AppenderRef ref="LogToFileLogSimulator"/>
         </Root>
     </Loggers>
 </Configuration>

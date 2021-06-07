@@ -1,9 +1,10 @@
 package com.ftn.uns.ac.rs.logsimulator.dto;
 
+import com.ftn.uns.ac.rs.logsimulator.util.SimulatorState;
+
 public class LoginDTO {
 
 	private String email;
-	
 	private String password;
 
 	public LoginDTO() {

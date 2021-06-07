@@ -35,6 +35,10 @@ public class CertificateRepository {
 		return CertificateUtil.getBobsPublicKey(env.getProperty("neuro.cert"));
 	}
 	
+	public PublicKey getLogSimPublicKey() {
+		return CertificateUtil.getBobsPublicKey(env.getProperty("logsim.cert"));
+	}
+	
 	public PublicKey getTemperatureDevicePublicKey() {
 		return CertificateUtil.getBobsPublicKey(env.getProperty("unknown.cert"));
 	}

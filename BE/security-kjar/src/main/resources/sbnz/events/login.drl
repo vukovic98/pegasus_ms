@@ -7,7 +7,6 @@ declare SuspiciousUserEvent
     @role(event)
     @expires(24h)
     ipAddress: String
-    reason: String
 end;
 
 global LoginAlarm loginAlarm;
@@ -15,14 +14,15 @@ global LoginAlarm loginAlarm;
 rule "More than 30 unsuccessful login attempts in the last 24 hours from the same IP address"
 agenda-group "login-fail"
     when
-		$fle1: FailedLoginEvent($ip: ipAddress)
-		Number(intValue > 30) from accumulate (
-			$fle2: FailedLoginEvent(ipAddress == $ip) over window:time(24h),
+		$fle1: FailedLoginEvent()
+		Number(intValue >= 30) from accumulate (
+			$fle2: FailedLoginEvent(ipAddress == $fle1.getIpAddress()) over window:time(24h),
 			count($fle2)
 		)
-		not (SuspiciousUserEvent(ipAddress == $ip, reason == "More than 30 unsuccessful login attempts in the last 24 hours from the same IP address"))
+		not (SuspiciousUserEvent(ipAddress == $fle1.getIpAddress()))
 	then
-		String reason = "More than 30 unsuccessful login attempts in the last 24 hours from the same IP address";
-        insert(new SuspiciousUserEvent($ip, reason));
-        loginAlarm.setIpAddress($ip);
+		System.out.println("FAILED LOGIN EVENT DETECTED - 30");
+        insert(new SuspiciousUserEvent($fle1.getIpAddress()));
+        loginAlarm.setIpAddress($fle1.getIpAddress());
 end
+

@@ -27,10 +27,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { AddUserComponent } from './components/users/add-user/add-user.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import {AuthInterceptorService} from './interceptors/auth.interceptor';
-import { LogsComponent } from './components/logs/logs.component';
+import { AdminLogsComponent } from './components/admin-logs/admin-logs.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
+import { HospitalLogsComponent } from './components/hospital-logs/hospital-logs.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import {MatInputModule} from '@angular/material/input';
     AllUsersComponent,
     AddUserComponent,
     ProfileComponent,
-    LogsComponent
+    AdminLogsComponent,
+    HospitalLogsComponent
   ],
   imports: [
     BrowserModule,

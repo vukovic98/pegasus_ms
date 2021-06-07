@@ -99,7 +99,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				// tokena umesto cistih korisnickog imena i lozinke (koje radi
 				// BasicAuthenticationFilter)
 				.addFilterBefore(new TokenAuthenticationFilter(tokenUtils, jwtUserDetailsService),
-						BasicAuthenticationFilter.class);
+						BasicAuthenticationFilter.class)
+				.headers().xssProtection().and()
+				.contentSecurityPolicy("script-src 'self'");
+		
 		// zbog jednostavnosti primera
 		http.csrf().disable();
 	}

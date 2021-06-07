@@ -1,0 +1,78 @@
+<div class="wrapper d-flex align-items-stretch">
+  <div style="height: 100vh;">
+    <app-navigation-bar></app-navigation-bar>
+  </div>
+  <div class=" row m-3 w-100">
+    <h1 class="col-md-9 float-left">Hospital logs panel</h1>
+    <form [formGroup]="logSourceForm" class="col-md-3">
+      <mat-form-field appearance="outline" class="col-md-12 float-right">
+        <mat-label>Log Source</mat-label>
+        <mat-select id="source" formControlName="source" (selectionChange)="selectSource()">
+          <mat-option value="HOSPITAL">Hospital logs</mat-option>
+          <mat-option value="BLOOD">Blood device logs</mat-option>
+          <mat-option value="HEART">Heart monitor device logs</mat-option>
+          <mat-option value="NEURO">Neurological device logs</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+    <div id="panel" class="w-100">
+      <div>
+        <form class="example-form w-100 text-center" [formGroup]="filterForm" (ngSubmit)="filter()" *ngIf="this.logSourceForm.value.source === 'HOSPITAL'">
+          <mat-form-field class="example-full-width w-25 mr-5">
+            <mat-label>Regex</mat-label>
+            <input matInput id="regex" formControlName="regex" name="regex" placeholder="Enter regex">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-25 ml-5 mr-5">
+            <mat-label>Log Status</mat-label>
+            <mat-select id="status" formControlName="status">
+              <mat-option value=""></mat-option>
+              <mat-option value="DEBUG">DEBUG</mat-option>
+              <mat-option value="INFO">INFO</mat-option>
+              <mat-option value="WARN">WARN</mat-option>
+              <mat-option value="ERROR">ERROR</mat-option>
+              <mat-option value="FATAL">FATAL</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" type="submit" class="mb-2" style="width: 15%;">Filter</button>
+        </form>
+      </div>
+      <div style="min-height: 629px; max-height: 629px;" class="w-100">
+        <table class="table table-hover text-center w-100 small">
+          <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Status</th>
+            <th scope="col">Date</th>
+            <th scope="col">User</th>
+            <th scope="col">Message</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor=" let a of logs" [ngClass]="{'btn-warning': a.status == 'WARN'}">
+            <td>{{a.id}}</td>
+            <td>{{a.status}}</td>
+            <td>{{a.date}}</td>
+            <td>{{a.user}}</td>
+            <td>{{a.message}}</td>
+          </tr>
+          <tr *ngIf="logs.length == 0">
+            <td colspan="5" class="text-center">There are no logs in database.</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mb-0" style="position: absolute; bottom: 0; right: 0;">
+        <mat-paginator
+          (page)="handlePageEvent($event)"
+          [length]="length"
+          [pageSize]="pageSize"
+          [showFirstLastButtons]="showFirstLastButtons"
+          [pageIndex]="pageIndex">
+        </mat-paginator>
+      </div>
+    </div>
+
+  </div>
+</div>

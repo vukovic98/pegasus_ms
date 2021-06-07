@@ -42,13 +42,15 @@ import com.ftn.uns.ac.rs.hospitalapp.beans.User;
 import com.ftn.uns.ac.rs.hospitalapp.dto.LoginDTO;
 import com.ftn.uns.ac.rs.hospitalapp.dto.UserTokenStateDTO;
 import com.ftn.uns.ac.rs.hospitalapp.events.FailedLoginEvent;
+import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.security.TokenUtils;
 import com.ftn.uns.ac.rs.hospitalapp.service.CustomUserDetailsService;
+import com.ftn.uns.ac.rs.hospitalapp.service.KieStatefulSessionService;
 import com.ftn.uns.ac.rs.hospitalapp.service.LoginAttemptService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
 import com.ftn.uns.ac.rs.hospitalapp.util.CipherEncrypt;
-import com.ftn.uns.ac.rs.hospitalapp.util.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.util.LoginAlarm;
+
 
 @RestController
 @RequestMapping(path = "/auth", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -76,8 +78,7 @@ public class AuthenticationController {
 	private LoggerProxy logger;
 	
 	@Autowired
-	@Qualifier(value = "kieContainterSecurity")
-	private KieContainer kContainter;
+	private KieStatefulSessionService kieService;
 	
 	
 	@PostMapping(path = "/test-test")
@@ -130,20 +131,31 @@ public class AuthenticationController {
 			
 			System.out.println("Evo me ovde");
 			
-			KieSession eventSession = kContainter.newKieSession("eventSession");
+			KieSession eventSession = kieService.getEventsSession();
 			eventSession.getAgenda().getAgendaGroup("login-fail").setFocus();
 			LoginAlarm loginAlarm = new LoginAlarm();
 			eventSession.setGlobal("loginAlarm", loginAlarm);
-			eventSession.insert(new FailedLoginEvent(Date.from(Instant.now()), request.getRemoteAddr()));
+			
+			System.out.println(request.getRemoteAddr());
+			
+			FailedLoginEvent event = new FailedLoginEvent(Date.from(Instant.now()), request.getRemoteAddr());
+			
+			System.out.println("event ip "+event.getIpAddress());
+			
+			eventSession.insert(event);
 			eventSession.fireAllRules();
 			
 			if(loginAlarm.getIpAddress() != null) {
+				System.out.println("OVDE");
 				if(loginAlarm.getIpAddress().equals(request.getRemoteAddr())) {
-					System.out.println("OVDE");
+					System.out.println("OVDE 2");
 					List<String> lines = Arrays.asList(request.getRemoteAddr());
-					Path file = Paths.get("./hospitalapp/src/main/resources/static/malicious_ip.txt");
+					Path file = Paths.get("D:\\faks\\Bezb\\Repo\\BE\\hospitalapp\\src\\main\\resources\\static\\malicious_ip.txt");
 					Files.write(file, lines, StandardCharsets.UTF_8, StandardOpenOption.APPEND);
 					
+					
+					this.logger.warn("[MALICIOUS IP DETECTED] After 30 failed log-in attempts in the last 24h, IP address "
+							+ ""+request.getRemoteAddr()+" has been marked as malicious. ", AuthenticationController.class);
 					
 				}
 			}

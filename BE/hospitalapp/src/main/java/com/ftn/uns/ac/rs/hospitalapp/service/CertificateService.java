@@ -22,6 +22,10 @@ public class CertificateService {
 		return this.certRepository.getMyPrivateKey();
 	}
 	
+	public PublicKey getLogSimPublicKey() {
+		return this.certRepository.getLogSimPublicKey();
+	}
+	
 	public PublicKey getBloodDevicePublicKey() {
 		return this.certRepository.getBloodDevicePublicKey();
 	}

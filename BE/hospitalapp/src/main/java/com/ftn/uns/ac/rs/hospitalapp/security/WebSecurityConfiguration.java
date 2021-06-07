@@ -100,7 +100,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				// tokena umesto cistih korisnickog imena i lozinke (koje radi
 				// BasicAuthenticationFilter)
 				.addFilterBefore(new TokenAuthenticationFilter(tokenUtils, jwtUserDetailsService),
-						BasicAuthenticationFilter.class);
+						BasicAuthenticationFilter.class)
+				.headers().xssProtection().and()
+				.contentSecurityPolicy("script-src 'self'");
 		// zbog jednostavnosti primera
 		http.csrf().disable();
 	}
@@ -113,11 +115,15 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				"/certificate/receive-certificate",
 				"/users/change-authority",
 				"/users",
+				"/logs/**",
 				"/users/delete",
-				"/device/**");
+				"/device/**",
+				"/logsim/**");
 		web.ignoring().antMatchers(HttpMethod.GET, "/admin/by-page/**", 
 				"/doctor/by-page/**",
 				"/hospital",
+				"/logs/**",
+				"/device-logs/**",
 				"/ws/**");
 		
 		
