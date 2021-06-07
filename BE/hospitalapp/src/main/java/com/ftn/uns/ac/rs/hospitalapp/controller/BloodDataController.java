@@ -1,5 +1,7 @@
 package com.ftn.uns.ac.rs.hospitalapp.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -9,9 +11,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ftn.uns.ac.rs.hospitalapp.dto.DataRangeDTO;
 import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.service.BloodDataService;
 import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
@@ -58,5 +62,56 @@ public class BloodDataController {
 
 		return new ResponseEntity<>(pageImpl, HttpStatus.OK);
 	}
+	
+	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
+	@GetMapping(path = "/create-alarm-for-crp")
+	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForCrp(@RequestBody DataRangeDTO dto) {
 
+		boolean ok = this.bloodDataService.createRuleForCRP(dto);
+
+		if (ok) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
+	@GetMapping(path = "/create-alarm-for-leukocytes")
+	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForLeukocytes(@RequestBody DataRangeDTO dto) {
+
+		boolean ok = this.bloodDataService.createRuleForLeukocytes(dto);
+
+		if (ok) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
+	@GetMapping(path = "/create-alarm-for-erythrocites")
+	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForErythrocites(@RequestBody DataRangeDTO dto) {
+
+		boolean ok = this.bloodDataService.createRuleForErythrocites(dto);
+
+		if (ok) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
+	@GetMapping(path = "/create-alarm-for-hemoglobin")
+	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForHemoglobin(@RequestBody DataRangeDTO dto) {
+
+		boolean ok = this.bloodDataService.createRuleForHemoglobin(dto);
+
+		if (ok) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
 }
