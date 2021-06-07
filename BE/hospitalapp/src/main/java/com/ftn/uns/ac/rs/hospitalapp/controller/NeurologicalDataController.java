@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -64,7 +65,7 @@ public class NeurologicalDataController {
 	}
 	
 	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
-	@GetMapping(path = "/create-alarm-for-bis")
+	@PostMapping(path = "/create-alarm-for-bis")
 	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForBIS(@RequestBody DataRangeDTO dto) {
 
 		boolean ok = this.neuroDataService.createRuleForHeartmonitorBIS(dto);
@@ -77,7 +78,7 @@ public class NeurologicalDataController {
 	}
 	
 	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
-	@GetMapping(path = "/create-alarm-for-icp")
+	@PostMapping(path = "/create-alarm-for-icp")
 	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForICP(@RequestBody DataRangeDTO dto) {
 
 		boolean ok = this.neuroDataService.createRuleForHeartmonitorICP(dto);

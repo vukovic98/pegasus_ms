@@ -1,7 +1,8 @@
 template header 
+patientID
 minValue
 maxValue
-patientId
+
 
 package sbnz.integracija;
 
@@ -17,14 +18,12 @@ global ArrayList<Alarm> alarms;
 
 template "heartmonitor-diastoic"
 
-rule "Rule designed for patient @patientId - diastoic"
+rule "Rule designed for patient [ @{patientID} ] - diastoic @{row.rowNumber} "
 agenda-group "heartmonitor"
-lock-on-active true
 	when
-		HeartMonitorData(diastoic <= minValue || diastoic >= maxValue, $s:systolic, $d: diastolic,$id: patientID, $id == @{patientId})
+		$data: HeartMonitorData(diastolic <= @{minValue} || diastolic >= @{maxValue}, $s:systolic, $d: diastolic,$id: patientID, $id == @{patientID})
 	then
-	System.out.println("Diastoic blood pressure for patient ["+ @{patientId} +"] is not in normal range!");
-		alarms.add(new Alarm($id,"Diastoic blood pressure", $d +"/"+ $s+" mm/Hg", Double.valueOf($s), new Date()));
+		System.out.println("Diastoic blood pressure for patient ["+ @{patientID} +"] is not in normal range!");
+	    alarms.add(new Alarm($id,"Diastoic blood pressure", $d +"/"+ $s+" mm/Hg", Double.valueOf($s), new Date()));
 end;
-
-end template;
+end template

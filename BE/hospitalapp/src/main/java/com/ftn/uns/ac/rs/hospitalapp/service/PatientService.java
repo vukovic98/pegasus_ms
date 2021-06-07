@@ -1,5 +1,7 @@
 package com.ftn.uns.ac.rs.hospitalapp.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +18,10 @@ public class PatientService {
 
 	public Page<Patient> findAll(Pageable pageable){
 		return (Page<Patient>) this.patientRepository.findAll(pageable);
+	}
+	
+	public ArrayList<Patient> findAll(){
+		return (ArrayList<Patient>) this.patientRepository.findAll();
 	}
 	
 	public Patient findById(Long id) {

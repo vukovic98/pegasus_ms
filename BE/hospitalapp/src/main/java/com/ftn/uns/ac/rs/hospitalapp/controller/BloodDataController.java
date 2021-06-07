@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -63,8 +64,9 @@ public class BloodDataController {
 		return new ResponseEntity<>(pageImpl, HttpStatus.OK);
 	}
 	
+
+	@PostMapping(path = "/create-alarm-for-crp")
 	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
-	@GetMapping(path = "/create-alarm-for-crp")
 	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForCrp(@RequestBody DataRangeDTO dto) {
 
 		boolean ok = this.bloodDataService.createRuleForCRP(dto);
@@ -77,7 +79,7 @@ public class BloodDataController {
 	}
 	
 	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
-	@GetMapping(path = "/create-alarm-for-leukocytes")
+	@PostMapping(path = "/create-alarm-for-leukocytes")
 	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForLeukocytes(@RequestBody DataRangeDTO dto) {
 
 		boolean ok = this.bloodDataService.createRuleForLeukocytes(dto);
@@ -90,7 +92,7 @@ public class BloodDataController {
 	}
 	
 	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
-	@GetMapping(path = "/create-alarm-for-erythrocites")
+	@PostMapping(path = "/create-alarm-for-erythrocytes")
 	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForErythrocites(@RequestBody DataRangeDTO dto) {
 
 		boolean ok = this.bloodDataService.createRuleForErythrocites(dto);
@@ -103,7 +105,7 @@ public class BloodDataController {
 	}
 	
 	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
-	@GetMapping(path = "/create-alarm-for-hemoglobin")
+	@PostMapping(path = "/create-alarm-for-hemoglobin")
 	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForHemoglobin(@RequestBody DataRangeDTO dto) {
 
 		boolean ok = this.bloodDataService.createRuleForHemoglobin(dto);

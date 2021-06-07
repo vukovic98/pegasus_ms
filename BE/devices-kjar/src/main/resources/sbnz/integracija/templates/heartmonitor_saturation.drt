@@ -1,7 +1,7 @@
 template header 
+patientID
 minValue
 maxValue
-patientId
 
 
 package sbnz.integracija;
@@ -19,14 +19,14 @@ global ArrayList<Alarm> alarms;
 
 template "heartmonitor-saturation"
 
-rule "Rule designed for patient @patientId - saturation"
+rule "Rule designed for patient [ @{patientID} ] - saturation @{row.rowNumber}"
 agenda-group "heartmonitor"
 lock-on-active true
 	when 
-		HeartMonitorData(saturation <= minValue, $id: patientID, $s: saturation, $id == @{patientId});
+		HeartMonitorData(saturation <= minValue, $id: patientID, $s: saturation, $id == @{patientID});
 	then
-		System.out.println("Saturation for patient ["+ @{patientId} +"] is not in normal range!");
+		System.out.println("Saturation for patient ["+ @{patientID} +"] is not in normal range!");
 		alarms.add(new Alarm($id, "Saturation", $s + " %", Double.valueOf($s), new Date()));
 end;
 
-end template;
+end template

@@ -26,6 +26,8 @@ import { BloodDataComponent } from './components/devices/blood-data/blood-data.c
 import { HeartDataComponent } from './components/devices/heart-data/heart-data.component';
 import { NeuroDataComponent } from './components/devices/neuro-data/neuro-data.component';
 import {MatInputModule} from '@angular/material/input';
+import { CreateAlarmsComponent } from './components/create-alarms/create-alarms.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -42,6 +44,7 @@ import {MatInputModule} from '@angular/material/input';
     BloodDataComponent,
     HeartDataComponent,
     NeuroDataComponent,
+    CreateAlarmsComponent,
   ],
     imports: [
         BrowserModule,
@@ -56,7 +59,8 @@ import {MatInputModule} from '@angular/material/input';
         MatPaginatorModule,
         MatDialogModule,
         FormsModule,
-        MatInputModule
+        MatInputModule,
+        MatSelectModule
     ],
   providers: [
     AuthService

@@ -23,11 +23,17 @@ export class NeuroDataComponent implements OnInit {
   constructor(private deviceService: DeviceService) { }
 
   ngOnInit(): void {
-    this.getData();
+    this.deviceService.getAllNeuroData(this.pageIndex).subscribe(
+      (data) => {
+        this.data = data.content;
+        this.length= data.totalElements;
+      }
+    )
   }
   handlePageEvent(event: PageEvent) {
     this.length = event.length;
     this.pageIndex = event.pageIndex;
+    this.getData();
   }
   getData() {
     if(this.filterMode) {
@@ -39,7 +45,7 @@ export class NeuroDataComponent implements OnInit {
       this.deviceService.getAllNeuroData(this.pageIndex).subscribe(
         (data) => {
           this.data = data.content;
-          this.pageSize= data.totalElements;
+          this.length = data.totalElements;
         }
       )
     }

@@ -16,7 +16,8 @@ export class AdminPanelComponent implements OnInit {
 
   private webSocketAPI: WebSocketAPI;
 
-  constructor(private appRef: ApplicationRef
+  constructor(
+    private appRef: ApplicationRef
   ) { }
 
   ngOnInit(): void {

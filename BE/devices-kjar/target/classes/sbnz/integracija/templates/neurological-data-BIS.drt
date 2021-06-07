@@ -1,7 +1,7 @@
 template header 
+patientID
 minValue
 maxValue
-patientId
 
 
 package sbnz.integracija;
@@ -19,14 +19,13 @@ global ArrayList<Alarm> alarms;
 
 template "neuro-data-BIS"
 
-rule "Rule designed for patient @patientId - BIS"
+rule "Rule designed for patient [ @{patientID} ] - BIS @{row.rowNumber}"
 lock-on-active true
 agenda-group "neuro-data"
 when
-	NeurologicalData($id: patientId, $bis: BIS, $bis <= @{minValue}, $id == @{patientId})
+	NeurologicalData($id: patientId, $bis: BIS, $bis <= @{minValue}, $id == @{patientID})
 then
-	System.out.println("Irregular BIS rule triggered for patient ["+ @{patientId} +"].");
+	System.out.println("Irregular BIS rule triggered for patient ["+ @{patientID} +"].");
 	alarms.add(new Alarm($id, "BIS", Double.toString($bis), $bis, new Date()));
-end
-
-end template;
+end;
+end template

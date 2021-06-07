@@ -1,5 +1,6 @@
 package com.ftn.uns.ac.rs.hospitalapp.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -52,5 +53,20 @@ public class PatientController {
 		this.logger.info("Successful attempt for retrieving patients from hospital-app", PatientController.class);
 
 		return new ResponseEntity<>(pageImpl, HttpStatus.OK);
+	}
+	
+	@GetMapping(path = "/all")
+	@PreAuthorize("hasAuthority('PRIVILEGE_READ_PATIENTS')")
+	public ResponseEntity<ArrayList<PatientDTO>> findAllPatients() {
+	
+			ArrayList<Patient> patients = this.patientService.findAll();
+
+			ArrayList<PatientDTO> patientsDTOS = (ArrayList<PatientDTO>) this.patientDetailsMapper.entityListToDtoList(patients);
+			
+			
+			this.logger.info("Successful attempt for retrieving patients from hospital-app", PatientController.class);
+
+	
+		return new ResponseEntity<>(patientsDTOS, HttpStatus.OK);
 	}
 }
