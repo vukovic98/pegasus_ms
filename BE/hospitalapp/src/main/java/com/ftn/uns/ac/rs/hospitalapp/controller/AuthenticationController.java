@@ -1,13 +1,25 @@
 package com.ftn.uns.ac.rs.hospitalapp.controller;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.kie.api.runtime.KieContainer;
+import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -29,12 +41,16 @@ import com.ftn.uns.ac.rs.hospitalapp.beans.LoginStatus;
 import com.ftn.uns.ac.rs.hospitalapp.beans.User;
 import com.ftn.uns.ac.rs.hospitalapp.dto.LoginDTO;
 import com.ftn.uns.ac.rs.hospitalapp.dto.UserTokenStateDTO;
+import com.ftn.uns.ac.rs.hospitalapp.events.FailedLoginEvent;
 import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.security.TokenUtils;
 import com.ftn.uns.ac.rs.hospitalapp.service.CustomUserDetailsService;
+import com.ftn.uns.ac.rs.hospitalapp.service.KieStatefulSessionService;
 import com.ftn.uns.ac.rs.hospitalapp.service.LoginAttemptService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
 import com.ftn.uns.ac.rs.hospitalapp.util.CipherEncrypt;
+import com.ftn.uns.ac.rs.hospitalapp.util.LoginAlarm;
+
 
 @RestController
 @RequestMapping(path = "/auth", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -61,6 +77,10 @@ public class AuthenticationController {
 	@Autowired
 	private LoggerProxy logger;
 	
+	@Autowired
+	private KieStatefulSessionService kieService;
+	
+	
 	@PostMapping(path = "/test-test")
 	public ResponseEntity<HttpStatus> test(@RequestBody String s) {
 		System.out.println(s);
@@ -75,7 +95,7 @@ public class AuthenticationController {
 	// Tada zna samo svoje korisnicko ime i lozinku i to prosledjuje na backend.
 	@PostMapping("/log-in")
 	public ResponseEntity<UserTokenStateDTO> createAuthenticationToken(@Valid @RequestBody LoginDTO authenticationRequest,
-			HttpServletResponse response) {
+			HttpServletRequest request, HttpServletResponse response) throws IOException {
 
 		try {
 			boolean verified = true;
@@ -98,12 +118,47 @@ public class AuthenticationController {
 			this.logger.info("Successfull login attempt was made from [ " + authenticationRequest.getEmail() + " ]",
 					AuthenticationController.class);
 			
-			user.setLastActivityTime(LocalDate.now());
+			System.out.println(request.getRemoteAddr());
+			
+			user.setLastActivityTime(Instant.now().toEpochMilli());
 			userService.save(user);
+			
 			
 			// Vrati token kao odgovor na uspesnu autentifikaciju
 			return ResponseEntity.ok(new UserTokenStateDTO(jwt, expiresIn, email, verified));
 		} catch (Exception e) {
+			
+			System.out.println("Evo me ovde");
+			
+			KieSession eventSession = kieService.getEventsSession();
+			eventSession.getAgenda().getAgendaGroup("login-fail").setFocus();
+			LoginAlarm loginAlarm = new LoginAlarm();
+			eventSession.setGlobal("loginAlarm", loginAlarm);
+			
+			System.out.println(request.getRemoteAddr());
+			
+			FailedLoginEvent event = new FailedLoginEvent(Date.from(Instant.now()), request.getRemoteAddr());
+			
+			System.out.println("event ip "+event.getIpAddress());
+			
+			eventSession.insert(event);
+			eventSession.fireAllRules();
+			
+			if(loginAlarm.getIpAddress() != null) {
+				System.out.println("OVDE");
+				if(loginAlarm.getIpAddress().equals(request.getRemoteAddr())) {
+					System.out.println("OVDE 2");
+					List<String> lines = Arrays.asList(request.getRemoteAddr());
+					Path file = Paths.get("D:\\faks\\Bezb\\Repo\\BE\\hospitalapp\\src\\main\\resources\\static\\malicious_ip.txt");
+					Files.write(file, lines, StandardCharsets.UTF_8, StandardOpenOption.APPEND);
+					
+					
+					this.logger.warn("[MALICIOUS IP DETECTED] After 30 failed log-in attempts in the last 24h, IP address "
+							+ ""+request.getRemoteAddr()+" has been marked as malicious. ", AuthenticationController.class);
+					
+				}
+			}
+			
 			e.printStackTrace();
 			User u = this.userService.findByEmail(authenticationRequest.getEmail());
 

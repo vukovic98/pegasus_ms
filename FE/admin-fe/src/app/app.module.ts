@@ -32,6 +32,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import { HospitalLogsComponent } from './components/hospital-logs/hospital-logs.component';
+import { AlarmComponent } from './components/alarm/alarm.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { HospitalLogsComponent } from './components/hospital-logs/hospital-logs.
     AddUserComponent,
     ProfileComponent,
     AdminLogsComponent,
-    HospitalLogsComponent
+    HospitalLogsComponent,
+    AlarmComponent
   ],
   imports: [
     BrowserModule,

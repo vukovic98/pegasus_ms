@@ -12,9 +12,9 @@ import Swal from "sweetalert2";
 export class AddUserComponent implements OnInit {
 
   addUserForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email, Validators.pattern("[a-z]+[1-9]*\\.(gsm)?hospital@mailinator.com")]),
+    firstName: new FormControl('', [Validators.required, Validators.pattern("[A-Z][a-z]+")]),
+    lastName: new FormControl('', [Validators.required, Validators.pattern("[A-Z][a-z]+")]),
     password: new FormControl('', Validators.required),
     role: new FormControl('', Validators.required),
     hospital: new FormControl( {value: 'GSM Hospital', disabled: true}, Validators.required)

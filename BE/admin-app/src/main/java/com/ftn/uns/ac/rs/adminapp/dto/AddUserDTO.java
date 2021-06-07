@@ -3,26 +3,34 @@ package com.ftn.uns.ac.rs.adminapp.dto;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 public class AddUserDTO {
 
-	@NotBlank
-	@Email
+	@NotBlank(message = "Email can not be empty.")
+	@Email(message = "Email format is not valid.")
+	@Pattern(regexp = "[a-z]+[1-9]*\\.(gsm)?hospital@mailinator.com", message = "Wrong email format. Example: jena123.gsmhospital@mailinator.com")
 	private String email;
 
-	@NotBlank
+	@NotBlank(message = "Password can not be empty.")
+	@Size(min = 7)
 	private String password;
 
-	@NotBlank
+	@NotBlank(message = "First name can not be empty.")
+	@Size(max = 25)
+	@Pattern(regexp = "[A-Z][a-z]+", message="First name must start with capital letter and can contain only letters.")
 	private String firstName;
 
-	@NotBlank
+	@NotBlank(message = "Last name can not be empty.")
+	@Size(max = 25)
+	@Pattern(regexp = "[A-Z][a-z]+", message="Last name must start with capital letter and can contain only letters.")
 	private String lastName;
 
-	@NotNull
+	@NotNull(message = "Role can not be empty.")
 	private int role;
 
-	@NotBlank
+	@NotBlank(message = "Hospital can not be empty.")
 	private String hospital;
 
 	public AddUserDTO() {

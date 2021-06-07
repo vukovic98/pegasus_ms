@@ -1,0 +1,31 @@
+package sbnz.events;
+
+import com.ftn.uns.ac.rs.hospitalapp.util.DoSAlarm;
+import com.ftn.uns.ac.rs.hospitalapp.events.RequestEvent;
+
+declare DoSEvent
+    @role(event)
+    @expires(1m)
+end;
+
+declare BruteForceEvent
+    @role(event)
+    @expires(1m)
+end;
+
+global DoSAlarm dosAlarm;
+
+rule "More than 50 requests in the span of 1 minute - DoS attack"
+agenda-group "requests"
+    when
+		$reqe1: RequestEvent()
+		Number(intValue >= 50) from accumulate (
+			$reqe2: RequestEvent() over window:time(1m),
+			count($reqe2)
+		)
+		not (DoSEvent())
+	then
+		System.out.println("DOS ATTACK DETECTED");
+        insert(new DoSEvent());
+        dosAlarm.setUnderAttack(true);
+end

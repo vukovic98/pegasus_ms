@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,5 +46,10 @@ public class LoginAttemptService {
 	
 	public void save(LoginAttempt a) {
 		this.loginAttemptRepository.save(a);
+	}
+	
+	@Transactional
+	public void delete(String email) {
+		this.loginAttemptRepository.deleteByEmail(email);
 	}
 }
