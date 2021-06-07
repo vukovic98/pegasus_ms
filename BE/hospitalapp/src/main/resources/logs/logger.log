@@ -1,0 +1,7 @@
+2021-06-07 17:41:27,924 : INFO : [ vlado.hospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-07 17:41:32,114 : INFO : [ vlado.hospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 17:41:53,103 : INFO : [ vlado.hospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 17:41:55,459 : INFO : [ vlado.hospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-07 17:42:17,525 : INFO : [ vlado.hospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-07 17:57:02,019 : INFO : [ ADMIN-APP ] : DoctorController : Successful attempt for retrieving doctors from hospital-app
+2021-06-07 17:57:02,019 : INFO : [ ADMIN-APP ] : AdminController : Successful attempt for retrieving admins by admin-app

@@ -9,7 +9,7 @@
                 <Pattern>%d : %p : %m%n</Pattern>
             </PatternLayout>
         </File>
-        <File name="LogToFileDevice" fileName="src/main/resources/logs/logger-blood-device.log">
+        <File name="LogToFileDevice" fileName="src/main/resources/logs/logger-device.log">
             <PatternLayout>
                 <Pattern>%d : %p : %m%n</Pattern>
             </PatternLayout>

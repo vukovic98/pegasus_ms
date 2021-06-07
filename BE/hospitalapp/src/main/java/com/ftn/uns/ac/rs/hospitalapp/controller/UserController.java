@@ -94,7 +94,7 @@ public class UserController {
 	@PostMapping()
 	public ResponseEntity<HttpStatus> addUser(@Valid @RequestBody AddUserDTO dto) {
 		User u = this.userService.findByEmail(dto.getEmail());
-
+		
 		if (u == null) {
 			if (this.userCheck.addUserCheck(dto)) {
 				if (dto.getRole() == 1) {

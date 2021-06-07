@@ -99,12 +99,15 @@ public class UserManagementController {
 	@PreAuthorize("hasAuthority('PRIVILEGE_MANAGE_USERS')")
 	public ResponseEntity<HttpStatus> addUser(@RequestBody @Valid AddUserDTO dto) {
 
+		System.out.println(dto.getFirstName());
+		
 		HttpEntity<AddUserDTO> request = new HttpEntity<AddUserDTO>(dto);
 		ResponseEntity<HttpStatus> responseEntityStr = null;
 
 		try {
 			responseEntityStr = restTemplate.postForEntity("https://localhost:8081/users", request, HttpStatus.class);
 		} catch (HttpClientErrorException e) {
+			e.printStackTrace();
 
 			this.logger.error("[ HOSPITAL APP ERROR STATUS - " + e.getRawStatusCode()
 					+ " ] Failed attempt for adding user [ " + dto.getEmail() + " ]", UserManagementController.class);

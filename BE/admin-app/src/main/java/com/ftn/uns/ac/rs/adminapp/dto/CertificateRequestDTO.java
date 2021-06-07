@@ -1,6 +1,9 @@
 package com.ftn.uns.ac.rs.adminapp.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class CertificateRequestDTO {
+	
 	private long id;
 	private String subjectCN;
 	private String subjectOU;
