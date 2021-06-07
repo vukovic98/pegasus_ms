@@ -10,48 +10,36 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="alarm")
+@Table(name = "alarm")
 public class Alarm {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="alarm_id")
+	@Column(name = "alarm_id")
 	private Long id;
-	
+
 	@Column
 	private int patientID;
-	
+
 	@Column
 	private String dataType;
-	
+
 	@Column
 	private String value;
-	
+
 	private double numValue;
-	
+
 	@Column
 	private Date date;
-	
+
 	@Column
 	private String patientsName;
-	
-
 
 	public Alarm() {
 		super();
 	}
 
-	
-
-
-
-
-
-
-
-
-
-	public Alarm( int patientID, String dataType, String value, double numValue, Date date) {
+	public Alarm(int patientID, String dataType, String value, double numValue, Date date) {
 		super();
 		this.patientID = patientID;
 		this.dataType = dataType;
@@ -60,17 +48,7 @@ public class Alarm {
 		this.date = date;
 	}
 
-
-
-
-
-
-
-
-
-
-
-	public Alarm(int patientID, String dataType, String value) {	
+	public Alarm(int patientID, String dataType, String value) {
 		super();
 		this.patientID = patientID;
 		this.dataType = dataType;
@@ -85,42 +63,22 @@ public class Alarm {
 		this.dataType = dataType;
 		this.value = value;
 	}
-	
-	
-
-	
 
 	public double getNumValue() {
 		return numValue;
 	}
 
-
-
-
-
 	public void setNumValue(double numValue) {
 		this.numValue = numValue;
 	}
-
-
-
-
 
 	public Date getDate() {
 		return date;
 	}
 
-
-
-
-
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
-
-
-
 
 	public String getPatientsName() {
 		return patientsName;
@@ -157,7 +115,6 @@ public class Alarm {
 	public String getValue() {
 		return value;
 	}
-
 
 	public void setValue(String value) {
 		this.value = value;

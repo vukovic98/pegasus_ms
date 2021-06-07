@@ -112,7 +112,7 @@ public class LogSimulatorController {
 		DoSAlarm dosAlarm = new DoSAlarm();
 		session.setGlobal("dosAlarm", dosAlarm);
 		
-		for (int i = 0; i < 51; i++) {
+		for (int i = 0; i < 52; i++) {
 
 			RequestEvent event = new RequestEvent(new Date(), "");
 			session.insert(event);
@@ -128,6 +128,8 @@ public class LogSimulatorController {
         			
         }
 		
+        kieService.disposeEventsSession();
+        
 		return ResponseEntity.ok().body(HttpStatus.OK);
 
 	}

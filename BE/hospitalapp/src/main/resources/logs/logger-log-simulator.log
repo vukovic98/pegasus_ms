@@ -1,0 +1,23 @@
+
+2021-06-07 19:27:19,983 : INFO : [ LOG_SIMULATOR ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-07 19:27:23,630 : ERROR : [ LOG_SIMULATOR ] : AuthenticationController : [USER IS BLOCKED] Failed login attempt was made from [ some.email@mailinator.com ]
+2021-06-07 19:30:52,689 : INFO : [ LOG_SIMULATOR ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-07 19:30:55,274 : ERROR : [ LOG_SIMULATOR ] : AuthenticationController : [USER IS BLOCKED] Failed login attempt was made from [ some.email@mailinator.com ]
+2021-06-07 19:30:59,908 : WARN : [ LOG_SIMULATOR ] : XSSFilter : [DoS ATTACK DETECTED] The service is under a DoS attack - more than 50 requests detected in the span of 1 minute. 
+2021-06-07 19:31:04,895 : INFO : [ LOG_SIMULATOR ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-07 19:31:09,975 : ERROR : [ LOG_SIMULATOR ] : AuthenticationController : [USER IS BLOCKED] Failed login attempt was made from [ some.email@mailinator.com ]
+2021-06-07 19:31:19,920 : INFO : [ LOG_SIMULATOR ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-07 19:31:25,064 : ERROR : [ LOG_SIMULATOR ] : AuthenticationController : [USER IS BLOCKED] Failed login attempt was made from [ some.email@mailinator.com ]
+2021-06-07 19:34:27,321 : INFO : [ LOG_SIMULATOR ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-07 19:34:29,748 : ERROR : [ LOG_SIMULATOR ] : AuthenticationController : [USER IS BLOCKED] Failed login attempt was made from [ some.email@mailinator.com ]
+2021-06-07 19:34:34,470 : WARN : [ LOG_SIMULATOR ] : XSSFilter : [DoS ATTACK DETECTED] The service is under a DoS attack - more than 50 requests detected in the span of 1 minute. 
+2021-06-07 19:34:39,476 : INFO : [ LOG_SIMULATOR ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-07 19:34:44,511 : ERROR : [ LOG_SIMULATOR ] : AuthenticationController : [USER IS BLOCKED] Failed login attempt was made from [ some.email@mailinator.com ]
+2021-06-07 19:34:49,418 : WARN : [ LOG_SIMULATOR ] : XSSFilter : [DoS ATTACK DETECTED] The service is under a DoS attack - more than 50 requests detected in the span of 1 minute. 
+2021-06-07 19:34:54,480 : INFO : [ LOG_SIMULATOR ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-07 19:34:59,537 : ERROR : [ LOG_SIMULATOR ] : AuthenticationController : [USER IS BLOCKED] Failed login attempt was made from [ some.email@mailinator.com ]
+2021-06-07 19:35:04,429 : WARN : [ LOG_SIMULATOR ] : XSSFilter : [DoS ATTACK DETECTED] The service is under a DoS attack - more than 50 requests detected in the span of 1 minute. 
+2021-06-07 19:35:09,458 : INFO : [ LOG_SIMULATOR ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-07 19:35:14,510 : ERROR : [ LOG_SIMULATOR ] : AuthenticationController : [USER IS BLOCKED] Failed login attempt was made from [ some.email@mailinator.com ]
+2021-06-07 19:35:19,410 : WARN : [ LOG_SIMULATOR ] : XSSFilter : [DoS ATTACK DETECTED] The service is under a DoS attack - more than 50 requests detected in the span of 1 minute. 
+2021-06-07 19:35:24,481 : INFO : [ LOG_SIMULATOR ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]

@@ -124,7 +124,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				"/hospital",
 				"/logs/**",
 				"/device-logs/**",
-				"/ws/**");
+				"/ws/**",
+				"/logsim/**");
 		
 		
 		web.ignoring().antMatchers(HttpMethod.GET, "/", "/webjars/**", "/*.html", "/favicon.ico", "/**/*.html",
