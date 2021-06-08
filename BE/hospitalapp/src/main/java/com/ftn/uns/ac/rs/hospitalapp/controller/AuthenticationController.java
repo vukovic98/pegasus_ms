@@ -138,7 +138,7 @@ public class AuthenticationController {
 				
 			}
 			
-			Path maliciousPath = Paths.get("D:\\faks\\Bezb\\Repo\\BE\\hospitalapp\\src\\main\\resources\\static\\malicious_ip.txt");
+			Path maliciousPath = Paths.get("../hospitalapp/src/main/resources/static/malicious_ip.txt");
 			List<String> maliciousIPs = Files.readAllLines(maliciousPath);
 			
 			if(maliciousIPs.contains(request.getRemoteAddr())) {
