@@ -6,17 +6,26 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.HospitalLog;
+import com.ftn.uns.ac.rs.hospitalapp.beans.SecurityAlarm;
+import com.ftn.uns.ac.rs.hospitalapp.service.SecurityKnowledgeService;
 
 @Component
 public class LoggerProxy {
 	
 	@Autowired
 	private MongoTemplate mongoRepository;
+	
+	@Autowired
+	private SecurityKnowledgeService securityService;
+	
+	@Autowired
+	private SimpMessagingTemplate simpMessagingTemplate;
 
 	private Logger logger = LogManager.getLogger("com.pegasus");
 
@@ -88,6 +97,12 @@ public class LoggerProxy {
 
 		this.mongoRepository.insert(new HospitalLog(new Date(), username, message, "ERROR"));
 		this.logger.error("[ {} ] : {} : {}", username, classInitializator.getSimpleName(), message);
+		
+		SecurityAlarm a = new SecurityAlarm("", "ERROR LOG OCCURED", new Date());
+		
+		this.securityService.save(a);
+		this.simpMessagingTemplate.convertAndSend("/log-alarm", a);
+		
 	}
 
 	public void fatal(String message, Class<?> classInitializator) {

@@ -1,5 +1,7 @@
 package com.ftn.uns.ac.rs.hospitalapp.service;
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -107,6 +109,22 @@ public class UserService {
 		} else {
 			return null;
 		}
+	}
+	
+	public boolean isUserInactiveForMonths(User user) {
+		
+		Instant currTime = Instant.now();
+		
+		Instant lastLogin = Instant.ofEpochMilli(user.getLastActivityTime());
+		
+		if(lastLogin.plus(90, ChronoUnit.DAYS).isBefore(currTime)) {
+			
+			return true;
+		}else {
+			return false;
+		}
+		
+		
 	}
 
 }

@@ -21,3 +21,12 @@
 2021-06-07 19:35:14,510 : ERROR : [ LOG_SIMULATOR ] : AuthenticationController : [USER IS BLOCKED] Failed login attempt was made from [ some.email@mailinator.com ]
 2021-06-07 19:35:19,410 : WARN : [ LOG_SIMULATOR ] : XSSFilter : [DoS ATTACK DETECTED] The service is under a DoS attack - more than 50 requests detected in the span of 1 minute. 
 2021-06-07 19:35:24,481 : INFO : [ LOG_SIMULATOR ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-08 02:45:54,227 : INFO : [ LOG_SIMULATOR ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-08 02:45:54,227 : INFO : [ LOG_SIMULATOR ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-08 02:45:59,106 : ERROR : [ LOG_SIMULATOR ] : AuthenticationController : [USER IS BLOCKED] Failed login attempt was made from [ some.email@mailinator.com ]
+2021-06-08 02:46:03,284 : WARN : [ LOG_SIMULATOR ] : XSSFilter : [DoS ATTACK DETECTED] The service is under a DoS attack - more than 50 requests detected in the span of 1 minute. 
+2021-06-08 02:46:08,309 : INFO : [ LOG_SIMULATOR ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-08 02:46:13,473 : ERROR : [ LOG_SIMULATOR ] : AuthenticationController : [USER IS BLOCKED] Failed login attempt was made from [ some.email@mailinator.com ]
+2021-06-08 02:46:18,262 : WARN : [ LOG_SIMULATOR ] : XSSFilter : [DoS ATTACK DETECTED] The service is under a DoS attack - more than 50 requests detected in the span of 1 minute. 
+2021-06-08 02:46:23,331 : INFO : [ LOG_SIMULATOR ] : AuthenticationController : Successfull login attempt was made from [ vlado.hospital@mailinator.com ]
+2021-06-08 02:46:28,365 : ERROR : [ LOG_SIMULATOR ] : AuthenticationController : [USER IS BLOCKED] Failed login attempt was made from [ some.email@mailinator.com ]
