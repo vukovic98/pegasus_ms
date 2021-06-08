@@ -13,6 +13,7 @@ import {CreateAlarmModel} from "../../models/create-alarm.model";
 })
 export class CreateAlarmsComponent implements OnInit {
 
+  public isCreating: boolean = false;
 
   alarmForm = new FormGroup({
     lower: new FormControl(''),
@@ -35,7 +36,9 @@ export class CreateAlarmsComponent implements OnInit {
 
 
   }
-
+  clearForm(){
+    this.alarmForm.clearValidators();
+  }
   createNewAlarm() {
     if((this.alarmForm.controls["upper"].value == '' || this.alarmForm.controls["upper"].value == null )&& (this.alarmForm.controls["lower"].value == '' || this.alarmForm.controls["lower"].value == null ) ){
       Swal.fire({
@@ -52,6 +55,14 @@ export class CreateAlarmsComponent implements OnInit {
           };
           switch (this.alarmForm.controls["alarmPurpose"].value) {
             case "crp" : {
+              this.isCreating = true;
+              Swal.fire({
+                text: "Pleas wait! An alarm is being created...",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                didOpen: () => {
+                  Swal.showLoading()}
+              });
               this.alarmService.createAlarmForCrp(data).subscribe((response) => {
                 Swal.fire({
                   icon: 'success',
@@ -59,6 +70,9 @@ export class CreateAlarmsComponent implements OnInit {
                   timer: 1900,
                   showConfirmButton: false
                 });
+                this.isCreating = false;
+                this.alarmForm.reset();
+                this.clearForm();
 
               },
                 error => {
@@ -71,13 +85,24 @@ export class CreateAlarmsComponent implements OnInit {
               break;
             }
             case "eryth" : {
+              this.isCreating = true;
+              Swal.fire({
+                text: "Pleas wait! An alarm is being created...",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                didOpen: () => {
+                  Swal.showLoading()}
+              });
               this.alarmService.createAlarmForErythrocytes(data).subscribe((response) => {
+
                   Swal.fire({
                     icon: 'success',
                     title: 'New alarm for erythrocytes successfully created!',
                     timer: 1900,
                     showConfirmButton: false
-                  })
+                  });
+                  this.isCreating = false;
+                  this.alarmForm.reset();
                 },
                 error => {
                   Swal.fire({
@@ -89,13 +114,24 @@ export class CreateAlarmsComponent implements OnInit {
               break;
             }
             case "leu" : {
+              this.isCreating = true;
+              Swal.fire({
+                text: "Pleas wait! An alarm is being created...",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                didOpen: () => {
+                  Swal.showLoading()}
+              });
               this.alarmService.createAlarmForLeukocytes(data).subscribe((response) => {
+
                   Swal.fire({
                     icon: 'success',
                     title: 'New alarm for leukocytes successfully created!',
                     timer: 1900,
                     showConfirmButton: false
-                  })
+                  });
+                  this.isCreating = false;
+                  this.alarmForm.reset();
                 },
                 error => {
                   Swal.fire({
@@ -107,13 +143,24 @@ export class CreateAlarmsComponent implements OnInit {
               break;
             }
             case "hem" : {
+              this.isCreating = true;
+              Swal.fire({
+                text: "Pleas wait! An alarm is being created...",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                didOpen: () => {
+                  Swal.showLoading()}
+              });
               this.alarmService.createAlarmForHemoglobin(data).subscribe((response) => {
+
                   Swal.fire({
                     icon: 'success',
                     title: 'New alarm for hemoglobin successfully created!',
                     timer: 1900,
                     showConfirmButton: false
-                  })
+                  });
+                  this.isCreating = false;
+                  this.alarmForm.reset();
                 },
                 error => {
                   Swal.fire({
@@ -125,13 +172,24 @@ export class CreateAlarmsComponent implements OnInit {
               break;
             }
             case "rate" : {
+              this.isCreating = true;
+              Swal.fire({
+                text: "Pleas wait! An alarm is being created...",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                didOpen: () => {
+                  Swal.showLoading()}
+              });
               this.alarmService.createAlarmForHeartRate(data).subscribe((response) => {
+
                   Swal.fire({
                     icon: 'success',
                     title: 'New alarm for heart rate successfully created!',
                     timer: 1900,
                     showConfirmButton: false
-                  })
+                  });
+                  this.isCreating = false;
+                  this.alarmForm.reset();
                 },
                 error => {
                   Swal.fire({
@@ -143,13 +201,23 @@ export class CreateAlarmsComponent implements OnInit {
               break;
             }
             case "sat" : {
+              this.isCreating = true;
+              Swal.fire({
+                text: "Pleas wait! An alarm is being created...",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                didOpen: () => {
+                  Swal.showLoading()}
+              });
               this.alarmService.createAlarmForSaturation(data).subscribe((response) => {
                   Swal.fire({
                     icon: 'success',
                     title: 'New alarm for saturation successfully created!',
                     timer: 1900,
                     showConfirmButton: false
-                  })
+                  });
+                  this.isCreating = false;
+                  this.alarmForm.reset();
                 },
                 error => {
                   Swal.fire({
@@ -161,13 +229,24 @@ export class CreateAlarmsComponent implements OnInit {
               break;
             }
             case "sys" : {
+              this.isCreating = true;
+              Swal.fire({
+                text: "Pleas wait! An alarm is being created...",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                didOpen: () => {
+                  Swal.showLoading()}
+              });
               this.alarmService.createAlarmForSystolic(data).subscribe((response) => {
+
                   Swal.fire({
                     icon: 'success',
                     title: 'New alarm for systolic pressure successfully created!',
                     timer: 1900,
                     showConfirmButton: false
-                  })
+                  });
+                  this.isCreating = false;
+                  this.alarmForm.reset();
                 },
                 error => {
                   Swal.fire({
@@ -179,7 +258,16 @@ export class CreateAlarmsComponent implements OnInit {
               break;
             }
             case "dia" : {
+              this.isCreating = true;
+              Swal.fire({
+                text: "Pleas wait! An alarm is being created...",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                didOpen: () => {
+                  Swal.showLoading()}
+              });
               this.alarmService.createAlarmForDiastolic(data).subscribe((response) => {
+
                   Swal.fire({
                     icon: 'success',
                     title: 'New alarm for diastolic pressure successfully created!',
@@ -197,7 +285,16 @@ export class CreateAlarmsComponent implements OnInit {
               break;
             }
             case "bis" : {
+              this.isCreating = true;
+              Swal.fire({
+                text: "Pleas wait! An alarm is being created...",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                didOpen: () => {
+                  Swal.showLoading()}
+              });
               this.alarmService.createAlarmForBis(data).subscribe((response) => {
+
                   Swal.fire({
                     icon: 'success',
                     title: 'New alarm for BIS successfully created!',
@@ -215,6 +312,14 @@ export class CreateAlarmsComponent implements OnInit {
               break;
             }
             case "icp" : {
+              this.isCreating = true;
+              Swal.fire({
+                text: "Pleas wait! An alarm is being created...",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                didOpen: () => {
+                  Swal.showLoading()}
+              });
               this.alarmService.createAlarmForIcp(data).subscribe((response) => {
                   Swal.fire({
                     icon: 'success',

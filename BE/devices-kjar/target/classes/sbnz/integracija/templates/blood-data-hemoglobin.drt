@@ -20,7 +20,7 @@ template "blood-hemoglobin-template"
 rule "Redefined hemoglobin rule for patient [ @{patientID} ] @{row.rowNumber}"
 	agenda-group "blood-data"
 	when
-		$data: BloodData(hemoglobin <= @{minValue} || hemoglobin >= @{maxValue}, $hemoglobin: hemoglobin, $id: patientID)
+		$data: BloodData(hemoglobin <= @{minValue} || hemoglobin >= @{maxValue}, $hemoglobin: hemoglobin, $id: patientID, $id == @{patientID})
 	then
 		System.out.println("Hemoglobin is not normal!");	
 		alarms.add(new Alarm($id, "Hemoglobin", Double.toString($hemoglobin)+" g/L", $hemoglobin, new Date()));end

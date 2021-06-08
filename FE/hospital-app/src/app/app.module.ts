@@ -60,7 +60,7 @@ import {MatSelectModule} from "@angular/material/select";
         MatDialogModule,
         FormsModule,
         MatInputModule,
-        MatSelectModule
+        MatSelectModule,
     ],
   providers: [
     AuthService

@@ -20,7 +20,7 @@ template "blood-crp-template"
 rule "Redefined CRP rule for patient [ @{patientID} ] @{row.rowNumber}"
 	agenda-group "blood-data"
 	when
-		$data: BloodData(CRP <= @{minValue} || CRP >= @{maxValue}, $crp: CRP, $id: patientID)
+		$data: BloodData(CRP <= @{minValue} || CRP >= @{maxValue}, $crp: CRP, $id: patientID, $id == @{patientID})
 	then
 		alarms.add(new Alarm($id, "CRP", Double.toString($crp)+" mg/L", Double.valueOf($crp), new Date()));
 end

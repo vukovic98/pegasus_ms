@@ -1,0 +1,20 @@
+package sbnz.integracija;
+import com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.lang.Double;
+global ArrayList<Alarm> alarms;
+
+rule "Rule designed for patient [ 193 ] - BIS 0"
+lock-on-active true
+agenda-group "neuro-data"
+when
+	NeurologicalData($id: patientId, $bis: BIS, $bis <= 55.0, $id == 193)
+then
+	System.out.println("Irregular BIS rule triggered for patient ["+ 193 +"].");
+	alarms.add(new Alarm($id, "BIS", Double.toString($bis), $bis, new Date()));
+end;
+
+
