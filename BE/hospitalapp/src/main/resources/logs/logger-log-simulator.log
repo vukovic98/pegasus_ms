@@ -1,0 +1,10 @@
+2021-06-08 09:25:26,292 : ERROR : Unsupported conversion from DATE to java.lang.Long
+2021-06-08 09:25:26,292 : ERROR : Unsupported conversion from DATE to java.lang.Long
+2021-06-08 09:26:19,261 : ERROR : Unsupported conversion from DATE to java.lang.Long
+2021-06-08 09:26:26,693 : ERROR : Unsupported conversion from DATE to java.lang.Long
+2021-06-08 09:27:37,660 : ERROR : Unsupported conversion from DATE to java.lang.Long
+2021-06-08 09:27:43,636 : ERROR : Unsupported conversion from DATE to java.lang.Long
+2021-06-08 09:28:23,098 : ERROR : Unsupported conversion from DATE to java.lang.Long
+2021-06-08 09:34:52,895 : ERROR : Cannot determine value type from string '2021-06-07'
+2021-06-08 10:32:49,806 : ERROR : Cannot determine value type from string '2021-06-07'
+2021-06-08 10:33:18,326 : ERROR : Cannot determine value type from string '2021-06-07'

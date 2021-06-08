@@ -7,10 +7,10 @@ import java.lang.Double;
 import java.text.SimpleDateFormat;
 global ArrayList<Alarm> alarms;
 
-rule "Redefined erythrocytes rule for patient [ 152 ] 0"
+rule "Redefined erythrocytes rule for patient [ 153 ] 0"
 	agenda-group "blood-data"
 	when
-		$data: BloodData(erythrocytes <= 1.0 || erythrocytes >= 22.0, $erythrocytes: erythrocytes, $id: patientID)
+		$data: BloodData(erythrocytes <= 1.0 || erythrocytes >= 5.0, $erythrocytes: erythrocytes, $id: patientID,$id == 153)
 	then
 		System.out.println("Erythrocytes are not normal!");
 		alarms.add(new Alarm($id, "Erythrocytes", Double.toString($erythrocytes)+" 10^12/L", $erythrocytes, new Date()) );

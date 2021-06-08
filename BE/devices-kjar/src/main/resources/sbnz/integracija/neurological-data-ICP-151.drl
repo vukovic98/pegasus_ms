@@ -1,0 +1,20 @@
+package sbnz.integracija;
+import com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.lang.Double;
+global ArrayList<Alarm> alarms;
+
+rule "Rule designed for patient [ 151 ] - ICP 0"
+lock-on-active true
+agenda-group "neuro-data"
+when
+	NeurologicalData($id: patientId, $icp: ICP, $icp <= 12.0 && $icp >= 55.0 , $id == 151)
+then
+	System.out.println("Irregular ICP rule triggered for patient ["+ 151 +"].");
+	alarms.add(new Alarm($id, "ICP", Double.toString($icp), $icp, new Date()));
+end;
+
+

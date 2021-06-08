@@ -20,7 +20,7 @@ template "blood-erythrocytes-template"
 rule "Redefined erythrocytes rule for patient [ @{patientID} ] @{row.rowNumber}"
 	agenda-group "blood-data"
 	when
-		$data: BloodData(erythrocytes <= @{minValue} || erythrocytes >= @{maxValue}, $erythrocytes: erythrocytes, $id: patientID)
+		$data: BloodData(erythrocytes <= @{minValue} || erythrocytes >= @{maxValue}, $erythrocytes: erythrocytes, $id: patientID,$id == @{patientID})
 	then
 		System.out.println("Erythrocytes are not normal!");
 		alarms.add(new Alarm($id, "Erythrocytes", Double.toString($erythrocytes)+" 10^12/L", $erythrocytes, new Date()) );
