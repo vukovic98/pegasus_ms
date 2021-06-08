@@ -25,5 +25,14 @@ public class KieStatefulSessionService {
 		}
 		return eventsSession;
 	}
+	
+	public void disposeEventsSession() {
+		
+    	if (this.eventsSession != null) {
+            this.eventsSession.dispose();
+            this.eventsSession = null;
+    	}
+		
+	}
 
 }

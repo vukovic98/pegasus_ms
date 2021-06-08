@@ -3,6 +3,9 @@ package sbnz.events;
 import com.ftn.uns.ac.rs.hospitalapp.util.DoSAlarm;
 import com.ftn.uns.ac.rs.hospitalapp.events.RequestEvent;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 declare DoSEvent
     @role(event)
     @expires(1m)

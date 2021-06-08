@@ -37,7 +37,6 @@
             <AppenderRef ref="LogToFile"/>
             <AppenderRef ref="LogToConsole"/>
             <AppenderRef ref="LogToFileBloodDevice"/>
-            <AppenderRef ref="LogToFileLogSimulator"/>
         </Root>
     </Loggers>
 </Configuration>

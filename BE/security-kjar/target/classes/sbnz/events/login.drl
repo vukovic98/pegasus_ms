@@ -2,6 +2,11 @@ package sbnz.events;
 
 import com.ftn.uns.ac.rs.hospitalapp.util.LoginAlarm;
 import com.ftn.uns.ac.rs.hospitalapp.events.FailedLoginEvent;
+import com.ftn.uns.ac.rs.hospitalapp.beans.SecurityAlarm;
+
+import java.util.ArrayList;
+import java.util.Date;
+
 
 declare SuspiciousUserEvent
     @role(event)
@@ -10,6 +15,8 @@ declare SuspiciousUserEvent
 end;
 
 global LoginAlarm loginAlarm;
+
+global ArrayList<SecurityAlarm> alarms;
 
 rule "More than 30 unsuccessful login attempts in the last 24 hours from the same IP address"
 agenda-group "login-fail"
@@ -23,6 +30,7 @@ agenda-group "login-fail"
 	then
 		System.out.println("FAILED LOGIN EVENT DETECTED - 30");
         insert(new SuspiciousUserEvent($fle1.getIpAddress()));
+        alarms.add(new SecurityAlarm($fle1.getIpAddress(), "MALICIOUS IP DETECTED", new Date()));
         loginAlarm.setIpAddress($fle1.getIpAddress());
 end
 

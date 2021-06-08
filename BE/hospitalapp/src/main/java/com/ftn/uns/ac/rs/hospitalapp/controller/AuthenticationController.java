@@ -8,10 +8,12 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import javax.crypto.SecretKey;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -25,6 +27,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -36,8 +39,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
 import com.ftn.uns.ac.rs.hospitalapp.beans.LoginAttempt;
 import com.ftn.uns.ac.rs.hospitalapp.beans.LoginStatus;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Patient;
+import com.ftn.uns.ac.rs.hospitalapp.beans.SecurityAlarm;
 import com.ftn.uns.ac.rs.hospitalapp.beans.User;
 import com.ftn.uns.ac.rs.hospitalapp.dto.LoginDTO;
 import com.ftn.uns.ac.rs.hospitalapp.dto.UserTokenStateDTO;
@@ -47,6 +53,7 @@ import com.ftn.uns.ac.rs.hospitalapp.security.TokenUtils;
 import com.ftn.uns.ac.rs.hospitalapp.service.CustomUserDetailsService;
 import com.ftn.uns.ac.rs.hospitalapp.service.KieStatefulSessionService;
 import com.ftn.uns.ac.rs.hospitalapp.service.LoginAttemptService;
+import com.ftn.uns.ac.rs.hospitalapp.service.SecurityKnowledgeService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
 import com.ftn.uns.ac.rs.hospitalapp.util.CipherEncrypt;
 import com.ftn.uns.ac.rs.hospitalapp.util.LoginAlarm;
@@ -78,8 +85,10 @@ public class AuthenticationController {
 	private LoggerProxy logger;
 	
 	@Autowired
-	private KieStatefulSessionService kieService;
+	private SecurityKnowledgeService securityService;
 	
+	@Autowired
+	private SimpMessagingTemplate simpMessagingTemplate;
 	
 	@PostMapping(path = "/test-test")
 	public ResponseEntity<HttpStatus> test(@RequestBody String s) {
@@ -108,10 +117,39 @@ public class AuthenticationController {
 			// Kreiraj token za tog korisnika
 			User user = (User) authentication.getPrincipal();
 
+			
+			
 			String email = user.getEmail();
 			String jwt = tokenUtils.generateToken(user.getEmail()); // prijavljujemo se na sistem sa email adresom
 			int expiresIn = tokenUtils.getExpiredIn();
 
+			if(userService.isUserInactiveForMonths(user)) {
+				
+				this.logger.warn("[INACTIVE USER DETECTED] Login attempt after over 90 days of inactivity was made from [ "
+				+authenticationRequest.getEmail()+" ]", AuthenticationController.class);
+				
+				SecurityAlarm a = new SecurityAlarm(request.getRemoteAddr(), "INACTIVE USER DETECTED", new Date());
+				
+				this.securityService.save(a);
+				this.simpMessagingTemplate.convertAndSend("/log-alarm", a);
+				
+			}
+			
+			Path maliciousPath = Paths.get("D:\\faks\\Bezb\\Repo\\BE\\hospitalapp\\src\\main\\resources\\static\\malicious_ip.txt");
+			List<String> maliciousIPs = Files.readAllLines(maliciousPath);
+			
+			if(maliciousIPs.contains(request.getRemoteAddr())) {
+				
+				this.logger.warn("[MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ "
+				+authenticationRequest.getEmail()+" ]", AuthenticationController.class);
+				
+				SecurityAlarm a = new SecurityAlarm(request.getRemoteAddr(), "MALICIOUS IP RECOGNIZED", new Date());
+				
+				this.securityService.save(a);
+				this.simpMessagingTemplate.convertAndSend("/log-alarm", a);
+				
+			}
+			
 			this.loginAttemptService
 					.save(new LoginAttempt(null, authenticationRequest.getEmail(), LoginStatus.SUCCESS, new Date()));
 
@@ -128,35 +166,12 @@ public class AuthenticationController {
 			return ResponseEntity.ok(new UserTokenStateDTO(jwt, expiresIn, email, verified));
 		} catch (Exception e) {
 			
-			System.out.println("Evo me ovde");
 			
-			KieSession eventSession = kieService.getEventsSession();
-			eventSession.getAgenda().getAgendaGroup("login-fail").setFocus();
-			LoginAlarm loginAlarm = new LoginAlarm();
-			eventSession.setGlobal("loginAlarm", loginAlarm);
+			ArrayList<SecurityAlarm> alarms = securityService.maliciousIP(request.getRemoteAddr());
 			
-			System.out.println(request.getRemoteAddr());
-			
-			FailedLoginEvent event = new FailedLoginEvent(Date.from(Instant.now()), request.getRemoteAddr());
-			
-			System.out.println("event ip "+event.getIpAddress());
-			
-			eventSession.insert(event);
-			eventSession.fireAllRules();
-			
-			if(loginAlarm.getIpAddress() != null) {
-				System.out.println("OVDE");
-				if(loginAlarm.getIpAddress().equals(request.getRemoteAddr())) {
-					System.out.println("OVDE 2");
-					List<String> lines = Arrays.asList(request.getRemoteAddr());
-					Path file = Paths.get("D:\\faks\\Bezb\\Repo\\BE\\hospitalapp\\src\\main\\resources\\static\\malicious_ip.txt");
-					Files.write(file, lines, StandardCharsets.UTF_8, StandardOpenOption.APPEND);
-					
-					
-					this.logger.warn("[MALICIOUS IP DETECTED] After 30 failed log-in attempts in the last 24h, IP address "
-							+ ""+request.getRemoteAddr()+" has been marked as malicious. ", AuthenticationController.class);
-					
-				}
+			for (SecurityAlarm a : alarms) {
+				this.securityService.save(a);
+				this.simpMessagingTemplate.convertAndSend("/log-alarm", a);
 			}
 			
 			e.printStackTrace();
@@ -174,6 +189,12 @@ public class AuthenticationController {
 						this.userService.save(u);
 
 						this.userService.sendMailToBlockedUser(u.getEmail());
+						
+						SecurityAlarm a = new SecurityAlarm("", "USER IS BLOCKED", new Date());
+						
+						this.securityService.save(a);
+						this.simpMessagingTemplate.convertAndSend("/log-alarm", a);
+						
 					}
 
 					this.logger.error("[USER IS BLOCKED] Failed login attempt was made from [ "
