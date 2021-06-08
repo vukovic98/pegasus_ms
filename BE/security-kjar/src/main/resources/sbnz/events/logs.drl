@@ -1,0 +1,19 @@
+package sbnz.events;
+
+import com.ftn.uns.ac.rs.hospitalapp.beans.HospitalLog;
+import com.ftn.uns.ac.rs.hospitalapp.beans.SecurityAlarm;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+global ArrayList<SecurityAlarm> alarms;
+
+rule "Log of type ERROR appeared"
+agenda-group "logs"
+    when
+		$hl: HospitalLog(status == "ERROR")
+	then
+		System.out.println("ERROR LOG OCCURED");
+        alarms.add(new SecurityAlarm("", "ERROR LOG OCCURED", new Date()));
+end
+

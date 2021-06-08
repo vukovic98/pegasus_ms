@@ -1,0 +1,16 @@
+package sbnz.events;
+import com.ftn.uns.ac.rs.hospitalapp.beans.SecurityAlarm;
+import java.util.ArrayList;
+import java.util.Date;
+global ArrayList<SecurityAlarm> alarms;
+
+rule "Redefined log rule for log type [ INFO ]"
+	agenda-group "logs"
+	when
+		$hl: HospitalLog(status == "INFO")
+	then
+		System.out.println("INFO"+" LOG OCCURED");
+		alarms.add(new SecurityAlarm("", "INFO"+" LOG OCCURED", new Date()));
+end
+
+

@@ -1,0 +1,24 @@
+template header
+logType
+
+package sbnz.events;
+
+import com.ftn.uns.ac.rs.hospitalapp.beans.SecurityAlarm;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+global ArrayList<SecurityAlarm> alarms;
+
+template "logs-template"
+
+rule "Redefined log rule for log type [ @{logType} ]"
+	agenda-group "logs"
+	when
+		$hl: HospitalLog(status == "@{logType}")
+	then
+		System.out.println("@{logType}"+" LOG OCCURED");
+		alarms.add(new SecurityAlarm("", "@{logType}"+" LOG OCCURED", new Date()));
+end
+
+end template

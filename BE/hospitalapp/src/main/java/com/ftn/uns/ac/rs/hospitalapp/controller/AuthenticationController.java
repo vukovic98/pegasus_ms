@@ -45,6 +45,7 @@ import com.ftn.uns.ac.rs.hospitalapp.beans.LoginStatus;
 import com.ftn.uns.ac.rs.hospitalapp.beans.Patient;
 import com.ftn.uns.ac.rs.hospitalapp.beans.SecurityAlarm;
 import com.ftn.uns.ac.rs.hospitalapp.beans.User;
+import com.ftn.uns.ac.rs.hospitalapp.dto.LogTypeDTO;
 import com.ftn.uns.ac.rs.hospitalapp.dto.LoginDTO;
 import com.ftn.uns.ac.rs.hospitalapp.dto.UserTokenStateDTO;
 import com.ftn.uns.ac.rs.hospitalapp.events.FailedLoginEvent;
@@ -53,6 +54,7 @@ import com.ftn.uns.ac.rs.hospitalapp.security.TokenUtils;
 import com.ftn.uns.ac.rs.hospitalapp.service.CustomUserDetailsService;
 import com.ftn.uns.ac.rs.hospitalapp.service.KieStatefulSessionService;
 import com.ftn.uns.ac.rs.hospitalapp.service.LoginAttemptService;
+import com.ftn.uns.ac.rs.hospitalapp.service.SecurityDataService;
 import com.ftn.uns.ac.rs.hospitalapp.service.SecurityKnowledgeService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
 import com.ftn.uns.ac.rs.hospitalapp.util.CipherEncrypt;
@@ -89,6 +91,7 @@ public class AuthenticationController {
 	
 	@Autowired
 	private SimpMessagingTemplate simpMessagingTemplate;
+	
 	
 	@PostMapping(path = "/test-test")
 	public ResponseEntity<HttpStatus> test(@RequestBody String s) {
@@ -160,7 +163,6 @@ public class AuthenticationController {
 			
 			user.setLastActivityTime(Instant.now().toEpochMilli());
 			userService.save(user);
-			
 			
 			// Vrati token kao odgovor na uspesnu autentifikaciju
 			return ResponseEntity.ok(new UserTokenStateDTO(jwt, expiresIn, email, verified));

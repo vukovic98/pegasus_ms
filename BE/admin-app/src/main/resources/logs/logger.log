@@ -6187,3 +6187,5 @@ java.net.ConnectException: Connection refused: connect
 2021-06-08 02:42:58,315 : INFO : [ vladimirvukovic98@hotmail.rs ] : AuthenticationController : Successfull login attempt was made from [ vladimirvukovic98@hotmail.rs ]
 2021-06-08 02:44:08,887 : INFO : [ vladimirvukovic98@hotmail.rs ] : AuthenticationController : Successfull login attempt was made from [ vladimirvukovic98@hotmail.rs ]
 2021-06-08 02:52:59,936 : INFO : [ vladimirvukovic98@hotmail.rs ] : AuthenticationController : Successfull login attempt was made from [ vladimirvukovic98@hotmail.rs ]
+2021-06-08 14:11:45,403 : INFO : [ vladimirvukovic98@hotmail.rs ] : AuthenticationController : Successfull login attempt was made from [ vladimirvukovic98@hotmail.rs ]
+2021-06-08 14:22:21,079 : INFO : [ vladimirvukovic98@hotmail.rs ] : AuthenticationController : Successfull login attempt was made from [ vladimirvukovic98@hotmail.rs ]
