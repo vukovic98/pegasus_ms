@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ftn.uns.ac.rs.hospitalapp.repository.CertificateRepository;
+import com.ftn.uns.ac.rs.hospitalapp.util.CertificateRevokedException;
 
 @Service
 public class CertificateService {
@@ -14,7 +15,7 @@ public class CertificateService {
 	@Autowired
 	private CertificateRepository certRepository;
 
-	public PublicKey getBobsPublicKey() {
+	public PublicKey getBobsPublicKey() throws CertificateRevokedException {
 		return this.certRepository.getBobsPublicKey();
 	}
 
@@ -22,21 +23,21 @@ public class CertificateService {
 		return this.certRepository.getMyPrivateKey();
 	}
 	
-	public PublicKey getLogSimPublicKey() {
+	public PublicKey getLogSimPublicKey() throws CertificateRevokedException {
 		return this.certRepository.getLogSimPublicKey();
 	}
 	
-	public PublicKey getBloodDevicePublicKey() {
+	public PublicKey getBloodDevicePublicKey() throws CertificateRevokedException {
 		return this.certRepository.getBloodDevicePublicKey();
 	}
 
-	public PublicKey getHeartMonitorPublicKey() {
+	public PublicKey getHeartMonitorPublicKey() throws CertificateRevokedException {
 		return this.certRepository.getHeartMonitorPublicKey();
 	}
-	public PublicKey getNeurologicalDevicePublicKey() {
+	public PublicKey getNeurologicalDevicePublicKey() throws CertificateRevokedException {
 		return this.certRepository.getNeurologicalDevicePublicKey();
 	}
-	public PublicKey getTemperatureDevicePublicKey() {
+	public PublicKey getTemperatureDevicePublicKey() throws CertificateRevokedException {
 		return this.certRepository.getTemperatureDevicePublicKey();
 	}
 

@@ -1,4 +1,4 @@
-package com.ftn.uns.ac.rs.logsimulator.security;
+package com.ftn.uns.ac.rs.hospitalapp.security;
 
 import javax.net.ssl.SSLContext;
 
@@ -18,17 +18,15 @@ public class SecureRestTemplateProperties {
 
 	@Value("${server.ssl.key-store}")
 	private String keyStore;
-	
-	@Value("${server.ssl.key-store-password}")
-	private String allPassword;
 
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) throws Exception {
+		String allPassword = "vukovic";
+
 		SSLContext sslContext = SSLContextBuilder.create()
 				.loadKeyMaterial(ResourceUtils.getFile(keyStore), allPassword.toCharArray(), allPassword.toCharArray())
 				.build();
 
-		
 		
 		HttpClient client = HttpClients.custom().setSSLContext(sslContext).build();
 		HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();

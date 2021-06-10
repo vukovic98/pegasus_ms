@@ -22,7 +22,7 @@ export class RevokeCertificateComponent implements OnInit {
   selectedValue = null;
   SNvalue = "";
   revokeForm = new FormGroup({
-  serialNum: new FormControl('', [Validators.required]),
+  serialNum: new FormControl('', [Validators.required, Validators.maxLength(100)]),
   reason: new FormControl('', Validators.required)
 });
 
@@ -36,7 +36,7 @@ export class RevokeCertificateComponent implements OnInit {
 
   revokeCertificate(): any {
     console.log(this.selectedValue)
-    let request = {serialNumber: Number(this.revokeForm.get('serialNum').value), revokeReason: this.selectedValue}
+    let request = {serialNumber: this.revokeForm.get('serialNum').value.trim().replace(/[^\x00-\x7F]/g, ""), revokeReason: this.selectedValue}
     this.certService.revokeCertificate(request).subscribe((response) =>{
       Swal.fire({
         icon: 'success',

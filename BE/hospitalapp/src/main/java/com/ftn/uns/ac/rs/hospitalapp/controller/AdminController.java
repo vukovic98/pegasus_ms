@@ -1,5 +1,6 @@
 package com.ftn.uns.ac.rs.hospitalapp.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.service.AdminService;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.util.AdminDetailsMapper;
+import com.ftn.uns.ac.rs.hospitalapp.util.CertificateRevokedException;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
 import com.ftn.uns.ac.rs.hospitalapp.util.PageImplMapper;
@@ -48,7 +50,7 @@ public class AdminController {
 
 	@GetMapping(path = "/by-page/{pageNum}")
 	public ResponseEntity<FinalMessage> findAll(@PathVariable int pageNum) {
-
+		try {
 		Gson gson = new Gson();
 		
 		Pageable pageRequest = PageRequest.of(pageNum, 8);
@@ -71,5 +73,13 @@ public class AdminController {
 		this.logger.info("Successful attempt for retrieving admins by admin-app", AdminController.class);
 		
 		return new ResponseEntity<>(finalMess, HttpStatus.OK);
+		
+		}catch(CertificateRevokedException e) {
+			
+			System.out.println("Certificate revoked!");
+			return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
+			
+		}
+		
 	}
 }

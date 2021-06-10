@@ -76,7 +76,7 @@ public class CertificateService {
 			UnrecoverableEntryException, KeyStoreException, OperatorCreationException {
 
 		KeyStoreReader reader = new KeyStoreReader();
-		IssuerData issuer = reader.readIssuerFromStore("src/main/resources/static/super_cert/super_admin.jks", "1",
+		IssuerData issuer = reader.readIssuerFromStore("src/main/resources/static/super_cert/super_admin.jks", "super_admin",
 				"vukovic".toCharArray(), "vukovic".toCharArray());
 
 		X509v2CRLBuilder builder = new X509v2CRLBuilder(issuer.getX500name(), Date.from(Instant.now()));
@@ -84,7 +84,7 @@ public class CertificateService {
 		ContentSigner contentSigner = new JcaContentSignerBuilder("SHA256WithRSA").build(issuer.getPrivateKey());
 		X509CRLHolder crl = builder.build(contentSigner);
 
-		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("crl.bin")));
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("src/main/resources/static/crl/crl.bin")));
 		oos.writeObject(crl);
 		oos.close();
 	}
@@ -93,12 +93,12 @@ public class CertificateService {
 			throws OperatorCreationException, IOException, ClassNotFoundException {
 
 		KeyStoreReader reader = new KeyStoreReader();
-		IssuerData issuer = reader.readIssuerFromStore("src/main/resources/static/super_cert/super_admin.jks", "1",
+		IssuerData issuer = reader.readIssuerFromStore("src/main/resources/static/super_cert/super_admin.jks", "super_admin",
 				"vukovic".toCharArray(), "vukovic".toCharArray());
 
 		X509v2CRLBuilder builder = new X509v2CRLBuilder(issuer.getX500name(), Date.from(Instant.now()));
 
-		FileInputStream fstream = new FileInputStream(new File("crl.bin"));
+		FileInputStream fstream = new FileInputStream(new File("src/main/resources/static/crl/crl.bin"));
 		try {
 			ObjectInputStream ois = new ObjectInputStream(fstream);
 

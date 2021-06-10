@@ -68,6 +68,28 @@ public class LoggingService {
 			
 			dosAttack();
 			
+			CURRENT_STATE = SimulatorState.ATTACK_IP_ADDRESS_SIGN_IN;
+			
+			break;
+			
+		case ATTACK_IP_ADDRESS_SIGN_IN:
+			
+			dto.setEmail("some.email@mailinator.com");
+			dto.setPassword("vukovic");
+			
+			signIn(dto, "https://localhost:8081/logsim/log-in-sim-malicious-ip");
+			
+			CURRENT_STATE = SimulatorState.ATTACK_ACCOUNT_ACTIVITY;
+			
+			break;
+			
+		case ATTACK_ACCOUNT_ACTIVITY:
+			
+			dto.setEmail("some.email@mailinator.com");
+			dto.setPassword("vukovic");
+			
+			signIn(dto, "https://localhost:8081/logsim/log-in-sim-inactive-account");
+			
 			CURRENT_STATE = SimulatorState.NORMAL_SIGN_IN_ATTEMPT;
 			
 			break;

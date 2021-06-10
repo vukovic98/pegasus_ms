@@ -14,9 +14,11 @@ import java.util.List;
 
 import org.kie.api.runtime.KieSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+import com.ftn.uns.ac.rs.hospitalapp.beans.HospitalLog;
 import com.ftn.uns.ac.rs.hospitalapp.beans.SecurityAlarm;
 import com.ftn.uns.ac.rs.hospitalapp.controller.AuthenticationController;
 import com.ftn.uns.ac.rs.hospitalapp.events.FailedLoginEvent;
@@ -35,6 +37,9 @@ public class SecurityKnowledgeService {
 	
 	@Autowired
 	private SecurityAlarmRepository alarmRepository;
+	
+	@Autowired
+	private SimpMessagingTemplate simpMessagingTemplate;
 	
 	public ArrayList<SecurityAlarm> maliciousIP(String ipAddress) throws IOException{
 		
@@ -64,7 +69,7 @@ public class SecurityKnowledgeService {
 			if(loginAlarm.getIpAddress().equals(ipAddress)) {
 				System.out.println("OVDE 2");
 				List<String> lines = Arrays.asList(ipAddress);
-				Path file = Paths.get("D:\\faks\\Bezb\\Repo\\BE\\hospitalapp\\src\\main\\resources\\static\\malicious_ip.txt");
+				Path file = Paths.get("../hospitalapp/src/main/resources/static/malicious_ip.txt");
 				Files.write(file, lines, StandardCharsets.UTF_8, StandardOpenOption.APPEND);
 				
 				
@@ -72,6 +77,29 @@ public class SecurityKnowledgeService {
 						+ ""+ipAddress+" has been marked as malicious. ", AuthenticationController.class);
 				
 			}
+		}
+		
+		return alarms;
+		
+	}
+	
+	public ArrayList<SecurityAlarm> hospitalLog(HospitalLog log) throws IOException{
+		
+		KieSession eventSession = kieService.getEventsSession();
+		eventSession.getAgenda().getAgendaGroup("logs").setFocus();
+		
+		ArrayList<SecurityAlarm> alarms = new ArrayList<>();
+		
+		eventSession.setGlobal("alarms", alarms);
+		
+		eventSession.insert(log);
+		eventSession.fireAllRules();
+	
+		for (SecurityAlarm securityAlarm : alarms) {
+			
+			this.save(securityAlarm);
+			this.simpMessagingTemplate.convertAndSend("/log-alarm", securityAlarm);
+			
 		}
 		
 		return alarms;

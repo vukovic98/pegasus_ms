@@ -42,6 +42,7 @@ import com.ftn.uns.ac.rs.adminapp.beans.CertificateRequest;
 import com.ftn.uns.ac.rs.adminapp.beans.User;
 import com.ftn.uns.ac.rs.adminapp.dto.CertDetailsDTO;
 import com.ftn.uns.ac.rs.adminapp.dto.CertificateDistributionDetailsDTO;
+import com.ftn.uns.ac.rs.adminapp.dto.CertificateRevokedDTO;
 import com.ftn.uns.ac.rs.adminapp.dto.IssueCertificateDTO;
 import com.ftn.uns.ac.rs.adminapp.dto.X509DetailsDTO;
 import com.ftn.uns.ac.rs.adminapp.repository.UserRepository;
@@ -50,11 +51,14 @@ import com.ftn.uns.ac.rs.adminapp.service.CertificateService;
 import com.ftn.uns.ac.rs.adminapp.service.SerialKeyCounterService;
 import com.ftn.uns.ac.rs.adminapp.util.CertificateGenerator;
 import com.ftn.uns.ac.rs.adminapp.util.CertificateUtil;
+import com.ftn.uns.ac.rs.adminapp.util.EncryptionUtil;
+import com.ftn.uns.ac.rs.adminapp.util.FinalMessage;
 import com.ftn.uns.ac.rs.adminapp.util.IssuerData;
 import com.ftn.uns.ac.rs.adminapp.util.KeyStoreWriter;
 import com.ftn.uns.ac.rs.adminapp.util.LoggerProxy;
 import com.ftn.uns.ac.rs.adminapp.util.RevokeEntry;
 import com.ftn.uns.ac.rs.adminapp.util.SubjectData;
+import com.google.gson.Gson;
 
 @RestController()
 @RequestMapping(path = "/certificate")
@@ -136,7 +140,7 @@ public class CertificateController {
 
 	@PostMapping("/revokeCertificate")
 	@PreAuthorize("hasAuthority('PRIVILEGE_REVOKE_CERTIFICATE')")
-	public ResponseEntity<String> revokeCertificate(@RequestParam("serialNumber") long serialNumber,
+	public ResponseEntity<String> revokeCertificate(@RequestParam("serialNumber") String serialNumber,
 			@RequestParam("revokeReason") int revokeReason)
 			throws CertificateException, CRLException, NoSuchAlgorithmException, UnrecoverableEntryException,
 			KeyStoreException, OperatorCreationException, IOException, ClassNotFoundException {
@@ -146,7 +150,7 @@ public class CertificateController {
 
 		User user = userRepository.findByEmail(username);
 
-		certService.revokeCertificate(user, BigInteger.valueOf(serialNumber), revokeReason);
+		certService.revokeCertificate(user, new BigInteger(serialNumber), revokeReason);
 
 		this.logger.info("Revoking certificate with serial number [ " + serialNumber + " ]",
 				CertificateController.class);
@@ -157,10 +161,10 @@ public class CertificateController {
 
 	@GetMapping("/checkRevoked")
 	@PreAuthorize("hasAuthority('PRIVILEGE_READ_CERTIFICATES')")
-	public ResponseEntity<String> checkCertificateRevoked(@RequestParam("serialNumber") BigInteger serialNumber)
+	public ResponseEntity<String> checkCertificateRevoked(@RequestParam("serialNumber") String serialNumber)
 			throws ClassNotFoundException, IOException {
 
-		if (certService.isCertificateRevoked(serialNumber).isRevoked()) {
+		if (certService.isCertificateRevoked(new BigInteger(serialNumber)).isRevoked()) {
 
 			this.logger.info("Checking if certificate [ " + serialNumber + " ] is revoked - [ TRUE ]",
 					CertificateController.class);
@@ -172,6 +176,29 @@ public class CertificateController {
 
 			return ResponseEntity.ok().body("This certificate is active");
 		}
+	}
+	
+	@GetMapping("/checkRevokedExternal")
+	public ResponseEntity<CertificateRevokedDTO> checkCertificateRevokedExternal(@RequestParam String serialNumber)
+			throws ClassNotFoundException, IOException {
+		
+		CertificateRevokedDTO dto = new CertificateRevokedDTO();
+		
+		if (certService.isCertificateRevoked(new BigInteger(serialNumber)).isRevoked()) {
+
+			this.logger.info("Checking if certificate [ " + serialNumber + " ] is revoked - [ TRUE ]",
+					CertificateController.class);
+
+			dto.setRevoked(true);
+		} else {
+			this.logger.info("Checking if certificate [ " + serialNumber + " ] is revoked - [ FALSE ]",
+					CertificateController.class);
+
+			dto.setRevoked(false);
+		}
+
+		return new ResponseEntity<>(dto, HttpStatus.OK);
+		
 	}
 
 	@GetMapping("/readCRL")

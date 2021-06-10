@@ -21,6 +21,7 @@ import com.ftn.uns.ac.rs.hospitalapp.service.HeartDataService;
 import com.ftn.uns.ac.rs.hospitalapp.service.NeurologicalDataService;
 import com.ftn.uns.ac.rs.hospitalapp.service.PatientService;
 import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
+import com.ftn.uns.ac.rs.hospitalapp.util.CertificateRevokedException;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
 import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
@@ -59,8 +60,12 @@ public class DeviceController {
 	@PostMapping(path = "/blood-device")
 	public ResponseEntity<HttpStatus> bloodDeviceData(@RequestBody FinalMessage finalMess) {
 
+		try {
+		
 		Gson gson = new Gson();
 
+		
+		
 		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getBloodDevicePublicKey(),
 				certService.getMyPrivateKey());
 
@@ -91,12 +96,20 @@ public class DeviceController {
 					DeviceController.class, "BLOOD_DEVICE");
 
 		return new ResponseEntity<>(HttpStatus.OK);
+		}catch(CertificateRevokedException e) {
+			
+			System.out.println("Certificate revoked!");
+			return new ResponseEntity<HttpStatus>(HttpStatus.FORBIDDEN);
+			
+		}
 
 	}
 
 	@PostMapping(path = "/neurological-device")
 	public ResponseEntity<HttpStatus> neurologicalDeviceData(@RequestBody FinalMessage finalMess) {
 
+		try {
+		
 		Gson gson = new Gson();
 
 		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getNeurologicalDevicePublicKey(),
@@ -130,12 +143,19 @@ public class DeviceController {
 					DeviceController.class, "NEUROLOGICAL_DEVICE");
 
 		return new ResponseEntity<>(HttpStatus.OK);
-
+		}catch(CertificateRevokedException e) {
+			
+			System.out.println("Certificate revoked!");
+			return new ResponseEntity<HttpStatus>(HttpStatus.FORBIDDEN);
+			
+		}
 	}
 
 	@PostMapping(path = "/heart-monitor")
 	public ResponseEntity<HttpStatus> heartMonitorData(@RequestBody FinalMessage finalMess) {
 
+		try {
+		
 		Gson gson = new Gson();
 
 		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getHeartMonitorPublicKey(),
@@ -169,13 +189,18 @@ public class DeviceController {
 					DeviceController.class, "HEART_MONITOR_DEVICE");
 
 		return new ResponseEntity<>(HttpStatus.OK);
-
+		}catch(CertificateRevokedException e) {
+			
+			System.out.println("Certificate revoked!");
+			return new ResponseEntity<HttpStatus>(HttpStatus.FORBIDDEN);
+			
+		}
 	}
 
 	// unknown device
 	@PostMapping(path = "/temperature-device")
 	public ResponseEntity<HttpStatus> temperatureDeviceData(@RequestBody FinalMessage finalMess) {
-
+		try {
 		Gson gson = new Gson();
 
 		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getTemperatureDevicePublicKey(),
@@ -188,5 +213,12 @@ public class DeviceController {
 		System.out.println(deviceData);
 
 		return new ResponseEntity<>(HttpStatus.OK);
+		
+		}catch(CertificateRevokedException e) {
+			
+			System.out.println("Certificate revoked!");
+			return new ResponseEntity<HttpStatus>(HttpStatus.FORBIDDEN);
+			
+		}
 	}
 }
