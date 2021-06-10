@@ -27,13 +27,13 @@ public class LoginAttempt {
 	private LoginStatus status;
 
 	@Column(name = "timestamp", nullable = false)
-	private Date timestamp;
+	private long timestamp;
 
 	public LoginAttempt() {
 		super();
 	}
 
-	public LoginAttempt(Long id, String email, LoginStatus status, Date timestamp) {
+	public LoginAttempt(Long id, String email, LoginStatus status, long timestamp) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -65,11 +65,11 @@ public class LoginAttempt {
 		this.status = status;
 	}
 
-	public Date getTimestamp() {
+	public long getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(Date timestamp) {
+	public void setTimestamp(long timestamp) {
 		this.timestamp = timestamp;
 	}
 
