@@ -43,7 +43,10 @@ public class LoggerProxy {
 			UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 			username = userDetails.getUsername();
 		} catch (Exception e) {
-			username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			if (SecurityContextHolder.getContext().getAuthentication() != null)
+				username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			else
+				username = "";
 		}
 
 		this.logger.info("[ {} ] : {} : {}", username, classInitializator.getSimpleName(), message);

@@ -1,5 +1,6 @@
 package com.ftn.uns.ac.rs.hospitalapp.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import com.ftn.uns.ac.rs.hospitalapp.dto.UserDetailsDTO;
 import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.service.DoctorService;
+import com.ftn.uns.ac.rs.hospitalapp.util.CertificateRevokedException;
 import com.ftn.uns.ac.rs.hospitalapp.util.DoctorDetailsMapper;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
@@ -49,6 +51,8 @@ public class DoctorController {
 	@GetMapping(path = "/by-page/{pageNum}")
 	public ResponseEntity<FinalMessage> findAll(@PathVariable int pageNum) {
 
+		try {
+		
 		Gson gson = new Gson();
 		
 		Pageable pageRequest = PageRequest.of(pageNum, 8);
@@ -71,6 +75,14 @@ public class DoctorController {
 		this.logger.info("Successful attempt for retrieving doctors from hospital-app", DoctorController.class);
 		
 		return new ResponseEntity<>(finalMess, HttpStatus.OK);
+		
+		}catch(CertificateRevokedException e) {
+			
+			System.out.println("Certificate revoked!");
+			return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
+			
+		}
+		
 	}
 	
 }

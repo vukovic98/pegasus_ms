@@ -1,5 +1,6 @@
 package com.ftn.uns.ac.rs.hospitalapp.controller;
 
+
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ import com.ftn.uns.ac.rs.hospitalapp.dto.LogTypeDTO;
 import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.service.SecurityDataService;
+import com.ftn.uns.ac.rs.hospitalapp.util.CertificateRevokedException;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
 import com.ftn.uns.ac.rs.hospitalapp.util.PageImplMapper;
@@ -56,6 +58,9 @@ public class LogController {
 
 	@GetMapping(path = "by-page/{pageNum}")
 	public ResponseEntity<FinalMessage> findAll(@PathVariable("pageNum") int pageNum) {
+		
+		try {
+		
 		Pageable pageable = PageRequest.of(pageNum, 12);
 
 		Gson gson = new Gson();
@@ -82,11 +87,22 @@ public class LogController {
 		this.logger.info("Successfully read logs from hospital app by another app!", LogController.class);
 
 		return new ResponseEntity<>(finalMess, HttpStatus.OK);
+		
+		}catch(CertificateRevokedException e) {
+			
+			System.out.println("Certificate revoked!");
+			return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
+			
+		}
+		
 	}
 
 	@PostMapping(path = "filter-by-page/{pageNum}")
 	public ResponseEntity<FinalMessage> filterByPage(@PathVariable("pageNum") int pageNum,
 			@RequestBody LogFilterDTO dto) {
+		
+		try {
+		
 		Pageable pageable = PageRequest.of(pageNum, 12);
 		Gson gson = new Gson();
 		Query query = new Query();
@@ -121,6 +137,14 @@ public class LogController {
 		this.logger.info("Successfully filtered logs from hospital app by another app!", LogController.class);
 
 		return new ResponseEntity<>(finalMess, HttpStatus.OK);
+		
+		}catch(CertificateRevokedException e) {
+			
+			System.out.println("Certificate revoked!");
+			return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
+			
+		}
+		
 	}
 	
 	@PostMapping(path = "/create-alarm-for-logs")

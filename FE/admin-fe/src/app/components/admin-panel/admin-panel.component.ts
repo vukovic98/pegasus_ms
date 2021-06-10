@@ -12,7 +12,6 @@ export class AdminPanelComponent implements OnInit {
   public messages: Array<AlarmModel> = [];
 
   private webSocketAPI: WebSocketAPI;
-
   constructor(
     private appRef: ApplicationRef
   ) { }

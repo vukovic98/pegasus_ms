@@ -144,7 +144,7 @@ public class AuthenticationController {
 			if(maliciousIPs.contains(request.getRemoteAddr())) {
 				
 				this.logger.warn("[MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ "
-				+authenticationRequest.getEmail()+" ]", AuthenticationController.class);
+				+request.getRemoteAddr()+" ]", AuthenticationController.class);
 				
 				SecurityAlarm a = new SecurityAlarm(request.getRemoteAddr(), "MALICIOUS IP RECOGNIZED", new Date());
 				

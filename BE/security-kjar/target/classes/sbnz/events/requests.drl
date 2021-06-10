@@ -16,6 +16,8 @@ declare BruteForceEvent
     @expires(1m)
 end;
 
+global ArrayList<SecurityAlarm> alarms;
+
 global DoSAlarm dosAlarm;
 
 rule "More than 50 requests in the span of 1 minute - DoS attack"
@@ -31,4 +33,5 @@ agenda-group "requests"
 		System.out.println("DOS ATTACK DETECTED");
         insert(new DoSEvent());
         dosAlarm.setUnderAttack(true);
+        alarms.add(new SecurityAlarm("REQUEST FILTER", "DoS ATTACK DETECTED", new Date()));
 end

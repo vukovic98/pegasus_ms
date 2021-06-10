@@ -37,6 +37,7 @@ import com.ftn.uns.ac.rs.hospitalapp.dto.CertificateDistributionDetailsDTO;
 import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
+import com.ftn.uns.ac.rs.hospitalapp.util.CertificateRevokedException;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
 import com.google.gson.Gson;
@@ -57,6 +58,8 @@ public class CertificateController {
 	@PostMapping(path = "/receive-certificate")
 	public ResponseEntity<HttpStatus> receiveCertificate(@RequestBody FinalMessage finalMess) {
 
+		try {
+		
 		Gson gson = new Gson();
 
 		byte[] compressedData = EncryptionUtil.decrypt(finalMess, certService.getBobsPublicKey(),
@@ -82,6 +85,14 @@ public class CertificateController {
 			
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
+		
+		}catch(CertificateRevokedException e) {
+			
+			System.out.println("Certificate revoked!");
+			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+			
+		}
+		
 	}
 
 	@GetMapping(path = "/request")

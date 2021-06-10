@@ -1,5 +1,7 @@
 package com.ftn.uns.ac.rs.hospitalapp.controller;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,7 @@ import com.ftn.uns.ac.rs.hospitalapp.beans.DeviceLog;
 import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.service.DeviceLoggerService;
+import com.ftn.uns.ac.rs.hospitalapp.util.CertificateRevokedException;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
 import com.ftn.uns.ac.rs.hospitalapp.util.PageImplementation;
@@ -37,6 +40,8 @@ public class DeviceLoggerController {
 	@GetMapping(path = "/blood-logs/by-page/{pageNum}")
 	public ResponseEntity<FinalMessage> getBloodLogs(@PathVariable("pageNum") int pageNum) {
 
+		try {
+		
 		Gson gson = new Gson();
 		
 		PageImplementation<DeviceLog> logPage = this.deviceLoggerService.getDeviceData("BLOOD_DEVICE", pageNum);
@@ -51,10 +56,19 @@ public class DeviceLoggerController {
 		this.logger.info("Successfully read logs for [ BLOOD_DEVICE ] by another app!", DeviceLoggerController.class);
 
 		return new ResponseEntity<>(finalMess, HttpStatus.OK);
+		
+		}catch(CertificateRevokedException e) {
+			
+			System.out.println("Certificate revoked!");
+			return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
+			
+		}
 	}
 
 	@GetMapping(path = "/heart-logs/by-page/{pageNum}")
 	public ResponseEntity<FinalMessage> getHeartLogs(@PathVariable("pageNum") int pageNum) {
+		
+		try {
 		
 		Gson gson = new Gson();
 
@@ -69,10 +83,21 @@ public class DeviceLoggerController {
 		
 		this.logger.info("Successfully read logs for [ HEART_MONITOR_DEVICE ] by another app!", DeviceLoggerController.class);
 
-		return new ResponseEntity<>(finalMess, HttpStatus.OK);	}
+		return new ResponseEntity<>(finalMess, HttpStatus.OK);	
+		
+		}catch(CertificateRevokedException e) {
+			
+			System.out.println("Certificate revoked!");
+			return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
+			
+		}
+		
+		}
 
 	@GetMapping(path = "/neuro-logs/by-page/{pageNum}")
 	public ResponseEntity<FinalMessage> getNeuroLogs(@PathVariable("pageNum") int pageNum) {
+		
+		try {
 		
 		Gson gson = new Gson();
 
@@ -87,6 +112,15 @@ public class DeviceLoggerController {
 		
 		this.logger.info("Successfully read logs for [ NEUROLOGICAL_DEVICE ] by another app!", DeviceLoggerController.class);
 
-		return new ResponseEntity<>(finalMess, HttpStatus.OK);	}
+		return new ResponseEntity<>(finalMess, HttpStatus.OK);	
+		
+		}catch(CertificateRevokedException e) {
+			
+			System.out.println("Certificate revoked!");
+			return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
+			
+		}
+		
+		}
 
 }

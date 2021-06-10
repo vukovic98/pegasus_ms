@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Repository;
 
+import com.ftn.uns.ac.rs.hospitalapp.util.CertificateRevokedException;
 import com.ftn.uns.ac.rs.hospitalapp.util.CertificateUtil;
 
 @Repository
@@ -19,27 +20,27 @@ public class CertificateRepository {
 		return CertificateUtil.getMyPrivateKey(env.getProperty("trust.store"), env.getProperty("trust.store.password"));
 	}
 	
-	public PublicKey getBobsPublicKey() {
+	public PublicKey getBobsPublicKey() throws CertificateRevokedException {
 		return CertificateUtil.getBobsPublicKey(env.getProperty("bob.store"));
 	}
 	
-	public PublicKey getBloodDevicePublicKey() {
+	public PublicKey getBloodDevicePublicKey() throws CertificateRevokedException {
 		return CertificateUtil.getBobsPublicKey(env.getProperty("blood.cert"));
 	}
 	
-	public PublicKey getHeartMonitorPublicKey() {
+	public PublicKey getHeartMonitorPublicKey() throws CertificateRevokedException {
 		return CertificateUtil.getBobsPublicKey(env.getProperty("heart.cert"));
 	}
 
-	public PublicKey getNeurologicalDevicePublicKey() {
+	public PublicKey getNeurologicalDevicePublicKey() throws CertificateRevokedException {
 		return CertificateUtil.getBobsPublicKey(env.getProperty("neuro.cert"));
 	}
 	
-	public PublicKey getLogSimPublicKey() {
+	public PublicKey getLogSimPublicKey() throws CertificateRevokedException {
 		return CertificateUtil.getBobsPublicKey(env.getProperty("logsim.cert"));
 	}
 	
-	public PublicKey getTemperatureDevicePublicKey() {
+	public PublicKey getTemperatureDevicePublicKey() throws CertificateRevokedException {
 		return CertificateUtil.getBobsPublicKey(env.getProperty("unknown.cert"));
 	}
 	

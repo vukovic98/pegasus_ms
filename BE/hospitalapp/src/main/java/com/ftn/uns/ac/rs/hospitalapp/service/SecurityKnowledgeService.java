@@ -69,7 +69,7 @@ public class SecurityKnowledgeService {
 			if(loginAlarm.getIpAddress().equals(ipAddress)) {
 				System.out.println("OVDE 2");
 				List<String> lines = Arrays.asList(ipAddress);
-				Path file = Paths.get("D:\\faks\\Bezb\\Repo\\BE\\hospitalapp\\src\\main\\resources\\static\\malicious_ip.txt");
+				Path file = Paths.get("../hospitalapp/src/main/resources/static/malicious_ip.txt");
 				Files.write(file, lines, StandardCharsets.UTF_8, StandardOpenOption.APPEND);
 				
 				
