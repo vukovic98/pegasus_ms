@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import {LogTypeModel} from "../models/log.type.model";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class LogService {
   private readonly hospitalHeartLogs: string = "logs/hospital-logs/device-logs/heart-logs/by-page/";
   private readonly hospitalNeuroLogs: string = "logs/hospital-logs/device-logs/neuro-logs/by-page/";
   private readonly filterHospitalLogs: string = "logs/hospital-logs/filter-by-page/";
+  private readonly createAlarmForLogType: string = "logs/create-alarm-for-logs";
 
   constructor(private http: HttpClient) { }
 
@@ -72,5 +74,13 @@ export class LogService {
       'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
     });
     return this.http.post(environment.ADMIN_APP + this.filterHospitalLogs + page, logs, {headers:headers});
+  }
+
+  createAlarmForLog(data: LogTypeModel): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+    });
+    return this.http.post(environment.HOSPITAL_APP + this.createAlarmForLogType , data, {headers:headers});
   }
 }

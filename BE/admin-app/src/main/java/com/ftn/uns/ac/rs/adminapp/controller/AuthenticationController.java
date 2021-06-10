@@ -89,7 +89,7 @@ public class AuthenticationController {
 			int expiresIn = tokenUtils.getExpiredIn();
 
 			this.loginAttemptService
-					.save(new LoginAttempt(null, authenticationRequest.getEmail(), LoginStatus.SUCCESS, new Date()));
+					.save(new LoginAttempt(null, authenticationRequest.getEmail(), LoginStatus.SUCCESS, 0));
 
 			this.logger.info("Successfull login attempt was made from [ " + authenticationRequest.getEmail() + " ]",
 					AuthenticationController.class);
@@ -100,7 +100,7 @@ public class AuthenticationController {
 
 			if (u != null) {
 				this.loginAttemptService
-						.save(new LoginAttempt(null, authenticationRequest.getEmail(), LoginStatus.FAIL, new Date()));
+						.save(new LoginAttempt(null, authenticationRequest.getEmail(), LoginStatus.FAIL, 0));
 
 				boolean notOK = this.loginAttemptService.isUserForBlock(authenticationRequest.getEmail());
 
