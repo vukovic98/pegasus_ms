@@ -1,0 +1,1165 @@
+2021-06-10 12:16:43,608 : ERROR : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.RuntimeException: Unexpected global [alarms]
+	at org.drools.core.impl.StatefulKnowledgeSessionImpl.setGlobal(StatefulKnowledgeSessionImpl.java:1209) ~[drools-core-7.17.0.Final.jar:7.17.0.Final]
+	at com.ftn.uns.ac.rs.hospitalapp.security.XSSFilter.doFilter(XSSFilter.java:76) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2021-06-10 12:18:40,259 : ERROR : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.RuntimeException: Unexpected global [alarms]
+	at org.drools.core.impl.StatefulKnowledgeSessionImpl.setGlobal(StatefulKnowledgeSessionImpl.java:1209) ~[drools-core-7.17.0.Final.jar:7.17.0.Final]
+	at com.ftn.uns.ac.rs.hospitalapp.security.XSSFilter.doFilter(XSSFilter.java:76) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2021-06-10 12:18:55,544 : ERROR : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.RuntimeException: Unexpected global [alarms]
+	at org.drools.core.impl.StatefulKnowledgeSessionImpl.setGlobal(StatefulKnowledgeSessionImpl.java:1209) ~[drools-core-7.17.0.Final.jar:7.17.0.Final]
+	at com.ftn.uns.ac.rs.hospitalapp.security.XSSFilter.doFilter(XSSFilter.java:76) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2021-06-10 12:18:58,718 : ERROR : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.RuntimeException: Unexpected global [alarms]
+	at org.drools.core.impl.StatefulKnowledgeSessionImpl.setGlobal(StatefulKnowledgeSessionImpl.java:1209) ~[drools-core-7.17.0.Final.jar:7.17.0.Final]
+	at com.ftn.uns.ac.rs.hospitalapp.security.XSSFilter.doFilter(XSSFilter.java:76) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2021-06-10 12:19:07,671 : ERROR : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.RuntimeException: Unexpected global [alarms]
+	at org.drools.core.impl.StatefulKnowledgeSessionImpl.setGlobal(StatefulKnowledgeSessionImpl.java:1209) ~[drools-core-7.17.0.Final.jar:7.17.0.Final]
+	at com.ftn.uns.ac.rs.hospitalapp.security.XSSFilter.doFilter(XSSFilter.java:76) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2021-06-12 11:08:01,019 : ERROR : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.RuntimeException: Unexpected global [alarms]
+	at org.drools.core.impl.StatefulKnowledgeSessionImpl.setGlobal(StatefulKnowledgeSessionImpl.java:1209) ~[drools-core-7.17.0.Final.jar:7.17.0.Final]
+	at com.ftn.uns.ac.rs.hospitalapp.security.XSSFilter.doFilter(XSSFilter.java:76) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2021-06-12 11:08:38,029 : ERROR : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.RuntimeException: Unexpected global [alarms]
+	at org.drools.core.impl.StatefulKnowledgeSessionImpl.setGlobal(StatefulKnowledgeSessionImpl.java:1209) ~[drools-core-7.17.0.Final.jar:7.17.0.Final]
+	at com.ftn.uns.ac.rs.hospitalapp.security.XSSFilter.doFilter(XSSFilter.java:76) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2021-06-12 11:16:43,843 : ERROR : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.RuntimeException: Unexpected global [alarms]
+	at org.drools.core.impl.StatefulKnowledgeSessionImpl.setGlobal(StatefulKnowledgeSessionImpl.java:1209) ~[drools-core-7.17.0.Final.jar:7.17.0.Final]
+	at com.ftn.uns.ac.rs.hospitalapp.security.XSSFilter.doFilter(XSSFilter.java:76) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2021-06-12 11:19:57,365 : ERROR : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.RuntimeException: Unexpected global [alarms]
+	at org.drools.core.impl.StatefulKnowledgeSessionImpl.setGlobal(StatefulKnowledgeSessionImpl.java:1209) ~[drools-core-7.17.0.Final.jar:7.17.0.Final]
+	at com.ftn.uns.ac.rs.hospitalapp.security.XSSFilter.doFilter(XSSFilter.java:76) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2021-06-12 11:22:40,084 : WARN : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : [MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ 0:0:0:0:0:0:0:1 ]
+2021-06-12 11:22:40,399 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-12 11:23:03,168 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:23:45,608 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:26:45,178 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:27:32,954 : WARN : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : [MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ 0:0:0:0:0:0:0:1 ]
+2021-06-12 11:27:33,128 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-12 11:27:35,229 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:27:41,267 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-12 11:27:43,102 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:34:01,143 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:34:02,014 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:34:32,102 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:34:32,248 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:34:36,522 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:36:17,399 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:36:17,861 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:36:51,956 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:36:52,025 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:36:56,231 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:38:21,594 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:38:22,365 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:40:21,665 : ERROR : Unable to create MavenProject from InputStream
+com.google.inject.CreationException: Unable to create injector, see the following errors:
+
+1) An exception was caught and reported. Message: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+  at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75)
+
+1 error
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:466) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:155) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:107) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:96) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:73) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:62) ~[guice-4.0-no_aop.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.addPlexusInjector(DefaultPlexusContainer.java:481) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:206) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:168) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:167) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:141) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.PlexusComponentProvider.<init>(PlexusComponentProvider.java:37) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildComponentProvider(MavenEmbedderUtils.java:57) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:91) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:85) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.newMavenEmbedder(MavenProjectLoader.java:148) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:90) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:84) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:124) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:136) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.getResolverFor(KieRepositoryScannerImpl.java:286) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.scanForUpdates(KieRepositoryScannerImpl.java:213) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:168) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:55) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner.scanNow(AbstractKieScanner.java:141) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner$ScanTask.run(AbstractKieScanner.java:127) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at java.util.TimerThread.mainLoop(Timer.java:556) [?:?]
+	at java.util.TimerThread.run(Timer.java:506) [?:?]
+Caused by: java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1384) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1037) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.ClassLoader.getResource(ClassLoader.java:1395) ~[?:?]
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.getResource(ClassRealm.java:287) ~[plexus-classworlds-2.5.2.jar:?]
+	at org.eclipse.sisu.space.URLClassSpace.getResource(URLClassSpace.java:158) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.IndexedClassFinder$1.hasMoreElements(IndexedClassFinder.java:128) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceScanner.accept(SpaceScanner.java:72) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.scanForElements(SpaceModule.java:168) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.configure(SpaceModule.java:129) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusAnnotatedBeanModule.configure(PlexusAnnotatedBeanModule.java:102) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusBindingModule.configure(PlexusBindingModule.java:63) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:101) ~[guice-4.0-no_aop.jar:?]
+	at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:138) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:104) ~[guice-4.0-no_aop.jar:?]
+	... 25 more
+2021-06-12 11:43:01,938 : ERROR : Unable to create MavenProject from InputStream
+com.google.inject.CreationException: Unable to create injector, see the following errors:
+
+1) An exception was caught and reported. Message: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+  at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75)
+
+1 error
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:466) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:155) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:107) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:96) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:73) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:62) ~[guice-4.0-no_aop.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.addPlexusInjector(DefaultPlexusContainer.java:481) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:206) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:168) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:167) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:141) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.PlexusComponentProvider.<init>(PlexusComponentProvider.java:37) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildComponentProvider(MavenEmbedderUtils.java:57) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:91) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:85) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.newMavenEmbedder(MavenProjectLoader.java:148) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:90) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:84) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:124) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:136) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.getResolverFor(KieRepositoryScannerImpl.java:286) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.scanForUpdates(KieRepositoryScannerImpl.java:213) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:168) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:55) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner.scanNow(AbstractKieScanner.java:141) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner$ScanTask.run(AbstractKieScanner.java:127) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at java.util.TimerThread.mainLoop(Timer.java:556) [?:?]
+	at java.util.TimerThread.run(Timer.java:506) [?:?]
+Caused by: java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1384) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1037) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.ClassLoader.getResource(ClassLoader.java:1395) ~[?:?]
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.getResource(ClassRealm.java:287) ~[plexus-classworlds-2.5.2.jar:?]
+	at org.eclipse.sisu.space.URLClassSpace.getResource(URLClassSpace.java:158) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.IndexedClassFinder$1.hasMoreElements(IndexedClassFinder.java:128) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceScanner.accept(SpaceScanner.java:72) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.scanForElements(SpaceModule.java:168) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.configure(SpaceModule.java:129) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusAnnotatedBeanModule.configure(PlexusAnnotatedBeanModule.java:102) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusBindingModule.configure(PlexusBindingModule.java:63) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:101) ~[guice-4.0-no_aop.jar:?]
+	at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:138) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:104) ~[guice-4.0-no_aop.jar:?]
+	... 25 more
+2021-06-12 11:44:22,246 : ERROR : Unable to create MavenProject from InputStream
+com.google.inject.CreationException: Unable to create injector, see the following errors:
+
+1) An exception was caught and reported. Message: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+  at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75)
+
+1 error
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:466) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:155) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:107) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:96) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:73) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:62) ~[guice-4.0-no_aop.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.addPlexusInjector(DefaultPlexusContainer.java:481) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:206) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:168) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:167) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:141) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.PlexusComponentProvider.<init>(PlexusComponentProvider.java:37) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildComponentProvider(MavenEmbedderUtils.java:57) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:91) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:85) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.newMavenEmbedder(MavenProjectLoader.java:148) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:90) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:84) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:124) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:136) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.getResolverFor(KieRepositoryScannerImpl.java:286) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.scanForUpdates(KieRepositoryScannerImpl.java:213) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:168) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:55) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner.scanNow(AbstractKieScanner.java:141) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner$ScanTask.run(AbstractKieScanner.java:127) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at java.util.TimerThread.mainLoop(Timer.java:556) [?:?]
+	at java.util.TimerThread.run(Timer.java:506) [?:?]
+Caused by: java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1384) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1037) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.ClassLoader.getResource(ClassLoader.java:1395) ~[?:?]
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.getResource(ClassRealm.java:287) ~[plexus-classworlds-2.5.2.jar:?]
+	at org.eclipse.sisu.space.URLClassSpace.getResource(URLClassSpace.java:158) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.IndexedClassFinder$1.hasMoreElements(IndexedClassFinder.java:128) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceScanner.accept(SpaceScanner.java:72) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.scanForElements(SpaceModule.java:168) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.configure(SpaceModule.java:129) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusAnnotatedBeanModule.configure(PlexusAnnotatedBeanModule.java:102) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusBindingModule.configure(PlexusBindingModule.java:63) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:101) ~[guice-4.0-no_aop.jar:?]
+	at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:138) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:104) ~[guice-4.0-no_aop.jar:?]
+	... 25 more
+2021-06-12 11:48:47,912 : ERROR : Unable to create MavenProject from InputStream
+com.google.inject.CreationException: Unable to create injector, see the following errors:
+
+1) An exception was caught and reported. Message: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+  at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75)
+
+1 error
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:466) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:155) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:107) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:96) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:73) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:62) ~[guice-4.0-no_aop.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.addPlexusInjector(DefaultPlexusContainer.java:481) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:206) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:168) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:167) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:141) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.PlexusComponentProvider.<init>(PlexusComponentProvider.java:37) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildComponentProvider(MavenEmbedderUtils.java:57) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:91) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:85) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.newMavenEmbedder(MavenProjectLoader.java:148) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:90) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:84) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:124) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:136) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.getResolverFor(KieRepositoryScannerImpl.java:286) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.scanForUpdates(KieRepositoryScannerImpl.java:213) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:168) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:55) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner.scanNow(AbstractKieScanner.java:141) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner$ScanTask.run(AbstractKieScanner.java:127) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at java.util.TimerThread.mainLoop(Timer.java:556) [?:?]
+	at java.util.TimerThread.run(Timer.java:506) [?:?]
+Caused by: java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1384) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1037) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.ClassLoader.getResource(ClassLoader.java:1395) ~[?:?]
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.getResource(ClassRealm.java:287) ~[plexus-classworlds-2.5.2.jar:?]
+	at org.eclipse.sisu.space.URLClassSpace.getResource(URLClassSpace.java:158) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.IndexedClassFinder$1.hasMoreElements(IndexedClassFinder.java:128) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceScanner.accept(SpaceScanner.java:72) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.scanForElements(SpaceModule.java:168) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.configure(SpaceModule.java:129) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusAnnotatedBeanModule.configure(PlexusAnnotatedBeanModule.java:102) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusBindingModule.configure(PlexusBindingModule.java:63) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:101) ~[guice-4.0-no_aop.jar:?]
+	at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:138) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:104) ~[guice-4.0-no_aop.jar:?]
+	... 25 more
+2021-06-12 11:50:06,870 : ERROR : Unable to create MavenProject from InputStream
+com.google.inject.CreationException: Unable to create injector, see the following errors:
+
+1) An exception was caught and reported. Message: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+  at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75)
+
+1 error
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:466) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:155) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:107) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:96) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:73) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:62) ~[guice-4.0-no_aop.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.addPlexusInjector(DefaultPlexusContainer.java:481) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:206) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:168) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:167) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:141) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.PlexusComponentProvider.<init>(PlexusComponentProvider.java:37) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildComponentProvider(MavenEmbedderUtils.java:57) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:91) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:85) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.newMavenEmbedder(MavenProjectLoader.java:148) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:90) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:84) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:124) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:136) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.getResolverFor(KieRepositoryScannerImpl.java:286) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.scanForUpdates(KieRepositoryScannerImpl.java:213) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:168) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:55) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner.scanNow(AbstractKieScanner.java:141) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner$ScanTask.run(AbstractKieScanner.java:127) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at java.util.TimerThread.mainLoop(Timer.java:556) [?:?]
+	at java.util.TimerThread.run(Timer.java:506) [?:?]
+Caused by: java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1384) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1037) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.ClassLoader.getResource(ClassLoader.java:1395) ~[?:?]
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.getResource(ClassRealm.java:287) ~[plexus-classworlds-2.5.2.jar:?]
+	at org.eclipse.sisu.space.URLClassSpace.getResource(URLClassSpace.java:158) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.IndexedClassFinder$1.hasMoreElements(IndexedClassFinder.java:128) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceScanner.accept(SpaceScanner.java:72) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.scanForElements(SpaceModule.java:168) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.configure(SpaceModule.java:129) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusAnnotatedBeanModule.configure(PlexusAnnotatedBeanModule.java:102) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusBindingModule.configure(PlexusBindingModule.java:63) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:101) ~[guice-4.0-no_aop.jar:?]
+	at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:138) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:104) ~[guice-4.0-no_aop.jar:?]
+	... 25 more
+2021-06-12 11:52:29,345 : ERROR : Unable to create MavenProject from InputStream
+com.google.inject.CreationException: Unable to create injector, see the following errors:
+
+1) An exception was caught and reported. Message: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+  at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75)
+
+1 error
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:466) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:155) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:107) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:96) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:73) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:62) ~[guice-4.0-no_aop.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.addPlexusInjector(DefaultPlexusContainer.java:481) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:206) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:168) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:167) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:141) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.PlexusComponentProvider.<init>(PlexusComponentProvider.java:37) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildComponentProvider(MavenEmbedderUtils.java:57) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:91) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:85) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.newMavenEmbedder(MavenProjectLoader.java:148) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:90) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:84) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:124) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:136) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.getResolverFor(KieRepositoryScannerImpl.java:286) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.scanForUpdates(KieRepositoryScannerImpl.java:213) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:168) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:55) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner.scanNow(AbstractKieScanner.java:141) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner$ScanTask.run(AbstractKieScanner.java:127) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at java.util.TimerThread.mainLoop(Timer.java:556) [?:?]
+	at java.util.TimerThread.run(Timer.java:506) [?:?]
+Caused by: java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1384) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1037) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.ClassLoader.getResource(ClassLoader.java:1395) ~[?:?]
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.getResource(ClassRealm.java:287) ~[plexus-classworlds-2.5.2.jar:?]
+	at org.eclipse.sisu.space.URLClassSpace.getResource(URLClassSpace.java:158) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.IndexedClassFinder$1.hasMoreElements(IndexedClassFinder.java:128) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceScanner.accept(SpaceScanner.java:72) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.scanForElements(SpaceModule.java:168) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.configure(SpaceModule.java:129) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusAnnotatedBeanModule.configure(PlexusAnnotatedBeanModule.java:102) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusBindingModule.configure(PlexusBindingModule.java:63) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:101) ~[guice-4.0-no_aop.jar:?]
+	at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:138) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:104) ~[guice-4.0-no_aop.jar:?]
+	... 25 more
+2021-06-12 11:53:58,921 : ERROR : Unable to build KieBaseModel:defaultKieBase
+Unable to Analyse Expression rate <= 56.0 || rate >= 78.0:
+[Error: unable to resolve method using strict-mode: com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData.rate()]
+[Near : {... rate <= 56.0 || rate >= 78.0 ....}]
+             ^
+[Line: 13, Column: 2] : [Rule name='Rule designed for patient [ 154 ] - [ rate] and [ sat] ']
+
+Unable to Analyse Expression sat <= 66.0 || sat >= 77.0:
+[Error: unable to resolve method using strict-mode: com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData.sat()]
+[Near : {... sat <= 66.0 || sat >= 77.0 ....}]
+             ^
+[Line: 13, Column: 2] : [Rule name='Rule designed for patient [ 154 ] - [ rate] and [ sat] ']
+
+Field Reader does not exist for declaration '$val1' in '$val1 : rate' in the rule 'Rule designed for patient [ 154 ] - [ rate] and [ sat] ' : [Rule name='Rule designed for patient [ 154 ] - [ rate] and [ sat] ']
+
+Field Reader does not exist for declaration '$val2' in '$val2 : sat' in the rule 'Rule designed for patient [ 154 ] - [ rate] and [ sat] ' : [Rule name='Rule designed for patient [ 154 ] - [ rate] and [ sat] ']
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 154 ] - [ rate] and [ sat] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_154_$u93$_$u45$_$u91$_rate$u93$_and_$u91$_sat$u93$_1805183901.java (7:879) : $val1 cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_154_$u93$_$u45$_$u91$_rate$u93$_and_$u91$_sat$u93$_1805183901.java (7:902) : $val1 cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_154_$u93$_$u45$_$u91$_rate$u93$_and_$u91$_sat$u93$_1805183901.java (8:966) : $val2 cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_154_$u93$_$u45$_$u91$_rate$u93$_and_$u91$_sat$u93$_1805183901.java (8:989) : $val2 cannot be resolved to a variable
+
+
+2021-06-12 11:53:58,922 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-12 11:55:27,878 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:55:39,519 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:56:18,951 : ERROR : Unable to build KieBaseModel:defaultKieBase
+Unable to Analyse Expression rate <= 45.0 || rate >= 66.0:
+[Error: unable to resolve method using strict-mode: com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData.rate()]
+[Near : {... rate <= 45.0 || rate >= 66.0 ....}]
+             ^
+[Line: 13, Column: 2] : [Rule name='Rule designed for patient [ 153 ] - [ rate] and [ saturation] ']
+
+Field Reader does not exist for declaration '$val1' in '$val1 : rate' in the rule 'Rule designed for patient [ 153 ] - [ rate] and [ saturation] ' : [Rule name='Rule designed for patient [ 153 ] - [ rate] and [ saturation] ']
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 153 ] - [ rate] and [ saturation] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_153_$u93$_$u45$_$u91$_rate$u93$_and_$u91$_saturation$u93$_1909018361.java (7:951) : $val1 cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_153_$u93$_$u45$_$u91$_rate$u93$_and_$u91$_saturation$u93$_1909018361.java (7:974) : $val1 cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_153_$u93$_$u45$_$u91$_rate$u93$_and_$u91$_saturation$u93$_1909018361.java (8:1012) : The constructor Alarm(int, String, int, Double, Date) is undefined
+
+
+2021-06-12 11:56:18,951 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-12 11:57:28,693 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:58:00,289 : WARN : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : [MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ 0:0:0:0:0:0:0:1 ]
+2021-06-12 11:58:00,459 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-12 11:58:02,019 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 11:58:29,106 : ERROR : Unable to build KieBaseModel:defaultKieBase
+Unable to Analyse Expression rate <= 45.0 || rate >= 66.0:
+[Error: unable to resolve method using strict-mode: com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData.rate()]
+[Near : {... rate <= 45.0 || rate >= 66.0 ....}]
+             ^
+[Line: 13, Column: 2] : [Rule name='Rule designed for patient [ 153 ] - [ rate] and [ saturation] ']
+
+Field Reader does not exist for declaration '$val1' in '$val1 : rate' in the rule 'Rule designed for patient [ 153 ] - [ rate] and [ saturation] ' : [Rule name='Rule designed for patient [ 153 ] - [ rate] and [ saturation] ']
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 157 ] - [ heartRate] and [ saturation] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_157_$u93$_$u45$_$u91$_heartRate$u93$_and_$u91$_saturation$u93$_1270566465.java (7:994) : The constructor Alarm(int, String, int, Double, Date) is undefined
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_157_$u93$_$u45$_$u91$_heartRate$u93$_and_$u91$_saturation$u93$_1270566465.java (8:1087) : The constructor Alarm(int, String, int, Double, Date) is undefined
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 153 ] - [ rate] and [ saturation] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_153_$u93$_$u45$_$u91$_rate$u93$_and_$u91$_saturation$u93$_1909018361.java (7:951) : $val1 cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_153_$u93$_$u45$_$u91$_rate$u93$_and_$u91$_saturation$u93$_1909018361.java (7:974) : $val1 cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_153_$u93$_$u45$_$u91$_rate$u93$_and_$u91$_saturation$u93$_1909018361.java (8:1012) : The constructor Alarm(int, String, int, Double, Date) is undefined
+
+
+2021-06-12 11:58:29,106 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-12 12:04:46,887 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 12:06:27,957 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 12:08:02,803 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 12:08:32,632 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 12:08:40,013 : WARN : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : [MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ 0:0:0:0:0:0:0:1 ]
+2021-06-12 12:08:40,180 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-12 12:08:42,279 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 12:09:50,483 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 12:09:51,782 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 12:10:33,894 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 12:10:34,316 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 12:12:26,395 : WARN : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : [MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ 0:0:0:0:0:0:0:1 ]
+2021-06-12 12:12:26,586 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-12 12:12:29,180 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 12:13:09,717 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 12:13:18,772 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:30:31,757 : WARN : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : [MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ 0:0:0:0:0:0:0:1 ]
+2021-06-12 20:30:31,974 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-12 20:30:34,552 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:31:28,893 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:31:39,001 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:33:07,527 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:34:16,097 : WARN : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : [MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ 0:0:0:0:0:0:0:1 ]
+2021-06-12 20:34:16,272 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-12 20:34:18,578 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:35:00,906 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:35:16,680 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:35:45,229 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:35:50,241 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:36:26,126 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:36:50,396 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:37:38,533 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:38:21,722 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:39:06,217 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:40:22,969 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:40:41,388 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:40:54,707 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:42:16,504 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:42:54,948 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:43:39,507 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:43:43,867 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:43:51,611 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:47:41,530 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:48:34,957 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:48:59,491 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:49:21,125 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:50:25,217 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:57:38,891 : WARN : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : [MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ 0:0:0:0:0:0:0:1 ]
+2021-06-12 20:57:39,065 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-12 20:58:11,843 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 20:59:22,119 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:00:18,258 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:00:24,268 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:00:33,534 : WARN : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : [MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ 0:0:0:0:0:0:0:1 ]
+2021-06-12 21:00:33,693 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-12 21:00:38,127 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:01:26,527 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:01:57,658 : WARN : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : [MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ 0:0:0:0:0:0:0:1 ]
+2021-06-12 21:01:57,822 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-12 21:01:59,333 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:02:13,179 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:02:14,623 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:02:24,012 : WARN : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : [MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ 0:0:0:0:0:0:0:1 ]
+2021-06-12 21:02:24,167 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-12 21:02:27,731 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:02:40,467 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:02:41,295 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:02:43,184 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:02:45,583 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-12 21:02:46,637 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:03:03,028 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:03:03,466 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:03:05,850 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-12 21:03:07,048 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:03:38,280 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:03:40,453 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:03:42,968 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:03:48,090 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:04:34,389 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:04:38,176 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:04:39,141 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:04:41,091 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-12 21:04:41,661 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:05:08,747 : WARN : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : [MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ 0:0:0:0:0:0:0:1 ]
+2021-06-12 21:05:08,897 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-12 21:05:36,561 : INFO : [ ivana.gsmhospital@mailinator.com ] : AlarmController : Successful attempt for retrieving alarms from hospital-app
+2021-06-12 21:05:37,638 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:05:50,246 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:05:54,630 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:05:56,326 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-12 21:05:57,620 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:06:10,556 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:06:17,920 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:06:20,660 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-12 21:06:22,275 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-12 21:06:22,656 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-12 21:06:22,960 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-12 21:06:23,234 : INFO : [ ivana.gsmhospital@mailinator.com ] : NeurologicalDataController : Successful attempt for retrieving neuro-data from hospital-app
+2021-06-12 21:06:24,919 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:07:14,044 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:07:21,107 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:07:36,289 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:08:11,652 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:08:14,914 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:08:16,996 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:08:50,310 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:14:08,216 : WARN : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : [MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ 0:0:0:0:0:0:0:1 ]
+2021-06-12 21:14:08,371 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-12 21:14:11,385 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:14:23,137 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:14:35,458 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:14:38,983 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:15:22,455 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:15:27,998 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:15:45,454 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:15:47,283 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:16:09,812 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:16:12,913 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:16:47,514 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:16:48,845 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:17:17,618 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:17:21,281 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:17:42,574 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:17:44,142 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:17:52,302 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:17:55,093 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:18:07,321 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:18:08,062 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:18:33,837 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:18:36,598 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:18:43,690 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:18:47,425 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:19:17,642 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:19:20,041 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:22:15,711 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:22:17,471 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:24:35,896 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:24:36,355 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:25:17,371 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:25:19,000 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:26:02,517 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:26:03,884 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:27:26,947 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:27:29,674 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:28:33,074 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:28:35,181 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:29:50,453 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:29:51,085 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:32:26,525 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:32:27,816 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:32:54,793 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[12,1]: [ERR 107] Line 12:1 mismatched input 'when' expecting one of the following tokens: '[package, unit, import, global, declare, function, rule, query]'.
+[0,0]: Parser returned a null Package
+Rule Compilation error : [Rule name='Rule designed for patient [ 157 ] - [ heartRate] and [ saturation] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_157_$u93$_$u45$_$u91$_heartRate$u93$_and_$u91$_saturation$u93$_1270566465.java (7:994) : The constructor Alarm(int, String, int, Double, Date) is undefined
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_157_$u93$_$u45$_$u91$_heartRate$u93$_and_$u91$_saturation$u93$_1270566465.java (8:1087) : The constructor Alarm(int, String, int, Double, Date) is undefined
+
+
+2021-06-12 21:32:54,795 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-12 21:33:20,017 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:33:23,622 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:33:54,908 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[12,1]: [ERR 107] Line 12:1 mismatched input 'when' expecting one of the following tokens: '[package, unit, import, global, declare, function, rule, query]'.
+[0,0]: Parser returned a null Package
+[12,1]: [ERR 107] Line 12:1 mismatched input 'when' expecting one of the following tokens: '[package, unit, import, global, declare, function, rule, query]'.
+[0,0]: Parser returned a null Package
+Rule Compilation error : [Rule name='Rule designed for patient [ 157 ] - [ heartRate] and [ saturation] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_157_$u93$_$u45$_$u91$_heartRate$u93$_and_$u91$_saturation$u93$_1270566465.java (7:994) : The constructor Alarm(int, String, int, Double, Date) is undefined
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_157_$u93$_$u45$_$u91$_heartRate$u93$_and_$u91$_saturation$u93$_1270566465.java (8:1087) : The constructor Alarm(int, String, int, Double, Date) is undefined
+
+
+2021-06-12 21:33:54,908 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-12 21:34:30,363 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:34:32,890 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:35:01,021 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:35:03,976 : INFO : [ ivana.gsmhospital@mailinator.com ] : BloodDataController : Successful attempt for retrieving blood-data from hospital-app
+2021-06-12 21:35:34,716 : ERROR : Unable to build KieBaseModel:defaultKieBase
+[12,1]: [ERR 107] Line 12:1 mismatched input 'when' expecting one of the following tokens: '[package, unit, import, global, declare, function, rule, query]'.
+[0,0]: Parser returned a null Package
+[12,1]: [ERR 107] Line 12:1 mismatched input 'when' expecting one of the following tokens: '[package, unit, import, global, declare, function, rule, query]'.
+[0,0]: Parser returned a null Package
+Rule Compilation error : [Rule name='Rule designed for patient [ 157 ] - [ heartRate] and [ saturation] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_157_$u93$_$u45$_$u91$_heartRate$u93$_and_$u91$_saturation$u93$_1270566465.java (7:994) : The constructor Alarm(int, String, int, Double, Date) is undefined
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_157_$u93$_$u45$_$u91$_heartRate$u93$_and_$u91$_saturation$u93$_1270566465.java (8:1087) : The constructor Alarm(int, String, int, Double, Date) is undefined
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 166 ] - [ saturation] and [ diastolic] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_166_$u93$_$u45$_$u91$_saturation$u93$_and_$u91$_diastolic$u93$_78226791.java (7:992) : The constructor Alarm(int, String, int, Double, Date) is undefined
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_166_$u93$_$u45$_$u91$_saturation$u93$_and_$u91$_diastolic$u93$_78226791.java (8:1086) : The constructor Alarm(int, String, int, Double, Date) is undefined
+
+
+2021-06-12 21:35:34,716 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-12 21:35:51,331 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:39:20,071 : ERROR : Unable to create MavenProject from InputStream
+com.google.inject.CreationException: Unable to create injector, see the following errors:
+
+1) An exception was caught and reported. Message: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+  at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75)
+
+1 error
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:466) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:155) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:107) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:96) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:73) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:62) ~[guice-4.0-no_aop.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.addPlexusInjector(DefaultPlexusContainer.java:481) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:206) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:168) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:167) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:141) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.PlexusComponentProvider.<init>(PlexusComponentProvider.java:37) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildComponentProvider(MavenEmbedderUtils.java:57) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:91) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:85) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.newMavenEmbedder(MavenProjectLoader.java:148) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:90) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:84) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:124) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:136) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.getResolverFor(KieRepositoryScannerImpl.java:286) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.scanForUpdates(KieRepositoryScannerImpl.java:213) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:168) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:55) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner.scanNow(AbstractKieScanner.java:141) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner$ScanTask.run(AbstractKieScanner.java:127) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at java.util.TimerThread.mainLoop(Timer.java:556) [?:?]
+	at java.util.TimerThread.run(Timer.java:506) [?:?]
+Caused by: java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1384) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1037) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.ClassLoader.getResource(ClassLoader.java:1395) ~[?:?]
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.getResource(ClassRealm.java:287) ~[plexus-classworlds-2.5.2.jar:?]
+	at org.eclipse.sisu.space.URLClassSpace.getResource(URLClassSpace.java:158) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.IndexedClassFinder$1.hasMoreElements(IndexedClassFinder.java:128) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceScanner.accept(SpaceScanner.java:72) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.scanForElements(SpaceModule.java:168) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.configure(SpaceModule.java:129) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusAnnotatedBeanModule.configure(PlexusAnnotatedBeanModule.java:102) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusBindingModule.configure(PlexusBindingModule.java:63) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:101) ~[guice-4.0-no_aop.jar:?]
+	at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:138) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:104) ~[guice-4.0-no_aop.jar:?]
+	... 25 more
+2021-06-12 21:50:00,547 : WARN : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : [MALICIOUS IP RECOGNIZED] Login attempt was made from malicious IP address! [ 0:0:0:0:0:0:0:1 ]
+2021-06-12 21:50:00,794 : INFO : [ ivana.gsmhospital@mailinator.com ] : AuthenticationController : Successfull login attempt was made from [ ivana.gsmhospital@mailinator.com ]
+2021-06-12 21:50:02,446 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 21:50:27,572 : ERROR : Unable to build KieBaseModel:defaultKieBase
+Unable to resolve ObjectType 'NeuroData' : [Rule name='Rule designed for patient [ 152 ] - [ ICP] and [ BIS] ']
+
+Rule Compilation error : [Rule name='Redefined leukocytes rule for patient [ 152 ] 0']
+	sbnz/integracija/Rule_Redefined_leukocytes_rule_for_patient_$u91$_152_$u93$_01360974914.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 151 ] - ICP 0']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_151_$u93$_$u45$_ICP_01719923307.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Rule Compilation error : [Rule name='CRP not in normal range']
+	sbnz/integracija/Rule_CRP_not_in_normal_range898998976.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Rule Compilation error : [Rule name=' Not normal diastolic blood pressure']
+	sbnz/integracija/Rule__Not_normal_diastolic_blood_pressure492531645.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Rule Compilation error : [Rule name='Leukocytes not in normal range']
+	sbnz/integracija/Rule_Leukocytes_not_in_normal_range1486261516.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Rule Compilation error : [Rule name='Hemoglobin not in normal range']
+	sbnz/integracija/Rule_Hemoglobin_not_in_normal_range1013907780.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Rule Compilation error : [Rule name='ICP not in normal range']
+	sbnz/integracija/Rule_ICP_not_in_normal_range43356511.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 160 ] - diastoic 0 ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_160_$u93$_$u45$_diastoic_0_1802156298.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Rule Compilation error : [Rule name=' Not normal systolic blood pressure']
+	sbnz/integracija/Rule__Not_normal_systolic_blood_pressure483354792.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Rule Compilation error : [Rule name='BIS not in normal range']
+	sbnz/integracija/Rule_BIS_not_in_normal_range514716956.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Rule Compilation error : [Rule name='Erythrocytes not in normal range']
+	sbnz/integracija/Rule_Erythrocytes_not_in_normal_range263628780.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 152 ] - [ ICP] and [ BIS] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_ICP$u93$_and_$u91$_BIS$u93$_600176173.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_ICP$u93$_and_$u91$_BIS$u93$_600176173.java (7:851) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_ICP$u93$_and_$u91$_BIS$u93$_600176173.java (7:867) : $val1 cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_ICP$u93$_and_$u91$_BIS$u93$_600176173.java (7:890) : $val1 cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_ICP$u93$_and_$u91$_BIS$u93$_600176173.java (8:938) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_ICP$u93$_and_$u91$_BIS$u93$_600176173.java (8:954) : $val2 cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_ICP$u93$_and_$u91$_BIS$u93$_600176173.java (8:977) : $val2 cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Not normal saturation']
+	sbnz/integracija/Rule_Not_normal_saturation23151426.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 193 ] - BIS 0']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_193_$u93$_$u45$_BIS_01234122003.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Rule Compilation error : [Rule name='Redefined erythrocytes rule for patient [ 153 ] 0']
+	sbnz/integracija/Rule_Redefined_erythrocytes_rule_for_patient_$u91$_153_$u93$_01223935718.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Rule Compilation error : [Rule name=' Not normal heart rate']
+	sbnz/integracija/Rule__Not_normal_heart_rate259917550.java (2:299) : Only a type can be imported. com.ftn.uns.ac.rs.hospitalapp.util.NeuroData resolves to a package
+
+Error importing : 'com.ftn.uns.ac.rs.hospitalapp.util.NeuroData'
+
+2021-06-12 21:50:27,573 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-12 21:53:17,641 : ERROR : Unable to build KieBaseModel:defaultKieBase
+Rule Compilation error : [Rule name='Rule designed for patient [ 152 ] - [ leukocytes] and [ erythrocytes] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_leukocytes$u93$_and_$u91$_erythrocytes$u93$_1947104958.java (7:1003) : The constructor Alarm(int, String, double, Double, Date) is undefined
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_leukocytes$u93$_and_$u91$_erythrocytes$u93$_1947104958.java (8:1097) : The constructor Alarm(int, String, double, Double, Date) is undefined
+
+
+2021-06-12 21:53:17,642 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-12 22:02:53,476 : ERROR : Unable to create MavenProject from InputStream
+com.google.inject.CreationException: Unable to create injector, see the following errors:
+
+1) An exception was caught and reported. Message: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+  at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75)
+
+1 error
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:466) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:155) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:107) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:96) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:73) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:62) ~[guice-4.0-no_aop.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.addPlexusInjector(DefaultPlexusContainer.java:481) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:206) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:168) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:167) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:141) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.PlexusComponentProvider.<init>(PlexusComponentProvider.java:37) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildComponentProvider(MavenEmbedderUtils.java:57) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:91) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:85) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.newMavenEmbedder(MavenProjectLoader.java:148) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:90) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:84) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:124) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:136) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.getResolverFor(KieRepositoryScannerImpl.java:286) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.scanForUpdates(KieRepositoryScannerImpl.java:213) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:168) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:55) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner.scanNow(AbstractKieScanner.java:141) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner$ScanTask.run(AbstractKieScanner.java:127) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at java.util.TimerThread.mainLoop(Timer.java:556) [?:?]
+	at java.util.TimerThread.run(Timer.java:506) [?:?]
+Caused by: java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1384) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1037) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.ClassLoader.getResource(ClassLoader.java:1395) ~[?:?]
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.getResource(ClassRealm.java:287) ~[plexus-classworlds-2.5.2.jar:?]
+	at org.eclipse.sisu.space.URLClassSpace.getResource(URLClassSpace.java:158) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.IndexedClassFinder$1.hasMoreElements(IndexedClassFinder.java:128) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceScanner.accept(SpaceScanner.java:72) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.scanForElements(SpaceModule.java:168) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.configure(SpaceModule.java:129) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusAnnotatedBeanModule.configure(PlexusAnnotatedBeanModule.java:102) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusBindingModule.configure(PlexusBindingModule.java:63) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:101) ~[guice-4.0-no_aop.jar:?]
+	at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:138) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:104) ~[guice-4.0-no_aop.jar:?]
+	... 25 more
+2021-06-12 22:03:33,085 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 22:03:54,767 : ERROR : Unable to build KieBaseModel:defaultKieBase
+Field Reader does not exist for declaration '$id' in '$id : patientID' in the rule 'Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ' : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+
+Unable to Analyse Expression $id == 152:
+[Error: unable to resolve method using strict-mode: com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData.$id()]
+[Near : {... $id == 152 ....}]
+             ^
+[Line: 13, Column: 2] : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_BIS$u93$_and_$u91$_ICP$u93$_2077363457.java (7:936) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_BIS$u93$_and_$u91$_ICP$u93$_2077363457.java (8:1023) : $id cannot be resolved to a variable
+
+
+2021-06-12 22:03:54,768 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-12 22:04:14,907 : ERROR : Unable to build KieBaseModel:defaultKieBase
+Field Reader does not exist for declaration '$id' in '$id : patientID' in the rule 'Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ' : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+
+Unable to Analyse Expression $id == 152:
+[Error: unable to resolve method using strict-mode: com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData.$id()]
+[Near : {... $id == 152 ....}]
+             ^
+[Line: 13, Column: 2] : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_BIS$u93$_and_$u91$_ICP$u93$_2077363457.java (7:936) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_BIS$u93$_and_$u91$_ICP$u93$_2077363457.java (8:1023) : $id cannot be resolved to a variable
+
+
+2021-06-12 22:04:14,907 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-12 22:04:58,908 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 22:07:07,574 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 22:07:34,832 : ERROR : Unable to build KieBaseModel:defaultKieBase
+Field Reader does not exist for declaration '$id' in '$id : patientID' in the rule 'Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ' : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+
+Unable to Analyse Expression $id == 152:
+[Error: unable to resolve method using strict-mode: com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData.$id()]
+[Near : {... $id == 152 ....}]
+             ^
+[Line: 13, Column: 2] : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_BIS$u93$_and_$u91$_ICP$u93$_2077363457.java (7:936) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_BIS$u93$_and_$u91$_ICP$u93$_2077363457.java (8:1023) : $id cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 151 ] - [ systolic] and [ heartRate] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_151_$u93$_$u45$_$u91$_systolic$u93$_and_$u91$_heartRate$u93$_489304737.java (7:991) : The constructor Alarm(int, String, int, Double, Date) is undefined
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_151_$u93$_$u45$_$u91$_systolic$u93$_and_$u91$_heartRate$u93$_489304737.java (8:1083) : The constructor Alarm(int, String, int, Double, Date) is undefined
+
+
+2021-06-12 22:07:34,832 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-12 22:08:31,950 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 22:08:54,887 : ERROR : Unable to build KieBaseModel:defaultKieBase
+Field Reader does not exist for declaration '$id' in '$id : patientID' in the rule 'Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ' : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+
+Unable to Analyse Expression $id == 152:
+[Error: unable to resolve method using strict-mode: com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData.$id()]
+[Near : {... $id == 152 ....}]
+             ^
+[Line: 13, Column: 2] : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 163 ] - [ systolic] and [ diastolic] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_163_$u93$_$u45$_$u91$_systolic$u93$_and_$u91$_diastolic$u93$_838105837.java (7:991) : The constructor Alarm(int, String, int, Double, Date) is undefined
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_163_$u93$_$u45$_$u91$_systolic$u93$_and_$u91$_diastolic$u93$_838105837.java (8:1083) : The constructor Alarm(int, String, int, Double, Date) is undefined
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_BIS$u93$_and_$u91$_ICP$u93$_2077363457.java (7:936) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_BIS$u93$_and_$u91$_ICP$u93$_2077363457.java (8:1023) : $id cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 151 ] - [ systolic] and [ heartRate] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_151_$u93$_$u45$_$u91$_systolic$u93$_and_$u91$_heartRate$u93$_489304737.java (7:991) : The constructor Alarm(int, String, int, Double, Date) is undefined
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_151_$u93$_$u45$_$u91$_systolic$u93$_and_$u91$_heartRate$u93$_489304737.java (8:1083) : The constructor Alarm(int, String, int, Double, Date) is undefined
+
+
+2021-06-12 22:08:54,888 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-12 22:10:07,226 : INFO : [ ivana.gsmhospital@mailinator.com ] : PatientController : Successful attempt for retrieving patients from hospital-app
+2021-06-12 22:10:35,088 : ERROR : Unable to build KieBaseModel:defaultKieBase
+Field Reader does not exist for declaration '$id' in '$id : patientID' in the rule 'Rule designed for patient [ 151 ] - [ BIS] and [ ICP] ' : [Rule name='Rule designed for patient [ 151 ] - [ BIS] and [ ICP] ']
+
+Unable to Analyse Expression $id == 151:
+[Error: unable to resolve method using strict-mode: com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData.$id()]
+[Near : {... $id == 151 ....}]
+             ^
+[Line: 13, Column: 2] : [Rule name='Rule designed for patient [ 151 ] - [ BIS] and [ ICP] ']
+
+Field Reader does not exist for declaration '$id' in '$id : patientID' in the rule 'Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ' : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+
+Unable to Analyse Expression $id == 152:
+[Error: unable to resolve method using strict-mode: com.ftn.uns.ac.rs.hospitalapp.util.NeurologicalData.$id()]
+[Near : {... $id == 152 ....}]
+             ^
+[Line: 13, Column: 2] : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 163 ] - [ systolic] and [ diastolic] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_163_$u93$_$u45$_$u91$_systolic$u93$_and_$u91$_diastolic$u93$_838105837.java (7:991) : The constructor Alarm(int, String, int, Double, Date) is undefined
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_163_$u93$_$u45$_$u91$_systolic$u93$_and_$u91$_diastolic$u93$_838105837.java (8:1083) : The constructor Alarm(int, String, int, Double, Date) is undefined
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 152 ] - [ BIS] and [ ICP] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_BIS$u93$_and_$u91$_ICP$u93$_2077363457.java (7:936) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_152_$u93$_$u45$_$u91$_BIS$u93$_and_$u91$_ICP$u93$_2077363457.java (8:1023) : $id cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 151 ] - [ BIS] and [ ICP] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_151_$u93$_$u45$_$u91$_BIS$u93$_and_$u91$_ICP$u93$_2077363457.java (7:936) : $id cannot be resolved to a variable
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_151_$u93$_$u45$_$u91$_BIS$u93$_and_$u91$_ICP$u93$_2077363457.java (8:1023) : $id cannot be resolved to a variable
+
+Rule Compilation error : [Rule name='Rule designed for patient [ 151 ] - [ systolic] and [ heartRate] ']
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_151_$u93$_$u45$_$u91$_systolic$u93$_and_$u91$_heartRate$u93$_489304737.java (7:991) : The constructor Alarm(int, String, int, Double, Date) is undefined
+	sbnz/integracija/Rule_Rule_designed_for_patient_$u91$_151_$u93$_$u45$_$u91$_systolic$u93$_and_$u91$_heartRate$u93$_489304737.java (8:1083) : The constructor Alarm(int, String, int, Double, Date) is undefined
+
+
+2021-06-12 22:10:35,090 : ERROR : Some errors occured while updating the following artifacts: {sbnz.integracija:devices-kjar:0.0.1-SNAPSHOT=sbnz.integracija:devices-kjar:jar:0.0.1-SNAPSHOT}
+2021-06-12 22:11:10,660 : ERROR : Unable to create MavenProject from InputStream
+com.google.inject.CreationException: Unable to create injector, see the following errors:
+
+1) An exception was caught and reported. Message: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+  at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75)
+
+1 error
+	at com.google.inject.internal.Errors.throwCreationExceptionIfErrorsExist(Errors.java:466) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.initializeStatically(InternalInjectorCreator.java:155) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:107) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:96) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:73) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.Guice.createInjector(Guice.java:62) ~[guice-4.0-no_aop.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.addPlexusInjector(DefaultPlexusContainer.java:481) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:206) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.codehaus.plexus.DefaultPlexusContainer.<init>(DefaultPlexusContainer.java:168) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:167) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildPlexusContainer(MavenEmbedderUtils.java:141) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.PlexusComponentProvider.<init>(PlexusComponentProvider.java:37) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedderUtils.buildComponentProvider(MavenEmbedderUtils.java:57) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:91) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenEmbedder.<init>(MavenEmbedder.java:85) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.newMavenEmbedder(MavenProjectLoader.java:148) ~[kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:90) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.embedder.MavenProjectLoader.parseMavenPom(MavenProjectLoader.java:84) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:124) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.appformer.maven.integration.ArtifactResolver.getResolverFor(ArtifactResolver.java:136) [kie-soup-maven-integration-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.getResolverFor(KieRepositoryScannerImpl.java:286) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.scanForUpdates(KieRepositoryScannerImpl.java:213) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:168) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.kie.scanner.KieRepositoryScannerImpl.internalScan(KieRepositoryScannerImpl.java:55) [kie-ci-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner.scanNow(AbstractKieScanner.java:141) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at org.drools.compiler.kie.builder.impl.AbstractKieScanner$ScanTask.run(AbstractKieScanner.java:127) [drools-compiler-7.17.0.Final.jar:7.17.0.Final]
+	at java.util.TimerThread.mainLoop(Timer.java:556) [?:?]
+	at java.util.TimerThread.run(Timer.java:506) [?:?]
+Caused by: java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already. Could not load [org/appformer/maven/integration/DependentScopeModule.class]. The following stack trace is thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access.
+	at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1384) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1037) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.ClassLoader.getResource(ClassLoader.java:1395) ~[?:?]
+	at org.codehaus.plexus.classworlds.realm.ClassRealm.getResource(ClassRealm.java:287) ~[plexus-classworlds-2.5.2.jar:?]
+	at org.eclipse.sisu.space.URLClassSpace.getResource(URLClassSpace.java:158) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.IndexedClassFinder$1.hasMoreElements(IndexedClassFinder.java:128) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceScanner.accept(SpaceScanner.java:72) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.scanForElements(SpaceModule.java:168) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.space.SpaceModule.configure(SpaceModule.java:129) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusAnnotatedBeanModule.configure(PlexusAnnotatedBeanModule.java:102) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at org.eclipse.sisu.plexus.PlexusBindingModule.configure(PlexusBindingModule.java:63) ~[org.eclipse.sisu.plexus-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:101) ~[guice-4.0-no_aop.jar:?]
+	at org.eclipse.sisu.wire.WireModule.configure(WireModule.java:75) ~[org.eclipse.sisu.inject-0.3.2.jar:?]
+	at com.google.inject.spi.Elements$RecordingBinder.install(Elements.java:340) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.spi.Elements.getElements(Elements.java:110) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InjectorShell$Builder.build(InjectorShell.java:138) ~[guice-4.0-no_aop.jar:?]
+	at com.google.inject.internal.InternalInjectorCreator.build(InternalInjectorCreator.java:104) ~[guice-4.0-no_aop.jar:?]
+	... 25 more

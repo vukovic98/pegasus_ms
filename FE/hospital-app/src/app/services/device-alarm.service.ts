@@ -5,6 +5,7 @@ import {environment} from '../../environments/environment';
 import {PatientModel} from "../models/patient.model";
 import {AlarmModel} from "../models/alarm.model";
 import {CreateAlarmModel} from "../models/create-alarm.model";
+import {CombinedAlarmModel} from "../models/combined.alarm.model";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,9 @@ export class DeviceAlarmService {
   private readonly CREATE_ALARM_BLOOD_API: string = "blood-data/create-alarm-for-";
   private readonly CREATE_ALARM_NEURO_API: string = "neuro-data/create-alarm-for-";
   private readonly CREATE_ALARM_HEART_API: string = "heart-data/create-alarm-for-";
+  private readonly CREATE_COMBINED_ALARM_HEART: string = "heart-data/create-combined-alarm";
+  private readonly CREATE_COMBINED_ALARM_NEURO: string = "neuro-data/create-combined-alarm";
+  private readonly CREATE_COMBINED_ALARM_BLOOD: string = "blood-data/create-combined-alarm";
 
   constructor(
     private http: HttpClient
@@ -115,5 +119,32 @@ export class DeviceAlarmService {
     });
     let message = JSON.stringify(data);
     return this.http.post(environment.HOSPITAL_APP + this.CREATE_ALARM_NEURO_API + 'icp', message, {headers:headers});
+  }
+
+  createCombinedAlarmHeart(data: CombinedAlarmModel) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+    });
+    let message = JSON.stringify(data);
+    return this.http.post(environment.HOSPITAL_APP + this.CREATE_COMBINED_ALARM_HEART , message, {headers:headers});
+  }
+
+  createCombinedAlarmNeuro(data: CombinedAlarmModel) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+    });
+    let message = JSON.stringify(data);
+    return this.http.post(environment.HOSPITAL_APP + this.CREATE_COMBINED_ALARM_NEURO , message, {headers:headers});
+  }
+
+  createCombinedAlarmBlood(data: CombinedAlarmModel) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+    });
+    let message = JSON.stringify(data);
+    return this.http.post(environment.HOSPITAL_APP + this.CREATE_COMBINED_ALARM_BLOOD , message, {headers:headers});
   }
 }

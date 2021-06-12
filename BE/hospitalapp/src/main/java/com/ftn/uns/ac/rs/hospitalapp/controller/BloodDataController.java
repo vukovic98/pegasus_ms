@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ftn.uns.ac.rs.hospitalapp.dto.DataRangeCombinedDTO;
 import com.ftn.uns.ac.rs.hospitalapp.dto.DataRangeDTO;
 import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.service.BloodDataService;
@@ -110,6 +111,17 @@ public class BloodDataController {
 
 		boolean ok = this.bloodDataService.createRuleForHemoglobin(dto);
 
+		if (ok) {
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
+	@PostMapping(path = "/create-combined-alarm")
+	public ResponseEntity<ArrayList<DataRangeDTO>> combinedAlarm(@RequestBody DataRangeCombinedDTO dto) {
+		boolean ok = this.bloodDataService.createRuleForBloodDeviceCombined(dto);
 		if (ok) {
 			return new ResponseEntity<>(HttpStatus.OK);
 		} else {
