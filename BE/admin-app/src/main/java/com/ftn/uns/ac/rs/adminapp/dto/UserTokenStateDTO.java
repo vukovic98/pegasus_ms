@@ -4,31 +4,27 @@ package com.ftn.uns.ac.rs.adminapp.dto;
 public class UserTokenStateDTO {
 
 	private String authenticationToken;
-	//private String refreshToken;
 	private int expiresAt;
 	private String email;
 	private boolean verified;
-	    
-    //private String accessToken;
-    //private Long expiresIn;
 
-    public UserTokenStateDTO() {
-    }
+	public UserTokenStateDTO() {
+	}
 
-    public UserTokenStateDTO(String authenticationToken, int expiresAt) {
+	public UserTokenStateDTO(String authenticationToken, int expiresAt) {
 		super();
 		this.authenticationToken = authenticationToken;
 		this.expiresAt = expiresAt;
 	}
-    
-    public UserTokenStateDTO(String authenticationToken, int expiresAt, boolean verified) {
-  		super();
-  		this.authenticationToken = authenticationToken;
-  		this.expiresAt = expiresAt;
-  		this.verified = verified;
-  	}
-    
-    public UserTokenStateDTO(String authenticationToken, int expiresAt, String email, boolean verified) {
+
+	public UserTokenStateDTO(String authenticationToken, int expiresAt, boolean verified) {
+		super();
+		this.authenticationToken = authenticationToken;
+		this.expiresAt = expiresAt;
+		this.verified = verified;
+	}
+
+	public UserTokenStateDTO(String authenticationToken, int expiresAt, String email, boolean verified) {
 		super();
 		this.authenticationToken = authenticationToken;
 		this.expiresAt = expiresAt;
@@ -42,7 +38,7 @@ public class UserTokenStateDTO {
 		this.expiresAt = expiresAt;
 		this.email = email;
 	}
-    
+
 	public String getAuthenticationToken() {
 		return authenticationToken;
 	}
@@ -59,7 +55,7 @@ public class UserTokenStateDTO {
 		this.expiresAt = expiresAt;
 	}
 
-	public String getEmail() { 
+	public String getEmail() {
 		return email;
 	}
 
@@ -74,5 +70,5 @@ public class UserTokenStateDTO {
 	public void setVerified(boolean verified) {
 		this.verified = verified;
 	}
-    
+
 }

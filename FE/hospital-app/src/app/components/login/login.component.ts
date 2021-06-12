@@ -4,6 +4,7 @@ import {LoginModel} from '../../models/auth.model';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2';
+import {CryptoService} from '../../services/crypto.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private service: AuthService,
-    private route: Router
+    private route: Router,
+    private cryptoService: CryptoService
   ) { }
 
   ngOnInit(): void {
@@ -32,7 +34,7 @@ export class LoginComponent implements OnInit {
     };
 
     this.service.login(loginDto).subscribe((response) => {
-      localStorage.setItem("accessToken", response.authenticationToken);
+      sessionStorage.setItem("accessToken", this.cryptoService.encryptData(response.authenticationToken));
       this.route.navigate(['/admin-panel']);
     }, error => {
       if (error.status === 403) {

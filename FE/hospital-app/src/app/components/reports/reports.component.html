@@ -1,0 +1,55 @@
+<div class="wrapper d-flex align-items-stretch">
+  <div style="height: 100vh;">
+    <app-navigation-bar></app-navigation-bar>
+  </div>
+  <div class="m-3 w-100">
+    <h1 class="mb-4">Reports</h1>
+    <div>
+      <div class="col-md-12 text-center">
+        <form class="example-form w-100" [formGroup]="reportForm" (ngSubmit)="getAReport()">
+
+          <mat-form-field appearance="outline" class="w-25 mr-5">
+            <mat-label>Report</mat-label>
+            <mat-select id="report" formControlName="report">
+              <mat-option value="LOG">Log data</mat-option>
+              <mat-option value="DEVICE">Device data</mat-option>
+              <mat-option value="DEVICE_ALARM">Device alarms</mat-option>
+              <mat-option value="LOG_ALARM">Log alarms</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width mr-5">
+            <mat-label>Starting date</mat-label>
+            <input type="date" matInput id="startDate" formControlName="startDate" name="startDate" placeholder="Enter start date">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width mr-5">
+            <mat-label>Ending date</mat-label>
+            <input type="date" matInput id="endDate" formControlName="endDate" name="endDate" placeholder="Enter end date">
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" [disabled]="reportForm.invalid" type="submit" class="mb-2 w-25" >Show reports</button>
+        </form>
+      </div>
+      <div style="height: 300px; width: 40%;" class="ml-5 mt-3 mr-3 float-left">
+        <canvas id="myChart" width="400" height="400"></canvas>
+      </div>
+      <div class="w-50 mt-3 float-left" style="height: 520px; overflow-y: scroll;">
+        <table class="table table-bordered table-hover h-100 w-100">
+          <thead>
+            <tr>
+              <td>Name</td>
+              <td>Count</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let t of tableMaterial">
+              <td>{{t[0]}}</td>
+              <td>{{t[1]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,3 +7,10 @@ export  interface AlarmModel{
   "value":string,
   "date":string
 }
+
+export interface SecurityAlarm {
+  id: number,
+  ipAddress: string,
+  alarmType: string,
+  date: Date
+}

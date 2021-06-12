@@ -18,7 +18,7 @@ export class NavigationBarComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem("accessToken");
+    sessionStorage.removeItem("accessToken");
     this.route.navigate(['/'])
   }
 }
