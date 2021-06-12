@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   HOSPITAL_APP: "https://localhost:8081/",
-  ADMIN_APP: "https://localhost:8080/"
+  ADMIN_APP: "https://localhost:8080/",
+  CYPHER_KEY: "yebU$PUXYsh7#P&H"
 };
 
 /*

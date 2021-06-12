@@ -28,6 +28,7 @@ import { NeuroDataComponent } from './components/devices/neuro-data/neuro-data.c
 import {MatInputModule} from '@angular/material/input';
 import { CreateAlarmsComponent } from './components/create-alarms/create-alarms.component';
 import {MatSelectModule} from "@angular/material/select";
+import { ReportsComponent } from './components/reports/reports.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import {MatSelectModule} from "@angular/material/select";
     HeartDataComponent,
     NeuroDataComponent,
     CreateAlarmsComponent,
+    ReportsComponent,
   ],
     imports: [
         BrowserModule,

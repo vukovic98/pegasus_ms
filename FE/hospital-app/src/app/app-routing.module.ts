@@ -11,6 +11,7 @@ import {BloodDataComponent} from './components/devices/blood-data/blood-data.com
 import {HeartDataComponent} from "./components/devices/heart-data/heart-data.component";
 import {NeuroDataComponent} from "./components/devices/neuro-data/neuro-data.component";
 import {CreateAlarmsComponent} from "./components/create-alarms/create-alarms.component";
+import {ReportsComponent} from './components/reports/reports.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -32,26 +33,33 @@ const routes: Routes = [
     canActivate:[RoleGuard],
     data: {acceptRoles:'ROLE_DOCTOR'}
     },
-  {path: 'alarms',
-  component: AlarmsComponent,
-  canActivate:[RoleGuard],
-  data:{acceptRoles: 'ROLE_DOCTOR|ROLE_ADMIN'}
+  {
+    path: 'alarms',
+    component: AlarmsComponent,
+    canActivate:[RoleGuard],
+    data:{acceptRoles: 'ROLE_DOCTOR|ROLE_ADMIN'}
 	},
-  {path: 'create-alarms',
+  {
+    path: 'create-alarms',
     component: CreateAlarmsComponent,
     canActivate:[RoleGuard],
     data:{acceptRoles: 'ROLE_DOCTOR'}
   },
-
-  {path:'heart-data',
-  component:HeartDataComponent,
-  canActivate:[RoleGuard],
-  data:{acceptRoles: 'ROLE_DOCTOR|ROLE_ADMIN'}
+  {
+    path:'heart-data',
+    component:HeartDataComponent,
+    canActivate:[RoleGuard],
+    data:{acceptRoles: 'ROLE_DOCTOR|ROLE_ADMIN'}
   },
   {path:'neuro-data',
     component:NeuroDataComponent,
     canActivate:[RoleGuard],
     data:{acceptRoles: 'ROLE_DOCTOR|ROLE_ADMIN'}
+  },
+  {path:'reports',
+    component:ReportsComponent,
+    canActivate:[RoleGuard],
+    data:{acceptRoles: 'ROLE_ADMIN'}
   }
 ];
 

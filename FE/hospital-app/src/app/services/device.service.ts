@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {AlarmModel} from '../models/alarm.model';
 import {environment} from '../../environments/environment';
+import {AuthService} from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,14 +12,15 @@ export class DeviceService {
   private readonly NEURO_DEVICE_API: string = "neuro-data/by-page/";
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthService
   ) {
   }
 
   getAllBloodData(page: number): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization': 'Bearer ' + this.authService.getToken()
     });
     return this.http.get(environment.HOSPITAL_APP + this.BLOOD_API + page, {headers: headers});
   }
@@ -27,7 +28,7 @@ export class DeviceService {
   getAllBloodDataForPatient(page: number, id: number): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization': 'Bearer ' + this.authService.getToken()
     });
     return this.http.get(environment.HOSPITAL_APP + this.BLOOD_API + page + "/by-patient/" + id, {headers: headers});
   }
@@ -35,7 +36,7 @@ export class DeviceService {
   getAllHeartData(page: number): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization': 'Bearer ' + this.authService.getToken()
     });
     return this.http.get<Array<any>>(environment.HOSPITAL_APP + this.HEART_DEVICE_API + page, {headers: headers});
   }
@@ -43,7 +44,7 @@ export class DeviceService {
   getAllNeuroData(page: number): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization': 'Bearer ' + this.authService.getToken()
     });
     return this.http.get<Array<any>>(environment.HOSPITAL_APP + this.NEURO_DEVICE_API + page, {headers: headers});
   }
@@ -51,7 +52,7 @@ export class DeviceService {
   getAllHeartDataForPatient(page: number, id): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization': 'Bearer ' + this.authService.getToken()
     });
     return this.http.get(environment.HOSPITAL_APP + this.HEART_DEVICE_API + page + "/by-patient/" + id, {headers: headers});
   }
@@ -59,7 +60,7 @@ export class DeviceService {
   getAllNeuroDataForPatient(page: number, id): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization': 'Bearer ' + this.authService.getToken()
     });
     return this.http.get(environment.HOSPITAL_APP + this.NEURO_DEVICE_API + page + "/by-patient/" + id, {headers: headers});
   }
