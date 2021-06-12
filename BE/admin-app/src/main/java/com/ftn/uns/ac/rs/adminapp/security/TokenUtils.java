@@ -6,11 +6,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import com.ftn.uns.ac.rs.adminapp.beans.User;
 import com.ftn.uns.ac.rs.adminapp.repository.UserRepository;
+import com.ftn.uns.ac.rs.adminapp.util.CipherEncrypt;
 import com.google.gson.Gson;
 
 import io.jsonwebtoken.Claims;
@@ -40,6 +42,9 @@ public class TokenUtils {
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private Environment env;
 
 	private Gson gson = new Gson();
 
@@ -68,6 +73,7 @@ public class TokenUtils {
 				.claim("user_id", u.getId().toString())
 				.claim("authority", u.getAuthorities())
 				.claim("email", u.getEmail()).signWith(SIGNATURE_ALGORITHM, SECRET).compact();
+				
 	}
 
 	private String generateAudience() {

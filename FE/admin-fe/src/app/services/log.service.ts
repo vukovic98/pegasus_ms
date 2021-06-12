@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {LogTypeModel} from "../models/log.type.model";
+import {AuthService} from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,15 @@ export class LogService {
   private readonly filterHospitalLogs: string = "logs/hospital-logs/filter-by-page/";
   private readonly createAlarmForLogType: string = "logs/create-alarm-for-logs";
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService
+    ) { }
 
   getAllLogs(page: number): Observable<any> {
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+        'Authorization' : 'Bearer ' + this.authService.getToken()
       });
       return this.http.get(environment.ADMIN_APP + this.allLogs + page, {headers:headers});
   }
@@ -31,7 +35,7 @@ export class LogService {
   getAllHospitalLogs(page: number): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization' : 'Bearer ' + this.authService.getToken()
     });
     return this.http.get(environment.ADMIN_APP + this.hospitalLogs + page, {headers:headers});
   }
@@ -39,7 +43,7 @@ export class LogService {
   getAllBloodLogs(page: number): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization' : 'Bearer ' + this.authService.getToken()
     });
     return this.http.get(environment.ADMIN_APP + this.hospitalBloodLogs + page, {headers:headers});
   }
@@ -47,7 +51,7 @@ export class LogService {
   getAllHeartLogs(page: number): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization' : 'Bearer ' + this.authService.getToken()
     });
     return this.http.get(environment.ADMIN_APP + this.hospitalHeartLogs + page, {headers:headers});
   }
@@ -55,7 +59,7 @@ export class LogService {
   getAllNeuroLogs(page: number): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization' : 'Bearer ' + this.authService.getToken()
     });
     return this.http.get(environment.ADMIN_APP + this.hospitalNeuroLogs + page, {headers:headers});
   }
@@ -63,7 +67,7 @@ export class LogService {
   filterLogs(page: number, logs: any): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization' : 'Bearer ' + this.authService.getToken()
     });
     return this.http.post(environment.ADMIN_APP + this.filterLogsAPI + page, logs, {headers:headers});
   }
@@ -71,7 +75,7 @@ export class LogService {
   filterAllHospitalLogs(page: number, logs: any): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization' : 'Bearer ' + this.authService.getToken()
     });
     return this.http.post(environment.ADMIN_APP + this.filterHospitalLogs + page, logs, {headers:headers});
   }
@@ -79,7 +83,7 @@ export class LogService {
   createAlarmForLog(data: LogTypeModel): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization' : 'Bearer ' + this.authService.getToken()
     });
     return this.http.post(environment.HOSPITAL_APP + this.createAlarmForLogType , data, {headers:headers});
   }

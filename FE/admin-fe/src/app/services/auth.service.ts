@@ -5,6 +5,7 @@ import {LoginModel, loginResponse, Role, TokenModel} from '../models/auth.model'
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {UserData} from '../models/user.model';
+import {CryptoService} from './crypto.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,11 @@ export class AuthService {
 
   private readonly ENDPOINT_LOGIN: string = "auth/log-in"
 
-  constructor(private http: HttpClient, private route: Router) { }
+  constructor(
+    private http: HttpClient,
+    private route: Router,
+    private cryptoService: CryptoService
+  ) { }
 
   login(data: LoginModel): Observable<loginResponse> {
 
@@ -74,10 +79,10 @@ export class AuthService {
   }
 
   getToken(): string{
-    return <string> localStorage.getItem("accessToken");
+    return <string> this.cryptoService.decryptData(sessionStorage.getItem("accessToken"));
   }
 
   logout(): void {
-    localStorage.removeItem("accessToken");
+    sessionStorage.removeItem("accessToken");
   }
 }
