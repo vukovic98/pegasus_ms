@@ -1,0 +1,32 @@
+template header 
+patientID
+minValue1
+maxValue1
+minValue2
+maxValue2
+attrName1
+attrName2
+
+
+package sbnz.integracija;
+
+import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.lang.Double;
+
+global ArrayList<Alarm> alarms;
+
+template "blood-data-combined"
+rule "Rule designed for patient [ @{patientID} ] - [ @{attrName1}] and [ @{attrName2}] "
+agenda-group "blood-data"
+	when
+		$data: BloodData((@{attrName1} <= @{minValue1} || @{attrName1} >= @{maxValue1}) && (@{attrName2} <= @{minValue2} || @{attrName2} >= @{maxValue2}), $val1: @{attrName1},  $val2: @{attrName2},$id: patientID, $id == @{patientID})
+	then
+	    alarms.add(new Alarm($id,"[ @{attrName1} ] ", $val1+"" , Double.valueOf($val1), new Date()));
+	    alarms.add(new Alarm($id,"[ @{attrName2} ] ", $val2+"" , Double.valueOf($val2), new Date()));
+end;
+end template

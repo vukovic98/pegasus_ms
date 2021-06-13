@@ -28,8 +28,8 @@ import { NeuroDataComponent } from './components/devices/neuro-data/neuro-data.c
 import {MatInputModule} from '@angular/material/input';
 import { CreateAlarmsComponent } from './components/create-alarms/create-alarms.component';
 import {MatSelectModule} from "@angular/material/select";
-
-
+import {MatTabsModule} from '@angular/material/tabs';
+import { ReportsComponent } from './components/reports/reports.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +45,7 @@ import {MatSelectModule} from "@angular/material/select";
     HeartDataComponent,
     NeuroDataComponent,
     CreateAlarmsComponent,
+    ReportsComponent,
   ],
     imports: [
         BrowserModule,
@@ -61,6 +62,7 @@ import {MatSelectModule} from "@angular/material/select";
         FormsModule,
         MatInputModule,
         MatSelectModule,
+      MatTabsModule,
     ],
   providers: [
     AuthService
@@ -68,3 +70,4 @@ import {MatSelectModule} from "@angular/material/select";
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

@@ -1,0 +1,19 @@
+package sbnz.integracija;
+import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
+import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.lang.Double;
+global ArrayList<Alarm> alarms;
+
+rule "Rule designed for patient [ 151 ] - [ systolic] and [ heartRate] "
+agenda-group "heartmonitor"
+	when
+		$data: HeartMonitorData((systolic <= 7.0 || systolic >= 8.0) && (heartRate <= 77.0 || heartRate >= 78.0), $val1: systolic,  $val2: heartRate,$id: patientID, $id == 151)
+	then
+	    alarms.add(new Alarm($id,"[ systolic ] ", $val1 , Double.valueOf($val1), new Date()));
+	    alarms.add(new Alarm($id,"[ heartRate ] ", $val2 , Double.valueOf($val2), new Date()));
+end;
+
+

@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
+import {AuthService} from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +17,16 @@ export class CertificatesService {
   private readonly oneCertificate: string = "certificate/getOne";
   private readonly revoke: string = "certificate/revokeCertificate";
 
-  constructor(private http: HttpClient, private route: Router) { }
+  constructor(
+    private http: HttpClient,
+    private route: Router,
+    private authService: AuthService
+  ) { }
 
   getAll(): Observable<any>{
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization' : 'Bearer ' + this.authService.getToken()
     });
     return this.http.get(environment.ADMIN_APP+ this.allCertificates, {headers:headers});
   }
@@ -29,7 +34,7 @@ export class CertificatesService {
   approveForCertificate(id: number, ext: string): Observable<any>{
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization' : 'Bearer ' + this.authService.getToken()
     });
 
     const data = {
@@ -43,7 +48,7 @@ export class CertificatesService {
   denyCertificateRequest(id: number): Observable<any>{
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization' : 'Bearer ' + this.authService.getToken()
     });
     return this.http.post(environment.ADMIN_APP+ this.denyRequest, id, {headers:headers});
   }
@@ -51,7 +56,7 @@ export class CertificatesService {
   getOne(serialNum: number): Observable<any>{
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization' : 'Bearer ' + this.authService.getToken()
     });
     const pathParam = new HttpParams().set("serialNumber", serialNum.toString());
 
@@ -61,7 +66,7 @@ export class CertificatesService {
   getAllCertificateRequests(): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization' : 'Bearer ' + this.authService.getToken()
     });
     return this.http.get(environment.ADMIN_APP+ this.allRequests, {headers:headers});
   }
@@ -70,7 +75,7 @@ export class CertificatesService {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization' : 'Bearer ' + localStorage.getItem("accessToken")
+      'Authorization' : 'Bearer ' + this.authService.getToken()
     });
 
     const params = new HttpParams()

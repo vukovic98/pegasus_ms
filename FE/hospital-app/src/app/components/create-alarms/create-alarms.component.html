@@ -2,42 +2,130 @@
   <div style="height: 100vh;">
     <app-navigation-bar></app-navigation-bar>
   </div>
+
   <div class="m-3 w-100 ">
     <h1>Create new alarm</h1>
-    <div class="m-5 p-5 shadow w-10">
-    <form class=" parent example-form w-100" [formGroup]="alarmForm" (ngSubmit)="createNewAlarm()" >
-        <mat-form-field appearance="outline" class="w-25 ml-5 mr-5">
-          <mat-label>Create alarm for</mat-label>
-          <mat-select id="alarmPurpose" formControlName="alarmPurpose" required="true" >
-            <mat-option value="crp">CRP</mat-option>
-            <mat-option value="eryth">Erythrocytes</mat-option>
-            <mat-option value="leu">Leukocytes</mat-option>
-            <mat-option value="hem">Hemoglobin</mat-option>
-            <mat-option value="rate">Heart rate</mat-option>
-            <mat-option value="sat">Saturation</mat-option>
-            <mat-option value="sys">Systolic pressure</mat-option>
-            <mat-option value="dia">Diastolic pressure</mat-option>
-            <mat-option value="icp">ICP</mat-option>
-            <mat-option value="bis">BIS</mat-option>
-          </mat-select>
-        </mat-form-field>
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab label="Create new simple alarm">
+          <div class="m-5 p-5 shadow w-10">
+            <form class=" parent example-form w-100" [formGroup]="alarmForm" (ngSubmit)="createNewAlarm()" >
+              <mat-form-field appearance="outline" class="w-25 ml-5 mr-5">
+                <mat-label>Create alarm for</mat-label>
+                <mat-select id="alarmPurpose" formControlName="alarmPurpose" required="true" >
+                  <mat-option value="crp">CRP</mat-option>
+                  <mat-option value="eryth">Erythrocytes</mat-option>
+                  <mat-option value="leu">Leukocytes</mat-option>
+                  <mat-option value="hem">Hemoglobin</mat-option>
+                  <mat-option value="rate">Heart rate</mat-option>
+                  <mat-option value="sat">Saturation</mat-option>
+                  <mat-option value="sys">Systolic pressure</mat-option>
+                  <mat-option value="dia">Diastolic pressure</mat-option>
+                  <mat-option value="icp">ICP</mat-option>
+                  <mat-option value="bis">BIS</mat-option>
+                </mat-select>
+              </mat-form-field>
 
-        <mat-form-field appearance="outline" class="w-25 ml-5 mr-5" >
-          <mat-label for="lower">Lower bound</mat-label>
-          <input matInput type="number" id="lower" class="form-control" name="lower" formControlName="lower">
-        </mat-form-field>
-        <mat-form-field  appearance="outline" class="w-25 ml-5 mr-5" >
-          <mat-label for="upper">Upper bound</mat-label>
-          <input matInput type="number" id="upper" class="form-control" name="upper" formControlName="upper" >
-        </mat-form-field>
-      <mat-form-field  appearance="outline" class="w-25 ml-5 mr-5" >
-        <mat-label>Patient id</mat-label>
-        <mat-select id="patientId" formControlName="patientId" required="true">
-          <mat-option *ngFor="let p of patients" value="{{p.id}}">[{{p.id}}] - {{p.name}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <button mat-raised-button color="primary" class=" w-25 ml-5 mr-5 btn btn-style mt-2" [disabled]="!alarmForm.valid">Create alaram</button>
-    </form>
-    </div>
+              <mat-form-field appearance="outline" class="w-25 ml-5 mr-5" >
+                <mat-label for="lower">Lower bound</mat-label>
+                <input matInput type="number" id="lower" class="form-control" name="lower" formControlName="lower">
+              </mat-form-field>
+              <mat-form-field  appearance="outline" class="w-25 ml-5 mr-5" >
+                <mat-label for="upper">Upper bound</mat-label>
+                <input matInput type="number" id="upper" class="form-control" name="upper" formControlName="upper" >
+              </mat-form-field>
+              <mat-form-field  appearance="outline" class="w-25 ml-5 mr-5" >
+                <mat-label>Patient id</mat-label>
+                <mat-select id="patientId" formControlName="patientId" required="true">
+                  <mat-option *ngFor="let p of patients" value="{{p.id}}">[{{p.id}}] - {{p.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <button mat-raised-button color="primary" class=" w-25 ml-5 mr-5 btn btn-style mt-2" [disabled]="!alarmForm.valid">Create alaram</button>
+            </form>
+          </div>
+      </mat-tab>
+      <mat-tab label="Create new combined alarm">
+          <div class="m-5  p-5 shadow w-10">
+            <form class=" parent example-form w-100" [formGroup]="combinedAlarmForm" (ngSubmit)="createNewCombinedAlarm()">
+              <mat-form-field  appearance="outline" class="w-auto ml-5 mr-5" >
+                <mat-label>Choose device</mat-label>
+                <mat-select id="device" [(ngModel)]="device" required="true" formControlName="device">
+                  <mat-option value="heart">Heartmonitor</mat-option>
+                  <mat-option value="neuro">Neuro device</mat-option>
+                  <mat-option value="blood">Blood device</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field  appearance="outline" class="w-auto ml-3 mr-3" >
+                <mat-label>Patient id</mat-label>
+                <mat-select id="patientId1" formControlName="patientId" required="true">
+                  <mat-option *ngFor="let p of patients" value="{{p.id}}">[{{p.id}}] - {{p.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="w-25 ml-3 mr-3" *ngIf="device==='heart'">
+                  <mat-label>Parameter 1</mat-label>
+                  <mat-select id="device1" formControlName="alarmPurpose1" required="true"  >
+                    <mat-option *ngFor="let a of heart_attrs" value="{{a}}">{{a}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-25 ml-3 mr-3" *ngIf="device==='neuro'">
+                  <mat-label>Parameter 1</mat-label>
+                  <mat-select id="device2" formControlName="alarmPurpose1" required="true"  >
+                    <mat-option *ngFor="let a of neuro_attrs" value="{{a}}">{{a}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-25 ml-3 mr-3" *ngIf="device==='blood'">
+                  <mat-label>Parameter 1</mat-label>
+                  <mat-select id="device3" formControlName="alarmPurpose1" required="true"  >
+                    <mat-option *ngFor="let a of blood_attrs" value="{{a}}">{{a}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-25 ml-3 mr-3" >
+                  <mat-label for="lower">Lower bound</mat-label>
+                  <input matInput type="number" id="lower1" class="form-control" name="lower1" formControlName="lower1">
+                </mat-form-field>
+                <mat-form-field  appearance="outline" class="w-25 ml-3 mr-3" >
+                  <mat-label for="upper">Upper bound</mat-label>
+                  <input matInput type="number" id="upper1" class="form-control" name="upper1" formControlName="upper1" >
+                </mat-form-field>
+
+              </div>
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="w-25 ml-3 mr-3" *ngIf="device==='heart'">
+                  <mat-label>Parameter 2</mat-label>
+                  <mat-select id="device11" formControlName="alarmPurpose2" required="true"  >
+                    <mat-option *ngFor="let a of heart_attrs" value="{{a}}">{{a}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-25 ml-3 mr-3" *ngIf="device==='neuro'">
+                  <mat-label>Parameter 2</mat-label>
+                  <mat-select id="device21" formControlName="alarmPurpose2" required="true"  >
+                    <mat-option *ngFor="let a of neuro_attrs" value="{{a}}">{{a}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-25 ml-3 mr-3" *ngIf="device==='blood'">
+                  <mat-label>Parameter 2</mat-label>
+                  <mat-select id="device31" formControlName="alarmPurpose2" required="true"  >
+                    <mat-option *ngFor="let a of blood_attrs" value="{{a}}">{{a}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="w-25 ml-3 mr-3" >
+                  <mat-label for="lower">Lower bound</mat-label>
+                  <input matInput type="number" id="lower2" class="form-control" name="lower2" formControlName="lower2">
+                </mat-form-field>
+                <mat-form-field  appearance="outline" class="w-25 ml-3 mr-3" >
+                  <mat-label for="upper">Upper bound</mat-label>
+                  <input matInput type="number" id="upper2" class="form-control" name="upper2" formControlName="upper2" >
+                </mat-form-field>
+              </div>
+
+              <button mat-raised-button color="primary" class=" w-25 ml-5 mr-5 btn btn-style mt-2" [disabled]="!combinedAlarmForm.valid">Create alaram</button>
+
+
+            </form>
+          </div>
+      </mat-tab>
+    </mat-tab-group>
+
+
   </div>
 </div>

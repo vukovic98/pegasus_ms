@@ -19,6 +19,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.ftn.uns.ac.rs.hospitalapp.dto.DataRangeCombinedDTO;
 import com.ftn.uns.ac.rs.hospitalapp.dto.DataRangeDTO;
 import com.ftn.uns.ac.rs.hospitalapp.repository.BloodDataRepository;
 import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
@@ -152,6 +153,38 @@ public class BloodDataService {
 			// Save rule to drl file
 			FileOutputStream drlFile = new FileOutputStream(new File(
 					"..\\devices-kjar\\src\\main\\resources\\sbnz\\integracija\\blood-data-leukocytes-" + dataRange.patientID + ".drl"));
+			drlFile.write(drl.getBytes());
+			drlFile.close();
+
+			// Update Rules project
+			InvocationRequest request = new DefaultInvocationRequest();
+			request.setPomFile(new File("../devices-kjar/pom.xml"));
+			request.setGoals(Arrays.asList("clean", "install"));
+
+			Invoker invoker = new DefaultInvoker();
+			invoker.setMavenHome(new File(System.getenv("M2_HOME")));
+			invoker.execute(request);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public boolean createRuleForBloodDeviceCombined(DataRangeCombinedDTO dto) {
+		try {
+			InputStream template = new FileInputStream(
+					"..\\devices-kjar\\src\\main\\resources\\sbnz\\integracija\\templates\\blood_data_combined.drt");
+
+			// Compile template to generate new rules
+			List<DataRangeCombinedDTO> arguments = new ArrayList<>();
+			arguments.add(dto);
+			ObjectDataCompiler compiler = new ObjectDataCompiler();
+			String drl = compiler.compile(arguments, template);
+
+			// Save rule to drl file
+			FileOutputStream drlFile = new FileOutputStream(new File(
+					"..\\devices-kjar\\src\\main\\resources\\sbnz\\integracija\\blood_data_"+dto.getAttrName1()+"_"+dto.getAttrName2()+"_"+dto.getPatientID()+".drl"));
 			drlFile.write(drl.getBytes());
 			drlFile.close();
 
