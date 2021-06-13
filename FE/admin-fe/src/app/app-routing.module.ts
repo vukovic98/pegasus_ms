@@ -12,6 +12,7 @@ import {AddUserComponent} from './components/users/add-user/add-user.component';
 import {ProfileComponent} from './components/profile/profile.component';
 import {AdminLogsComponent} from './components/admin-logs/admin-logs.component';
 import {HospitalLogsComponent} from './components/hospital-logs/hospital-logs.component';
+import { CreateAlarmForLogsComponent } from './components/create-alarm-for-logs/create-alarm-for-logs.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -67,6 +68,12 @@ const routes: Routes = [
   {
     path: 'users',
     component: AllUsersComponent,
+    canActivate:[RoleGuard],
+    data: {acceptRoles: 'ROLE_SUPER_ADMIN'}
+  },
+  {
+    path: 'create-alarm-for-logs',
+    component: CreateAlarmForLogsComponent,
     canActivate:[RoleGuard],
     data: {acceptRoles: 'ROLE_SUPER_ADMIN'}
   },

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.Alarm;
 import com.ftn.uns.ac.rs.hospitalapp.beans.Patient;
+import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxyDevice;
 import com.ftn.uns.ac.rs.hospitalapp.service.BloodDataService;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
@@ -22,6 +23,7 @@ import com.ftn.uns.ac.rs.hospitalapp.service.NeurologicalDataService;
 import com.ftn.uns.ac.rs.hospitalapp.service.PatientService;
 import com.ftn.uns.ac.rs.hospitalapp.util.BloodData;
 import com.ftn.uns.ac.rs.hospitalapp.util.CertificateRevokedException;
+import com.ftn.uns.ac.rs.hospitalapp.util.CertificateUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
 import com.ftn.uns.ac.rs.hospitalapp.util.HeartMonitorData;
@@ -38,6 +40,9 @@ public class DeviceController {
 
 	@Autowired
 	private LoggerProxyDevice logger;
+	
+	@Autowired
+	private LoggerProxy loggerHospital;
 
 	@Autowired
 	private SimpMessagingTemplate simpMessagingTemplate;
@@ -98,7 +103,7 @@ public class DeviceController {
 		return new ResponseEntity<>(HttpStatus.OK);
 		}catch(CertificateRevokedException e) {
 			
-			System.out.println("Certificate revoked!");
+			this.loggerHospital.error("[CERTIFICATE REVOKED] The certificate provided with this request has been revoked.", CertificateUtil.class);
 			return new ResponseEntity<HttpStatus>(HttpStatus.FORBIDDEN);
 			
 		}
@@ -145,7 +150,7 @@ public class DeviceController {
 		return new ResponseEntity<>(HttpStatus.OK);
 		}catch(CertificateRevokedException e) {
 			
-			System.out.println("Certificate revoked!");
+			this.loggerHospital.error("[CERTIFICATE REVOKED] The certificate provided with this request has been revoked.", CertificateUtil.class);
 			return new ResponseEntity<HttpStatus>(HttpStatus.FORBIDDEN);
 			
 		}
@@ -191,7 +196,7 @@ public class DeviceController {
 		return new ResponseEntity<>(HttpStatus.OK);
 		}catch(CertificateRevokedException e) {
 			
-			System.out.println("Certificate revoked!");
+			this.loggerHospital.error("[CERTIFICATE REVOKED] The certificate provided with this request has been revoked.", CertificateUtil.class);
 			return new ResponseEntity<HttpStatus>(HttpStatus.FORBIDDEN);
 			
 		}
@@ -216,7 +221,7 @@ public class DeviceController {
 		
 		}catch(CertificateRevokedException e) {
 			
-			System.out.println("Certificate revoked!");
+			this.loggerHospital.error("[CERTIFICATE REVOKED] The certificate provided with this request has been revoked.", CertificateUtil.class);
 			return new ResponseEntity<HttpStatus>(HttpStatus.FORBIDDEN);
 			
 		}

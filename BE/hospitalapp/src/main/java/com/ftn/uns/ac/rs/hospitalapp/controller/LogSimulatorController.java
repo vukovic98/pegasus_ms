@@ -29,6 +29,7 @@ import com.ftn.uns.ac.rs.hospitalapp.beans.LoginStatus;
 import com.ftn.uns.ac.rs.hospitalapp.beans.SecurityAlarm;
 import com.ftn.uns.ac.rs.hospitalapp.dto.LoginDTO;
 import com.ftn.uns.ac.rs.hospitalapp.events.RequestEvent;
+import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxyLogSimulator;
 import com.ftn.uns.ac.rs.hospitalapp.security.XSSFilter;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
@@ -37,6 +38,7 @@ import com.ftn.uns.ac.rs.hospitalapp.service.LoginAttemptService;
 import com.ftn.uns.ac.rs.hospitalapp.service.SecurityKnowledgeService;
 import com.ftn.uns.ac.rs.hospitalapp.service.UserService;
 import com.ftn.uns.ac.rs.hospitalapp.util.CertificateRevokedException;
+import com.ftn.uns.ac.rs.hospitalapp.util.CertificateUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.DoSAlarm;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
@@ -48,6 +50,9 @@ public class LogSimulatorController {
 
 	@Autowired
 	LoggerProxyLogSimulator logger;
+	
+	@Autowired
+	LoggerProxy loggerHospital;
 
 	@Autowired
 	private CertificateService certService;
@@ -93,7 +98,7 @@ public class LogSimulatorController {
 		
 		}catch(CertificateRevokedException e) {
 			
-			System.out.println("Certificate revoked!");
+			this.loggerHospital.error("[CERTIFICATE REVOKED] The certificate provided with this request has been revoked.", CertificateUtil.class);
 			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 			
 		}
@@ -144,7 +149,7 @@ public class LogSimulatorController {
 		
 		}catch(CertificateRevokedException e) {
 			
-			System.out.println("Certificate revoked!");
+			this.loggerHospital.error("[CERTIFICATE REVOKED] The certificate provided with this request has been revoked.", CertificateUtil.class);
 			return new ResponseEntity<>(HttpStatus.FORBIDDEN);
 			
 		}
@@ -192,7 +197,7 @@ public class LogSimulatorController {
 
 		}catch(CertificateRevokedException e) {
 			
-			System.out.println("Certificate revoked!");
+			this.loggerHospital.error("[CERTIFICATE REVOKED] The certificate provided with this request has been revoked.", CertificateUtil.class);
 			return new ResponseEntity<HttpStatus>(HttpStatus.FORBIDDEN);
 			
 		}
@@ -236,7 +241,7 @@ public class LogSimulatorController {
 
 		}catch(CertificateRevokedException e) {
 			
-			System.out.println("Certificate revoked!");
+			this.loggerHospital.error("[CERTIFICATE REVOKED] The certificate provided with this request has been revoked.", CertificateUtil.class);
 			return new ResponseEntity<HttpStatus>(HttpStatus.FORBIDDEN);
 			
 		}

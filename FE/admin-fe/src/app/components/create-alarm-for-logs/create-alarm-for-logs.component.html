@@ -9,10 +9,10 @@
         <mat-form-field appearance="outline" class="w-25 ml-5 mr-5">
           <mat-label>Choose a log type</mat-label>
           <mat-select id="alarmPurpose" formControlName="logType" required="true" >
-            <mat-option value="info">INFO</mat-option>
-            <mat-option value="warn">WARN</mat-option>
-            <mat-option value="fatal">FATAL</mat-option>
-            <mat-option value="debug">DEBUG</mat-option>
+            <mat-option value="INFO">INFO</mat-option>
+            <mat-option value="WARN">WARN</mat-option>
+            <mat-option value="FATAL">FATAL</mat-option>
+            <mat-option value="DEBUG">DEBUG</mat-option>
           </mat-select>
         </mat-form-field>
         <button mat-raised-button color="primary" class=" w-25 ml-5 mr-5 btn btn-style mt-2" [disabled]="!alarmForm.valid">Create alaram</button>

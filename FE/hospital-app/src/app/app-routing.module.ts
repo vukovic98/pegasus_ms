@@ -42,7 +42,6 @@ const routes: Routes = [
     canActivate:[RoleGuard],
     data:{acceptRoles: 'ROLE_DOCTOR'}
   },
-
   {path:'heart-data',
   component:HeartDataComponent,
   canActivate:[RoleGuard],

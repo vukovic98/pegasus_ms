@@ -118,7 +118,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				"/logs/**",
 				"/users/delete",
 				"/device/**",
-				"/logsim/**");
+				"/logsim/**",
+				"/logs/create-alarm-for-logs");
 		web.ignoring().antMatchers(HttpMethod.GET, "/admin/by-page/**", 
 				"/doctor/by-page/**",
 				"/hospital",

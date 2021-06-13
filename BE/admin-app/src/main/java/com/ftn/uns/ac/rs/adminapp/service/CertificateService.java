@@ -124,7 +124,7 @@ public class CertificateService {
 						.build(issuer.getPrivateKey());
 				X509CRLHolder crl = builder.build(contentSigner);
 
-				ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("crl.bin")));
+				ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File("src/main/resources/static/crl/crl.bin")));
 				oos.writeObject(crl);
 				oos.close();
 
@@ -139,7 +139,7 @@ public class CertificateService {
 
 	public void readCRL() throws IOException, ClassNotFoundException {
 
-		FileInputStream fstream = new FileInputStream(new File("crl.bin"));
+		FileInputStream fstream = new FileInputStream(new File("src/main/resources/static/crl/crl.bin"));
 		try {
 			ObjectInputStream ois = new ObjectInputStream(fstream);
 
@@ -167,7 +167,7 @@ public class CertificateService {
 
 	public RevokeEntry isCertificateRevoked(BigInteger certificateSN) throws ClassNotFoundException, IOException {
 
-		FileInputStream fstream = new FileInputStream(new File("crl.bin"));
+		FileInputStream fstream = new FileInputStream(new File("src/main/resources/static/crl/crl.bin"));
 		try {
 			ObjectInputStream ois = new ObjectInputStream(fstream);
 

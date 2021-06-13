@@ -30,6 +30,7 @@ import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.service.SecurityDataService;
 import com.ftn.uns.ac.rs.hospitalapp.util.CertificateRevokedException;
+import com.ftn.uns.ac.rs.hospitalapp.util.CertificateUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
 import com.ftn.uns.ac.rs.hospitalapp.util.PageImplMapper;
@@ -90,7 +91,7 @@ public class LogController {
 		
 		}catch(CertificateRevokedException e) {
 			
-			System.out.println("Certificate revoked!");
+			this.logger.error("[CERTIFICATE REVOKED] The certificate provided with this request has been revoked.", CertificateUtil.class);
 			return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
 			
 		}
@@ -140,7 +141,7 @@ public class LogController {
 		
 		}catch(CertificateRevokedException e) {
 			
-			System.out.println("Certificate revoked!");
+			this.logger.error("[CERTIFICATE REVOKED] The certificate provided with this request has been revoked.", CertificateUtil.class);
 			return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
 			
 		}
@@ -148,7 +149,6 @@ public class LogController {
 	}
 	
 	@PostMapping(path = "/create-alarm-for-logs")
-	@PreAuthorize("hasAuthority('PRIVILEGE_MAKE_ALARM')")
 	public ResponseEntity<ArrayList<DataRangeDTO>> alarmForLogs(@RequestBody LogTypeDTO dto) {
 
 		boolean ok = this.securityDataService.createRuleForLogType(dto);

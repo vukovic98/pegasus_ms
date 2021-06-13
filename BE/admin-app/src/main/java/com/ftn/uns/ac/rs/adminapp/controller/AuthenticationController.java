@@ -31,6 +31,7 @@ import com.ftn.uns.ac.rs.adminapp.dto.LoginDTO;
 import com.ftn.uns.ac.rs.adminapp.dto.UserTokenStateDTO;
 import com.ftn.uns.ac.rs.adminapp.repository.LogRepository;
 import com.ftn.uns.ac.rs.adminapp.security.TokenUtils;
+import com.ftn.uns.ac.rs.adminapp.service.CertificateService;
 import com.ftn.uns.ac.rs.adminapp.service.CustomUserDetailsService;
 import com.ftn.uns.ac.rs.adminapp.service.LoginAttemptService;
 import com.ftn.uns.ac.rs.adminapp.service.UserService;
@@ -62,6 +63,9 @@ public class AuthenticationController {
 
 	@Autowired
 	private LoggerProxy logger;
+	
+	@Autowired
+	private CertificateService certService;
 
 	@PostMapping(path = "/test")
 	public ResponseEntity<HttpStatus> test(@RequestBody String mess) {
@@ -93,7 +97,7 @@ public class AuthenticationController {
 
 			this.logger.info("Successfull login attempt was made from [ " + authenticationRequest.getEmail() + " ]",
 					AuthenticationController.class);
-
+			
 			return ResponseEntity.ok(new UserTokenStateDTO(jwt, expiresIn, email, verified));
 		} catch (Exception e) {
 			User u = this.userService.findByEmail(authenticationRequest.getEmail());

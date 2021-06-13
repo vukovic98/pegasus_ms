@@ -22,6 +22,7 @@ import com.ftn.uns.ac.rs.hospitalapp.mongo.proxy.LoggerProxy;
 import com.ftn.uns.ac.rs.hospitalapp.service.CertificateService;
 import com.ftn.uns.ac.rs.hospitalapp.service.DoctorService;
 import com.ftn.uns.ac.rs.hospitalapp.util.CertificateRevokedException;
+import com.ftn.uns.ac.rs.hospitalapp.util.CertificateUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.DoctorDetailsMapper;
 import com.ftn.uns.ac.rs.hospitalapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.hospitalapp.util.FinalMessage;
@@ -78,7 +79,7 @@ public class DoctorController {
 		
 		}catch(CertificateRevokedException e) {
 			
-			System.out.println("Certificate revoked!");
+			this.logger.error("[CERTIFICATE REVOKED] The certificate provided with this request has been revoked.", CertificateUtil.class);
 			return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
 			
 		}
