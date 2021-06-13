@@ -34,6 +34,7 @@ import {MatInputModule} from '@angular/material/input';
 import { HospitalLogsComponent } from './components/hospital-logs/hospital-logs.component';
 import { AlarmComponent } from './components/alarm/alarm.component';
 import { CreateAlarmForLogsComponent } from './components/create-alarm-for-logs/create-alarm-for-logs.component';
+import { CreateAlarmForDosComponent } from './components/create-alarm-for-dos/create-alarm-for-dos.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { CreateAlarmForLogsComponent } from './components/create-alarm-for-logs/
     AdminLogsComponent,
     HospitalLogsComponent,
     AlarmComponent,
-    CreateAlarmForLogsComponent
+    CreateAlarmForLogsComponent,
+    CreateAlarmForDosComponent
   ],
   imports: [
     BrowserModule,

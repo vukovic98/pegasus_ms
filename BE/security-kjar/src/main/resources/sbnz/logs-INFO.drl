@@ -1,4 +1,4 @@
-package sbnz.events;
+package sbnz;
 import com.ftn.uns.ac.rs.hospitalapp.beans.SecurityAlarm;
 import java.util.ArrayList;
 import java.util.Date;

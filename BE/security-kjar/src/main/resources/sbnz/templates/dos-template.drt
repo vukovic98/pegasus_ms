@@ -1,0 +1,31 @@
+template header
+ipAddress
+noRequests
+
+package sbnz;
+
+import com.ftn.uns.ac.rs.hospitalapp.beans.SecurityAlarm;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+global ArrayList<SecurityAlarm> alarms;
+
+template "dos-template"
+
+rule "Redefined log rule for DoS attack - allowing IP adress [ @{ipAddress} ] at most [ @{noRequests} ] requests"
+	agenda-group "requests"
+		$reqe1: RequestEvent($ip: ipAddress, $ip == "@{ipAddress}")
+		Number(intValue >= @{noRequests}) from accumulate (
+			$reqe2: RequestEvent(ipAddress == $ip) over window:time(1m),
+			count($reqe2)
+		)
+		not (DoSEvent())
+	then
+		System.out.println("DOS ATTACK DETECTED");
+        insert(new DoSEvent());
+        dosAlarm.setUnderAttack(true);
+        alarms.add(new SecurityAlarm("REQUEST FILTER", "DoS ATTACK DETECTED", new Date()));
+end
+
+end template

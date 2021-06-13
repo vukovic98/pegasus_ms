@@ -1,0 +1,22 @@
+<div class="wrapper d-flex align-items-stretch">
+    <div style="height: 100vh;">
+      <app-navigation-bar></app-navigation-bar>
+    </div>
+    <div class="m-3 w-100 ">
+      <h1>Create new DoS alarm</h1>
+      <div class="m-5 p-5 shadow w-10">
+        <form class=" parent example-form w-100" [formGroup]="alarmForm" (ngSubmit)="createNewAlarm()" >
+            <mat-form-field appearance="outline" class="w-25 ml-5 mr-5">
+             <mat-label for="ipAddress">Enter IP address</mat-label>
+                <input matInput type="text" id="ipAddress" class="form-control" name="ipAddress" formControlName="ipAddress">
+             </mat-form-field>
+            <mat-form-field appearance="outline" class="w-25 ml-5 mr-5">
+            <mat-label for="noRequests">Enter number of requests</mat-label>
+                <input matInput type="number" id="noRequests" class="form-control" name="noRequests" formControlName="noRequests">
+            </mat-form-field>
+          <button mat-raised-button color="primary" class=" w-25 ml-5 mr-5 btn btn-style mt-2" [disabled]="!alarmForm.valid">Create alarm</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
+import { AlarmsService } from 'src/app/services/alarms.service';
 import Swal from "sweetalert2";
 import {LogTypeModel} from "../../models/log.type.model";
-import {LogService} from "../../services/log.service";
 
 @Component({
   selector: 'app-create-alarm-for-logs',
@@ -17,7 +17,7 @@ export class CreateAlarmForLogsComponent implements OnInit {
   });
 
 
-  constructor(private logService: LogService ) { }
+  constructor(private alarmsService: AlarmsService) { }
 
   ngOnInit(): void {
   }
@@ -28,13 +28,13 @@ export class CreateAlarmForLogsComponent implements OnInit {
     };
     this.isCreating = true;
     Swal.fire({
-      text: "Pleas wait! An alarm is being created...",
+      text: "Please wait! An alarm is being created...",
       allowOutsideClick: false,
       allowEscapeKey: false,
       didOpen: () => {
         Swal.showLoading()}
     });
-    this.logService.createAlarmForLog(data).subscribe((response) => {
+    this.alarmsService.createAlarmForLog(data).subscribe((response) => {
       Swal.fire({
         icon: 'success',
         title: 'New alarm for '+this.alarmForm.controls["logType"].value +' successfully created!',

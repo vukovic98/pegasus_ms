@@ -1,6 +1,5 @@
 package com.ftn.uns.ac.rs.hospitalapp.beans;
 
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 

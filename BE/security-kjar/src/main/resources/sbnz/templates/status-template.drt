@@ -1,7 +1,7 @@
 template header
 logType
 
-package sbnz.events;
+package sbnz;
 
 import com.ftn.uns.ac.rs.hospitalapp.beans.SecurityAlarm;
 

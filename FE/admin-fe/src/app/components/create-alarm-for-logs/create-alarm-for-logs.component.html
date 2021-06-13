@@ -3,7 +3,7 @@
     <app-navigation-bar></app-navigation-bar>
   </div>
   <div class="m-3 w-100 ">
-    <h1>Create new alarm</h1>
+    <h1>Create new log alarm</h1>
     <div class="m-5 p-5 shadow w-10">
       <form class=" parent example-form w-100" [formGroup]="alarmForm" (ngSubmit)="createNewAlarm()" >
         <mat-form-field appearance="outline" class="w-25 ml-5 mr-5">
@@ -15,7 +15,7 @@
             <mat-option value="DEBUG">DEBUG</mat-option>
           </mat-select>
         </mat-form-field>
-        <button mat-raised-button color="primary" class=" w-25 ml-5 mr-5 btn btn-style mt-2" [disabled]="!alarmForm.valid">Create alaram</button>
+        <button mat-raised-button color="primary" class=" w-25 ml-5 mr-5 btn btn-style mt-2" [disabled]="!alarmForm.valid">Create alarm</button>
       </form>
     </div>
   </div>

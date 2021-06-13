@@ -13,6 +13,7 @@ import {ProfileComponent} from './components/profile/profile.component';
 import {AdminLogsComponent} from './components/admin-logs/admin-logs.component';
 import {HospitalLogsComponent} from './components/hospital-logs/hospital-logs.component';
 import {CreateAlarmForLogsComponent} from './components/create-alarm-for-logs/create-alarm-for-logs.component';
+import { CreateAlarmForDosComponent } from './components/create-alarm-for-dos/create-alarm-for-dos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -74,6 +75,12 @@ const routes: Routes = [
   {
     path: 'create-alarm-for-logs',
     component: CreateAlarmForLogsComponent,
+    canActivate:[RoleGuard],
+    data: {acceptRoles: 'ROLE_SUPER_ADMIN'}
+  },
+  {
+    path: 'create-alarm-for-dos',
+    component: CreateAlarmForDosComponent,
     canActivate:[RoleGuard],
     data: {acceptRoles: 'ROLE_SUPER_ADMIN'}
   },
