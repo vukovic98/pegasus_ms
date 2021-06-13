@@ -47,6 +47,7 @@
                           <div style="height: 20px;">
                             <div *ngIf="changePasswordForm.controls['newPassword'].invalid && changePasswordForm.controls['newPassword'].touched" class="ml-1 mt-0 mb-0">
                               <small *ngIf="changePasswordForm.controls['newPassword'].errors?.required" class="text-danger">*This field is mandatory</small>
+                              <small *ngIf="changePasswordForm.controls['newPassword'].errors?.pattern" class="text-danger">*Password is too weak! It must contain at least 8 characters, 1 Capital letter, 1 Number and 1 Special character</small>
                             </div>
                           </div>
                         </div>

@@ -276,7 +276,7 @@ export class ReportsComponent implements OnInit {
       data: {
         labels: labels,
         datasets: [{
-          label: 'Log alarms',
+          label: 'Security alarms',
           data: data,
           borderColor: 'rgb(75, 192, 192)',
           tension: 0.1

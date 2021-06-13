@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
 
   changePasswordForm = new FormGroup({
     oldPassword: new FormControl('', [Validators.required]),
-    newPassword: new FormControl('', Validators.required),
+    newPassword: new FormControl('', [Validators.required, Validators.pattern("\"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@.#\\$%\\^&\\*])(?=.{8,})\"")]),
     repeatNewPassword: new FormControl('', Validators.required),
   });
 

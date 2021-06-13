@@ -32,10 +32,10 @@
           <mat-icon class="float-left mt-2"> alarm</mat-icon>
           <a routerLink="/alarms"><span class="fas fa-bell mr-3"></span> Alarms</a>
         </li>
-        <li>
+        <li *ngIf="role === 'ROLE_DOCTOR'">
           <a routerLink="/create-alarms"><span class="fa fa-user mr-5"></span> Create alarm</a>
         </li>
-        <li>
+        <li *ngIf="role === 'ROLE_ADMIN'">
           <mat-icon class="float-left mt-2"> show_chart</mat-icon>
           <a routerLink="/reports"><span class="fas fa-bell mr-3"></span> Reports</a>
         </li>

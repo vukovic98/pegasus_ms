@@ -27,7 +27,6 @@ import com.ftn.uns.ac.rs.adminapp.beans.DeviceLog;
 import com.ftn.uns.ac.rs.adminapp.beans.HospitalLog;
 import com.ftn.uns.ac.rs.adminapp.beans.Log;
 import com.ftn.uns.ac.rs.adminapp.dto.LogFilterDTO;
-import com.ftn.uns.ac.rs.adminapp.dto.UserDetailsDTO;
 import com.ftn.uns.ac.rs.adminapp.service.CertificateService;
 import com.ftn.uns.ac.rs.adminapp.util.EncryptionUtil;
 import com.ftn.uns.ac.rs.adminapp.util.FinalMessage;

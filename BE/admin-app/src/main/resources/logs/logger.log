@@ -1,0 +1,190 @@
+2021-06-13 19:51:37,070 : INFO : [ vladimirvukovic98@hotmail.rs ] : AuthenticationController : Successfull login attempt was made from [ vladimirvukovic98@hotmail.rs ]
+2021-06-13 19:52:09,760 : INFO : [ vladimirvukovic98@hotmail.rs ] : CertificateRequestController : Successfull attempt for reading all CSR-s
+2021-06-13 19:52:10,989 : INFO : [ vladimirvukovic98@hotmail.rs ] : CertificateController : Retrieving certificates from keystore
+2021-06-13 19:52:15,821 : INFO : [ vladimirvukovic98@hotmail.rs ] : CertificateController : Successfull attempt for reading certificate [ 87135318170560765930434787865525222306951782809 ]
+2021-06-13 19:52:22,190 : INFO : [ vladimirvukovic98@hotmail.rs ] : CertificateController : Successfull attempt for reading certificate [ 491763441946930925310346254631026730055518936374 ]
+2021-06-13 19:52:29,051 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:52:29,051 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:52:32,041 : INFO : [ vladimirvukovic98@hotmail.rs ] : AdminController : Successful attempt for retrieving admins from hospital-app
+2021-06-13 19:52:32,041 : INFO : [ vladimirvukovic98@hotmail.rs ] : DoctorController : Successfull attempt for retrieving doctors from hospital-app
+2021-06-13 19:52:37,612 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:52:38,164 : INFO : [ vladimirvukovic98@hotmail.rs ] : DoctorController : Successfull attempt for retrieving doctors from hospital-app
+2021-06-13 19:52:40,933 : INFO : [ vladimirvukovic98@hotmail.rs ] : UserManagementController : Successfull attempt for changing role for user [ 59 ]
+2021-06-13 19:52:41,405 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:52:41,409 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:52:42,012 : INFO : [ vladimirvukovic98@hotmail.rs ] : DoctorController : Successfull attempt for retrieving doctors from hospital-app
+2021-06-13 19:52:42,013 : INFO : [ vladimirvukovic98@hotmail.rs ] : AdminController : Successful attempt for retrieving admins from hospital-app
+2021-06-13 19:52:47,730 : INFO : [ vladimirvukovic98@hotmail.rs ] : UserManagementController : Successfull attempt for changing role for user [ 60 ]
+2021-06-13 19:52:48,138 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:52:48,141 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:52:48,752 : INFO : [ vladimirvukovic98@hotmail.rs ] : AdminController : Successful attempt for retrieving admins from hospital-app
+2021-06-13 19:52:48,757 : INFO : [ vladimirvukovic98@hotmail.rs ] : DoctorController : Successfull attempt for retrieving doctors from hospital-app
+2021-06-13 19:53:22,950 : INFO : [ vladimirvukovic98@hotmail.rs ] : UserManagementController : Successfull attempt for adding user [ dragica.gsmhospital@mailinator.com ]
+2021-06-13 19:53:26,108 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:53:26,114 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:53:26,741 : INFO : [ vladimirvukovic98@hotmail.rs ] : DoctorController : Successfull attempt for retrieving doctors from hospital-app
+2021-06-13 19:53:27,266 : INFO : [ vladimirvukovic98@hotmail.rs ] : AdminController : Successful attempt for retrieving admins from hospital-app
+2021-06-13 19:53:30,237 : INFO : [ vladimirvukovic98@hotmail.rs ] : UserManagementController : Successfull attempt for changing role for user [ 62 ]
+2021-06-13 19:53:30,674 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:53:30,684 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:53:31,734 : INFO : [ vladimirvukovic98@hotmail.rs ] : AdminController : Successful attempt for retrieving admins from hospital-app
+2021-06-13 19:53:32,274 : INFO : [ vladimirvukovic98@hotmail.rs ] : DoctorController : Successfull attempt for retrieving doctors from hospital-app
+2021-06-13 19:53:37,146 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:53:37,744 : INFO : [ vladimirvukovic98@hotmail.rs ] : DoctorController : Successfull attempt for retrieving doctors from hospital-app
+2021-06-13 19:53:40,815 : INFO : [ vladimirvukovic98@hotmail.rs ] : UserManagementController : Successfull attempt for deleting user [ 63 ]
+2021-06-13 19:53:41,268 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:53:41,273 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:53:41,872 : INFO : [ vladimirvukovic98@hotmail.rs ] : AdminController : Successful attempt for retrieving admins from hospital-app
+2021-06-13 19:53:41,875 : INFO : [ vladimirvukovic98@hotmail.rs ] : DoctorController : Successfull attempt for retrieving doctors from hospital-app
+2021-06-13 19:53:48,821 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for retrieving logs from admin-app
+2021-06-13 19:54:00,410 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for filtering logs from admin-app
+2021-06-13 19:54:28,776 : ERROR : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.util.regex.PatternSyntaxException: Illegal character range near index 3
+[a-A0-9]
+   ^] with root cause
+java.util.regex.PatternSyntaxException: Illegal character range near index 3
+[a-A0-9]
+   ^
+	at java.util.regex.Pattern.error(Pattern.java:2027) ~[?:?]
+	at java.util.regex.Pattern.range(Pattern.java:2825) ~[?:?]
+	at java.util.regex.Pattern.clazz(Pattern.java:2713) ~[?:?]
+	at java.util.regex.Pattern.sequence(Pattern.java:2138) ~[?:?]
+	at java.util.regex.Pattern.expr(Pattern.java:2068) ~[?:?]
+	at java.util.regex.Pattern.compile(Pattern.java:1782) ~[?:?]
+	at java.util.regex.Pattern.<init>(Pattern.java:1428) ~[?:?]
+	at java.util.regex.Pattern.compile(Pattern.java:1094) ~[?:?]
+	at org.springframework.data.mongodb.core.query.Criteria.toPattern(Criteria.java:477) ~[spring-data-mongodb-3.1.6.jar:3.1.6]
+	at org.springframework.data.mongodb.core.query.Criteria.regex(Criteria.java:436) ~[spring-data-mongodb-3.1.6.jar:3.1.6]
+	at org.springframework.data.mongodb.core.query.Criteria.regex(Criteria.java:424) ~[spring-data-mongodb-3.1.6.jar:3.1.6]
+	at com.ftn.uns.ac.rs.adminapp.controller.LogController.filterByPage(LogController.java:91) ~[classes/:?]
+	at com.ftn.uns.ac.rs.adminapp.controller.LogController$$FastClassBySpringCGLIB$$d65a2bfa.invoke(<generated>) ~[classes/:?]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.5.jar:5.3.5]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.3.5.jar:5.3.5]
+	at com.ftn.uns.ac.rs.adminapp.controller.LogController$$EnhancerBySpringCGLIB$$7d760240.filterByPage(<generated>) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652) ~[tomcat-embed-core-9.0.44.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.5.jar:5.3.5]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.44.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at com.ftn.uns.ac.rs.adminapp.security.auth.TokenAuthenticationFilter.doFilterInternal(TokenAuthenticationFilter.java:57) ~[classes/:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.4.5.jar:5.4.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.3.5.jar:5.3.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at com.ftn.uns.ac.rs.adminapp.security.XSSFilter.doFilter(XSSFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.44.jar:9.0.44]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+2021-06-13 19:54:57,585 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for filtering logs from admin-app
+2021-06-13 19:55:08,297 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for filtering logs from admin-app
+2021-06-13 19:55:17,298 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for filtering logs from admin-app
+2021-06-13 19:55:32,493 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for filtering logs from admin-app
+2021-06-13 19:55:41,953 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for filtering logs from admin-app
+2021-06-13 19:57:25,426 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for filtering logs from admin-app
+2021-06-13 19:57:41,229 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for retrieving logs from admin-app
+2021-06-13 19:57:51,998 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for filtering logs from admin-app
+2021-06-13 19:57:56,737 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for retrieving logs from admin-app
+2021-06-13 19:58:07,837 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:58:08,476 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for retrieving logs from hospital-app
+2021-06-13 19:58:12,463 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:58:14,029 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for retrieving blood logs from hospital-app
+2021-06-13 19:58:19,208 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:58:19,843 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for retrieving heart logs from hospital-app
+2021-06-13 19:58:23,412 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:58:24,025 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for retrieving neuro logs from hospital-app
+2021-06-13 19:58:27,828 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:58:28,447 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for retrieving logs from hospital-app
+2021-06-13 19:58:31,979 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:58:32,614 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for filtering logs from hospital-app
+2021-06-13 19:58:44,713 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 19:58:45,315 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for retrieving logs from hospital-app
+2021-06-13 20:01:55,332 : INFO : [  ] : CertificateController : Checking if certificate [ 87135318170560765930434787865525222306951782809 ] is revoked - [ FALSE ]
+2021-06-13 20:01:55,931 : INFO : [ vladimirvukovic98@hotmail.rs ] : LogController : Successfull attempt for retrieving logs from hospital-app
+2021-06-13 20:07:42,045 : INFO : [  ] : CertificateController : Checking if certificate [ 491763441946930925310346254631026730055518936374 ] is revoked - [ FALSE ]
+2021-06-13 20:07:46,198 : INFO : [  ] : CertificateController : Checking if certificate [ 491763441946930925310346254631026730055518936374 ] is revoked - [ FALSE ]
+2021-06-13 20:07:51,257 : INFO : [  ] : CertificateController : Checking if certificate [ 491763441946930925310346254631026730055518936374 ] is revoked - [ FALSE ]
+2021-06-13 20:09:59,104 : INFO : [  ] : CertificateController : Checking if certificate [ 491763441946930925310346254631026730055518936374 ] is revoked - [ FALSE ]
+2021-06-13 20:10:01,334 : INFO : [  ] : CertificateController : Checking if certificate [ 491763441946930925310346254631026730055518936374 ] is revoked - [ FALSE ]
+2021-06-13 20:10:18,249 : INFO : [  ] : CertificateController : Checking if certificate [ 491763441946930925310346254631026730055518936375 ] is revoked - [ FALSE ]
+2021-06-13 20:20:17,357 : INFO : [  ] : CertificateController : Checking if certificate [ 491763441946930925310346254631026730055518936374 ] is revoked - [ FALSE ]
+2021-06-13 20:31:01,026 : INFO : [  ] : CertificateController : Checking if certificate [ 491763441946930925310346254631026730055518936374 ] is revoked - [ FALSE ]
+2021-06-13 20:31:04,810 : INFO : [  ] : CertificateController : Checking if certificate [ 491763441946930925310346254631026730055518936374 ] is revoked - [ FALSE ]
